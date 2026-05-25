@@ -661,9 +661,9 @@ camera = NodePath("../../Camera2D")
 metadata/_edit_use_anchors_ = true
 
 [node name="Arena" type="Button" parent="Bonus" unique_id=363667200]
-offset_left = 186.0
+offset_left = 122.0
 offset_top = 124.0
-offset_right = 425.0
+offset_right = 361.0
 offset_bottom = 183.0
 focus_mode = 0
 shortcut_feedback = false
@@ -673,10 +673,10 @@ script = ExtResource("1_lti8b")
 path = "uid://bv02eg3dotl02"
 
 [node name="Blackjack" type="Button" parent="Bonus" unique_id=1929926685]
-offset_left = 469.0
-offset_top = 124.0
-offset_right = 708.0
-offset_bottom = 183.0
+offset_left = 384.0
+offset_top = 125.0
+offset_right = 623.0
+offset_bottom = 184.0
 focus_mode = 0
 shortcut_feedback = false
 shortcut_in_tooltip = false
@@ -685,10 +685,10 @@ script = ExtResource("1_lti8b")
 path = "uid://d05bl3wqxwjus"
 
 [node name="Blackjack2" type="Button" parent="Bonus" unique_id=1816548372]
-offset_left = 732.0
-offset_top = 124.0
-offset_right = 971.0
-offset_bottom = 183.0
+offset_left = 638.0
+offset_top = 125.0
+offset_right = 877.0
+offset_bottom = 184.0
 focus_mode = 0
 shortcut_feedback = false
 shortcut_in_tooltip = false
@@ -697,10 +697,10 @@ script = ExtResource("1_lti8b")
 path = "uid://bfh0b6p815bi"
 
 [node name="Blackjack3" type="Button" parent="Bonus" unique_id=1330366626]
-offset_left = 395.0
-offset_top = 267.0
-offset_right = 634.0
-offset_bottom = 326.0
+offset_left = 889.0
+offset_top = 128.0
+offset_right = 1128.0
+offset_bottom = 187.0
 focus_mode = 0
 shortcut_feedback = false
 shortcut_in_tooltip = false
@@ -758,6 +758,18 @@ Duck - S, Down arrow
 Taunt - G
 Shoot/use - Left Mouse Button
 Player mode - Mouse Thumb Button 2"
+
+[node name="Label9" type="Label" parent="Keybinds" unique_id=1171962760]
+offset_left = 3823.0
+offset_top = 576.0
+offset_right = 4924.0
+offset_bottom = 632.0
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("4_4hy44")
+theme_override_font_sizes/font_size = 30
+text = "press fuck to swear \"fuck\""
 
 [node name="Keybinds" type="Camera2D" parent="Keybinds" unique_id=1960554993]
 position = Vector2(4367, 334)
