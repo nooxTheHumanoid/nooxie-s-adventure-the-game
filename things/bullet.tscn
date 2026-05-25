@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://b2yio451oc421"]
+
+[ext_resource type="Texture2D" uid="uid://yjekffxwas6x" path="res://textures/bullets/Slugs.png" id="2_1xrpv"]
+[ext_resource type="Script" uid="uid://d36gs142qexbe" path="res://things/BulletEnemy.gd" id="2_jiwf5"]
+[ext_resource type="Texture2D" uid="uid://q12mrc6q1ljb" path="res://textures/bullets/bullet.png" id="3_arucb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lvpr2"]
+size = Vector2(8, 6)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lus6f"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_1xrpv")
+}],
+"loop": true,
+"name": &"Slug",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_arucb")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Bullet" type="Node2D" unique_id=1319708312]
+script = ExtResource("2_jiwf5")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=158274943]
+collision_layer = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=434828921]
+shape = SubResource("RectangleShape2D_lvpr2")
+
+[node name="Detector" type="RayCast2D" parent="Area2D" unique_id=259747597]
+target_position = Vector2(6, 0)
+collision_mask = 2
+collide_with_areas = true
+
+[node name="BulletSprite" type="AnimatedSprite2D" parent="." unique_id=1836929617]
+rotation = 1.5707964
+sprite_frames = SubResource("SpriteFrames_lus6f")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

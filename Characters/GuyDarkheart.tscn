@@ -1,0 +1,282 @@
+[gd_scene format=3 uid="uid://18k5kwx5ge1x"]
+
+[ext_resource type="Script" uid="uid://dbchkjmbtwuyi" path="res://Scripts/player.gd" id="1_4rhig"]
+[ext_resource type="PackedScene" uid="uid://cpmms0bfo24dp" path="res://things/playerWeapons/shotty.tscn" id="2_ktpv1"]
+[ext_resource type="PackedScene" uid="uid://bffhvgwl3qgsd" path="res://things/playerWeapons/mag_12.tscn" id="3_6bf87"]
+[ext_resource type="PackedScene" uid="uid://cwtch2g70j85e" path="res://loseScreen.tscn" id="4_jtppp"]
+[ext_resource type="Texture2D" uid="uid://btidw4cbx1uli" path="res://PlayerSprites/GuyDarkHeart/Death.png" id="5_idxw0"]
+[ext_resource type="Texture2D" uid="uid://ci4nxjtlnl1j" path="res://PlayerSprites/GuyDarkHeart/Dance1.png" id="6_v3nnn"]
+[ext_resource type="Texture2D" uid="uid://c62k5vmu705y1" path="res://PlayerSprites/GuyDarkHeart/Dance2.png" id="7_06x2x"]
+[ext_resource type="Texture2D" uid="uid://d2vg1c2wrhfgm" path="res://PlayerSprites/GuyDarkHeart/Dance3.png" id="8_aoybu"]
+[ext_resource type="Texture2D" uid="uid://dtr2uormgn5kq" path="res://PlayerSprites/GuyDarkHeart/Dance4.png" id="9_vml7b"]
+[ext_resource type="Texture2D" uid="uid://dp0tj85d6q06e" path="res://PlayerSprites/GuyDarkHeart/Dance5.png" id="10_tq6do"]
+[ext_resource type="Texture2D" uid="uid://crdfpv3iqwbau" path="res://PlayerSprites/GuyDarkHeart/Idle.png" id="11_s54py"]
+[ext_resource type="Texture2D" uid="uid://bft64qyn5eyya" path="res://PlayerSprites/GuyDarkHeart/MercDuck no arms.png" id="11_vgf3r"]
+[ext_resource type="Texture2D" uid="uid://cnj2hrljcje0" path="res://PlayerSprites/GuyDarkHeart/Idle2.png" id="12_dj2xl"]
+[ext_resource type="Texture2D" uid="uid://kbbkmkis82y2" path="res://PlayerSprites/GuyDarkHeart/Walk159.png" id="13_3v1h1"]
+[ext_resource type="Texture2D" uid="uid://fyg60sn8pjfi" path="res://PlayerSprites/GuyDarkHeart/MercJumpNoArms.png" id="14_cvkfj"]
+[ext_resource type="Texture2D" uid="uid://dwrv4ob4mhc4s" path="res://PlayerSprites/GuyDarkHeart/Walk2.png" id="14_wb8ax"]
+[ext_resource type="Texture2D" uid="uid://b03ubobj02xsh" path="res://PlayerSprites/GuyDarkHeart/walk3.png" id="15_isbbc"]
+[ext_resource type="Texture2D" uid="uid://cgbup6t7lmrdb" path="res://PlayerSprites/GuyDarkHeart/walk4.png" id="16_t7yii"]
+[ext_resource type="Texture2D" uid="uid://dyavqapqmxu57" path="res://PlayerSprites/GuyDarkHeart/walk6.png" id="17_vgf3r"]
+[ext_resource type="Texture2D" uid="uid://cvn0q7hgv57um" path="res://PlayerSprites/GuyDarkHeart/walk7.png" id="18_cvkfj"]
+[ext_resource type="Texture2D" uid="uid://ccbdjmv1njta0" path="res://PlayerSprites/GuyDarkHeart/walk8.png" id="19_h08te"]
+[ext_resource type="Texture2D" uid="uid://b08hwtwkn8rc6" path="res://PlayerSprites/GuyDarkHeart/MercDuck.png" id="22_h08te"]
+[ext_resource type="AudioStream" uid="uid://pmfkhxsxelfq" path="res://Music/Levels/Mercs clean out (nooxie's adventure).mp3" id="22_idxw0"]
+[ext_resource type="Texture2D" uid="uid://d0v8srjbj5kxx" path="res://PlayerSprites/GuyDarkHeart/MercIdle.png" id="23_ajqtx"]
+[ext_resource type="Texture2D" uid="uid://b6op3tgv4bfvl" path="res://PlayerSprites/GuyDarkHeart/MercIdle2.png" id="24_xid4d"]
+[ext_resource type="Texture2D" uid="uid://l5pgs1t7ngn1" path="res://PlayerSprites/GuyDarkHeart/MercJump.png" id="25_cd5ed"]
+[ext_resource type="Texture2D" uid="uid://d2u2xtnb7i5ph" path="res://PlayerSprites/GuyDarkHeart/MercWalk.png" id="26_cl6s5"]
+[ext_resource type="Texture2D" uid="uid://dq2hnb330grtl" path="res://PlayerSprites/GuyDarkHeart/MercWalk2.png" id="27_ppcl8"]
+[ext_resource type="Texture2D" uid="uid://b7f1fk1mpcps1" path="res://PlayerSprites/GuyDarkHeart/MercWalk3.png" id="28_4rhig"]
+[ext_resource type="Texture2D" uid="uid://pvcbgctng078" path="res://PlayerSprites/GuyDarkHeart/MercWalk4.png" id="29_ktpv1"]
+[ext_resource type="Texture2D" uid="uid://blscgjiwxf2wf" path="res://PlayerSprites/GuyDarkHeart/MercWalk5.png" id="30_6bf87"]
+[ext_resource type="Texture2D" uid="uid://dknmfdq02agco" path="res://PlayerSprites/GuyDarkHeart/MercWalk6.png" id="31_jtppp"]
+[ext_resource type="Script" uid="uid://exjnoni43qyt" path="res://Scripts/player_animate.gd" id="40_3mtsr"]
+[ext_resource type="Shape2D" uid="uid://mlf4d6fr1s5w" path="res://Resources/CollisionShapes/player_collision_shape.tres" id="41_3nfq6"]
+[ext_resource type="AudioStream" uid="uid://d0llg1iryhkni" path="res://Music/An average nooxin' menu.mp3" id="43_yampd"]
+[ext_resource type="PackedScene" uid="uid://dkqrbo1o6fy4p" path="res://NonLevelScenes/HPbar.tscn" id="44_gcs7y"]
+[ext_resource type="PackedScene" uid="uid://x6yurkutkg7b" path="res://NonLevelScenes/DefenceBar.tscn" id="45_7077e"]
+[ext_resource type="PackedScene" uid="uid://bnecravo6u6yx" path="res://NonLevelScenes/HPText.tscn" id="46_mx1sw"]
+[ext_resource type="PackedScene" uid="uid://ci2i8d4egw1wx" path="res://NonLevelScenes/StaminaBar.tscn" id="47_lybsh"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ajqtx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_idxw0")
+}],
+"loop": true,
+"name": &"Death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_v3nnn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_v3nnn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_06x2x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_06x2x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_v3nnn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_aoybu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_06x2x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_vml7b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_tq6do")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_vml7b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_aoybu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_v3nnn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_06x2x")
+}],
+"loop": true,
+"name": &"DefaultEmote",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_vgf3r")
+}],
+"loop": true,
+"name": &"nohands_Duck",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_s54py")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_dj2xl")
+}],
+"loop": true,
+"name": &"nohands_Idle",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_cvkfj")
+}],
+"loop": true,
+"name": &"nohands_Jump",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_3v1h1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_wb8ax")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_isbbc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_t7yii")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_3v1h1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_vgf3r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_cvkfj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_h08te")
+}],
+"loop": true,
+"name": &"nohands_Walk",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("22_h08te")
+}],
+"loop": true,
+"name": &"regular_Duck",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("23_ajqtx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_xid4d")
+}],
+"loop": true,
+"name": &"regular_Idle",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("25_cd5ed")
+}],
+"loop": true,
+"name": &"regular_Jump",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("26_cl6s5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_ppcl8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_4rhig")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_ktpv1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_6bf87")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_cl6s5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_jtppp")
+}],
+"loop": true,
+"name": &"regular_Walk",
+"speed": 8.0
+}]
+
+[node name="Player" type="CharacterBody2D" unique_id=1399318605 groups=["Player"]]
+collision_mask = 6
+script = ExtResource("1_4rhig")
+temp_preload = ExtResource("2_ktpv1")
+temp_preload_2 = ExtResource("3_6bf87")
+Coyote_Time = 0.2
+lossScreen = ExtResource("4_jtppp")
+Show_defence = false
+Gain_defense = false
+TauntName = "DefaultEmote"
+Hands = "GuyD"
+should_camera_sync = false
+MaxHealth = 120
+health = 120
+Stomp_DMG = 2.5
+SPEED = 60.0
+SpeedBoost = 2.8
+Stamina_Gain = 20.0
+MinStaminaToRun = 15.0
+OC_name = "Guy Darkheart"
+description = "But nobody came."
+Unique_mechaic = "Mercs die twice"
+calls_the_weapons = "weapons"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=926349382]
+sprite_frames = SubResource("SpriteFrames_ajqtx")
+animation = &"nohands_Walk"
+script = ExtResource("40_3mtsr")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=296295247]
+collision_mask = 4
+
+[node name="AreaCollisionShape" type="CollisionShape2D" parent="Area2D" unique_id=726963192]
+position = Vector2(2, 2)
+shape = ExtResource("41_3nfq6")
+
+[node name="BodyCollisionShape" type="CollisionShape2D" parent="." unique_id=488839388]
+position = Vector2(2, 2)
+shape = ExtResource("41_3nfq6")
+
+[node name="Taunt" type="AudioStreamPlayer2D" parent="." unique_id=1638791575]
+stream = ExtResource("22_idxw0")
+
+[node name="LevelMusic" type="AudioStreamPlayer2D" parent="." unique_id=195494233]
+stream = ExtResource("43_yampd")
+autoplay = true
+parameters/looping = true
+
+[node name="HealthBar" parent="." unique_id=319346680 instance=ExtResource("44_gcs7y")]
+offset_left = -17.0
+offset_top = -31.0
+offset_right = 20.0
+offset_bottom = -26.0
+
+[node name="DefenceBar" parent="." unique_id=389305819 instance=ExtResource("45_7077e")]
+visible = false
+offset_left = -17.0
+offset_top = -26.0
+offset_right = 20.0
+offset_bottom = -24.0
+
+[node name="HPNumber" parent="." unique_id=1460576973 instance=ExtResource("46_mx1sw")]
+visible = false
+offset_left = -20.0
+offset_top = -54.0
+offset_right = 23.0
+offset_bottom = -31.0
+
+[node name="StaminaBar" parent="." unique_id=1141366731 instance=ExtResource("47_lybsh")]
+offset_left = -17.0
+offset_top = -26.0
+offset_right = 20.0
+offset_bottom = -24.0
+value = 1.0
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

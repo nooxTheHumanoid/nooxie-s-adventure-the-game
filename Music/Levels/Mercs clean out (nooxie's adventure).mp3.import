@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://pmfkhxsxelfq"
+path="res://.godot/imported/Mercs clean out (nooxie's adventure).mp3-5dd658ed2c4b5dcc98f611a11f2c5371.mp3str"
+
+[deps]
+
+source_file="res://Music/Levels/Mercs clean out (nooxie's adventure).mp3"
+dest_files=["res://.godot/imported/Mercs clean out (nooxie's adventure).mp3-5dd658ed2c4b5dcc98f611a11f2c5371.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

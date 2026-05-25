@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://cwtch2g70j85e"]
+
+[ext_resource type="Script" uid="uid://opc7ytqibe16" path="res://lose.gd" id="1_auqi3"]
+[ext_resource type="FontFile" uid="uid://dqbt5lnd0rh41" path="res://Resources/Fonts/Tf2.ttf" id="3_12blp"]
+[ext_resource type="AudioStream" uid="uid://b1en316qxu2it" path="res://Music/Your fate has been sealed.mp3" id="3_auqi3"]
+
+[node name="Lose" type="CanvasLayer" unique_id=338774573]
+script = ExtResource("1_auqi3")
+path = "uid://2rnssecloxxs"
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1941422274]
+z_index = 6
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.1764706)
+metadata/_edit_use_anchors_ = true
+
+[node name="Restart" type="Button" parent="." unique_id=437538806]
+z_index = 7
+offset_left = 39.0
+offset_top = 214.0
+offset_right = 339.0
+offset_bottom = 290.0
+text = "Restart"
+
+[node name="Menu" type="Button" parent="." unique_id=1845228243]
+z_index = 7
+offset_left = 39.0
+offset_top = 331.0
+offset_right = 339.0
+offset_bottom = 407.0
+text = "Main Menu"
+
+[node name="DeathText" type="Label" parent="." unique_id=1392233958]
+offset_right = 1151.0
+offset_bottom = 154.0
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0.27058825, 0, 1)
+theme_override_constants/outline_size = 15
+theme_override_fonts/font = ExtResource("3_12blp")
+theme_override_font_sizes/font_size = 50
+text = "They were left in dispair."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Music" type="AudioStreamPlayer" parent="." unique_id=1289680277]
+stream = ExtResource("3_auqi3")
+volume_db = 4.0
+parameters/looping = true
+
+[connection signal="pressed" from="Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="Menu" to="." method="_on_menu_pressed"]

@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://88k2dmp3clm0"]
+
+[ext_resource type="Script" uid="uid://dki6e64147mwt" path="res://player_spawn.gd" id="1_v2i1i"]
+[ext_resource type="PackedScene" uid="uid://c6v8w5vqcmqa6" path="res://Characters/NX.tscn" id="2_w8gus"]
+[ext_resource type="PackedScene" uid="uid://csjwso16gh2ji" path="res://Characters/VOID.tscn" id="3_qeqyu"]
+[ext_resource type="PackedScene" uid="uid://18k5kwx5ge1x" path="res://Characters/GuyDarkheart.tscn" id="4_qeqyu"]
+[ext_resource type="PackedScene" uid="uid://mcylacrvtlxq" path="res://Characters/Milky.tscn" id="5_jg7op"]
+
+[node name="PlayerSpawn" type="Node2D" unique_id=1497389963]
+script = ExtResource("1_v2i1i")
+nx = ExtResource("2_w8gus")
+voidman = ExtResource("3_qeqyu")
+guyD = ExtResource("4_qeqyu")
+Milky = ExtResource("5_jg7op")
