@@ -176,8 +176,9 @@ func _process(delta):
 			die()
 
 func hurtEnemy(PlayerDamage):
-	health -= PlayerDamage
-	health_bar.set_health(health)
+	if dead == false:
+		health -= PlayerDamage
+		health_bar.set_health(health)
 
 func die():
 		if boss != true:

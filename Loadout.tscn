@@ -1,0 +1,95 @@
+[gd_scene format=3 uid="uid://bpwjnt3xbhala"]
+
+[ext_resource type="FontFile" uid="uid://dqbt5lnd0rh41" path="res://Resources/Fonts/Tf2.ttf" id="1_poe2q"]
+
+[node name="CanvasLayer" type="CanvasLayer" unique_id=1038809694]
+
+[node name="PrimaryLabel" type="Label" parent="." unique_id=1501620814]
+offset_left = 261.0
+offset_top = 11.0
+offset_right = 435.0
+offset_bottom = 47.0
+theme_override_constants/outline_size = 15
+theme_override_fonts/font = ExtResource("1_poe2q")
+theme_override_font_sizes/font_size = 32
+text = "Primaries"
+
+[node name="SecondaryLabel" type="Label" parent="." unique_id=61397808]
+offset_left = 469.0
+offset_top = 11.0
+offset_right = 695.0
+offset_bottom = 47.0
+theme_override_constants/outline_size = 15
+theme_override_fonts/font = ExtResource("1_poe2q")
+theme_override_font_sizes/font_size = 32
+text = "Secondaries"
+
+[node name="MeleeLabel" type="Label" parent="." unique_id=99275837]
+offset_left = 740.0
+offset_top = 11.0
+offset_right = 856.0
+offset_bottom = 47.0
+theme_override_constants/outline_size = 15
+theme_override_fonts/font = ExtResource("1_poe2q")
+theme_override_font_sizes/font_size = 32
+text = "Melee"
+
+[node name="SpecialLabel" type="Label" parent="." unique_id=1363852357]
+offset_left = 900.0
+offset_top = 11.0
+offset_right = 1058.0
+offset_bottom = 47.0
+theme_override_constants/outline_size = 15
+theme_override_fonts/font = ExtResource("1_poe2q")
+theme_override_font_sizes/font_size = 32
+text = "Specials"
+
+[node name="Shotty" type="Label" parent="." unique_id=1913715893]
+offset_left = 261.0
+offset_top = 47.0
+offset_right = 540.0
+offset_bottom = 83.0
+theme_override_constants/outline_size = 15
+theme_override_fonts/font = ExtResource("1_poe2q")
+theme_override_font_sizes/font_size = 32
+text = "Shotty"
+
+[node name="Mag-12" type="Label" parent="." unique_id=1833232695]
+offset_left = 469.0
+offset_top = 47.0
+offset_right = 699.0
+offset_bottom = 83.0
+theme_override_constants/outline_size = 15
+theme_override_fonts/font = ExtResource("1_poe2q")
+theme_override_font_sizes/font_size = 32
+text = "Mag-12"
+
+[node name="Fists" type="Label" parent="." unique_id=2036673107]
+offset_left = 741.0
+offset_top = 47.0
+offset_right = 830.0
+offset_bottom = 83.0
+theme_override_constants/outline_size = 15
+theme_override_fonts/font = ExtResource("1_poe2q")
+theme_override_font_sizes/font_size = 32
+text = "Fists"
+
+[node name="Morpshot" type="Label" parent="." unique_id=1233976410]
+offset_left = 901.0
+offset_top = 47.0
+offset_right = 990.0
+offset_bottom = 83.0
+theme_override_constants/outline_size = 15
+theme_override_fonts/font = ExtResource("1_poe2q")
+theme_override_font_sizes/font_size = 32
+text = "Morpshot"
+
+[node name="R8-Proto" type="Label" parent="." unique_id=1399341811]
+offset_left = 261.0
+offset_top = 83.0
+offset_right = 540.0
+offset_bottom = 119.0
+theme_override_constants/outline_size = 15
+theme_override_fonts/font = ExtResource("1_poe2q")
+theme_override_font_sizes/font_size = 32
+text = "R8-Proto"

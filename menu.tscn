@@ -769,7 +769,7 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 10
 theme_override_fonts/font = ExtResource("4_4hy44")
 theme_override_font_sizes/font_size = 30
-text = "press fuck to swear \"fuck\""
+text = "press fuck to say \"fuck\""
 
 [node name="Keybinds" type="Camera2D" parent="Keybinds" unique_id=1960554993]
 position = Vector2(4367, 334)
