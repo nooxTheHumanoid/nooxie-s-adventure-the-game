@@ -143,6 +143,7 @@ var is_dead = false
 @export_group("")
 
 @export_group("Injuries")
+@export var CanBeInjured = true
 @export var Headtrauma = false
 @export var InjuredArm = false
 @export var BrokenArm = false
@@ -251,7 +252,11 @@ func _process(delta):
 			healCD = true
 			get_tree().create_timer(HealWaitFromTaunt).timeout.connect(healplayer)
 		
-		
+	if CanBeInjured == false:
+		BrokenArm = false
+		InjuredArm = false
+		BrokenLeg = false
+		InjuredLeg = false
 
 
 func _physics_process(delta: float) -> void:
