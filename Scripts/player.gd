@@ -17,7 +17,8 @@ enum SelectedWeapon {
 enum AmmoType {
 	buckshot,
 	example_thingies,
-	slug
+	slug,
+	bullet
 }
 
 enum EmotionalState {
@@ -56,6 +57,7 @@ class inv_items:
 
 @export var temp_preload: PackedScene
 @export var temp_preload_2: PackedScene
+@export var temp_preload_3: PackedScene
 var inventory_limitations
 var inventory_size
 var inventory
@@ -168,7 +170,10 @@ func _ready():
 	if !invAdd(inv_items.new(SelectedWeapon.primary, 1, 0.5, AmmoType.slug, temp_preload)):
 		print("failed to add item")
 	inventory_slot = 1; inventory_variation = 0 #changes slot to mag_12
-	if !invAdd(inv_items.new(SelectedWeapon.secondary, 4, 2.1, AmmoType.slug, temp_preload_2)):
+	if !invAdd(inv_items.new(SelectedWeapon.secondary, 4, 2.1, AmmoType.bullet, temp_preload_2)):
+		print("failed to add item")
+	inventory_slot = 3; inventory_variation = 0 #changes slot to OPGun
+	if !invAdd(inv_items.new(SelectedWeapon.special, 1, 0.01, AmmoType.slug, temp_preload_3)):
 		print("failed to add item")
 	inventory_slot = 0; inventory_variation = 0
 	invLoadCurent()
@@ -200,6 +205,11 @@ func _ready():
 		shotty.char_skin(Hands)
 
 func _process(delta):
+	if Input.is_action_just_pressed("HoldFire"):
+		if global.holdfire:
+			global.holdfire = false
+		else:
+			global.holdfire = true
 	if Input.is_action_just_pressed("Suicide") && is_dead == false && global.disable_suicide == false:
 		health = 0.0
 		died()
@@ -343,10 +353,10 @@ func _physics_process(delta: float) -> void:
 				inventory_slot = 1; inventory_variation = 0 #changes slot to Secondary
 				invLoadCurent()
 			elif Input.is_action_just_pressed("slot3"):
-				inventory_slot = 1; inventory_variation = 0 #changes slot to Melee
+				inventory_slot = 2; inventory_variation = 0 #changes slot to Melee
 				invLoadCurent()
 			elif Input.is_action_just_pressed("slot4"):
-				inventory_slot = 1; inventory_variation = 0 #changes slot to Special
+				inventory_slot = 3; inventory_variation = 0 #changes slot to Special
 				invLoadCurent()
 	move_and_slide()
 

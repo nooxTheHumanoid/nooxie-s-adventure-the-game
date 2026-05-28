@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bffhvgwl3qgsd" path="res://things/playerWeapons/mag_12.tscn" id="3_tbeor"]
 [ext_resource type="Texture2D" uid="uid://cir5soi8k3yix" path="res://PlayerSprites/PlayerDeath.png" id="4_qwrnf"]
 [ext_resource type="PackedScene" uid="uid://cwtch2g70j85e" path="res://loseScreen.tscn" id="4_sw3jc"]
+[ext_resource type="PackedScene" uid="uid://dgkr6fl7dof5u" path="res://things/playerWeapons/OverpoweredGun.tscn" id="4_tbeor"]
 [ext_resource type="Texture2D" uid="uid://b1ydgb7c1mxgb" path="res://PlayerSprites/PlayerDance1.png" id="5_rtjwq"]
 [ext_resource type="Texture2D" uid="uid://du63hl7uox2cg" path="res://PlayerSprites/PlayerDance2.png" id="6_ppr00"]
 [ext_resource type="Texture2D" uid="uid://dmiiry4r6mgq8" path="res://PlayerSprites/PlayerDance3.png" id="7_kijxw"]
@@ -455,6 +456,7 @@ collision_mask = 6
 script = ExtResource("1_5tmdi")
 temp_preload = ExtResource("2_sw3jc")
 temp_preload_2 = ExtResource("3_tbeor")
+temp_preload_3 = ExtResource("4_tbeor")
 Coyote_Time = 10.0
 lossScreen = ExtResource("4_sw3jc")
 Show_defence = false

@@ -41,6 +41,7 @@ var health = 4
 @export var can_dodge = false # future plans
 @export var dodgetime = 1.5
 @export_group("Goons")
+@export var change_goon_stats = false
 @export var goons : PackedScene # the guys that get summoned
 @export var spawntime = 15.0
 @export var goon_count = 2 # how many to spawn at once
@@ -54,6 +55,7 @@ var health = 4
 @export var Change_level = false
 @export_file var Level
 @export var HPRequirement = 35.0
+@export var HalfmaxHPRequired = true
 @export_group("")
 
 @onready var ray_cast = $RayCast2D as RayCast2D
@@ -75,7 +77,7 @@ var reroll = true
 var random = 0
 var tempspeed = 0
 var dodging = false
-
+var maxHP = 0.0
 func _ready() -> void:
 	health_bar.visible = true
 	global.enemies += 1
@@ -100,6 +102,7 @@ func _ready() -> void:
 		damage = NPdmg
 		health = NPhp
 	health_bar.init_health(health)
+	maxHP = health
 	if boss == false:
 		cosmeticRandom()
 
@@ -109,8 +112,9 @@ func _process(delta):
 		hat.visible = false
 		misc.visible = false
 			
-	if Change_level && health <= HPRequirement:
-		ChangeLevel()
+	if Change_level:
+		if ((health <= HPRequirement) && HalfmaxHPRequired == false) or (HalfmaxHPRequired && (health <= maxHP / 2)):
+			ChangeLevel()
 	
 	if health >= 0 && playerdetected != null && not dead:
 		animations.play("Walk")
@@ -246,11 +250,13 @@ func Summoning():
 			var enemy = goons.instantiate()
 			enemy.position = position
 			enemy.auto_act = goon_Auto_act
-			enemy.health = goonHP
-			enemy.damage = goonBashDMG
-			enemy.horizontal_speed = goon_speed
-			enemy.show_healthbar = goon_show_HP
+			if change_goon_stats:
+				enemy.health = goonHP
+				enemy.damage = goonBashDMG
+				enemy.horizontal_speed = goon_speed
+				enemy.show_healthbar = goon_show_HP
 			get_parent().add_child(enemy)
 			
 func ChangeLevel():
+	get_tree().get_first_node_in_group("Player").queue_free()
 	get_tree().change_scene_to_file(Level)

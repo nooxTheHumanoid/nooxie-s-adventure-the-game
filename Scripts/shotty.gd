@@ -60,19 +60,19 @@ func _physics_process(_delta: float) -> void:
 		scale.y = 1
 		position.x = 0.0
 	
-	
-	if Input.is_action_just_pressed("shoot") and canfire and visible == true:
-		canfire = false
-		actualfire = true
-		if global.SFX_Enabled:
-			firesound.play()
-		var bullet_instance = BULLET.instantiate()
-		get_tree().root.add_child(bullet_instance)
-		bullet_instance.global_position = muzzle.global_position
-		bullet_instance.rotation = rotation
-		bullet_instance.damagVal(currentDMG)
-		animator.fireshotty()
-		get_tree().create_timer(firecd).timeout.connect(FiredcooldownOff)
+	if (Input.is_action_just_pressed("shoot") && global.holdfire == false) or (Input.is_action_pressed("shoot") && global.holdfire):
+		if canfire and visible == true:
+			canfire = false
+			actualfire = true
+			if global.SFX_Enabled:
+				firesound.play()
+			var bullet_instance = BULLET.instantiate()
+			get_tree().root.add_child(bullet_instance)
+			bullet_instance.global_position = muzzle.global_position
+			bullet_instance.rotation = rotation
+			bullet_instance.damagVal(currentDMG)
+			animator.fireshotty()
+			get_tree().create_timer(firecd).timeout.connect(FiredcooldownOff)
 
 func mayIswap():
 	return canfire

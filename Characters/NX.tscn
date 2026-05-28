@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://b1ydgb7c1mxgb" path="res://PlayerSprites/PlayerDance1.png" id="3_vegad"]
 [ext_resource type="Texture2D" uid="uid://du63hl7uox2cg" path="res://PlayerSprites/PlayerDance2.png" id="4_cy5x0"]
 [ext_resource type="PackedScene" uid="uid://cwtch2g70j85e" path="res://loseScreen.tscn" id="4_shf6n"]
+[ext_resource type="PackedScene" uid="uid://dgkr6fl7dof5u" path="res://things/playerWeapons/OverpoweredGun.tscn" id="4_xt2v3"]
 [ext_resource type="Texture2D" uid="uid://dmiiry4r6mgq8" path="res://PlayerSprites/PlayerDance3.png" id="5_shf6n"]
 [ext_resource type="Texture2D" uid="uid://bkbqj8mw80r5p" path="res://PlayerSprites/PlayerDanceStare.png" id="6_xt2v3"]
 [ext_resource type="Texture2D" uid="uid://bc2n7kupvpg0c" path="res://PlayerSprites/PlayerDance1flip.png" id="7_lcjhm"]
@@ -455,6 +456,7 @@ collision_mask = 6
 script = ExtResource("1_1vlla")
 temp_preload = ExtResource("39_etqv6")
 temp_preload_2 = ExtResource("3_ig7px")
+temp_preload_3 = ExtResource("4_xt2v3")
 lossScreen = ExtResource("4_shf6n")
 Show_stamina = false
 Has_stamina = false

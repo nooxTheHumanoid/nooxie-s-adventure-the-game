@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://dbchkjmbtwuyi" path="res://Scripts/player.gd" id="1_n7qvv"]
 [ext_resource type="PackedScene" uid="uid://cpmms0bfo24dp" path="res://things/playerWeapons/shotty.tscn" id="2_qkr1h"]
 [ext_resource type="PackedScene" uid="uid://bffhvgwl3qgsd" path="res://things/playerWeapons/mag_12.tscn" id="3_yfpsr"]
+[ext_resource type="PackedScene" uid="uid://dgkr6fl7dof5u" path="res://things/playerWeapons/OverpoweredGun.tscn" id="4_cnj57"]
 [ext_resource type="PackedScene" uid="uid://cwtch2g70j85e" path="res://loseScreen.tscn" id="4_ru54p"]
 [ext_resource type="Texture2D" uid="uid://clqb1o38emr3n" path="res://PlayerSprites/Milky/MilkyIdle.png" id="5_58xp5"]
 [ext_resource type="Texture2D" uid="uid://cgo3h60phsf0q" path="res://PlayerSprites/Milky/milkydance1.png" id="6_itg36"]
@@ -486,6 +487,7 @@ collision_mask = 6
 script = ExtResource("1_n7qvv")
 temp_preload = ExtResource("2_qkr1h")
 temp_preload_2 = ExtResource("3_yfpsr")
+temp_preload_3 = ExtResource("4_cnj57")
 lossScreen = ExtResource("4_ru54p")
 Show_defence = false
 Gain_defense = false
