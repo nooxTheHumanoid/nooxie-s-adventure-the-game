@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://d0ajvngcnkbwq"]
+
+[ext_resource type="Texture2D" uid="uid://dlr3lwmrlj7ll" path="res://textures/Misc/warning.png" id="1_kgaap"]
+
+[node name="Warning" type="Node2D" unique_id=683777954]
+visible = false
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1851858030]
+offset_left = -25.0
+offset_top = -25.0
+offset_right = 25.0
+offset_bottom = 25.0
+texture = ExtResource("1_kgaap")
+expand_mode = 4
+stretch_mode = 4

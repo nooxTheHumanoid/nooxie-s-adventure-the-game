@@ -19,7 +19,7 @@ func _ready() -> void:
 		CharnameText.text = "noox nooxie nooxTheHumanoid NX Noxious noxon nooxin'"
 		DescText.text = "A 2'1 feet short humanoid who can change their height to be up to 21 feet tall. He's very strong but fragile guy. 
 	He's sadistic and masochistic even though he cannot feel pain at all.
-	He doesn't not respect humans to the point he kills them. Some humans are lucky to get on his good side.
+	He does not respect humans to the point he kills them. Some humans are lucky to get on his good side.
 	His sadistic ass once impaled a guy by summoning spikes out of the ground and made the guy watch how noox tortures the poor fella's family, leaving no one alive. After that noox tore the man's jaw off and shoved the jaw down the man's throat. 
 For noox, respect is everything.
 The main man himself."
@@ -79,7 +79,7 @@ func _on_characters_item_selected(index: int) -> void:
 		CharnameText.text = "noox nooxie nooxTheHumanoid NX Noxious noxon nooxin'"
 		DescText.text = "A 2'1 feet short humanoid who can change their height to be up to 21 feet tall. He's very strong but fragile guy. 
 	He's sadistic and masochistic even though he cannot feel pain at all.
-	He doesn't not respect humans to the point he kills them. Some humans are lucky to get on his good side.
+	He does not respect humans to the point he kills them. Some humans are lucky to get on his good side.
 	His sadistic ass once impaled a guy by summoning spikes out of the ground and made the guy watch how noox tortures the poor fella's family, leaving no one alive. After that noox tore the man's jaw off and shoved the jaw down the man's throat. 
 For noox, respect is everything.
 The main man himself."

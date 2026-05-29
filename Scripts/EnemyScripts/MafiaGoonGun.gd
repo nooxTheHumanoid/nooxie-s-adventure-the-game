@@ -84,7 +84,7 @@ func _process(_delta: float) -> void:
 
 func _physics_process(_delta: float) -> void:
 	if player != null && player.health >= 0:
-		if canfire && mag >= 1 && not reloading:
+		if canfire && mag >= 1 && not reloading && sprite.visible:
 			mag -= 1
 			canfire = false
 			if global.SFX_Enabled:

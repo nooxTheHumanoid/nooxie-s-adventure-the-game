@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://tcdgvmbfemnx" path="res://EnemySprites/Mercs/Sniper/sIdle.png" id="10_a15w1"]
 [ext_resource type="Texture2D" uid="uid://bxdx0o25o281q" path="res://EnemySprites/Mercs/Sniper/sIdle2.png" id="11_tg4el"]
 [ext_resource type="Script" uid="uid://cyth5kbk1ykeq" path="res://Scripts/EnemyScripts/MercWeaponSniper.gd" id="12_p4wrg"]
+[ext_resource type="PackedScene" uid="uid://d0ajvngcnkbwq" path="res://Entities/Enemies/Enemy Assets/Warning.tscn" id="13_geq2c"]
 [ext_resource type="Texture2D" uid="uid://b2amfu0y7uiag" path="res://EnemySprites/Mercs/Arms/Sniper/Sniper1.png" id="13_p4wrg"]
 [ext_resource type="Texture2D" uid="uid://c8yv0l8esaxq4" path="res://EnemySprites/Mercs/Arms/Sniper/Sniper2.png" id="14_clvxt"]
 [ext_resource type="PackedScene" uid="uid://dkqrbo1o6fy4p" path="res://NonLevelScenes/HPbar.tscn" id="15_clvxt"]
@@ -155,6 +156,7 @@ shape = SubResource("CircleShape2D_pqtnk")
 [node name="gun" type="Node2D" parent="." unique_id=111346426]
 position = Vector2(-5, 9)
 script = ExtResource("12_p4wrg")
+warning = ExtResource("13_geq2c")
 
 [node name="Gun" type="AnimatedSprite2D" parent="gun" unique_id=542169469]
 position = Vector2(13, -1)

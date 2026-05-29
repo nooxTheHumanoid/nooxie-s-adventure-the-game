@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://fcs6onr4vmnv" path="res://Scripts/card_gameScript.gd" id="1_ga22d"]
 [ext_resource type="Texture2D" uid="uid://desfoljmpmbh6" path="res://textures/Cards/Blank.png" id="1_hq4tf"]
 [ext_resource type="AudioStream" uid="uid://bo22385enl104" path="res://Music/Just A Simple Card Game.mp3" id="3_cwkyt"]
+[ext_resource type="Texture2D" uid="uid://x57oixibfk03" path="res://textures/Misc/Background.png" id="4_r6rym"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ga22d"]
 bg_color = Color(0, 0, 0, 1)
@@ -19,6 +20,7 @@ PlayerLoss = "res://Levels/Cutscenes/MafiaBossIntro.tscn"
 [node name="Camera2D" type="Camera2D" parent="." unique_id=991768687]
 
 [node name="Label" type="Label" parent="." unique_id=1512215968]
+z_index = 7
 offset_left = -532.0
 offset_top = 100.0
 offset_right = -263.0
@@ -27,7 +29,7 @@ theme_override_font_sizes/font_size = 69
 text = "Your HP"
 
 [node name="PlayerHPnum" type="Label" parent="." unique_id=1775697860]
-z_index = 1
+z_index = 7
 offset_left = -555.0
 offset_top = 177.0
 offset_right = -241.0
@@ -38,7 +40,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="BossHPnum" type="Label" parent="." unique_id=325620975]
-z_index = 1
+z_index = 7
 offset_left = 241.0
 offset_top = -315.0
 offset_right = 559.0
@@ -49,6 +51,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="YourNumber" type="Label" parent="." unique_id=637626831]
+z_index = 7
 offset_left = 230.0
 offset_top = 10.0
 offset_right = 375.0
@@ -58,6 +61,7 @@ text = "0/21"
 
 [node name="BossNumbers" type="Label" parent="." unique_id=103697024]
 visible = false
+z_index = 7
 offset_left = 46.0
 offset_top = -220.0
 offset_right = 191.0
@@ -66,6 +70,7 @@ theme_override_font_sizes/font_size = 69
 text = "0/21"
 
 [node name="GuessingBossNumbers" type="Label" parent="." unique_id=1283694054]
+z_index = 7
 offset_left = 11.0
 offset_top = -218.0
 offset_right = 227.0
@@ -74,6 +79,7 @@ theme_override_font_sizes/font_size = 69
 text = "?+0/21"
 
 [node name="NextCard" type="Label" parent="." unique_id=229573681]
+z_index = 7
 offset_left = -493.0
 offset_top = -111.0
 offset_right = -348.0
@@ -82,6 +88,7 @@ theme_override_font_sizes/font_size = 69
 text = "Next Card is: 1"
 
 [node name="WinStreak" type="Label" parent="." unique_id=1429626499]
+z_index = 7
 offset_left = 95.0
 offset_top = 227.0
 offset_right = 575.0
@@ -90,6 +97,7 @@ theme_override_font_sizes/font_size = 69
 text = "Winstreak: 0"
 
 [node name="PassOppText" type="Label" parent="." unique_id=1796176784]
+z_index = 7
 offset_left = 287.0
 offset_top = -231.0
 offset_right = 487.0
@@ -102,6 +110,7 @@ text = "PASS!"
 
 [node name="LoserText" type="Label" parent="." unique_id=1287847178]
 visible = false
+z_index = 7
 offset_left = 189.0
 offset_top = 96.0
 offset_right = 420.0
@@ -113,6 +122,7 @@ theme_override_font_sizes/font_size = 69
 text = "LOSER!"
 
 [node name="Label2" type="Label" parent="." unique_id=1423962506]
+z_index = 7
 offset_left = 4.0
 offset_top = -310.0
 offset_right = 273.0
@@ -121,6 +131,7 @@ theme_override_font_sizes/font_size = 69
 text = "His HP"
 
 [node name="PlayerHP" type="ProgressBar" parent="." unique_id=2087783885]
+z_index = 7
 offset_left = -556.0
 offset_top = 194.0
 offset_right = -241.0
@@ -132,6 +143,7 @@ value = 21.0
 show_percentage = false
 
 [node name="BossHP" type="ProgressBar" parent="." unique_id=1715448562]
+z_index = 7
 offset_left = 243.0
 offset_top = -297.0
 offset_right = 558.0
@@ -143,6 +155,7 @@ value = 30.0
 show_percentage = false
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=2056220638]
+z_index = 7
 offset_left = -200.0
 offset_top = 150.0
 offset_right = -51.0
@@ -151,6 +164,7 @@ texture = ExtResource("1_hq4tf")
 stretch_mode = 4
 
 [node name="TextureRect2" type="TextureRect" parent="." unique_id=694631567]
+z_index = 7
 offset_left = -100.0
 offset_top = 146.0
 offset_right = 49.0
@@ -159,6 +173,7 @@ texture = ExtResource("1_hq4tf")
 stretch_mode = 4
 
 [node name="TextureRect3" type="TextureRect" parent="." unique_id=563561484]
+z_index = 7
 offset_left = -164.0
 offset_top = -383.0
 offset_right = -15.0
@@ -169,6 +184,7 @@ flip_h = true
 flip_v = true
 
 [node name="TextureRect4" type="TextureRect" parent="." unique_id=1600991403]
+z_index = 7
 offset_left = -277.0
 offset_top = -395.0
 offset_right = -128.0
@@ -179,6 +195,7 @@ flip_h = true
 flip_v = true
 
 [node name="Hit" type="Button" parent="." unique_id=2054198133]
+z_index = 7
 offset_left = 205.0
 offset_top = 120.0
 offset_right = 398.0
@@ -186,6 +203,7 @@ offset_bottom = 174.0
 text = "Hit"
 
 [node name="Pass" type="Button" parent="." unique_id=1813242043]
+z_index = 7
 offset_left = 205.0
 offset_top = 188.0
 offset_right = 398.0
@@ -199,6 +217,15 @@ one_shot = true
 stream = ExtResource("3_cwkyt")
 autoplay = true
 parameters/looping = true
+
+[node name="TextureRect5" type="TextureRect" parent="." unique_id=1411821353]
+z_index = 6
+offset_left = -705.0
+offset_top = -381.0
+offset_right = 661.1658
+offset_bottom = 367.0
+texture = ExtResource("4_r6rym")
+expand_mode = 3
 
 [connection signal="pressed" from="Hit" to="." method="_on_hit_pressed"]
 [connection signal="pressed" from="Pass" to="." method="_on_pass_pressed"]

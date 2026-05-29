@@ -10,6 +10,7 @@ extends Node2D
 @onready var SoundAlert = $"../Alert"
 @onready var SoundWarn = $"../Warn"
 
+@export var warning : PackedScene
 @export var currentDMG = 7.0
 @export var firingCD = 7.0
 @export var mag = 1
@@ -40,13 +41,16 @@ var reloading = false
 var player = null
 var maxammo = mag
 var alreadysaid = false
-
+var warnsprite
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	warnsprite = warning.instantiate()
 	get_tree().create_timer(0.01).timeout.connect(sizecheck)
 	sprite.play("default")
+	warnsprite.visible = false
 	lasersight.visible = false
 	alreadysaid = false
+	add_child.call_deferred(warnsprite)
 	if global.GameDifficulty == 0:
 		currentDMG = Edmg
 		firingCD = Ecd
@@ -82,6 +86,7 @@ func _physics_process(_delta: float) -> void:
 			var collisionPoint = lasersightRay.get_collision_point()
 			var local_collPoint = to_local(collisionPoint)
 			lasersight.points[1] = local_collPoint
+			warnsprite.position = player.position
 		else:
 			lasersight.points[1] = Vector2(2000,0)
 		
@@ -89,6 +94,7 @@ func _physics_process(_delta: float) -> void:
 			mag -= 1
 			if global.SFX_Enabled:
 				SoundFire.play()
+			warnsprite.visible = false
 			canfire = false
 			player.gethitdmg = currentDMG
 			player.died()
@@ -98,9 +104,11 @@ func _physics_process(_delta: float) -> void:
 			reloading = true
 			get_tree().create_timer(reloadtime).timeout.connect(reloadingFinish)
 			get_tree().create_timer(firingCD).timeout.connect(resetfire)
+			get_tree().create_timer(firingCD-2.5).timeout.connect(warnImg)
 			
 	if player != null && player.health <= 0:
 		lasersight.visible = false
+		warning.visible = false
 
 
 func resetfire():
@@ -115,17 +123,23 @@ func warn():
 	if visible == true:
 		if global.SFX_Enabled:
 			SoundWarn.play()
-
+			
+func warnImg():
+	if visible == true:
+		warnsprite.visible = true
+		
 func _on_detection_gun_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player") && player == null:
 		get_tree().create_timer(firingCD).timeout.connect(resetfire)
 		player = body
+		get_tree().create_timer(firingCD-2.5).timeout.connect(warnImg)
 		lasersight.visible = true
 		if alreadysaid == false && visible:
 			alreadysaid = true
 			if global.SFX_Enabled:
 				SoundAlert.play()
 			get_tree().create_timer(firingCD-1).timeout.connect(warn)
+		
 
 #later make sniper lose sight of you when you leave his detection zone
 

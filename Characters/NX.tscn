@@ -462,10 +462,6 @@ Show_stamina = false
 Has_stamina = false
 should_camera_sync = false
 CanBeInjured = false
-InjuredArm = true
-BrokenArm = true
-InjuredLeg = true
-BrokenLeg = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=926349382]
 sprite_frames = SubResource("SpriteFrames_n7ghd")

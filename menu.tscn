@@ -697,10 +697,10 @@ script = ExtResource("1_lti8b")
 path = "uid://bfh0b6p815bi"
 
 [node name="Blackjack3" type="Button" parent="Bonus" unique_id=1330366626]
-offset_left = 889.0
-offset_top = 128.0
-offset_right = 1128.0
-offset_bottom = 187.0
+offset_left = 122.0
+offset_top = 213.0
+offset_right = 361.0
+offset_bottom = 272.0
 focus_mode = 0
 shortcut_feedback = false
 shortcut_in_tooltip = false
