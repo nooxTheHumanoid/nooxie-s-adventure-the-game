@@ -19,7 +19,12 @@ var contents_to_save: Dictionary = {
 	"NoOffensiveVoicelines" = false,
 	"NoOffensiveText" = false,
 	"Music" = true,
-	"SFX" = true
+	"SFX" = true,
+	"VoidUnlocked" = false,
+	"GuyDarkheartUnlocked" = false,
+	"MilkyUnlocked" = false,
+	"HellBasherUnlocked" = false,
+	"nooxinwatch" = true
 }
 
 func _ready() -> void:
@@ -55,3 +60,8 @@ func _load():
 		contents_to_save.NoOffensiveText = save_data.NoOffensiveText
 		contents_to_save.Music = save_data.Music
 		contents_to_save.SFX = save_data.SFX
+		contents_to_save.VoidUnlocked = save_data.VoidUnlocked
+		contents_to_save.GuyDarkheartUnlocked = save_data.GuyDarkheartUnlocked
+		contents_to_save.MilkyUnlocked = save_data.MilkyUnlocked
+		contents_to_save.HellBasherUnlocked = save_data.HellBasherUnlocked
+		contents_to_save.nooxinwatch = save_data.nooxinwatch

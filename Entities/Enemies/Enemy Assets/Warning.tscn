@@ -1,9 +1,12 @@
 [gd_scene format=3 uid="uid://d0ajvngcnkbwq"]
 
 [ext_resource type="Texture2D" uid="uid://dlr3lwmrlj7ll" path="res://textures/Misc/warning.png" id="1_kgaap"]
+[ext_resource type="Script" uid="uid://bw5ysloo0iarv" path="res://Entities/Enemies/Enemy Assets/warning.gd" id="1_u3qu0"]
 
 [node name="Warning" type="Node2D" unique_id=683777954]
 visible = false
+z_index = 2
+script = ExtResource("1_u3qu0")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1851858030]
 offset_left = -25.0

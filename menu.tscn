@@ -258,9 +258,9 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 2521.0
+offset_left = 2525.0
 offset_top = 69.0
-offset_right = 2721.0
+offset_right = 2725.0
 offset_bottom = 107.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -391,6 +391,19 @@ text = "Keybinds"
 script = ExtResource("3_ytr4m")
 Maincamera = NodePath("../../Settings")
 camera = NodePath("../../Keybinds/Keybinds")
+
+[node name="Label10" type="Label" parent="Control" unique_id=1768009693]
+layout_mode = 0
+offset_left = -439.0
+offset_top = 319.0
+offset_right = -33.0
+offset_bottom = 375.0
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 7
+theme_override_fonts/font = ExtResource("4_4hy44")
+theme_override_font_sizes/font_size = 21
+text = "use noox for the true experience"
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1901233955]
 position = Vector2(581, 334)

@@ -70,6 +70,10 @@ func _ready() -> void:
 			playerHP = 21
 		elif global.character == 1:
 			playerHP = 100
+		elif global.character == 2:
+			playerHP = 120
+		elif global.character == 3:
+			playerHP = 80
 	if SeeNextCard:
 		NextCardText.visible = true
 	else:
