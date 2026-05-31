@@ -10,10 +10,12 @@ extends Node2D
 @onready var StartingItemText = $UI/StartingItems
 @onready var CharacterPortrait = $Charport
 @onready var optionButton = $Characters
+@onready var enablenooxinwatch = $nooxinWatch
 
 var id = 0 #I'll figure things out. Gonna hard code the characters in for now.
 
 func _ready() -> void:
+	enablenooxinwatch.button_pressed = SaveData.contents_to_save.nooxinwatch
 	optionButton.selected = global.character
 	if global.character == 0:
 		CharnameText.text = "noox nooxie nooxTheHumanoid NX Noxious noxon nooxin'"
@@ -72,10 +74,11 @@ The main man himself."
 
 
 func _on_characters_item_selected(index: int) -> void:
-	global.character = index
-	SaveData.contents_to_save.CharID = global.character
+	var idx = optionButton.get_item_id(index)
+	SaveData.contents_to_save.CharID = idx
+	global.character = idx
 	SaveData._save()
-	if index == 0:
+	if idx == 0:
 		CharnameText.text = "noox nooxie nooxTheHumanoid NX Noxious noxon nooxin'"
 		DescText.text = "A 2'1 feet short humanoid who can change their height to be up to 21 feet tall. He's very strong but fragile guy. 
 	He's sadistic and masochistic even though he cannot feel pain at all.
@@ -88,7 +91,7 @@ The main man himself."
 		QuirkText.text = "Characrer Quirks:\nOnly slugs (all shotguns only fire slugs)\nLoyal tools (Cannot swap and drop melee weapons)\nCollected mind (Improbable to be distressed while in action)\nPTSD (When distressed: faster sprint speed, take more damage)"
 		StartingItemText.text = "Starting toys:\nShotty,Mag-12,SledgeHammer,Emerald Scythe, Knife"
 		CharacterPortrait.texture = ResourceLoader.load("res://textures/CharacterPortraits/NXV2.png")
-	elif index == 1:
+	elif idx == 1:
 		CharnameText.text = "null"
 		DescText.text = "But nobody came."
 		StatText.text = "Stats\nHP: ?\nSpeed: ?\nSprint Bonus: ?X\nStomp Damage: ?\nJumpPower: ?\nCoyote Time: ? seconds\nStamina: ?\nStamina Gain: ?\nStamina Drain: ?"
@@ -96,7 +99,7 @@ The main man himself."
 		QuirkText.text = "Characrer Quirks:\nYou're left in despair."
 		StartingItemText.text = "Starting ?:\n?"
 		CharacterPortrait.texture = ResourceLoader.load("res://textures/CharacterPortraits/MysteryMan.png")
-	elif index == 2:
+	elif idx == 2:
 		CharnameText.text = "Guy Darkheart"
 		DescText.text = "He's left handed."
 		StatText.text = "Stats\nHP: 120\nSpeed: 100\nSprint Bonus: 1.8X\nStomp Damage: 2.5\nJumpPower: 400\nCoyote Time: 0.2 seconds\nStamina: 100\nStamina Gain: 20\nStamina Drain: 10"
@@ -104,7 +107,7 @@ The main man himself."
 		QuirkText.text = "Characrer Quirks:\nMute.\nNo Trigger Discipline."
 		StartingItemText.text = "Starting weapons:\nRifle"
 		CharacterPortrait.texture = ResourceLoader.load("res://textures/CharacterPortraits/GuyDarkheart.png")
-	elif global.character == 3:
+	elif idx == 3:
 		CharnameText.text = "Milky"
 		DescText.text = "I think noox got bored and decided on taking someone from a different universe."
 		StatText.text = "Stats\nHP: 80\nSpeed: 110\nSprint Bonus: 2.1X\nStomp Damage: 1.5\nJumpPower: 420\nCoyote Time: 0.2 seconds\nStamina: 90\nStamina Gain: 20\nStamina Drain: 10"
@@ -112,3 +115,8 @@ The main man himself."
 		QuirkText.text = "Characrer Quirks:\nRegenerator (has passive regeneration).\nNo Trigger Discipline."
 		StartingItemText.text = "Starting weapons:\nMag-12"
 		CharacterPortrait.texture = ResourceLoader.load("res://textures/CharacterPortraits/Milky.png")
+
+
+func _on_nooxin_watch_toggled(toggled_on: bool) -> void:
+	SaveData.contents_to_save.nooxinwatch = toggled_on
+	SaveData._save()

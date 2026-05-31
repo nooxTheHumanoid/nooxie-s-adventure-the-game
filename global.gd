@@ -24,6 +24,7 @@ var enemies = 0
 var character = 0
 # while playing
 var holdfire = false
+var fullDef = false
 func _process(_delta: float) -> void:
 	if Wave == 1:
 		maxenemies = 5

@@ -1667,3 +1667,4 @@ autowrap_mode = 3
 
 [connection signal="pressed" from="Menu" to="Menu" method="_on_pressed"]
 [connection signal="item_selected" from="Characters" to="." method="_on_characters_item_selected"]
+[connection signal="toggled" from="nooxinWatch" to="." method="_on_nooxin_watch_toggled"]

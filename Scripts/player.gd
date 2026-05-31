@@ -79,8 +79,6 @@ var is_dead = false
 @onready var tauntSong = $Taunt
 @onready var levelmusic = $LevelMusic
 
-@export var Coyote_Time: float = 0.3 #I want em to feel floaty when you use em. Maybe over exaturate the coyote time?
-
 @export var lossScreen : PackedScene
 @export_file var Current_scene
 @export var LevelSong : AudioStreamMP3
@@ -127,6 +125,7 @@ var is_dead = false
 @export_group("")
 
 @export_group("Other Stats")
+@export var Coyote_Time: float = 0.3 #I want em to feel floaty when you use em. Maybe over exaturate the coyote time?
 @export var SPEED = 100.0
 @export var JUMP_VELOCITY = -400.0 #make sure it's in the minuses
 @export var SpeedBoost = 2.0
@@ -215,6 +214,10 @@ func _process(delta):
 		died()
 	if Gain_defense:
 		defence = global.tempkills*5
+		if defence >= 100:
+			global.fullDef = true
+		else:
+			global.fullDef = false
 	if defence >= 101:
 		defence = 100
 		
