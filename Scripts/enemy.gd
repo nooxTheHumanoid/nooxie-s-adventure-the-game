@@ -147,6 +147,8 @@ func _process(delta):
 			global.tempkills += 1
 			global.enemies -=1
 			dead = true
+			if playerdetected != null:
+				playerdetected.tryHeal(1)
 			die()
 
 func hurtEnemy(PlayerDamage):

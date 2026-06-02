@@ -162,7 +162,6 @@ var pausemovement = false
 var current_stamina = 0.0
 var stamina_cooldown_timer = 0
 var Char_Running = false
-
 func _ready():
 	invInit([SelectedWeapon.primary, SelectedWeapon.secondary, SelectedWeapon.melee, SelectedWeapon.special], [1, 1, 3, 1])
 	inventory_slot = 0; inventory_variation = 0
@@ -421,6 +420,11 @@ func drain_stamina(delta):
 
 func gain_stamina(delta):
 	current_stamina += delta * Stamina_Gain
+
+func tryHeal(HP: int):
+	if global.fullDef:
+		health += HP
+		health_bar.set_health(health) 
 
 func died():
 	health -= gethitdmg-(gethitdmg*(defence*0.01))

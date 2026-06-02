@@ -9,4 +9,4 @@ func die():
 
 func _on_detection_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
-		super.detectedPlayer(true)
+		super.detectedPlayer(body)
