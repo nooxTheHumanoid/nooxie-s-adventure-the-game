@@ -441,6 +441,7 @@ func died():
 		is_dead = true
 		defence_bar.queue_free()
 		stamina_bar.visible = false
+		health_bar.visible = false
 		sprite.play("Death")
 		char_area.set_collision_layer_value(1,false)
 		char_area.set_collision_mask_value(3,false)

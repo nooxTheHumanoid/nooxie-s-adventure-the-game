@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://desfoljmpmbh6" path="res://textures/Cards/Blank.png" id="1_hq4tf"]
 [ext_resource type="AudioStream" uid="uid://bo22385enl104" path="res://Music/Just A Simple Card Game.mp3" id="3_cwkyt"]
 [ext_resource type="Texture2D" uid="uid://x57oixibfk03" path="res://textures/Misc/Background.png" id="4_r6rym"]
+[ext_resource type="PackedScene" uid="uid://yokdaxdg6w3b" path="res://pause.tscn" id="5_q5tms"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ga22d"]
 bg_color = Color(0, 0, 0, 1)
@@ -229,6 +230,8 @@ mouse_behavior_recursive = 1
 mouse_default_cursor_shape = 8
 texture = ExtResource("4_r6rym")
 expand_mode = 3
+
+[node name="Pause" parent="." unique_id=338774573 instance=ExtResource("5_q5tms")]
 
 [connection signal="pressed" from="Hit" to="." method="_on_hit_pressed"]
 [connection signal="pressed" from="Pass" to="." method="_on_pass_pressed"]

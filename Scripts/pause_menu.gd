@@ -24,5 +24,8 @@ func _on_resume_pressed() -> void:
 func _on_menu_pressed() -> void:
 	if path == null:
 		return
+	if get_tree().get_first_node_in_group("Player"):
+		get_tree().get_first_node_in_group("Player").queue_free()
+	get_tree().paused = false
 	get_tree().change_scene_to_file(path)
 	queue_free()
