@@ -136,6 +136,12 @@ var is_dead = false
 @export var MinStaminaToRun = 10.0
 @export_group("")
 
+@export_group("Multipliers")
+@export var SpeedMulti = 1.0
+@export var JumpMulti = 1.0
+@export var DamageTakenMulti = 1.0
+@export_group("")
+
 @export_group("Character info")
 @export var OC_name = "noox nooxie nooxTheHumanoid NX Noxious noxon nooxin'"
 @export var description = "The main man himself."
@@ -284,7 +290,7 @@ func _physics_process(delta: float) -> void:
 
 	
 	if Input.is_action_pressed("jump") and Jump_Availabe and taunting == false:
-		velocity.y = JUMP_VELOCITY
+		velocity.y = JUMP_VELOCITY * JumpMulti
 		Jump_Availabe = false
 	
 
@@ -320,11 +326,11 @@ func _physics_process(delta: float) -> void:
 
 	if direction && IwantDuckOrTaunt == "none" && pausemovement == false:
 		if BrokenLeg:
-			velocity.x = (direction * SPEED * ExtraSpeed) * 0.25
+			velocity.x = (direction * SPEED * ExtraSpeed * SpeedMulti) * 0.25
 		elif InjuredLeg:
-			velocity.x = (direction * SPEED * ExtraSpeed) * 0.5
+			velocity.x = (direction * SPEED * ExtraSpeed * SpeedMulti) * 0.5
 		else:
-			velocity.x = direction * SPEED * ExtraSpeed
+			velocity.x = direction * SPEED * ExtraSpeed * SpeedMulti
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 	
@@ -427,9 +433,10 @@ func tryHeal(HP: int):
 		health_bar.set_health(health) 
 
 func died():
-	health -= gethitdmg-(gethitdmg*(defence*0.01))
+	health -= (gethitdmg-(gethitdmg*(defence*0.01)))*DamageTakenMulti
 	global.tempkills = 0
-	health_bar.set_health(health) 
+	if health > 0:
+		health_bar.set_health(health) 
 	if health <= 0:
 		is_dead = true
 		defence_bar.queue_free()

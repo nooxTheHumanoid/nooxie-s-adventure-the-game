@@ -7,5 +7,6 @@ func _ready() -> void:
 	global_rotation = 0.0
 
 func _process(_delta: float) -> void:
-	global_position = player.position
+	if player != null:
+		global_position = player.position
 	global_rotation = 0.0

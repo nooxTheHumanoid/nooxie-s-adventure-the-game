@@ -107,7 +107,7 @@ func _physics_process(_delta: float) -> void:
 			
 	if player != null && player.health <= 0:
 		lasersight.visible = false
-		warning.visible = false
+		warnsprite.visible = false
 
 
 func resetfire():
