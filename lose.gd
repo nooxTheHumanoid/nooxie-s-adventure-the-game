@@ -8,7 +8,8 @@ var randomText = randi_range(1,4)
 func _ready() -> void:
 	#visible = false
 	Music.playing = global.Music_Enabled
-	get_tree().get_first_node_in_group("Player").queue_free()
+	if get_tree().get_first_node_in_group("Player"):
+		get_tree().get_first_node_in_group("Player").queue_free()
 	if randomText == 1:
 		Text.text = "They were left in dispair."
 	elif randomText == 2:

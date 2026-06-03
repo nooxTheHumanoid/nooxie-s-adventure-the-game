@@ -53,7 +53,10 @@ The main man himself."
 		MechanicText.text = "Unique mechanic:\nDouble primaries."
 		QuirkText.text = "Characrer Quirks:\nRegenerator (has passive regeneration).\nNo Trigger Discipline."
 		StartingItemText.text = "Starting weapons:\nMag-12"
-		CharacterPortrait.texture = ResourceLoader.load("res://textures/CharacterPortraits/Milky.png")
+		if SaveData.contents_to_save.nooxinwatch:
+			CharacterPortrait.texture = ResourceLoader.load("res://textures/CharacterPortraits/MilkyNXWatch.png")
+		else:
+			CharacterPortrait.texture = ResourceLoader.load("res://textures/CharacterPortraits/Milky.png")
 	#get_content(dir_path)
 
 #func get_content(path) -> void:
@@ -114,9 +117,17 @@ The main man himself."
 		MechanicText.text = "Unique mechanic:\nDouble primaries."
 		QuirkText.text = "Characrer Quirks:\nRegenerator (has passive regeneration).\nNo Trigger Discipline."
 		StartingItemText.text = "Starting weapons:\nMag-12"
-		CharacterPortrait.texture = ResourceLoader.load("res://textures/CharacterPortraits/Milky.png")
+		if SaveData.contents_to_save.nooxinwatch:
+			CharacterPortrait.texture = ResourceLoader.load("res://textures/CharacterPortraits/MilkyNXWatch.png")
+		else:
+			CharacterPortrait.texture = ResourceLoader.load("res://textures/CharacterPortraits/Milky.png")
 
 
 func _on_nooxin_watch_toggled(toggled_on: bool) -> void:
 	SaveData.contents_to_save.nooxinwatch = toggled_on
+	if global.character == 3: 
+		if SaveData.contents_to_save.nooxinwatch:
+			CharacterPortrait.texture = ResourceLoader.load("res://textures/CharacterPortraits/MilkyNXWatch.png")
+		else:
+			CharacterPortrait.texture = ResourceLoader.load("res://textures/CharacterPortraits/Milky.png")
 	SaveData._save()
