@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://88k2dmp3clm0" path="res://Entities/player_spawn.tscn" id="9_cg4ff"]
 [ext_resource type="PackedScene" uid="uid://ckii40e7slgih" path="res://Entities/Enemies/Mafia/MafiaGodfather.tscn" id="9_nijbd"]
 [ext_resource type="PackedScene" uid="uid://dyc3r0j7kdfcl" path="res://Entities/death_zone.tscn" id="10_7wtyh"]
+[ext_resource type="PackedScene" uid="uid://yokdaxdg6w3b" path="res://pause.tscn" id="11_cg4ff"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_104vp"]
 texture = ExtResource("1_nijbd")
@@ -81,3 +82,5 @@ position = Vector2(-165, 67)
 camera = NodePath("../Camera2D")
 song = ExtResource("7_nxrld")
 level = "uid://cg86mv7ckex06"
+
+[node name="Pause" parent="." unique_id=338774573 instance=ExtResource("11_cg4ff")]

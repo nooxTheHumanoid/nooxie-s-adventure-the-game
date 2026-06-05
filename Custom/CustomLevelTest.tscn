@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://88k2dmp3clm0" path="res://Entities/player_spawn.tscn" id="9_6mf0s"]
 [ext_resource type="PackedScene" uid="uid://dyc3r0j7kdfcl" path="res://Entities/death_zone.tscn" id="10_6mf0s"]
 [ext_resource type="AudioStream" uid="uid://bdnt83xf8aue4" path="res://Music/lore accurate nx chase theme.mp3" id="10_hsi8t"]
+[ext_resource type="PackedScene" uid="uid://yokdaxdg6w3b" path="res://pause.tscn" id="11_hsi8t"]
 [ext_resource type="PackedScene" uid="uid://vo76jgya30xt" path="res://Entities/LevelThings/exit_level.tscn" id="13_2b2uo"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_104vp"]
@@ -83,3 +84,5 @@ PlayerHasgun = 0
 show_stats = false
 Force_hp = true
 New_HP = 1.0
+
+[node name="Pause" parent="." unique_id=338774573 instance=ExtResource("11_hsi8t")]

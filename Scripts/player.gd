@@ -78,6 +78,7 @@ var is_dead = false
 @onready var HPNumb = $HPNumber #this isn't used anymore
 @onready var tauntSong = $Taunt
 @onready var levelmusic = $LevelMusic
+@onready var emotionText = $Emotion
 
 @export var lossScreen : PackedScene
 @export_file var Current_scene
@@ -275,6 +276,50 @@ func _process(delta):
 		InjuredArm = false
 		BrokenLeg = false
 		InjuredLeg = false
+		
+	
+	if Mental_State == EmotionalState.focused:
+		emotionText.text = "focused"
+		DamageTakenMulti = 0.75
+		SpeedMulti = 1.1
+		JumpMulti = 1.0
+		levelmusic.pitch_scale = 1.05
+		tauntSong.pitch_scale = 1.05
+	elif Mental_State == EmotionalState.agony:
+		emotionText.text = "agony"
+		DamageTakenMulti = 1.1
+		SpeedMulti = 0.95
+		JumpMulti = 1.0
+		levelmusic.pitch_scale = 0.9
+		tauntSong.pitch_scale = 0.9
+	elif Mental_State == EmotionalState.disstressed:
+		emotionText.text = "disstressed"
+		DamageTakenMulti = 1.5 #default 1.25
+		SpeedMulti = 1.25 #default 0.95
+		JumpMulti = 1.0
+		levelmusic.pitch_scale = 0.75
+		tauntSong.pitch_scale = 0.75
+	elif Mental_State == EmotionalState.scared:
+		emotionText.text = "scared"
+		DamageTakenMulti = 1.5
+		SpeedMulti = 1.25
+		JumpMulti = 1.0
+		levelmusic.pitch_scale = 1.25
+		tauntSong.pitch_scale = 1.25
+	elif Mental_State == EmotionalState.unstable:
+		emotionText.text = "unstable"
+		DamageTakenMulti = 2.0
+		SpeedMulti = 0.9
+		JumpMulti = 0.8
+		levelmusic.pitch_scale = 0.5
+		tauntSong.pitch_scale = 0.5
+	else:
+		emotionText.text = "stable"
+		DamageTakenMulti = 1.0
+		SpeedMulti = 1.0
+		JumpMulti = 1.0
+		levelmusic.pitch_scale = 1.0
+		tauntSong.pitch_scale = 1.0
 
 
 func _physics_process(delta: float) -> void:

@@ -4,6 +4,15 @@ enum PlayerMode {
 	regular,
 	nohands
 }
+enum EmotionalState {
+	focused,
+	stable,
+	agony,
+	disstressed,
+	scared,
+	unstable 
+}
+
 @export var nx : PackedScene
 @export var voidman : PackedScene
 @export var guyD : PackedScene
@@ -12,6 +21,7 @@ enum PlayerMode {
 @export var song : AudioStreamMP3
 @export_file var level
 @export_group("CharSettings")
+@export var MentalState = EmotionalState.stable
 @export var PlayerHasgun = PlayerMode.nohands
 @export var show_stats = true
 @export var defence = 0.0
@@ -24,6 +34,7 @@ enum PlayerMode {
 func _ready() -> void:
 	if global.character == 0:
 		var player = nx.instantiate()
+		player.Mental_State = MentalState
 		player.position = position
 		player.Player_Mode = PlayerHasgun
 		player.LevelSong = song

@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://cgeosfih1riti" path="res://Entities/stomper.tscn" id="7_f5cpa"]
 [ext_resource type="PackedScene" uid="uid://88k2dmp3clm0" path="res://Entities/player_spawn.tscn" id="9_7fl83"]
 [ext_resource type="PackedScene" uid="uid://vo76jgya30xt" path="res://Entities/LevelThings/exit_level.tscn" id="10_7fl83"]
+[ext_resource type="PackedScene" uid="uid://yokdaxdg6w3b" path="res://pause.tscn" id="11_p5226"]
 [ext_resource type="PackedScene" uid="uid://dyc3r0j7kdfcl" path="res://Entities/death_zone.tscn" id="13_104vp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_104vp"]
@@ -170,3 +171,5 @@ PlayerHasgun = 0
 show_stats = false
 Force_hp = true
 New_HP = 0.1
+
+[node name="Pause" parent="." unique_id=338774573 instance=ExtResource("11_p5226")]

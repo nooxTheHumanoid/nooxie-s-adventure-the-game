@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://xbgni1a8lr0x" path="res://Entities/Enemies/Mercs/mercShotty.tscn" id="11_76fkc"]
 [ext_resource type="PackedScene" uid="uid://dyc3r0j7kdfcl" path="res://Entities/death_zone.tscn" id="11_w8qko"]
 [ext_resource type="PackedScene" uid="uid://btm3rntawj3ev" path="res://Entities/Enemies/Mercs/mercRifle.tscn" id="12_jfium"]
+[ext_resource type="PackedScene" uid="uid://yokdaxdg6w3b" path="res://pause.tscn" id="13_a5le3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_104vp"]
 texture = ExtResource("1_ej1bv")
@@ -84,3 +85,5 @@ position = Vector2(6, -74)
 
 [node name="Merc2" parent="." unique_id=1397031770 instance=ExtResource("12_jfium")]
 position = Vector2(154, 67)
+
+[node name="Pause" parent="." unique_id=338774573 instance=ExtResource("13_a5le3")]

@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://cxfnf2pvy8nsp" path="res://Entities/Enemies/Mercs/mercSniper.tscn" id="13_dxjb0"]
 [ext_resource type="PackedScene" uid="uid://88k2dmp3clm0" path="res://Entities/player_spawn.tscn" id="13_hx0pg"]
 [ext_resource type="PackedScene" uid="uid://btm3rntawj3ev" path="res://Entities/Enemies/Mercs/mercRifle.tscn" id="14_dxjb0"]
+[ext_resource type="PackedScene" uid="uid://yokdaxdg6w3b" path="res://pause.tscn" id="15_hx0pg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_104vp"]
 texture = ExtResource("1_4c4gq")
@@ -222,3 +223,5 @@ position = Vector2(-173, 65)
 camera = NodePath("../Camera2D")
 song = ExtResource("7_hy5j1")
 level = "uid://cbyq06rhrfy2"
+
+[node name="Pause" parent="." unique_id=338774573 instance=ExtResource("15_hx0pg")]
