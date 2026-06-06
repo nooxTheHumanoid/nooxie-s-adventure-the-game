@@ -135,12 +135,15 @@ var is_dead = false
 @export var Stamina_Drain = 10.0 #per second
 @export var Stamina_time_to_recover = 2.5 #cooldown before starting to regain stamina
 @export var MinStaminaToRun = 10.0
+@export var instantAim = true
+@export var Aimspeed = 100.0
 @export_group("")
 
 @export_group("Multipliers")
 @export var SpeedMulti = 1.0
 @export var JumpMulti = 1.0
 @export var DamageTakenMulti = 1.0
+@export var AimSpeedMulti = 1.0
 @export_group("")
 
 @export_group("Character info")
