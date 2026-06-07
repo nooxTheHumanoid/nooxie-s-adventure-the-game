@@ -7,7 +7,7 @@ const BULLET = preload('res://things/Slug.tscn')
 @onready var firesound = $Fire
 
 @export var y_offset = 8.0
-@export var AimSpeed = 200.0
+@export var AimSpeed = 420.0
 var canfire = false
 var State = "none"
 var firecd: float = 0.5
@@ -47,13 +47,15 @@ func FiredcooldownOff():
 	canfire = true
 	actualfire=false
 
-func _physics_process(_delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	if actualfire == false && visible == true:
 		canfire = true
-	look_at(get_global_mouse_position())
-	rotation_degrees = wrap(rotation_degrees, 0 , 360)
-	#var mouse = rad_to_deg(get_angle_to(get_global_mouse_position()))
-	#rotation_degrees = move_toward(rotation_degrees,mouse,AimSpeed* delta)
+	#look_at(get_global_mouse_position())
+	#print(rad_to_deg(global_position.angle_to_point(get_global_mouse_position())))
+	var mouse = rad_to_deg(global_position.angle_to_point(get_global_mouse_position()))
+	print(mouse)
+	rotation_degrees = move_toward(rotation_degrees,mouse,AimSpeed* delta)
+	#rotation_degrees = wrap(rotation_degrees, 0 , 360)
 	if rotation_degrees > 90 and rotation_degrees < 270:
 		scale.y = -1
 		position.x = 0.25
