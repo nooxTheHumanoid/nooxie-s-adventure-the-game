@@ -136,7 +136,7 @@ var is_dead = false
 @export var Stamina_time_to_recover = 2.5 #cooldown before starting to regain stamina
 @export var MinStaminaToRun = 10.0
 @export var instantAim = true
-@export var Aimspeed = 100.0
+@export var Aimspeed = 1500.0
 @export_group("")
 
 @export_group("Multipliers")
@@ -144,6 +144,8 @@ var is_dead = false
 @export var JumpMulti = 1.0
 @export var DamageTakenMulti = 1.0
 @export var AimSpeedMulti = 1.0
+@export var DmgMulti = 1.0
+@export var JumpDmgMulti = 1.0
 @export_group("")
 
 @export_group("Character info")
@@ -163,6 +165,8 @@ var is_dead = false
 @export_group("")
 
 var ExtraSpeed = 1.0
+var InjuryAimSpeed = 1.0 #Used only for injuries
+var startedWithInstaAim = true
 var IwantDuckOrTaunt = "none" #This is so fucking bad!!!
 var taunting: bool = false
 var Jump_Availabe: bool = true #Coyote time (Good for platformers)
@@ -208,6 +212,7 @@ func _ready():
 	stamina_bar.max_value = Maxstamina
 	stamina_bar.value = Maxstamina
 	current_stamina = Maxstamina
+	startedWithInstaAim = instantAim
 	health_bar.init_health(MaxHealth)
 	if shotty:
 		shotty.char_skin(Hands)
@@ -285,7 +290,10 @@ func _process(delta):
 		emotionText.text = "focused"
 		DamageTakenMulti = 0.75
 		SpeedMulti = 1.1
-		JumpMulti = 1.0
+		JumpMulti = 1.25
+		AimSpeedMulti = 3.5
+		DmgMulti = 1.25
+		JumpDmgMulti = 2.5
 		levelmusic.pitch_scale = 1.05
 		tauntSong.pitch_scale = 1.05
 	elif Mental_State == EmotionalState.agony:
@@ -293,6 +301,9 @@ func _process(delta):
 		DamageTakenMulti = 1.1
 		SpeedMulti = 0.95
 		JumpMulti = 1.0
+		AimSpeedMulti = 0.95
+		DmgMulti = 1.0
+		JumpDmgMulti = 0.95
 		levelmusic.pitch_scale = 0.9
 		tauntSong.pitch_scale = 0.9
 	elif Mental_State == EmotionalState.disstressed:
@@ -300,6 +311,9 @@ func _process(delta):
 		DamageTakenMulti = 1.5 #default 1.25
 		SpeedMulti = 1.25 #default 0.95
 		JumpMulti = 1.0
+		AimSpeedMulti = 0.9
+		DmgMulti = 1.0
+		JumpDmgMulti = 0.8
 		levelmusic.pitch_scale = 0.75
 		tauntSong.pitch_scale = 0.75
 	elif Mental_State == EmotionalState.scared:
@@ -307,6 +321,9 @@ func _process(delta):
 		DamageTakenMulti = 1.5
 		SpeedMulti = 1.25
 		JumpMulti = 1.0
+		AimSpeedMulti = 0.9
+		DmgMulti = 1.0
+		JumpDmgMulti = 0.9
 		levelmusic.pitch_scale = 1.25
 		tauntSong.pitch_scale = 1.25
 	elif Mental_State == EmotionalState.unstable:
@@ -314,6 +331,9 @@ func _process(delta):
 		DamageTakenMulti = 2.0
 		SpeedMulti = 0.9
 		JumpMulti = 0.8
+		AimSpeedMulti = 0.7
+		DmgMulti = 0.8
+		JumpDmgMulti = 0.5
 		levelmusic.pitch_scale = 0.5
 		tauntSong.pitch_scale = 0.5
 	else:
@@ -321,8 +341,13 @@ func _process(delta):
 		DamageTakenMulti = 1.0
 		SpeedMulti = 1.0
 		JumpMulti = 1.0
+		AimSpeedMulti = 1.0
+		DmgMulti = 1.0
+		JumpDmgMulti = 1.0
 		levelmusic.pitch_scale = 1.0
 		tauntSong.pitch_scale = 1.0
+	shotty.dmgMulti(DmgMulti)
+	shotty.gunAim(Aimspeed*AimSpeedMulti*InjuryAimSpeed,instantAim)
 
 
 func _physics_process(delta: float) -> void:
@@ -382,6 +407,21 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 	
+	if BrokenArm:
+		InjuryAimSpeed = 0.5
+		instantAim = false
+		shotty.gunAim(Aimspeed*AimSpeedMulti*InjuryAimSpeed,instantAim)
+	elif InjuredArm:
+		InjuryAimSpeed = 0.75
+		instantAim = false
+		shotty.gunAim(Aimspeed*AimSpeedMulti*InjuryAimSpeed,instantAim)
+	else:
+		InjuryAimSpeed = 1.0
+		if startedWithInstaAim:
+			instantAim = true
+		shotty.gunAim(Aimspeed*AimSpeedMulti*InjuryAimSpeed,instantAim)
+		
+	
 	if IwantDuckOrTaunt != "taunt":
 		if levelmusic.stream_paused == true:
 			if global.Music_Enabled:
@@ -434,7 +474,7 @@ func handle_enemy_collision(enemy: Enemy):
 	var angle_of_collison = rad_to_deg(position.angle_to_point(enemy.position))
 	
 	if angle_of_collison > min_stomp_deg && max_stomp_deg > angle_of_collison:
-		enemy.hurtEnemy(Stomp_DMG)
+		enemy.hurtEnemy(Stomp_DMG*JumpDmgMulti)
 		enemy_stomped()
 	else:
 		gethitdmg = enemy.damage
@@ -447,7 +487,7 @@ func handle_enemy_collision2(enemy: EnemyMafia):
 	var angle_of_collison = rad_to_deg(position.angle_to_point(enemy.position))
 	
 	if angle_of_collison > min_stomp_deg && max_stomp_deg > angle_of_collison:
-		enemy.hurtEnemy(Stomp_DMG/2) #because mafia is stronger in this game
+		enemy.hurtEnemy((Stomp_DMG/2)*JumpDmgMulti) #because mafia is stronger in this game
 		enemy_stomped()
 	else:
 		gethitdmg = enemy.damage

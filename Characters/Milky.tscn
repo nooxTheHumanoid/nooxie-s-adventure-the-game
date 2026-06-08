@@ -501,6 +501,8 @@ JUMP_VELOCITY = -420.0
 SpeedBoost = 2.1
 Maxstamina = 90.0
 Stamina_Gain = 20.0
+instantAim = false
+Aimspeed = 900.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=926349382]
 sprite_frames = SubResource("SpriteFrames_gvmgx")

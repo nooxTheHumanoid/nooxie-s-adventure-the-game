@@ -7,13 +7,23 @@ const BULLET = preload('res://things/Slug.tscn')
 @onready var firesound = $Fire
 
 @export var y_offset = 8.0
-@export var AimSpeed = 420.0
+
+var AimSpeed = 420.0
+var instaAim = true
+var DmgMulti = 1.0
 var canfire = false
 var State = "none"
 var firecd: float = 0.5
 var actualfire = false
-var currentDMG = 0
+var currentDMG = 0.0
 
+func dmgMulti(dmg):
+	DmgMulti = dmg
+	
+func gunAim(Aspeed,InstaAim):
+	AimSpeed = Aspeed
+	instaAim = InstaAim
+	
 func dmgnumber(dmg):
 	currentDMG = dmg
 
@@ -50,21 +60,28 @@ func FiredcooldownOff():
 func _physics_process(delta: float) -> void:
 	if actualfire == false && visible == true:
 		canfire = true
-	#look_at(get_global_mouse_position())
-	#print(rad_to_deg(global_position.angle_to_point(get_global_mouse_position())))
-	var mouse = rad_to_deg(global_position.angle_to_point(get_global_mouse_position()))
-	if (abs (rotation_degrees - mouse) > 180):
-		mouse = mouse + 360 if mouse < 0 else mouse - 360
-	rotation_degrees = move_toward(rotation_degrees,mouse,AimSpeed* delta)
-	rotation_degrees = rotation_degrees + 360 if rotation_degrees < -180 else (rotation_degrees - 360 if rotation_degrees > 180 else rotation_degrees)
-	#rotation_degrees = wrap(rotation_degrees, 0 , 360)
-	if rotation_degrees > 90 or rotation_degrees < -90:
-		scale.y = -1
-		position.x = 0.25
+	if instaAim == false:
+		var mouse = rad_to_deg(global_position.angle_to_point(get_global_mouse_position()))
+		if (abs (rotation_degrees - mouse) > 180):
+			mouse = mouse + 360 if mouse < 0 else mouse - 360
+		rotation_degrees = move_toward(rotation_degrees,mouse,AimSpeed* delta)
+		rotation_degrees = rotation_degrees + 360 if rotation_degrees < -180 else (rotation_degrees - 360 if rotation_degrees > 180 else rotation_degrees)
+		if rotation_degrees > 90 or rotation_degrees < -90:
+			scale.y = -1
+			position.x = 0.25
+		else:
+			scale.y = 1
+			position.x = 0.0
 	else:
-		scale.y = 1
-		position.x = 0.0
-	
+		look_at(get_global_mouse_position())
+		rotation_degrees = wrap(rotation_degrees, 0 , 360)
+		if rotation_degrees > 90 and rotation_degrees < 270:
+			scale.y = -1
+			position.x = 0.25
+		else:
+			scale.y = 1
+			position.x = 0.0
+		
 	if (Input.is_action_just_pressed("shoot") && global.holdfire == false) or (Input.is_action_pressed("shoot") && global.holdfire):
 		if canfire and visible == true:
 			canfire = false
@@ -75,7 +92,7 @@ func _physics_process(delta: float) -> void:
 			get_tree().root.add_child(bullet_instance)
 			bullet_instance.global_position = muzzle.global_position
 			bullet_instance.rotation = rotation
-			bullet_instance.damagVal(currentDMG)
+			bullet_instance.damagVal(currentDMG*DmgMulti)
 			animator.fireshotty()
 			get_tree().create_timer(firecd).timeout.connect(FiredcooldownOff)
 
