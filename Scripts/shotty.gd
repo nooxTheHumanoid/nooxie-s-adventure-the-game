@@ -53,10 +53,12 @@ func _physics_process(delta: float) -> void:
 	#look_at(get_global_mouse_position())
 	#print(rad_to_deg(global_position.angle_to_point(get_global_mouse_position())))
 	var mouse = rad_to_deg(global_position.angle_to_point(get_global_mouse_position()))
-	print(mouse)
+	if (abs (rotation_degrees - mouse) > 180):
+		mouse = mouse + 360 if mouse < 0 else mouse - 360
 	rotation_degrees = move_toward(rotation_degrees,mouse,AimSpeed* delta)
+	rotation_degrees = rotation_degrees + 360 if rotation_degrees < -180 else (rotation_degrees - 360 if rotation_degrees > 180 else rotation_degrees)
 	#rotation_degrees = wrap(rotation_degrees, 0 , 360)
-	if rotation_degrees > 90 and rotation_degrees < 270:
+	if rotation_degrees > 90 or rotation_degrees < -90:
 		scale.y = -1
 		position.x = 0.25
 	else:
