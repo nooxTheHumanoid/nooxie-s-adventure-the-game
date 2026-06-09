@@ -2,7 +2,7 @@ extends Node2D
 
 @onready var detector = $Area2D/Detector
 
-var damagetoenemy: int = 1
+var damagetoenemy: float = 1.0
 var bulletlifetime: int = 5
 const SPEED: int = 300
 

@@ -15,7 +15,7 @@ var canfire = false
 var State = "none"
 var firecd: float = 0.5
 var actualfire = false
-var currentDMG = 0.0
+var currentDMG: float = 0.0
 
 func dmgMulti(dmg):
 	DmgMulti = dmg

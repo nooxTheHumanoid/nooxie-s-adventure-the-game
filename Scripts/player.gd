@@ -58,6 +58,7 @@ class inv_items:
 @export var temp_preload: PackedScene
 @export var temp_preload_2: PackedScene
 @export var temp_preload_3: PackedScene
+@export var temp_preload_4: PackedScene
 var inventory_limitations
 var inventory_size
 var inventory
@@ -137,6 +138,8 @@ var is_dead = false
 @export var MinStaminaToRun = 10.0
 @export var instantAim = true
 @export var Aimspeed = 1500.0
+@export var feelPain = true
+@export var PainRecovery = 10.0
 @export_group("")
 
 @export_group("Multipliers")
@@ -146,6 +149,7 @@ var is_dead = false
 @export var AimSpeedMulti = 1.0
 @export var DmgMulti = 1.0
 @export var JumpDmgMulti = 1.0
+@export var PainRecoveryMulti = 1.0
 @export_group("")
 
 @export_group("Character info")
@@ -166,6 +170,8 @@ var is_dead = false
 
 var ExtraSpeed = 1.0
 var InjuryAimSpeed = 1.0 #Used only for injuries
+var PainAmount = 100.0
+var HeadInjurySpeed = 1.0
 var startedWithInstaAim = true
 var IwantDuckOrTaunt = "none" #This is so fucking bad!!!
 var taunting: bool = false
@@ -186,6 +192,9 @@ func _ready():
 		print("failed to add item")
 	inventory_slot = 3; inventory_variation = 0 #changes slot to OPGun
 	if !invAdd(inv_items.new(SelectedWeapon.special, 1, 0.01, AmmoType.slug, temp_preload_3)):
+		print("failed to add item")
+	inventory_slot = 2; inventory_variation = 0
+	if !invAdd(inv_items.new(SelectedWeapon.melee, 0.2, 0.1, AmmoType.bullet, temp_preload_4)):
 		print("failed to add item")
 	inventory_slot = 0; inventory_variation = 0
 	invLoadCurent()
@@ -294,6 +303,7 @@ func _process(delta):
 		AimSpeedMulti = 3.5
 		DmgMulti = 1.25
 		JumpDmgMulti = 2.5
+		PainRecoveryMulti = 2.0
 		levelmusic.pitch_scale = 1.05
 		tauntSong.pitch_scale = 1.05
 	elif Mental_State == EmotionalState.agony:
@@ -304,6 +314,7 @@ func _process(delta):
 		AimSpeedMulti = 0.95
 		DmgMulti = 1.0
 		JumpDmgMulti = 0.95
+		PainRecoveryMulti = 0.4
 		levelmusic.pitch_scale = 0.9
 		tauntSong.pitch_scale = 0.9
 	elif Mental_State == EmotionalState.disstressed:
@@ -314,6 +325,7 @@ func _process(delta):
 		AimSpeedMulti = 0.9
 		DmgMulti = 1.0
 		JumpDmgMulti = 0.8
+		PainRecoveryMulti = 0.9
 		levelmusic.pitch_scale = 0.75
 		tauntSong.pitch_scale = 0.75
 	elif Mental_State == EmotionalState.scared:
@@ -324,6 +336,7 @@ func _process(delta):
 		AimSpeedMulti = 0.9
 		DmgMulti = 1.0
 		JumpDmgMulti = 0.9
+		PainRecoveryMulti = 1.0
 		levelmusic.pitch_scale = 1.25
 		tauntSong.pitch_scale = 1.25
 	elif Mental_State == EmotionalState.unstable:
@@ -334,6 +347,7 @@ func _process(delta):
 		AimSpeedMulti = 0.7
 		DmgMulti = 0.8
 		JumpDmgMulti = 0.5
+		PainRecoveryMulti = 0.7
 		levelmusic.pitch_scale = 0.5
 		tauntSong.pitch_scale = 0.5
 	else:
@@ -344,10 +358,11 @@ func _process(delta):
 		AimSpeedMulti = 1.0
 		DmgMulti = 1.0
 		JumpDmgMulti = 1.0
+		PainRecoveryMulti = 1.0
 		levelmusic.pitch_scale = 1.0
 		tauntSong.pitch_scale = 1.0
 	shotty.dmgMulti(DmgMulti)
-	shotty.gunAim(Aimspeed*AimSpeedMulti*InjuryAimSpeed,instantAim)
+	shotty.gunAim(Aimspeed*AimSpeedMulti*InjuryAimSpeed*HeadInjurySpeed,instantAim)
 
 
 func _physics_process(delta: float) -> void:
@@ -407,19 +422,27 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 	
+	if Headtrauma:
+		HeadInjurySpeed = 0.7
+		instantAim = false
+	else:
+		HeadInjurySpeed = 1.0
+		if startedWithInstaAim and not (BrokenArm or InjuredArm):
+			instantAim = true
+	
 	if BrokenArm:
 		InjuryAimSpeed = 0.5
 		instantAim = false
-		shotty.gunAim(Aimspeed*AimSpeedMulti*InjuryAimSpeed,instantAim)
+		shotty.gunAim(Aimspeed*AimSpeedMulti*InjuryAimSpeed*HeadInjurySpeed,instantAim)
 	elif InjuredArm:
 		InjuryAimSpeed = 0.75
 		instantAim = false
-		shotty.gunAim(Aimspeed*AimSpeedMulti*InjuryAimSpeed,instantAim)
+		shotty.gunAim(Aimspeed*AimSpeedMulti*InjuryAimSpeed*HeadInjurySpeed,instantAim)
 	else:
 		InjuryAimSpeed = 1.0
-		if startedWithInstaAim:
+		if startedWithInstaAim and not Headtrauma:
 			instantAim = true
-		shotty.gunAim(Aimspeed*AimSpeedMulti*InjuryAimSpeed,instantAim)
+		shotty.gunAim(Aimspeed*AimSpeedMulti*InjuryAimSpeed*HeadInjurySpeed,instantAim)
 		
 	
 	if IwantDuckOrTaunt != "taunt":

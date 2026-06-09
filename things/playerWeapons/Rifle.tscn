@@ -1,0 +1,103 @@
+[gd_scene format=3 uid="uid://d0ol3q6xiv0ch"]
+
+[ext_resource type="Script" uid="uid://xw28tbvonejr" path="res://Scripts/shotty.gd" id="1_oocp6"]
+[ext_resource type="Texture2D" uid="uid://dd4pdpcvyhhdo" path="res://EnemySprites/Mercs/Arms/Rifle/rifle2.png" id="2_4vfor"]
+[ext_resource type="Texture2D" uid="uid://t5irdrbhhbxd" path="res://EnemySprites/Mercs/Arms/Rifle/rifle1.png" id="3_qy6ql"]
+[ext_resource type="Script" uid="uid://cdudjf4b6ntn7" path="res://Scripts/GunAnims.gd" id="10_wrfhm"]
+[ext_resource type="AudioStream" uid="uid://d0wdmwqb6dkw4" path="res://Sounds/ShottyPlayer FIre.ogg" id="11_g4j3h"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_r0t5k"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_4vfor")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_qy6ql")
+}],
+"loop": false,
+"name": &"GuyD_Fire",
+"speed": 9.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_qy6ql")
+}],
+"loop": true,
+"name": &"GuyD_default",
+"speed": 9.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_4vfor")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_qy6ql")
+}],
+"loop": false,
+"name": &"Milky_Fire",
+"speed": 9.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_qy6ql")
+}],
+"loop": true,
+"name": &"Milky_default",
+"speed": 9.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_4vfor")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_qy6ql")
+}],
+"loop": false,
+"name": &"NULL_Fire",
+"speed": 9.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_qy6ql")
+}],
+"loop": true,
+"name": &"NULL_default",
+"speed": 9.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_4vfor")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_qy6ql")
+}],
+"loop": false,
+"name": &"NX_Fire",
+"speed": 9.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_qy6ql")
+}],
+"loop": true,
+"name": &"NX_default",
+"speed": 9.0
+}]
+
+[node name="OpGun" type="Node2D" unique_id=1407007056]
+script = ExtResource("1_oocp6")
+y_offset = 5.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=707050063]
+position = Vector2(12, -1)
+sprite_frames = SubResource("SpriteFrames_r0t5k")
+animation = &"GuyD_default"
+script = ExtResource("10_wrfhm")
+
+[node name="Marker2D" type="Marker2D" parent="." unique_id=568080738]
+position = Vector2(21, -3)
+
+[node name="Fire" type="AudioStreamPlayer2D" parent="." unique_id=239943092]
+stream = ExtResource("11_g4j3h")
+volume_db = -2.0
