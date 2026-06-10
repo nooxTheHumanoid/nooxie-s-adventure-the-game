@@ -139,7 +139,7 @@ var is_dead = false
 @export var instantAim = true
 @export var Aimspeed = 1500.0
 @export var feelPain = true
-@export var PainRecovery = 10.0
+@export var PainRecovery = 5.0
 @export_group("")
 
 @export_group("Multipliers")
@@ -171,6 +171,7 @@ var is_dead = false
 var ExtraSpeed = 1.0
 var InjuryAimSpeed = 1.0 #Used only for injuries
 var PainAmount = 100.0
+var mood = 100.0
 var HeadInjurySpeed = 1.0
 var startedWithInstaAim = true
 var IwantDuckOrTaunt = "none" #This is so fucking bad!!!
@@ -246,6 +247,18 @@ func _process(delta):
 		
 	if health >= MaxHealth:
 		health = MaxHealth
+		
+	if PainAmount >= 100.1:
+		PainAmount = 100.0
+	elif PainAmount <= 0.0:
+		PainAmount = 0.0
+	
+	if PainAmount < 100.0:
+		pain_recovery(delta)
+		
+	if PainAmount < 75.0 && CanBeInjured && (Mental_State != EmotionalState.unstable or Mental_State != EmotionalState.scared):
+		Mental_State = EmotionalState.agony
+		
 
 	if Has_stamina:	
 		stamina_bar.value = current_stamina / Maxstamina * 100
@@ -537,6 +550,9 @@ func drain_stamina(delta):
 
 func gain_stamina(delta):
 	current_stamina += delta * Stamina_Gain
+	
+func pain_recovery(delta):
+	PainAmount += (delta * PainRecovery) * PainRecoveryMulti
 
 func tryHeal(HP: int):
 	if global.fullDef:
@@ -545,6 +561,7 @@ func tryHeal(HP: int):
 
 func died():
 	health -= (gethitdmg-(gethitdmg*(defence*0.01)))*DamageTakenMulti
+	PainAmount -= (gethitdmg*1.5)
 	global.tempkills = 0
 	if health > 0:
 		health_bar.set_health(health) 
