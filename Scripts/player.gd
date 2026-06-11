@@ -140,6 +140,7 @@ var is_dead = false
 @export var Aimspeed = 1500.0
 @export var feelPain = true
 @export var PainRecovery = 5.0
+@export var MoodRecovery = 1.0
 @export_group("")
 
 @export_group("Multipliers")
@@ -150,6 +151,7 @@ var is_dead = false
 @export var DmgMulti = 1.0
 @export var JumpDmgMulti = 1.0
 @export var PainRecoveryMulti = 1.0
+@export var MoodMulti = 1.0
 @export_group("")
 
 @export_group("Character info")
@@ -317,6 +319,7 @@ func _process(delta):
 		DmgMulti = 1.25
 		JumpDmgMulti = 2.5
 		PainRecoveryMulti = 2.0
+		MoodMulti = 1.5
 		levelmusic.pitch_scale = 1.05
 		tauntSong.pitch_scale = 1.05
 	elif Mental_State == EmotionalState.agony:
@@ -328,6 +331,7 @@ func _process(delta):
 		DmgMulti = 1.0
 		JumpDmgMulti = 0.95
 		PainRecoveryMulti = 0.4
+		MoodMulti = 0.8
 		levelmusic.pitch_scale = 0.9
 		tauntSong.pitch_scale = 0.9
 	elif Mental_State == EmotionalState.disstressed:
@@ -339,6 +343,7 @@ func _process(delta):
 		DmgMulti = 1.0
 		JumpDmgMulti = 0.8
 		PainRecoveryMulti = 0.9
+		MoodMulti = 0.7
 		levelmusic.pitch_scale = 0.75
 		tauntSong.pitch_scale = 0.75
 	elif Mental_State == EmotionalState.scared:
@@ -350,6 +355,7 @@ func _process(delta):
 		DmgMulti = 1.0
 		JumpDmgMulti = 0.9
 		PainRecoveryMulti = 1.0
+		MoodMulti = 0.8
 		levelmusic.pitch_scale = 1.25
 		tauntSong.pitch_scale = 1.25
 	elif Mental_State == EmotionalState.unstable:
@@ -361,6 +367,7 @@ func _process(delta):
 		DmgMulti = 0.8
 		JumpDmgMulti = 0.5
 		PainRecoveryMulti = 0.7
+		MoodMulti = 0.25
 		levelmusic.pitch_scale = 0.5
 		tauntSong.pitch_scale = 0.5
 	else:
@@ -372,6 +379,7 @@ func _process(delta):
 		DmgMulti = 1.0
 		JumpDmgMulti = 1.0
 		PainRecoveryMulti = 1.0
+		MoodMulti = 1.0
 		levelmusic.pitch_scale = 1.0
 		tauntSong.pitch_scale = 1.0
 	shotty.dmgMulti(DmgMulti)
@@ -553,6 +561,9 @@ func gain_stamina(delta):
 	
 func pain_recovery(delta):
 	PainAmount += (delta * PainRecovery) * PainRecoveryMulti
+	
+func mood_change(delta):
+	mood += (delta * MoodRecovery) * MoodMulti
 
 func tryHeal(HP: int):
 	if global.fullDef:
