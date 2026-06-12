@@ -17,6 +17,7 @@ enum AIstate{
 	Defensive
 }
 
+@export var moodGain = 5.0
 @export var horizontal_speed = 30
 @export var vertical_speed = 100
 var damage = 7
@@ -157,6 +158,8 @@ func hurtEnemy(PlayerDamage):
 		health_bar.set_health(health)
 
 func die():
+	if playerdetected != null:
+		playerdetected.moodUp(moodGain)
 	if Death_Anim == deathmode.stomped:
 		horizontal_speed = 0
 		vertical_speed = 0

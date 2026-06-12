@@ -172,8 +172,8 @@ var is_dead = false
 
 var ExtraSpeed = 1.0
 var InjuryAimSpeed = 1.0 #Used only for injuries
-var PainAmount = 100.0
-var mood = 100.0
+@export var PainAmount = 100.0
+@export var mood = 100.0
 var HeadInjurySpeed = 1.0
 var startedWithInstaAim = true
 var IwantDuckOrTaunt = "none" #This is so fucking bad!!!
@@ -254,12 +254,28 @@ func _process(delta):
 		PainAmount = 100.0
 	elif PainAmount <= 0.0:
 		PainAmount = 0.0
+	if mood >= 210.1:
+		mood = 210.0
+	elif mood <= 0.0:
+		mood = 0.0
 	
 	if PainAmount < 100.0:
 		pain_recovery(delta)
+	if mood < 100.0:
+		mood_change(delta)
 		
-	if PainAmount < 75.0 && CanBeInjured && (Mental_State != EmotionalState.unstable or Mental_State != EmotionalState.scared):
+	if PainAmount < 75.0 && mood > 75.0 && mood < 150.0 && CanBeInjured && (Mental_State != EmotionalState.unstable or Mental_State != EmotionalState.scared):
 		Mental_State = EmotionalState.agony
+	elif mood < 75.0 && mood > 50.0:
+		Mental_State = EmotionalState.disstressed
+	elif mood < 50.0 && mood > 55.0:
+		Mental_State = EmotionalState.scared
+	elif mood < 25.0:
+		Mental_State = EmotionalState.unstable
+	elif mood > 150.0:
+		Mental_State = EmotionalState.focused
+	else:
+		Mental_State = EmotionalState.stable
 		
 
 	if Has_stamina:	
@@ -331,7 +347,7 @@ func _process(delta):
 		DmgMulti = 1.0
 		JumpDmgMulti = 0.95
 		PainRecoveryMulti = 0.4
-		MoodMulti = 0.8
+		MoodMulti = 0.7
 		levelmusic.pitch_scale = 0.9
 		tauntSong.pitch_scale = 0.9
 	elif Mental_State == EmotionalState.disstressed:
@@ -565,6 +581,9 @@ func pain_recovery(delta):
 func mood_change(delta):
 	mood += (delta * MoodRecovery) * MoodMulti
 
+func moodUp(MoodUp):
+	mood += (MoodUp * MoodRecovery) * MoodMulti
+
 func tryHeal(HP: int):
 	if global.fullDef:
 		health += HP
@@ -573,6 +592,7 @@ func tryHeal(HP: int):
 func died():
 	health -= (gethitdmg-(gethitdmg*(defence*0.01)))*DamageTakenMulti
 	PainAmount -= (gethitdmg*1.5)
+	mood -= (gethitdmg/MoodMulti)
 	global.tempkills = 0
 	if health > 0:
 		health_bar.set_health(health) 
