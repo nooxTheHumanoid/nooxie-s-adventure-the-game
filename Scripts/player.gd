@@ -152,6 +152,7 @@ var is_dead = false
 @export var JumpDmgMulti = 1.0
 @export var PainRecoveryMulti = 1.0
 @export var MoodMulti = 1.0
+@export var InjuryRecoveryMulti = 1.0
 @export_group("")
 
 @export_group("Character info")
@@ -168,6 +169,14 @@ var is_dead = false
 @export var BrokenArm = false
 @export var InjuredLeg = false
 @export var BrokenLeg = false
+@export_group("")
+
+@export_group("InjuryTimer")
+@export var HeadtraumaTime = 0.0
+@export var InjuredArmTime = 0.0
+@export var BrokenArmTime = 0.0
+@export var InjuredLegTime = 0.0
+@export var BrokenLegTime = 0.0
 @export_group("")
 
 var ExtraSpeed = 1.0
@@ -263,6 +272,38 @@ func _process(delta):
 		pain_recovery(delta)
 	if mood < 100.0:
 		mood_change(delta)
+		
+	if HeadtraumaTime < 0.0:
+		HeadtraumaTime = 0.0
+		Headtrauma = false
+	if InjuredArmTime < 0.0:
+		InjuredArmTime = 0.0
+		InjuredArm = false
+	if BrokenArmTime < 0.0:
+		BrokenArmTime = 0.0
+		BrokenArm = false
+	if InjuredLegTime < 0.0:
+		InjuredLegTime = 0.0
+		InjuredLeg = false
+	if BrokenLegTime < 0.0:
+		BrokenLegTime = 0.0
+		BrokenLeg = false
+		
+	if HeadtraumaTime > 0.0:
+		Headtrauma = true
+		HeadtraumaTime -= delta * InjuryRecoveryMulti 
+	if InjuredArmTime > 0.0:
+		InjuredArm = true
+		InjuredArmTime -= delta * InjuryRecoveryMulti
+	if BrokenArmTime > 0.0:
+		BrokenArm = true
+		BrokenArmTime -= delta * InjuryRecoveryMulti
+	if InjuredLegTime > 0.0:
+		InjuredLeg = true
+		InjuredLegTime -= delta * InjuryRecoveryMulti
+	if BrokenLegTime > 0.0:
+		BrokenLeg = true
+		BrokenLegTime -= delta * InjuryRecoveryMulti
 		
 	if PainAmount < 75.0 && mood > 75.0 && mood < 150.0 && CanBeInjured && (Mental_State != EmotionalState.unstable or Mental_State != EmotionalState.scared):
 		Mental_State = EmotionalState.agony
