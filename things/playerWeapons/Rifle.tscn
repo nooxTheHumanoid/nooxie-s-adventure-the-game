@@ -87,16 +87,16 @@ animations = [{
 
 [node name="OpGun" type="Node2D" unique_id=1407007056]
 script = ExtResource("1_oocp6")
-y_offset = 5.0
+y_offset = 3.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=707050063]
-position = Vector2(12, -1)
+position = Vector2(3, -5)
 sprite_frames = SubResource("SpriteFrames_r0t5k")
 animation = &"GuyD_default"
 script = ExtResource("10_wrfhm")
 
 [node name="Marker2D" type="Marker2D" parent="." unique_id=568080738]
-position = Vector2(21, -3)
+position = Vector2(16, -3)
 
 [node name="Fire" type="AudioStreamPlayer2D" parent="." unique_id=239943092]
 stream = ExtResource("11_g4j3h")

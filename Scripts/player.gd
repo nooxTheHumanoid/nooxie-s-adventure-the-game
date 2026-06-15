@@ -98,6 +98,7 @@ var is_dead = false
 @export var Has_stamina = true
 @export var TauntName = "Taunt"
 @export var Hands = "NX"
+@export var can_wallclimb = true
 @export_group("")
 
 @export_group("Stomping Enemies")
@@ -183,6 +184,7 @@ var ExtraSpeed = 1.0
 var InjuryAimSpeed = 1.0 #Used only for injuries
 @export var PainAmount = 100.0
 @export var mood = 100.0
+@export var visibility = 0.0
 var HeadInjurySpeed = 1.0
 var startedWithInstaAim = true
 var IwantDuckOrTaunt = "none" #This is so fucking bad!!!
@@ -237,6 +239,8 @@ func _ready():
 	health_bar.init_health(MaxHealth)
 	if shotty:
 		shotty.char_skin(Hands)
+	global.DamageTaken = 0.0
+	global.DamageBlocked = 0.0
 
 func _process(delta):
 	if Input.is_action_just_pressed("HoldFire"):
@@ -292,6 +296,7 @@ func _process(delta):
 	if HeadtraumaTime > 0.0:
 		Headtrauma = true
 		HeadtraumaTime -= delta * InjuryRecoveryMulti 
+		visibility -= delta * 10.0 
 	if InjuredArmTime > 0.0:
 		InjuredArm = true
 		InjuredArmTime -= delta * InjuryRecoveryMulti
@@ -632,8 +637,10 @@ func tryHeal(HP: int):
 
 func died():
 	health -= (gethitdmg-(gethitdmg*(defence*0.01)))*DamageTakenMulti
+	global.DamageTaken += (gethitdmg-(gethitdmg*(defence*0.01)))*DamageTakenMulti
 	PainAmount -= (gethitdmg*1.5)
 	mood -= (gethitdmg/MoodMulti)
+	#global.DamageBlocked += (gethitdmg*(defence*0.01))*DamageTakenMulti
 	global.tempkills = 0
 	if health > 0:
 		health_bar.set_health(health) 

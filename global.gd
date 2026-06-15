@@ -25,6 +25,9 @@ var character = 0
 # while playing
 var holdfire = false
 var fullDef = false
+# temp stats
+var DamageTaken = 0.0
+var DamageBlocked = 0.0
 func _process(_delta: float) -> void:
 	if Wave == 1:
 		maxenemies = 5

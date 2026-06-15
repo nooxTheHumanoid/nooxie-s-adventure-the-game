@@ -103,7 +103,7 @@ animation = &"NX_Fire"
 script = ExtResource("10_u0pnv")
 
 [node name="Marker2D" type="Marker2D" parent="." unique_id=568080738]
-position = Vector2(21, -3)
+position = Vector2(19, -3)
 
 [node name="Fire" type="AudioStreamPlayer2D" parent="." unique_id=239943092]
 stream = ExtResource("11_w2ndk")

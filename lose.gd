@@ -2,12 +2,14 @@ extends CanvasLayer
 
 @onready var Text = $DeathText
 @onready var Music = $Music
+@onready var stats = $Stats
 @export_file var Level
 @export_file var path
 var randomText = randi_range(1,4)
 func _ready() -> void:
 	#visible = false
 	Music.playing = global.Music_Enabled
+	stats.text = "Damage Taken: " + str(global.DamageTaken) + "\nDamage Blocked: " + str(global.DamageBlocked - global.DamageTaken)
 	if get_tree().get_first_node_in_group("Player"):
 		get_tree().get_first_node_in_group("Player").queue_free()
 	if randomText == 1:
