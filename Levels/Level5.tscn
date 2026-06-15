@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://ckii40e7slgih" path="res://Entities/Enemies/Mafia/MafiaGodfather.tscn" id="9_nijbd"]
 [ext_resource type="PackedScene" uid="uid://dyc3r0j7kdfcl" path="res://Entities/death_zone.tscn" id="10_7wtyh"]
 [ext_resource type="PackedScene" uid="uid://yokdaxdg6w3b" path="res://pause.tscn" id="11_cg4ff"]
+[ext_resource type="AudioStream" uid="uid://f6l8fqiup4wj" path="res://Music/Levels/The debt in blood nooxin+ version.mp3" id="11_rss6v"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_104vp"]
 texture = ExtResource("1_nijbd")
@@ -81,6 +82,7 @@ scale = Vector2(2, 1)
 position = Vector2(-165, 67)
 camera = NodePath("../Camera2D")
 song = ExtResource("7_nxrld")
-level = "uid://cg86mv7ckex06"
+songPlus = ExtResource("11_rss6v")
+level = "uid://c65hi6iu405pn"
 
 [node name="Pause" parent="." unique_id=338774573 instance=ExtResource("11_cg4ff")]

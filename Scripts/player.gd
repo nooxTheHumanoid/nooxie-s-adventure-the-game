@@ -638,9 +638,9 @@ func tryHeal(HP: int):
 func died():
 	health -= (gethitdmg-(gethitdmg*(defence*0.01)))*DamageTakenMulti
 	global.DamageTaken += (gethitdmg-(gethitdmg*(defence*0.01)))*DamageTakenMulti
+	global.DamageBlocked -= ((gethitdmg*(defence*0.01))*DamageTakenMulti)-gethitdmg
 	PainAmount -= (gethitdmg*1.5)
 	mood -= (gethitdmg/MoodMulti)
-	#global.DamageBlocked += (gethitdmg*(defence*0.01))*DamageTakenMulti
 	global.tempkills = 0
 	if health > 0:
 		health_bar.set_health(health) 

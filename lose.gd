@@ -9,7 +9,7 @@ var randomText = randi_range(1,4)
 func _ready() -> void:
 	#visible = false
 	Music.playing = global.Music_Enabled
-	stats.text = "Damage Taken: " + str(global.DamageTaken) + "\nDamage Blocked: " + str(global.DamageBlocked - global.DamageTaken)
+	stats.text = "Damage Taken: " + str(global.DamageTaken) + "\nDamage Blocked: " + str(global.DamageBlocked)
 	if get_tree().get_first_node_in_group("Player"):
 		get_tree().get_first_node_in_group("Player").queue_free()
 	if randomText == 1:

@@ -19,6 +19,7 @@ enum EmotionalState {
 @export var Milky : PackedScene
 @export var camera : Camera2D
 @export var song : AudioStreamMP3
+@export var songPlus : AudioStreamMP3
 @export_file var level
 @export_group("CharSettings")
 @export var MentalState = EmotionalState.stable
@@ -37,7 +38,10 @@ func _ready() -> void:
 		player.Mental_State = MentalState
 		player.position = position
 		player.Player_Mode = PlayerHasgun
-		player.LevelSong = song
+		if global.GameDifficulty != 4:
+			player.LevelSong = song
+		else:
+			player.LevelSong = songPlus
 		player.camera_sync = camera
 		player.should_camera_sync = true
 		player.Current_scene = level
@@ -56,7 +60,10 @@ func _ready() -> void:
 		var player = voidman.instantiate()
 		player.position = position
 		player.Player_Mode = PlayerHasgun
-		player.LevelSong = song
+		if global.GameDifficulty != 4:
+			player.LevelSong = song
+		else:
+			player.LevelSong = songPlus
 		player.camera_sync = camera
 		player.should_camera_sync = true
 		player.Current_scene = level
@@ -75,7 +82,10 @@ func _ready() -> void:
 		var player = guyD.instantiate()
 		player.position = position
 		player.Player_Mode = PlayerHasgun
-		player.LevelSong = song
+		if global.GameDifficulty != 4:
+			player.LevelSong = song
+		else:
+			player.LevelSong = songPlus
 		player.camera_sync = camera
 		player.should_camera_sync = true
 		player.Current_scene = level
@@ -94,7 +104,10 @@ func _ready() -> void:
 		var player = Milky.instantiate()
 		player.position = position
 		player.Player_Mode = PlayerHasgun
-		player.LevelSong = song
+		if global.GameDifficulty != 4:
+			player.LevelSong = song
+		else:
+			player.LevelSong = songPlus
 		player.camera_sync = camera
 		player.should_camera_sync = true
 		player.Current_scene = level

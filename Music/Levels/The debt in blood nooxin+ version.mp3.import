@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://f6l8fqiup4wj"
+path="res://.godot/imported/The debt in blood nooxin+ version.mp3-024d85618f2bbd1a79657be3f9beaf18.mp3str"
+
+[deps]
+
+source_file="res://Music/Levels/The debt in blood nooxin+ version.mp3"
+dest_files=["res://.godot/imported/The debt in blood nooxin+ version.mp3-024d85618f2bbd1a79657be3f9beaf18.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
