@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://derj3571jnown" path="res://MobileSprites/ButtonTemplate.png" id="5_nrnbx"]
 [ext_resource type="Script" uid="uid://ka2p8hd1sr4e" path="res://Scripts/difficultySetting.gd" id="6_ecwwl"]
 [ext_resource type="Script" uid="uid://c1xhr1bv46xxs" path="res://custom_content_menu.gd" id="6_l48gv"]
+[ext_resource type="PackedScene" uid="uid://bt0bsj83t8ip" path="res://things/game_info.tscn" id="10_iqepy"]
 
 [node name="Menu" type="Node2D" unique_id=1709035288]
 
@@ -826,6 +827,9 @@ theme_override_fonts/font = ExtResource("4_4hy44")
 theme_override_font_sizes/font_size = 100
 text = "Settings"
 horizontal_alignment = 1
+
+[node name="GameInfo" parent="." unique_id=1091133682 instance=ExtResource("10_iqepy")]
+menuInfo = true
 
 [connection signal="pressed" from="Control/Play" to="Control/Play" method="_on_pressed"]
 [connection signal="pressed" from="Control/Extras" to="Control/Extras" method="_on_pressed"]

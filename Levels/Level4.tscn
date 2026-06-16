@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://dyc3r0j7kdfcl" path="res://Entities/death_zone.tscn" id="10_3k6h0"]
 [ext_resource type="PackedScene" uid="uid://6mjy7jqd2boq" path="res://Entities/Enemies/Mafia/MafiaGoons.tscn" id="10_v72e1"]
 [ext_resource type="PackedScene" uid="uid://yokdaxdg6w3b" path="res://pause.tscn" id="11_so18s"]
+[ext_resource type="PackedScene" uid="uid://bt0bsj83t8ip" path="res://things/game_info.tscn" id="12_hg5yk"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_104vp"]
 texture = ExtResource("1_v72e1")
@@ -117,3 +118,6 @@ song = ExtResource("7_v72e1")
 level = "uid://cordqjkq3kfi"
 
 [node name="Pause" parent="." unique_id=338774573 instance=ExtResource("11_so18s")]
+
+[node name="GameInfo" parent="." unique_id=261087155 instance=ExtResource("12_hg5yk")]
+Levelname = "Level 4"

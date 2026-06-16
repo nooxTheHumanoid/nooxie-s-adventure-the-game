@@ -24,6 +24,7 @@ config/icon="uid://c46jcevsp6b0a"
 
 global="*res://global.gd"
 SaveData="*uid://bkemnig8143g4"
+DiscordRPCLoader="*uid://i5ak4nusoud3"
 
 [display]
 
@@ -33,7 +34,7 @@ window/stretch/aspect="expand"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/godot_super-wakatime/plugin.cfg")
+enabled=PackedStringArray("res://addons/discord-rpc-gd/plugin.cfg", "res://addons/godot_super-wakatime/plugin.cfg")
 
 [global_group]
 

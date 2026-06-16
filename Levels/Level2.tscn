@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://88k2dmp3clm0" path="res://Entities/player_spawn.tscn" id="11_80cou"]
 [ext_resource type="PackedScene" uid="uid://drwt5fd2ow5qy" path="res://Entities/LevelThings/Spike.tscn" id="11_lf2mf"]
 [ext_resource type="PackedScene" uid="uid://yokdaxdg6w3b" path="res://pause.tscn" id="13_xosfc"]
+[ext_resource type="PackedScene" uid="uid://bt0bsj83t8ip" path="res://things/game_info.tscn" id="14_mbiy8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_104vp"]
 texture = ExtResource("1_x7rwe")
@@ -302,3 +303,6 @@ Force_hp = true
 New_HP = 0.1
 
 [node name="Pause" parent="." unique_id=338774573 instance=ExtResource("13_xosfc")]
+
+[node name="GameInfo" parent="." unique_id=261087155 instance=ExtResource("14_mbiy8")]
+Levelname = "Level 2"

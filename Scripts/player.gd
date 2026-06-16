@@ -241,6 +241,19 @@ func _ready():
 		shotty.char_skin(Hands)
 	global.DamageTaken = 0.0
 	global.DamageBlocked = 0.0
+	if Mental_State == EmotionalState.focused:
+		emotionText.text = "focused"
+	elif Mental_State == EmotionalState.agony:
+		emotionText.text = "agony"
+	elif Mental_State == EmotionalState.disstressed:
+		emotionText.text = "disstressed"
+	elif Mental_State == EmotionalState.scared:
+		emotionText.text = "scared"
+	elif Mental_State == EmotionalState.unstable:
+		emotionText.text = "unstable"
+	else:
+		emotionText.text = "stable"
+	emotionCast(emotionText.text)
 
 func _process(delta):
 	if Input.is_action_just_pressed("HoldFire"):
@@ -444,6 +457,7 @@ func _process(delta):
 		MoodMulti = 1.0
 		levelmusic.pitch_scale = 1.0
 		tauntSong.pitch_scale = 1.0
+	emotionCast(emotionText.text)
 	shotty.dmgMulti(DmgMulti)
 	shotty.gunAim(Aimspeed*AimSpeedMulti*InjuryAimSpeed*HeadInjurySpeed,instantAim)
 
@@ -709,3 +723,6 @@ func invLoadCurent():
 	shotty = inventory_loaded_wepon
 	if shotty:
 		shotty.char_skin(Hands)
+		
+func emotionCast(text):
+	global.Emotion = text

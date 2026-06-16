@@ -5,6 +5,7 @@
 [ext_resource type="AudioStream" uid="uid://bo22385enl104" path="res://Music/Just A Simple Card Game.mp3" id="3_j25pg"]
 [ext_resource type="Texture2D" uid="uid://x57oixibfk03" path="res://textures/Misc/Background.png" id="4_setvd"]
 [ext_resource type="PackedScene" uid="uid://yokdaxdg6w3b" path="res://pause.tscn" id="5_j25pg"]
+[ext_resource type="PackedScene" uid="uid://bt0bsj83t8ip" path="res://things/game_info.tscn" id="6_vba1j"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ga22d"]
 bg_color = Color(0, 0, 0, 1)
@@ -218,6 +219,9 @@ texture = ExtResource("4_setvd")
 expand_mode = 3
 
 [node name="Pause" parent="." unique_id=338774573 instance=ExtResource("5_j25pg")]
+
+[node name="GameInfo" parent="." unique_id=261087155 instance=ExtResource("6_vba1j")]
+Levelname = "Endless Blackjack"
 
 [connection signal="pressed" from="Hit" to="." method="_on_hit_pressed"]
 [connection signal="pressed" from="Pass" to="." method="_on_pass_pressed"]

@@ -18,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://88k2dmp3clm0" path="res://Entities/player_spawn.tscn" id="16_famn7"]
 [ext_resource type="PackedScene" uid="uid://dyc3r0j7kdfcl" path="res://Entities/death_zone.tscn" id="17_d75p2"]
 [ext_resource type="PackedScene" uid="uid://yokdaxdg6w3b" path="res://pause.tscn" id="18_exqbx"]
+[ext_resource type="PackedScene" uid="uid://bt0bsj83t8ip" path="res://things/game_info.tscn" id="19_e43p4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_104vp"]
 texture = ExtResource("1_3sm0n")
@@ -226,12 +227,16 @@ position = Vector2(-17, 116)
 position = Vector2(-95, -5)
 camera = NodePath("../Camera2D")
 song = ExtResource("7_mo5sh")
+songPlus = ExtResource("7_mo5sh")
 level = "uid://bv02eg3dotl02"
 defence = 100.0
 CanHeal_viaTaunt = true
 HealthFromTaunting = 1.0
 
 [node name="Pause" parent="." unique_id=338774573 instance=ExtResource("18_exqbx")]
+
+[node name="GameInfo" parent="." unique_id=1091133682 instance=ExtResource("19_e43p4")]
+Levelname = "Arena Mode"
 
 [connection signal="timeout" from="EnemiesSpawns/Spawner/Timer" to="EnemiesSpawns/Spawner" method="_on_timer_timeout"]
 [connection signal="timeout" from="EnemiesSpawns/Spawner2/Timer" to="EnemiesSpawns/Spawner2" method="_on_timer_timeout"]
