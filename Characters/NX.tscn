@@ -531,6 +531,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Emotion" type="Label" parent="." unique_id=1150700462]
+visible = false
 offset_left = -31.0
 offset_top = -50.0
 offset_right = 34.0

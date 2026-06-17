@@ -301,6 +301,8 @@ PlayerHasgun = 0
 show_stats = false
 Force_hp = true
 New_HP = 0.1
+affected_by_mood = false
+allowInjuries = false
 
 [node name="Pause" parent="." unique_id=338774573 instance=ExtResource("13_xosfc")]
 

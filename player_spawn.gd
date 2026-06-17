@@ -31,7 +31,8 @@ enum EmotionalState {
 @export var CanHeal_viaTaunt = false
 @export var HealthFromTaunting = 0.01
 @export var HealWaitFromTaunt = 0.5
-
+@export var affected_by_mood = true
+@export var allowInjuries = true
 func _ready() -> void:
 	if global.character == 0:
 		var player = nx.instantiate()
@@ -46,6 +47,8 @@ func _ready() -> void:
 		player.should_camera_sync = true
 		player.Current_scene = level
 		player.defence = defence
+		player.affected_by_mood = affected_by_mood
+		player.allowInjuries = allowInjuries
 		if show_stats == false:
 			player.Show_Health = false
 			player.Show_defence = false
@@ -68,6 +71,8 @@ func _ready() -> void:
 		player.should_camera_sync = true
 		player.Current_scene = level
 		#player.defence = defence
+		player.affected_by_mood = affected_by_mood
+		player.allowInjuries = allowInjuries
 		if show_stats == false:
 			player.Show_Health = false
 			player.Show_defence = false
@@ -90,6 +95,8 @@ func _ready() -> void:
 		player.should_camera_sync = true
 		player.Current_scene = level
 		#player.defence = defence
+		player.affected_by_mood = affected_by_mood
+		player.allowInjuries = allowInjuries
 		if show_stats == false:
 			player.Show_Health = false
 			player.Show_defence = false
@@ -112,6 +119,8 @@ func _ready() -> void:
 		player.should_camera_sync = true
 		player.Current_scene = level
 		#player.defence = defence
+		player.affected_by_mood = affected_by_mood
+		player.allowInjuries = allowInjuries
 		if show_stats == false:
 			player.Show_Health = false
 			player.Show_defence = false

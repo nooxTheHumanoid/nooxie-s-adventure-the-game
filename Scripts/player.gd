@@ -99,6 +99,8 @@ var is_dead = false
 @export var TauntName = "Taunt"
 @export var Hands = "NX"
 @export var can_wallclimb = true
+@export var affected_by_mood = true
+@export var allowInjuries = true
 @export_group("")
 
 @export_group("Stomping Enemies")
@@ -305,36 +307,38 @@ func _process(delta):
 	if BrokenLegTime < 0.0:
 		BrokenLegTime = 0.0
 		BrokenLeg = false
+	
+	if allowInjuries:
+		if HeadtraumaTime > 0.0:
+			Headtrauma = true
+			HeadtraumaTime -= delta * InjuryRecoveryMulti 
+			visibility -= delta * 10.0 
+		if InjuredArmTime > 0.0:
+			InjuredArm = true
+			InjuredArmTime -= delta * InjuryRecoveryMulti
+		if BrokenArmTime > 0.0:
+			BrokenArm = true
+			BrokenArmTime -= delta * InjuryRecoveryMulti
+		if InjuredLegTime > 0.0:
+			InjuredLeg = true
+			InjuredLegTime -= delta * InjuryRecoveryMulti
+		if BrokenLegTime > 0.0:
+			BrokenLeg = true
+			BrokenLegTime -= delta * InjuryRecoveryMulti
 		
-	if HeadtraumaTime > 0.0:
-		Headtrauma = true
-		HeadtraumaTime -= delta * InjuryRecoveryMulti 
-		visibility -= delta * 10.0 
-	if InjuredArmTime > 0.0:
-		InjuredArm = true
-		InjuredArmTime -= delta * InjuryRecoveryMulti
-	if BrokenArmTime > 0.0:
-		BrokenArm = true
-		BrokenArmTime -= delta * InjuryRecoveryMulti
-	if InjuredLegTime > 0.0:
-		InjuredLeg = true
-		InjuredLegTime -= delta * InjuryRecoveryMulti
-	if BrokenLegTime > 0.0:
-		BrokenLeg = true
-		BrokenLegTime -= delta * InjuryRecoveryMulti
-		
-	if PainAmount < 75.0 && mood > 75.0 && mood < 150.0 && CanBeInjured && (Mental_State != EmotionalState.unstable or Mental_State != EmotionalState.scared):
-		Mental_State = EmotionalState.agony
-	elif mood < 75.0 && mood > 50.0:
-		Mental_State = EmotionalState.disstressed
-	elif mood < 50.0 && mood > 25.0:
-		Mental_State = EmotionalState.scared
-	elif mood < 25.0:
-		Mental_State = EmotionalState.unstable
-	elif mood > 150.0:
-		Mental_State = EmotionalState.focused
-	else:
-		Mental_State = EmotionalState.stable
+	if affected_by_mood:
+		if PainAmount < 75.0 && mood > 75.0 && mood < 150.0 && CanBeInjured && (Mental_State != EmotionalState.unstable or Mental_State != EmotionalState.scared):
+			Mental_State = EmotionalState.agony
+		elif mood < 75.0 && mood > 50.0:
+			Mental_State = EmotionalState.disstressed
+		elif mood < 50.0 && mood > 25.0:
+			Mental_State = EmotionalState.scared
+		elif mood < 25.0:
+			Mental_State = EmotionalState.unstable
+		elif mood > 150.0:
+			Mental_State = EmotionalState.focused
+		else:
+			Mental_State = EmotionalState.stable
 		
 
 	if Has_stamina:	
