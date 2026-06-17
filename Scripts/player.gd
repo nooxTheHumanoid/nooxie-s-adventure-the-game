@@ -327,7 +327,7 @@ func _process(delta):
 		Mental_State = EmotionalState.agony
 	elif mood < 75.0 && mood > 50.0:
 		Mental_State = EmotionalState.disstressed
-	elif mood < 50.0 && mood > 55.0:
+	elif mood < 50.0 && mood > 25.0:
 		Mental_State = EmotionalState.scared
 	elif mood < 25.0:
 		Mental_State = EmotionalState.unstable
@@ -457,6 +457,7 @@ func _process(delta):
 		MoodMulti = 1.0
 		levelmusic.pitch_scale = 1.0
 		tauntSong.pitch_scale = 1.0
+		
 	emotionCast(emotionText.text)
 	shotty.dmgMulti(DmgMulti)
 	shotty.gunAim(Aimspeed*AimSpeedMulti*InjuryAimSpeed*HeadInjurySpeed,instantAim)
@@ -659,6 +660,8 @@ func died():
 	if health > 0:
 		health_bar.set_health(health) 
 	if health <= 0:
+		if get_tree().get_first_node_in_group("Discord"):
+			get_tree().get_first_node_in_group("Discord").update(true)
 		is_dead = true
 		defence_bar.queue_free()
 		stamina_bar.visible = false
@@ -725,4 +728,7 @@ func invLoadCurent():
 		shotty.char_skin(Hands)
 		
 func emotionCast(text):
-	global.Emotion = text
+	if global.Emotion != text:
+		global.Emotion = text
+		if get_tree().get_first_node_in_group("Discord"):
+			get_tree().get_first_node_in_group("Discord").update(false)

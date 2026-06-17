@@ -1,0 +1,99 @@
+extends Node2D
+
+const BULLET = preload('res://things/Slug.tscn')
+
+@onready var muzzle: Marker2D = $Marker2D
+@onready var animator: AnimatedSprite2D = $AnimatedSprite2D
+
+@export var y_offset = 8.0
+
+var AimSpeed = 420.0
+var instaAim = true
+var DmgMulti = 1.0
+var canfire = false
+var State = "none"
+var firecd: float = 0.5
+var actualfire = false
+var currentDMG: float = 0.0
+
+func dmgMulti(dmg):
+	DmgMulti = dmg
+	
+func gunAim(Aspeed,InstaAim):
+	AimSpeed = Aspeed
+	instaAim = InstaAim
+	
+func dmgnumber(dmg):
+	currentDMG = dmg
+
+func cdnumber(cdnum):
+	firecd = cdnum
+
+func state_char_anim(StateAnim: String):
+	State = StateAnim
+
+func char_skin(Hskin):
+	animator.skin(Hskin)
+	animator.loadSkin()
+
+func modenotifforguns(player_guns: Player.PlayerMode):
+	if player_guns == Player.PlayerMode.nohands && State == "none":
+		visible = true
+		position.y = y_offset
+	elif player_guns == Player.PlayerMode.nohands && State == "duck":
+		visible = true
+		position.y = y_offset + 3
+	elif player_guns == Player.PlayerMode.nohands && State == "taunt":
+		visible = false
+		canfire = false
+		position.y = y_offset
+	else:
+		visible = false
+		canfire = false
+		position.y = y_offset
+
+func FiredcooldownOff():
+	canfire = true
+	actualfire=false
+
+func _physics_process(delta: float) -> void:
+	if actualfire == false && visible == true:
+		canfire = true
+	if instaAim == false:
+		var mouse = rad_to_deg(global_position.angle_to_point(get_global_mouse_position()))
+		if (abs (rotation_degrees - mouse) > 180):
+			mouse = mouse + 360 if mouse < 0 else mouse - 360
+		rotation_degrees = move_toward(rotation_degrees,mouse,AimSpeed* delta)
+		rotation_degrees = rotation_degrees + 360 if rotation_degrees < -180 else (rotation_degrees - 360 if rotation_degrees > 180 else rotation_degrees)
+		if rotation_degrees > 90 or rotation_degrees < -90:
+			scale.y = -1
+			position.x = 0.25
+		else:
+			scale.y = 1
+			position.x = 0.0
+	else:
+		look_at(get_global_mouse_position())
+		rotation_degrees = wrap(rotation_degrees, 0 , 360)
+		if rotation_degrees > 90 and rotation_degrees < 270:
+			scale.y = -1
+			position.x = 0.25
+		else:
+			scale.y = 1
+			position.x = 0.0
+		
+	if (Input.is_action_just_pressed("shoot") && global.holdfire == false) or (Input.is_action_pressed("shoot") && global.holdfire):
+		if canfire and visible == true:
+			canfire = false
+			actualfire = true
+			if global.SFX_Enabled:
+				firesound.play()
+			var bullet_instance = BULLET.instantiate()
+			get_tree().root.add_child(bullet_instance)
+			bullet_instance.global_position = muzzle.global_position
+			bullet_instance.rotation = rotation
+			bullet_instance.damagVal(currentDMG*DmgMulti)
+			animator.fireshotty()
+			get_tree().create_timer(firecd).timeout.connect(FiredcooldownOff)
+
+func mayIswap():
+	return canfire

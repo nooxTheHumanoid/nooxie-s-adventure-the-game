@@ -829,7 +829,9 @@ text = "Settings"
 horizontal_alignment = 1
 
 [node name="GameInfo" parent="." unique_id=1091133682 instance=ExtResource("10_iqepy")]
+Levelname = "Main menu"
 menuInfo = true
+info = "What you looking at?"
 
 [connection signal="pressed" from="Control/Play" to="Control/Play" method="_on_pressed"]
 [connection signal="pressed" from="Control/Extras" to="Control/Extras" method="_on_pressed"]

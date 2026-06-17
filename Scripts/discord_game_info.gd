@@ -1,9 +1,11 @@
-extends Node
+extends Node2D
 
 @export var Levelname = ""
 @export var menuInfo = false
+@export var info = ""
 
 func _ready():
+	DiscordRPC.clear()
 	DiscordRPC.app_id = 1516531360469094642
 	DiscordRPC.details = Levelname
 	DiscordRPC.state = "Mental State: " + str(global.Emotion)
@@ -38,20 +40,20 @@ func _ready():
 			DiscordRPC.small_image = "blank"
 			DiscordRPC.small_image_text = "Playing as ???"
 	else:
-		DiscordRPC.details = "Main Menu"
-		DiscordRPC.large_image_text = "What you looking at?"
+		DiscordRPC.details = Levelname
+		DiscordRPC.large_image_text = info
 		DiscordRPC.small_image = ""
 		DiscordRPC.small_image_text = ""
 		DiscordRPC.state = ""
 	
 	DiscordRPC.start_timestamp = int(Time.get_unix_time_from_system())
+	DiscordRPC.refresh()
 
-func _process(_delta: float) -> void:
+func update(death):
 	if !menuInfo:
-		if get_tree().get_first_node_in_group("Player"):
+		if !death:
 			DiscordRPC.state = "Mental State: " + str(global.Emotion)
 		else:
 			DiscordRPC.details = "Game Over"
 			
-
 	DiscordRPC.refresh()

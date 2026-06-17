@@ -2,5 +2,5 @@
 
 [ext_resource type="Script" uid="uid://dxo0vwfn5kd1" path="res://Scripts/discord_game_info.gd" id="1_3axv2"]
 
-[node name="GameInfo" type="Node" unique_id=261087155]
+[node name="GameInfo" type="Node2D" unique_id=597719676 groups=["Discord"]]
 script = ExtResource("1_3axv2")

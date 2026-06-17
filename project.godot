@@ -39,6 +39,7 @@ enabled=PackedStringArray("res://addons/discord-rpc-gd/plugin.cfg", "res://addon
 [global_group]
 
 Player="This is the player"
+Discord="Things for discord"
 
 [input]
 

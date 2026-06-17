@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://wfvctgr6i4wp" path="res://textures/Misc/ButtonSelected.png" id="9_h0m5m"]
 [ext_resource type="Texture2D" uid="uid://btg57j30eumbd" path="res://textures/CharacterIcons/GuyDarkheart.png" id="9_xruyl"]
 [ext_resource type="Texture2D" uid="uid://bk1tae33alwi3" path="res://textures/CharacterIcons/Milky.png" id="10_cje23"]
+[ext_resource type="PackedScene" uid="uid://bt0bsj83t8ip" path="res://things/game_info.tscn" id="13_xruyl"]
 
 [sub_resource type="Theme" id="Theme_0mrbc"]
 
@@ -1664,6 +1665,12 @@ theme_override_icons/unchecked = ExtResource("5_jlqq6")
 button_pressed = true
 text = "Enable nooxin' watch"
 autowrap_mode = 3
+
+[node name="GameInfo" parent="." unique_id=597719676 instance=ExtResource("13_xruyl")]
+position = Vector2(558, -912)
+Levelname = "Character Selection"
+menuInfo = true
+info = "Multiple great picks."
 
 [connection signal="pressed" from="Menu" to="Menu" method="_on_pressed"]
 [connection signal="item_selected" from="Characters" to="." method="_on_characters_item_selected"]
