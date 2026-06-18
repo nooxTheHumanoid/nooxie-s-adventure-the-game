@@ -86,7 +86,8 @@ func _physics_process(delta: float) -> void:
 			canfire = false
 			actualfire = true
 			if global.SFX_Enabled:
-				firesound.play()
+				pass
+				#firesound.play()
 			var bullet_instance = BULLET.instantiate()
 			get_tree().root.add_child(bullet_instance)
 			bullet_instance.global_position = muzzle.global_position

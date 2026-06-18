@@ -16,7 +16,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 
 config/name="nooxie's adventure"
 run/main_scene="uid://2rnssecloxxs"
-config/features=PackedStringArray("4.6", "GL Compatibility")
+config/features=PackedStringArray("4.7", "GL Compatibility")
 boot_splash/image="uid://c46jcevsp6b0a"
 config/icon="uid://c46jcevsp6b0a"
 
@@ -40,6 +40,8 @@ enabled=PackedStringArray("res://addons/discord-rpc-gd/plugin.cfg", "res://addon
 
 Player="This is the player"
 Discord="Things for discord"
+EnemyBullets=""
+PlayerBullets=""
 
 [input]
 
@@ -138,6 +140,8 @@ pointing/emulate_touch_from_mouse=true
 2d_physics/layer_3="enemy"
 2d_physics/layer_5="obstacle"
 2d_physics/layer_6="bonus"
+2d_physics/layer_7="EnemyBullet"
+2d_physics/layer_8="PlayerBullet"
 
 [rendering]
 

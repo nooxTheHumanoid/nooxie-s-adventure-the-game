@@ -13,7 +13,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("2_antbb")
 }],
-"loop": true,
+"loop": 1,
 "name": &"Slug",
 "speed": 5.0
 }, {
@@ -21,17 +21,17 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("3_antbb")
 }],
-"loop": true,
+"loop": 1,
 "name": &"default",
 "speed": 5.0
 }]
 
-[node name="Bullet" type="Node2D" unique_id=1319708312]
+[node name="Bullet" type="Node2D" unique_id=1319708312 groups=["PlayerBullets"]]
 script = ExtResource("1_lvpr2")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=158274943]
-collision_layer = 5
-collision_mask = 4
+collision_layer = 133
+collision_mask = 68
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=434828921]
 shape = SubResource("RectangleShape2D_lvpr2")
@@ -41,12 +41,9 @@ target_position = Vector2(6, 0)
 collision_mask = 2
 collide_with_areas = true
 
-[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1638129791]
-
 [node name="BulletSprite" type="AnimatedSprite2D" parent="." unique_id=1836929617]
 rotation = 1.5707964
 sprite_frames = SubResource("SpriteFrames_lus6f")
 animation = &"Slug"
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
-[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

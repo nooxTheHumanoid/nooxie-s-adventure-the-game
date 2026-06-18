@@ -16,6 +16,7 @@ var State = "none"
 var firecd: float = 0.5
 var actualfire = false
 var currentDMG: float = 0.0
+var bulletHP: float = 2.0
 
 func dmgMulti(dmg):
 	DmgMulti = dmg
@@ -26,6 +27,9 @@ func gunAim(Aspeed,InstaAim):
 	
 func dmgnumber(dmg):
 	currentDMG = dmg
+	
+func bulletnum(hp):
+	bulletHP = hp
 
 func cdnumber(cdnum):
 	firecd = cdnum
@@ -93,6 +97,7 @@ func _physics_process(delta: float) -> void:
 			bullet_instance.global_position = muzzle.global_position
 			bullet_instance.rotation = rotation
 			bullet_instance.damagVal(currentDMG*DmgMulti)
+			bullet_instance.healthVal(bulletHP)
 			animator.fireshotty()
 			get_tree().create_timer(firecd).timeout.connect(FiredcooldownOff)
 

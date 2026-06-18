@@ -36,16 +36,18 @@ class inv_items:
 	var attack_speed: float
 	var ammo_type: AmmoType
 	var wepons: PackedScene
+	var bulletHP: float
 	var slot_id: int
 	var variant_id: int
 	var offset: Vector2 = Vector2.ZERO
 	var offset_crouch: Vector2 = Vector2.ZERO
-	func _init(p_weapon_type,p_dmg,p_attack_speed,p_ammo_type,p_wepons):
+	func _init(p_weapon_type,p_dmg,p_attack_speed,p_ammo_type,p_wepons,B_HP):
 		self.weapon_type = p_weapon_type
 		self.dmg = p_dmg
 		self.attack_speed = p_attack_speed
 		self.ammo_type = p_ammo_type
 		self.wepons = p_wepons
+		self.bulletHP = B_HP
 	func setSlots(p_slot_id,p_variant_id): variant_id = p_slot_id; variant_id = p_variant_id
 	func setOffsets(p_offset, p_offset_crouch): offset = p_offset; offset_crouch = p_offset_crouch
 	func getSlots(): return [slot_id, variant_id]
@@ -54,6 +56,7 @@ class inv_items:
 	func getOffsets(): return [offset, offset_crouch]
 	func getDmg() -> float: return dmg
 	func getAttackspeed() -> float: return attack_speed
+	func getBHP() -> float: return bulletHP
 
 @export var temp_preload: PackedScene
 @export var temp_preload_2: PackedScene
@@ -201,16 +204,16 @@ var Char_Running = false
 func _ready():
 	invInit([SelectedWeapon.primary, SelectedWeapon.secondary, SelectedWeapon.melee, SelectedWeapon.special], [1, 1, 3, 1])
 	inventory_slot = 0; inventory_variation = 0
-	if !invAdd(inv_items.new(SelectedWeapon.primary, 1, 0.5, AmmoType.slug, temp_preload)):
+	if !invAdd(inv_items.new(SelectedWeapon.primary, 1, 0.5, AmmoType.slug, temp_preload,2.0)):
 		print("failed to add item")
 	inventory_slot = 1; inventory_variation = 0 #changes slot to mag_12
-	if !invAdd(inv_items.new(SelectedWeapon.secondary, 4, 2.1, AmmoType.bullet, temp_preload_2)):
+	if !invAdd(inv_items.new(SelectedWeapon.secondary, 4, 2.1, AmmoType.bullet, temp_preload_2,5.0)):
 		print("failed to add item")
 	inventory_slot = 3; inventory_variation = 0 #changes slot to OPGun
-	if !invAdd(inv_items.new(SelectedWeapon.special, 1, 0.01, AmmoType.slug, temp_preload_3)):
+	if !invAdd(inv_items.new(SelectedWeapon.special, 1, 0.01, AmmoType.slug, temp_preload_3,1.0)):
 		print("failed to add item")
 	inventory_slot = 2; inventory_variation = 0
-	if !invAdd(inv_items.new(SelectedWeapon.melee, 0.2, 0.1, AmmoType.bullet, temp_preload_4)):
+	if !invAdd(inv_items.new(SelectedWeapon.melee, 0.2, 0.1, AmmoType.bullet, temp_preload_4,1.0)):
 		print("failed to add item")
 	inventory_slot = 0; inventory_variation = 0
 	invLoadCurent()
@@ -565,6 +568,7 @@ func _physics_process(delta: float) -> void:
 		shotty.modenotifforguns(Player_Mode)
 		shotty.state_char_anim(IwantDuckOrTaunt)
 		shotty.dmgnumber(inventory_loaded_item.getDmg())
+		shotty.bulletnum(inventory_loaded_item.getBHP())
 		shotty.cdnumber(inventory_loaded_item.getAttackspeed())
 		if shotty.mayIswap() == true:
 			if Input.is_action_just_pressed("slot1"):
