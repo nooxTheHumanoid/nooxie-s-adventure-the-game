@@ -26,7 +26,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("5_wfr16")
 }],
-"loop": false,
+"loop": 0,
 "name": &"NX_Fire",
 "speed": 12.0
 }, {
@@ -34,7 +34,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("2_x4elr")
 }],
-"loop": true,
+"loop": 1,
 "name": &"NX_default",
 "speed": 5.0
 }]
@@ -44,7 +44,6 @@ size = Vector2(47.691933, 47.999996)
 
 [node name="Node2D" type="Node2D" unique_id=1453195945]
 script = ExtResource("1_s354t")
-y_offset = null
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1073005557]
 sprite_frames = SubResource("SpriteFrames_j178h")
@@ -54,12 +53,18 @@ script = ExtResource("6_jyqjm")
 [node name="Area2D" type="Area2D" parent="." unique_id=2069887864]
 position = Vector2(24, 0)
 scale = Vector2(0.5, 1.0416667)
+collision_layer = 65
+collision_mask = 68
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1736442283]
 position = Vector2(0.15403366, -6.29425e-07)
 shape = SubResource("RectangleShape2D_2ojk7")
+disabled = true
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=953092766]
+visible = false
 position = Vector2(24, 0)
 scale = Vector2(0.5, 1.0416667)
 texture = ExtResource("7_f3yje")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

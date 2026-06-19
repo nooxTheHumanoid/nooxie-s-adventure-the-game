@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://dgkr6fl7dof5u" path="res://things/playerWeapons/OverpoweredGun.tscn" id="4_xt2v3"]
 [ext_resource type="Texture2D" uid="uid://dmiiry4r6mgq8" path="res://PlayerSprites/PlayerDance3.png" id="5_shf6n"]
 [ext_resource type="PackedScene" uid="uid://d0ol3q6xiv0ch" path="res://things/playerWeapons/Rifle.tscn" id="5_xt2v3"]
+[ext_resource type="PackedScene" uid="uid://bnbxl1whytiw2" path="res://things/playerWeapons/Scythe.tscn" id="6_lcjhm"]
 [ext_resource type="Texture2D" uid="uid://bkbqj8mw80r5p" path="res://PlayerSprites/PlayerDanceStare.png" id="6_xt2v3"]
 [ext_resource type="Texture2D" uid="uid://bc2n7kupvpg0c" path="res://PlayerSprites/PlayerDance1flip.png" id="7_lcjhm"]
 [ext_resource type="Texture2D" uid="uid://kinsnpig5g0t" path="res://PlayerSprites/PlayerDance2flip.png" id="8_apv27"]
@@ -56,7 +57,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("2_ig7px")
 }],
-"loop": true,
+"loop": 1,
 "name": &"Death",
 "speed": 5.0
 }, {
@@ -217,7 +218,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("6_xt2v3")
 }],
-"loop": true,
+"loop": 1,
 "name": &"Taunt",
 "speed": 5.0
 }, {
@@ -300,7 +301,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("6_xt2v3")
 }],
-"loop": true,
+"loop": 1,
 "name": &"Taunt_Censored",
 "speed": 5.0
 }, {
@@ -341,7 +342,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("21_y3cxk")
 }],
-"loop": true,
+"loop": 1,
 "name": &"Test_Taunt",
 "speed": 5.0
 }, {
@@ -349,7 +350,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("16_mk1xx")
 }],
-"loop": true,
+"loop": 1,
 "name": &"nohands_Duck",
 "speed": 5.0
 }, {
@@ -360,7 +361,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("15_6h0q4")
 }],
-"loop": true,
+"loop": 1,
 "name": &"nohands_Idle",
 "speed": 2.0
 }, {
@@ -368,7 +369,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("26_a8g7t")
 }],
-"loop": true,
+"loop": 1,
 "name": &"nohands_Jump",
 "speed": 5.0
 }, {
@@ -397,7 +398,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("31_jrv8d")
 }],
-"loop": true,
+"loop": 1,
 "name": &"nohands_Walk",
 "speed": 8.0
 }, {
@@ -405,7 +406,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("22_idrdt")
 }],
-"loop": true,
+"loop": 1,
 "name": &"regular_Duck",
 "speed": 5.0
 }, {
@@ -416,7 +417,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("33_tf8p4")
 }],
-"loop": true,
+"loop": 1,
 "name": &"regular_Idle",
 "speed": 2.0
 }, {
@@ -424,7 +425,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("17_0ixyu")
 }],
-"loop": true,
+"loop": 1,
 "name": &"regular_Jump",
 "speed": 5.0
 }, {
@@ -447,7 +448,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("25_n3dmx")
 }],
-"loop": true,
+"loop": 1,
 "name": &"regular_Walk",
 "speed": 8.0
 }]
@@ -459,6 +460,7 @@ temp_preload = ExtResource("39_etqv6")
 temp_preload_2 = ExtResource("3_ig7px")
 temp_preload_3 = ExtResource("4_xt2v3")
 temp_preload_4 = ExtResource("5_xt2v3")
+temp_preload_5 = ExtResource("6_lcjhm")
 lossScreen = ExtResource("4_shf6n")
 Mental_State = 0
 Show_stamina = false

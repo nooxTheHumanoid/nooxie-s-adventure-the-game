@@ -1,30 +1,35 @@
 extends Node2D
 
-const BULLET = preload('res://things/Slug.tscn')
-
-@onready var muzzle: Marker2D = $Marker2D
+@onready var hitbox: CollisionShape2D = $Area2D/CollisionShape2D
 @onready var animator: AnimatedSprite2D = $AnimatedSprite2D
+@onready var sprite: Sprite2D = $Sprite2D
 
-@export var y_offset = 8.0
+@export var y_offset = 0.0
 
 var AimSpeed = 420.0
 var instaAim = true
+var deflectBullets = true
 var DmgMulti = 1.0
 var canfire = false
 var State = "none"
 var firecd: float = 0.5
 var actualfire = false
-var currentDMG: float = 0.0
+var currentDMG: float = 4.0
+var hitboxLinger: float = 0.4
+var DMGbullet: float = 0.5
 
 func dmgMulti(dmg):
 	DmgMulti = dmg
 	
+func dmgnumber(dmg):
+	currentDMG = dmg
+	
+func bulletnum(hp):
+	DMGbullet = hp
+	
 func gunAim(Aspeed,InstaAim):
 	AimSpeed = Aspeed
 	instaAim = InstaAim
-	
-func dmgnumber(dmg):
-	currentDMG = dmg
 
 func cdnumber(cdnum):
 	firecd = cdnum
@@ -55,6 +60,11 @@ func modenotifforguns(player_guns: Player.PlayerMode):
 func FiredcooldownOff():
 	canfire = true
 	actualfire=false
+	
+func hitboxOff():
+	hitbox.disabled = true
+	sprite.visible = false
+	get_tree().create_timer(firecd).timeout.connect(FiredcooldownOff)
 
 func _physics_process(delta: float) -> void:
 	if actualfire == false && visible == true:
@@ -88,13 +98,47 @@ func _physics_process(delta: float) -> void:
 			if global.SFX_Enabled:
 				pass
 				#firesound.play()
-			var bullet_instance = BULLET.instantiate()
-			get_tree().root.add_child(bullet_instance)
-			bullet_instance.global_position = muzzle.global_position
-			bullet_instance.rotation = rotation
-			bullet_instance.damagVal(currentDMG*DmgMulti)
+			hitbox.disabled = false
+			sprite.visible = true
 			animator.fireshotty()
-			get_tree().create_timer(firecd).timeout.connect(FiredcooldownOff)
+			get_tree().create_timer(hitboxLinger).timeout.connect(hitboxOff)
 
 func mayIswap():
 	return canfire
+	
+	
+func handle_enemy_collision(enemy: Enemy):
+	if enemy == null:
+		return
+	
+	if enemy.health >= 0:
+		enemy.hurtEnemy(currentDMG*DmgMulti)
+		
+func handle_enemy_collision2(enemy: EnemyMafia):
+	if enemy == null:
+		return
+	
+	if enemy.health >= 0:
+		enemy.hurtEnemy(currentDMG*DmgMulti)
+	
+func handle_bullet_collision(bullet: Node2D):
+	if bullet == null:
+		return
+	
+	if bullet != null:
+		bullet.dmgBullet(DMGbullet)
+		if deflectBullets:
+			bullet.harmother(true)
+			if bullet.bulisReverse():
+				bullet.bulReverse(false)
+			else:
+				bullet.bulReverse(true)
+			
+
+func _on_area_2d_area_entered(area: Area2D) -> void:
+	if area is Enemy:
+		handle_enemy_collision(area)
+	if area is EnemyMafia:
+		handle_enemy_collision2(area)
+	if area.get_parent() is EnemyBullet:
+		handle_bullet_collision(area.get_parent())

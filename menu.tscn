@@ -748,6 +748,18 @@ text = "Level 3"
 script = ExtResource("1_lti8b")
 path = "uid://cbyq06rhrfy2"
 
+[node name="Blackjack5" type="Button" parent="Bonus" unique_id=230977503]
+offset_left = 640.0
+offset_top = 211.0
+offset_right = 879.0
+offset_bottom = 270.0
+focus_mode = 0
+shortcut_feedback = false
+shortcut_in_tooltip = false
+text = "PingPong"
+script = ExtResource("1_lti8b")
+path = "uid://c5w04nkkmeofr"
+
 [node name="music" type="AudioStreamPlayer" parent="." unique_id=1877356486]
 stream = ExtResource("3_mae5d")
 autoplay = true
@@ -862,4 +874,5 @@ info = "What you looking at?"
 [connection signal="pressed" from="Bonus/Blackjack2" to="Bonus/Blackjack2" method="_on_pressed"]
 [connection signal="pressed" from="Bonus/Blackjack3" to="Bonus/Blackjack3" method="_on_pressed"]
 [connection signal="pressed" from="Bonus/Blackjack4" to="Bonus/Blackjack4" method="_on_pressed"]
+[connection signal="pressed" from="Bonus/Blackjack5" to="Bonus/Blackjack5" method="_on_pressed"]
 [connection signal="pressed" from="Keybinds/Backbutton4" to="Keybinds/Backbutton4" method="_on_pressed"]

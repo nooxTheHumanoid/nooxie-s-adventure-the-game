@@ -10,6 +10,7 @@ var bulletlifetime: int = 5
 @export var health: float = 1.0
 const SPEED: int = 300
 @export var reversed = false
+@export var harmOthers = false
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _ready():
 	get_tree().create_timer(bulletlifetime).timeout.connect(bulletgone)
@@ -37,6 +38,12 @@ func bulletgone():
 	
 func bulReverse(state):
 	reversed = state
+	
+func harmother(state):
+	harmOthers = state
+	
+func bulisReverse():
+	return reversed
 
 func dmgBullet(hp):
 	if hp <= 0.0:
@@ -61,11 +68,33 @@ func handle_bullet_collision(bullet: Node2D):
 	if bullet != null:
 		bullet.dmgBullet(health)
 		
+
+func handle_en_collision(enemy: Enemy):
+	if enemy == null:
+		return
+	
+	if enemy.health >= 0:
+		enemy.hurtEnemy(damagetoenemy)
+		
+func handle_en_collision2(enemy: EnemyMafia):
+	if enemy == null:
+		return
+	
+	if enemy.health >= 0:
+		enemy.hurtEnemy(damagetoenemy)
+		
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
 		handle_enemy_collision(body)
 		
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
+	if harmOthers:
+		if area is Enemy:
+			handle_en_collision(area)
+		if area is EnemyMafia:
+			handle_en_collision2(area)
+		if area.get_parent() is EnemyBullet:
+			handle_bullet_collision(area.get_parent())
 	if area.get_parent() is PlayerBullet:
 		handle_bullet_collision(area.get_parent())

@@ -62,6 +62,7 @@ class inv_items:
 @export var temp_preload_2: PackedScene
 @export var temp_preload_3: PackedScene
 @export var temp_preload_4: PackedScene
+@export var temp_preload_5: PackedScene
 var inventory_limitations
 var inventory_size
 var inventory
@@ -215,6 +216,8 @@ func _ready():
 	if !invAdd(inv_items.new(SelectedWeapon.special, 1, 0.01, AmmoType.slug, temp_preload_3,1.0)):
 		print("failed to add item")
 	inventory_slot = 2; inventory_variation = 0
+	if !invAdd(inv_items.new(SelectedWeapon.melee, 10, 0.5, AmmoType.slug, temp_preload_5,0.25)):
+		print("failed to add item")
 	if !invAdd(inv_items.new(SelectedWeapon.melee, 0.2, 0.1, AmmoType.bullet, temp_preload_4,1.0)):
 		print("failed to add item")
 	inventory_slot = 0; inventory_variation = 0
