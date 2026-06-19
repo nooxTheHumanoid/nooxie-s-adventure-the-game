@@ -4,17 +4,25 @@ class_name EnemyBullet
 
 @onready var bullet_area: Area2D = $Area2D
 @onready var detector = $Area2D/Detector
-
+@onready var sprite = $BulletSprite
 var damagetoenemy: float = 1.0
 var bulletlifetime: int = 5
 @export var health: float = 1.0
 const SPEED: int = 300
+@export var reversed = false
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _ready():
 	get_tree().create_timer(bulletlifetime).timeout.connect(bulletgone)
 		
 func _process(delta: float) -> void:
-	position += transform.x * SPEED * delta
+	if reversed:
+		position -= transform.x * SPEED * delta
+		sprite.scale.x = -1
+		sprite.scale.y = -1
+	else:
+		position += transform.x * SPEED * delta
+		sprite.scale.x = 1
+		sprite.scale.y = 1
 	if detector.is_colliding():
 		bulletgone()
 
@@ -26,6 +34,9 @@ func healthVal(hp):
 	
 func bulletgone():
 	queue_free()
+	
+func bulReverse(state):
+	reversed = state
 
 func dmgBullet(hp):
 	if hp <= 0.0:

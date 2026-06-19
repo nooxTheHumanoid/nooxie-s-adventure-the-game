@@ -175,6 +175,8 @@ var is_dead = false
 @export var BrokenArm = false
 @export var InjuredLeg = false
 @export var BrokenLeg = false
+@export var minPain = 17
+@export var maxPain = 25
 @export_group("")
 
 @export_group("InjuryTimer")
@@ -664,6 +666,24 @@ func died():
 	global.DamageBlocked -= ((gethitdmg*(defence*0.01))*DamageTakenMulti)-gethitdmg
 	PainAmount -= (gethitdmg*1.5)
 	mood -= (gethitdmg/MoodMulti)
+	#injuries...
+	if (gethitdmg*1.5) >= minPain and (gethitdmg*1.5) < maxPain:
+		var randomInjury = randi_range(1,3)
+		if randomInjury == 1:
+			HeadtraumaTime += 5
+		elif randomInjury == 2:
+			InjuredArmTime += 30
+		elif randomInjury == 3:
+			InjuredLegTime += 15
+	elif (gethitdmg*1.5) >= maxPain:
+		var randomInjury = randi_range(1,3)
+		if randomInjury == 1:
+			HeadtraumaTime += 10
+		elif randomInjury == 2:
+			BrokenArmTime += 60
+		elif randomInjury == 3:
+			BrokenLegTime += 30
+	#injuries end
 	global.tempkills = 0
 	if health > 0:
 		health_bar.set_health(health) 

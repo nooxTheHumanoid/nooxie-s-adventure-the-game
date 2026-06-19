@@ -6,6 +6,7 @@ extends Node2D
 @onready var detectionrange = $"../Detection"
 @onready var firesound = $Fire
 
+@export var bulletHP: float = 0.75
 @export var currentDMG : float = 0.4 # was 1 DMG
 @export var firingCD = 0.4
 @export var mag = 15
@@ -94,6 +95,7 @@ func _physics_process(_delta: float) -> void:
 			bullet_instance.global_position = muzzle.global_position
 			bullet_instance.rotation = rotation
 			bullet_instance.damagVal(currentDMG)
+			bullet_instance.healthVal(bulletHP)
 			if mag >= 1:
 				get_tree().create_timer(firingCD).timeout.connect(resetfire)
 		if mag <= 0 && not reloading:

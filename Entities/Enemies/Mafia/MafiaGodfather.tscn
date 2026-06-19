@@ -25,7 +25,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("3_ep1f6")
 }],
-"loop": true,
+"loop": 1,
 "name": &"Death",
 "speed": 5.0
 }, {
@@ -42,7 +42,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("5_cxrx2")
 }],
-"loop": true,
+"loop": 1,
 "name": &"Walk",
 "speed": 4.0
 }, {
@@ -50,7 +50,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("3_kfjrr")
 }],
-"loop": true,
+"loop": 1,
 "name": &"default",
 "speed": 1.0
 }]
@@ -67,7 +67,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("7_jfhmo")
 }],
-"loop": false,
+"loop": 0,
 "name": &"default",
 "speed": 5.0
 }, {
@@ -78,7 +78,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("7_jfhmo")
 }],
-"loop": false,
+"loop": 0,
 "name": &"fire",
 "speed": 7.0
 }]
@@ -89,7 +89,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("11_l020t")
 }],
-"loop": true,
+"loop": 1,
 "name": &"cap",
 "speed": 5.0
 }, {
@@ -97,7 +97,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("12_qji2o")
 }],
-"loop": true,
+"loop": 1,
 "name": &"fedora",
 "speed": 5.0
 }]
@@ -108,7 +108,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("13_facdt")
 }],
-"loop": true,
+"loop": 1,
 "name": &"Ginger",
 "speed": 5.0
 }, {
@@ -116,7 +116,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("14_227v1")
 }],
-"loop": true,
+"loop": 1,
 "name": &"old",
 "speed": 5.0
 }, {
@@ -124,7 +124,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("15_8b0ph")
 }],
-"loop": true,
+"loop": 1,
 "name": &"regular",
 "speed": 5.0
 }]
@@ -135,7 +135,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("16_8e810")
 }],
-"loop": true,
+"loop": 1,
 "name": &"Headphones",
 "speed": 5.0
 }, {
@@ -143,7 +143,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("17_jfhmo")
 }],
-"loop": true,
+"loop": 1,
 "name": &"sunglasses",
 "speed": 5.0
 }]

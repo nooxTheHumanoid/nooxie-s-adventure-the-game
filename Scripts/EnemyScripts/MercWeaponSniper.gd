@@ -11,10 +11,10 @@ extends Node2D
 @onready var SoundWarn = $"../Warn"
 
 @export var warning : PackedScene
-@export var currentDMG = 7.0
-@export var firingCD = 7.0
-@export var mag = 1
-@export var reloadtime = 0.001
+@export var currentDMG: float = 7.0
+@export var firingCD: float = 7.0
+@export var mag: int = 1
+@export var reloadtime: float = 0.001
 
 @export_group("easy mode")
 @export var Edmg = 3.0
@@ -120,7 +120,7 @@ func reloadingFinish():
 	
 func warn():
 	if visible == true:
-		if global.SFX_Enabled:
+		if global.VoiceActing:
 			SoundWarn.play()
 			
 func warnImg():
@@ -135,7 +135,7 @@ func _on_detection_gun_body_entered(body: Node2D) -> void:
 		lasersight.visible = true
 		if alreadysaid == false && visible:
 			alreadysaid = true
-			if global.SFX_Enabled:
+			if global.VoiceActing:
 				SoundAlert.play()
 			get_tree().create_timer(firingCD-1).timeout.connect(warn)
 		

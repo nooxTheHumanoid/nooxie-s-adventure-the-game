@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://5wrta5cf6uqa"
+path="res://.godot/imported/One vengeful day nooxin+.mp3-e00c69adabf2a32eccf7ef6e5446ff68.mp3str"
+
+[deps]
+
+source_file="res://Music/Levels/One vengeful day nooxin+.mp3"
+dest_files=["res://.godot/imported/One vengeful day nooxin+.mp3-e00c69adabf2a32eccf7ef6e5446ff68.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

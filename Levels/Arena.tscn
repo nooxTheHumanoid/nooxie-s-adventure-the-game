@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://ckii40e7slgih" path="res://Entities/Enemies/Mafia/MafiaGodfather.tscn" id="16_exqbx"]
 [ext_resource type="PackedScene" uid="uid://88k2dmp3clm0" path="res://Entities/player_spawn.tscn" id="16_famn7"]
 [ext_resource type="PackedScene" uid="uid://dyc3r0j7kdfcl" path="res://Entities/death_zone.tscn" id="17_d75p2"]
+[ext_resource type="AudioStream" uid="uid://c5q2vwcgpeciv" path="res://Music/Levels/A Sorrow Time nooxin+.mp3" id="18_bk1gr"]
 [ext_resource type="PackedScene" uid="uid://yokdaxdg6w3b" path="res://pause.tscn" id="18_exqbx"]
 [ext_resource type="PackedScene" uid="uid://bt0bsj83t8ip" path="res://things/game_info.tscn" id="19_e43p4"]
 
@@ -227,7 +228,7 @@ position = Vector2(-17, 116)
 position = Vector2(-95, -5)
 camera = NodePath("../Camera2D")
 song = ExtResource("7_mo5sh")
-songPlus = ExtResource("7_mo5sh")
+songPlus = ExtResource("18_bk1gr")
 level = "uid://bv02eg3dotl02"
 defence = 100.0
 CanHeal_viaTaunt = true
