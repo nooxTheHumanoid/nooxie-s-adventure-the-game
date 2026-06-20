@@ -50,6 +50,7 @@
 [ext_resource type="PackedScene" uid="uid://x6yurkutkg7b" path="res://NonLevelScenes/DefenceBar.tscn" id="43_b3dwx"]
 [ext_resource type="PackedScene" uid="uid://bnecravo6u6yx" path="res://NonLevelScenes/HPText.tscn" id="44_d0aty"]
 [ext_resource type="PackedScene" uid="uid://ci2i8d4egw1wx" path="res://NonLevelScenes/StaminaBar.tscn" id="46_vegad"]
+[ext_resource type="Texture2D" uid="uid://c13x35fmkxmfg" path="res://textures/Items/EmeraldScythe.png" id="51_apv27"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_n7ghd"]
 animations = [{
@@ -470,7 +471,7 @@ CanBeInjured = false
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=926349382]
 sprite_frames = SubResource("SpriteFrames_n7ghd")
-animation = &"Taunt_Censored"
+animation = &"regular_Idle"
 script = ExtResource("37_ciyin")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=296295247]
@@ -542,5 +543,12 @@ theme_override_font_sizes/font_size = 11
 text = "Stable"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Scythe" type="Sprite2D" parent="." unique_id=783684792]
+visible = false
+z_index = -1
+position = Vector2(-2, 1)
+texture = ExtResource("51_apv27")
+flip_h = true
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
