@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://88k2dmp3clm0" path="res://Entities/player_spawn.tscn" id="13_hx0pg"]
 [ext_resource type="PackedScene" uid="uid://btm3rntawj3ev" path="res://Entities/Enemies/Mercs/mercRifle.tscn" id="14_dxjb0"]
 [ext_resource type="PackedScene" uid="uid://yokdaxdg6w3b" path="res://pause.tscn" id="15_hx0pg"]
+[ext_resource type="AudioStream" uid="uid://5wrta5cf6uqa" path="res://Music/Levels/One vengeful day nooxin+.mp3" id="15_t21pv"]
 [ext_resource type="PackedScene" uid="uid://bt0bsj83t8ip" path="res://things/game_info.tscn" id="16_uyp6w"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_104vp"]
@@ -223,6 +224,7 @@ position = Vector2(4213, -42)
 position = Vector2(-173, 65)
 camera = NodePath("../Camera2D")
 song = ExtResource("7_hy5j1")
+songPlus = ExtResource("15_t21pv")
 level = "uid://cbyq06rhrfy2"
 
 [node name="Pause" parent="." unique_id=338774573 instance=ExtResource("15_hx0pg")]

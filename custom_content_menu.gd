@@ -2,12 +2,12 @@ extends Node2D
 
 const CONTENT_BUTTON = preload("res://things/CustomButton.tscn")
 
-@export_dir var dir_path
-
 @onready var grid = $Control/GridContainer
 
 func _ready() -> void:
-	get_content(dir_path)
+	var folder_path = OS.get_executable_path().get_base_dir()
+	folder_path = folder_path + "/Custom"
+	get_content(folder_path)
 
 func get_content(path) -> void:
 	if path == null:

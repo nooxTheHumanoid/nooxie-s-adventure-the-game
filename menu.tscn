@@ -530,7 +530,6 @@ horizontal_alignment = 1
 [node name="CustomContent" type="Node2D" parent="." unique_id=86397990]
 position = Vector2(6, 747)
 script = ExtResource("6_l48gv")
-dir_path = "res://Custom"
 
 [node name="Control" type="Control" parent="CustomContent" unique_id=1564116438]
 layout_mode = 3

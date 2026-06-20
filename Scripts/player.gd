@@ -71,7 +71,7 @@ var inventory_variation = 0
 var inventory_loaded_item: inv_items
 var inventory_loaded_wepon: Node2D
 
-var is_dead = false
+var is_dead: bool  = false
 
 @onready var char_area: Area2D = $Area2D
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
@@ -95,23 +95,23 @@ var is_dead = false
 @export_group("Player things")
 @export var Mental_State = EmotionalState.stable
 @export var Player_Mode = PlayerMode.regular
-@export var Show_Health = true
-@export var Show_defence = true
-@export var Gain_defense = true
-@export var Show_stamina = true
-@export var Has_stamina = true
+@export var Show_Health: bool  = true
+@export var Show_defence: bool  = true
+@export var Gain_defense: bool  = true
+@export var Show_stamina: bool  = true
+@export var Has_stamina: bool  = true
 @export var TauntName = "Taunt"
 @export var Hands = "NX"
-@export var can_wallclimb = true
-@export var affected_by_mood = true
-@export var allowInjuries = true
+@export var can_wallclimb: bool  = true
+@export var affected_by_mood: bool  = true
+@export var allowInjuries: bool  = true
 @export_group("")
 
 @export_group("Stomping Enemies")
-@export var min_stomp_deg = 35
-@export var max_stomp_deg = 145
-@export var stomp_y_vel = -150
-@export var random_stomp_x_vel = 1200
+@export var min_stomp_deg: int = 35
+@export var max_stomp_deg: int = 145
+@export var stomp_y_vel: int = -150
+@export var random_stomp_x_vel: int = 1200
 @export_group("")
 
 @export_group("Camera Sync")
@@ -120,46 +120,47 @@ var is_dead = false
 @export_group("")
 
 @export_group("Vitals")
-@export var MaxHealth = 21
-@export var health = 21
-@export var defence = 0.0
-@export var CanHeal_viaTaunt = false
-@export var HealthFromTaunting = 0.01
-@export var HealWaitFromTaunt = 0.5
-@export var Injury_recovery_time = 5.0
+@export var MaxHealth: float = 21
+@export var health: float = 21
+@export var defence: float = 0.0
+@export var CanHeal_viaTaunt: bool  = false
+@export var HealthFromTaunting: float = 0.01
+@export var HealWaitFromTaunt: float = 0.5
+@export var Injury_recovery_time: float = 5.0
 @export_group("")
 
 @export_group("Damage")
-@export var Stomp_DMG = 5.0
+@export var Stomp_DMG: float = 5.0
 @export_group("")
 
 @export_group("Other Stats")
 @export var Coyote_Time: float = 0.3 #I want em to feel floaty when you use em. Maybe over exaturate the coyote time?
-@export var SPEED = 100.0
-@export var JUMP_VELOCITY = -400.0 #make sure it's in the minuses
-@export var SpeedBoost = 2.0
-@export var Maxstamina = 100.0
-@export var Stamina_Gain = 21.0 #per second
-@export var Stamina_Drain = 10.0 #per second
-@export var Stamina_time_to_recover = 2.5 #cooldown before starting to regain stamina
-@export var MinStaminaToRun = 10.0
-@export var instantAim = true
-@export var Aimspeed = 1500.0
-@export var feelPain = true
-@export var PainRecovery = 5.0
-@export var MoodRecovery = 1.0
+@export var SPEED: float = 100.0
+@export var JUMP_VELOCITY: float = -400.0 #make sure it's in the minuses
+@export var SpeedBoost: float = 2.0
+@export var Maxstamina: float = 100.0
+@export var Stamina_Gain: float = 21.0 #per second
+@export var Stamina_Drain: float = 10.0 #per second
+@export var Stamina_time_to_recover: float = 2.5 #cooldown before starting to regain stamina
+@export var MinStaminaToRun: float = 10.0
+@export var instantAim: bool  = true
+@export var Aimspeed: float = 1500.0
+@export var feelPain: bool  = true
+@export var PainRecovery: float = 5.0
+@export var MoodRecovery: float = 1.0
+@export var climbspeed: float = 75.0
 @export_group("")
 
 @export_group("Multipliers")
-@export var SpeedMulti = 1.0
-@export var JumpMulti = 1.0
-@export var DamageTakenMulti = 1.0
-@export var AimSpeedMulti = 1.0
-@export var DmgMulti = 1.0
-@export var JumpDmgMulti = 1.0
-@export var PainRecoveryMulti = 1.0
-@export var MoodMulti = 1.0
-@export var InjuryRecoveryMulti = 1.0
+@export var SpeedMulti: float = 1.0
+@export var JumpMulti: float = 1.0
+@export var DamageTakenMulti: float = 1.0
+@export var AimSpeedMulti: float = 1.0
+@export var DmgMulti: float = 1.0
+@export var JumpDmgMulti: float = 1.0
+@export var PainRecoveryMulti: float = 1.0
+@export var MoodMulti: float = 1.0
+@export var InjuryRecoveryMulti: float = 1.0
 @export_group("")
 
 @export_group("Character info")
@@ -170,40 +171,41 @@ var is_dead = false
 @export_group("")
 
 @export_group("Injuries")
-@export var CanBeInjured = true
-@export var Headtrauma = false
-@export var InjuredArm = false
-@export var BrokenArm = false
-@export var InjuredLeg = false
-@export var BrokenLeg = false
-@export var minPain = 17
-@export var maxPain = 25
+@export var CanBeInjured: bool  = true
+@export var Headtrauma: bool  = false
+@export var InjuredArm: bool  = false
+@export var BrokenArm: bool  = false
+@export var InjuredLeg: bool  = false
+@export var BrokenLeg: bool  = false
+@export var minPain: float = 17.0
+@export var maxPain: float = 25.0
 @export_group("")
 
 @export_group("InjuryTimer")
-@export var HeadtraumaTime = 0.0
-@export var InjuredArmTime = 0.0
-@export var BrokenArmTime = 0.0
-@export var InjuredLegTime = 0.0
-@export var BrokenLegTime = 0.0
+@export var HeadtraumaTime: float = 0.0
+@export var InjuredArmTime: float = 0.0
+@export var BrokenArmTime: float = 0.0
+@export var InjuredLegTime: float = 0.0
+@export var BrokenLegTime: float = 0.0
 @export_group("")
 
-var ExtraSpeed = 1.0
-var InjuryAimSpeed = 1.0 #Used only for injuries
-@export var PainAmount = 100.0
-@export var mood = 100.0
-@export var visibility = 0.0
-var HeadInjurySpeed = 1.0
-var startedWithInstaAim = true
+var ExtraSpeed: float = 1.0
+var InjuryAimSpeed: float = 1.0 #Used only for injuries
+@export var PainAmount: float = 100.0
+@export var mood: float = 100.0
+@export var visibility: float = 0.0
+var HeadInjurySpeed: float = 1.0
+var startedWithInstaAim: bool  = true
 var IwantDuckOrTaunt = "none" #This is so fucking bad!!!
 var taunting: bool = false
 var Jump_Availabe: bool = true #Coyote time (Good for platformers)
 var gethitdmg : float = 0.0
-var healCD = false
-var pausemovement = false
-var current_stamina = 0.0
-var stamina_cooldown_timer = 0
-var Char_Running = false
+var healCD: bool  = false
+var pausemovement: bool  = false
+var current_stamina: float = 0.0
+var stamina_cooldown_timer: float = 0.0
+var Char_Running: bool  = false
+var wallClimbing: float = false
 func _ready():
 	invInit([SelectedWeapon.primary, SelectedWeapon.secondary, SelectedWeapon.melee, SelectedWeapon.special], [1, 1, 3, 1])
 	inventory_slot = 0; inventory_variation = 0
@@ -359,9 +361,9 @@ func _process(delta):
 
 		#TODO make this stamina be dependand on delta and _process
 		# with stamina_cooldown_timer
-		if Char_Running && current_stamina > 0:
+		if (Char_Running || wallClimbing) && current_stamina > 0:
 			drain_stamina(delta)
-		if !Char_Running && stamina_cooldown_timer <= 0 && current_stamina <= Maxstamina:
+		if !(Char_Running || wallClimbing) && stamina_cooldown_timer <= 0 && current_stamina <= Maxstamina:
 			gain_stamina(delta)
 		if current_stamina <= 0:
 			Char_Running = false
@@ -478,7 +480,14 @@ func _process(delta):
 func _physics_process(delta: float) -> void:
 		
 		
-	if not is_on_floor():
+	if (not is_on_floor() and is_on_wall() and (Input.is_action_pressed("left") or Input.is_action_pressed("right"))) and can_wallclimb && ((current_stamina > 0 && wallClimbing) || (current_stamina > MinStaminaToRun && !wallClimbing)):
+		velocity.y = -climbspeed
+		wallClimbing = true
+		stamina_cooldown_timer = Stamina_time_to_recover
+	else:
+		wallClimbing = false
+		
+	if not is_on_floor() and !wallClimbing:
 		if Jump_Availabe:
 			get_tree().create_timer(Coyote_Time).timeout.connect(Coyote_Timeout)
 		
@@ -487,13 +496,13 @@ func _physics_process(delta: float) -> void:
 		Jump_Availabe = true
 
 	
-	if Input.is_action_pressed("jump") and Jump_Availabe and taunting == false:
+	if Input.is_action_pressed("jump") and Jump_Availabe and taunting == false and !wallClimbing:
 		velocity.y = JUMP_VELOCITY * JumpMulti
 		Jump_Availabe = false
 	
 
 	var direction := Input.get_axis("left", "right")
-	if Input.is_action_pressed("sprint") && ((current_stamina > 0 && Char_Running) || (current_stamina > MinStaminaToRun && !Char_Running)) && BrokenLeg == false:
+	if Input.is_action_pressed("sprint") && ((current_stamina > 0 && Char_Running) || (current_stamina > MinStaminaToRun && !Char_Running)) && BrokenLeg == false && !wallClimbing:
 		#TODO make the sprint only posible when stamina exists and is above the stamina start amount
 		ExtraSpeed = SpeedBoost
 		Char_Running = true
@@ -575,6 +584,7 @@ func _physics_process(delta: float) -> void:
 		shotty.dmgnumber(inventory_loaded_item.getDmg())
 		shotty.bulletnum(inventory_loaded_item.getBHP())
 		shotty.cdnumber(inventory_loaded_item.getAttackspeed())
+		
 		if shotty.mayIswap() == true:
 			if Input.is_action_just_pressed("slot1"):
 				inventory_slot = 0; inventory_variation = 0 #changes slot to Primary
