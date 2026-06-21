@@ -87,6 +87,13 @@ var is_dead: bool  = false
 @export var able_to_switch_mode: bool = false
 @export_group("")
 
+@export_group("Loadout")
+@export var Primary_slots: int = 1
+@export var Secondary_slots: int = 1
+@export var Melee_slots: int = 3
+@export var Special_slots: int = 1
+@export_group("")
+
 @export_group("Player things")
 @export var Mental_State = EmotionalState.stable
 @export var Player_Mode = PlayerMode.regular
@@ -202,7 +209,7 @@ var stamina_cooldown_timer: float = 0.0
 var Char_Running: bool  = false
 var wallClimbing: float = false
 func _ready():
-	invInit([SelectedWeapon.primary, SelectedWeapon.secondary, SelectedWeapon.melee, SelectedWeapon.special], [1, 1, 3, 1])
+	invInit([SelectedWeapon.primary, SelectedWeapon.secondary, SelectedWeapon.melee, SelectedWeapon.special], [Primary_slots, Secondary_slots, Melee_slots, Special_slots])
 	inventory_slot = 0; inventory_variation = 0
 	if !invAdd(inv_items.new(SelectedWeapon.primary, 1, 0.5, AmmoType.slug, global.Primaries[0],2.0)):
 		print("failed to add item")
@@ -215,6 +222,7 @@ func _ready():
 	inventory_slot = 2; inventory_variation = 0
 	if !invAdd(inv_items.new(SelectedWeapon.melee, 10, 0.5, AmmoType.slug, global.Melees[0],0.25)):
 		print("failed to add item")
+	inventory_slot = 0; inventory_variation = 1
 	if !invAdd(inv_items.new(SelectedWeapon.primary, 0.2, 0.1, AmmoType.bullet, global.Primaries[1],1.0)):
 		print("failed to add item")
 	inventory_slot = 0; inventory_variation = 0
@@ -581,17 +589,37 @@ func _physics_process(delta: float) -> void:
 		shotty.cdnumber(inventory_loaded_item.getAttackspeed())
 		
 		if shotty.mayIswap() == true:
-			if Input.is_action_just_pressed("slot1"):
-				inventory_slot = 0; inventory_variation = 0 #changes slot to Primary
+			if Input.is_action_just_pressed("slot1"):#changes slot to Primary
+				inventory_slot = 0;
+				inventory_variation = 0
+				#if inventory_size[inventory_variation] <= inventory_variation:
+					#inventory_variation = 0
+				#else:
+					#inventory_variation += 1
 				invLoadCurent()
-			elif Input.is_action_just_pressed("slot2"):
-				inventory_slot = 1; inventory_variation = 0 #changes slot to Secondary
+			elif Input.is_action_just_pressed("slot2"):#changes slot to Secondary
+				inventory_slot = 1; 
+				inventory_variation = 0
+				#if inventory_size[inventory_variation] <= inventory_variation:
+					#inventory_variation = 0
+				#else:
+					#inventory_variation += 1
 				invLoadCurent()
-			elif Input.is_action_just_pressed("slot3"):
-				inventory_slot = 2; inventory_variation = 0 #changes slot to Melee
+			elif Input.is_action_just_pressed("slot3"):#changes slot to Melee
+				inventory_slot = 2; 
+				inventory_variation = 0
+				#if inventory_size[inventory_variation] <= inventory_variation:
+					#inventory_variation = 0
+				#else:
+					#inventory_variation += 1
 				invLoadCurent()
-			elif Input.is_action_just_pressed("slot4"):
-				inventory_slot = 3; inventory_variation = 0 #changes slot to Special
+			elif Input.is_action_just_pressed("slot4"):#changes slot to Special
+				inventory_slot = 3; 
+				inventory_variation = 0
+				#if inventory_size[inventory_variation] <= inventory_variation:
+					#inventory_variation = 0
+				#else:
+					#inventory_variation += 1
 				invLoadCurent()
 	move_and_slide()
 
