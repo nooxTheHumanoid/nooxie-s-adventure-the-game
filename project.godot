@@ -142,6 +142,7 @@ pointing/emulate_touch_from_mouse=true
 2d_physics/layer_6="bonus"
 2d_physics/layer_7="EnemyBullet"
 2d_physics/layer_8="PlayerBullet"
+2d_physics/layer_21="Screensaver"
 
 [rendering]
 
