@@ -104,7 +104,7 @@ func _physics_process(delta: float) -> void:
 			get_tree().create_timer(hitboxLinger).timeout.connect(hitboxOff)
 
 func mayIswap():
-	return canfire
+	return true
 	
 	
 func handle_enemy_collision(enemy: Enemy):

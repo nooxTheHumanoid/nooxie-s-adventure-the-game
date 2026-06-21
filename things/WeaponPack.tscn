@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://d0o5u3a1cuujk"]
+
+[ext_resource type="Script" uid="uid://dyib5liwqfsn6" path="res://things/weapon_pack.gd" id="1_tgq25"]
+[ext_resource type="PackedScene" uid="uid://cpmms0bfo24dp" path="res://things/playerWeapons/shotty.tscn" id="2_kuy11"]
+[ext_resource type="PackedScene" uid="uid://d0ol3q6xiv0ch" path="res://things/playerWeapons/Rifle.tscn" id="3_or45n"]
+[ext_resource type="PackedScene" uid="uid://bffhvgwl3qgsd" path="res://things/playerWeapons/mag_12.tscn" id="4_3b8nn"]
+[ext_resource type="PackedScene" uid="uid://bnbxl1whytiw2" path="res://things/playerWeapons/Scythe.tscn" id="5_oipo7"]
+[ext_resource type="PackedScene" uid="uid://dgkr6fl7dof5u" path="res://things/playerWeapons/OverpoweredGun.tscn" id="6_is6p5"]
+
+[node name="Node" type="Node" unique_id=184565057]
+script = ExtResource("1_tgq25")
+Primary = Array[PackedScene]([ExtResource("2_kuy11"), ExtResource("3_or45n")])
+Secondary = Array[PackedScene]([ExtResource("4_3b8nn")])
+Melee = Array[PackedScene]([ExtResource("5_oipo7")])
+Special = Array[PackedScene]([ExtResource("6_is6p5")])

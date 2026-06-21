@@ -7,14 +7,16 @@ const BULLET = preload('res://things/Slug.tscn')
 @onready var firesound = $Fire
 
 @export var y_offset = 8.0
+@export var can_dorp: bool = true
+@export var ammo: int = 21
 
 var AimSpeed = 420.0
-var instaAim = true
+var instaAim: bool = true
 var DmgMulti = 1.0
-var canfire = false
+var canfire: bool = false
 var State = "none"
 var firecd: float = 0.5
-var actualfire = false
+var actualfire: bool = false
 var currentDMG: float = 0.0
 var bulletHP: float = 2.0
 
@@ -102,4 +104,4 @@ func _physics_process(delta: float) -> void:
 			get_tree().create_timer(firecd).timeout.connect(FiredcooldownOff)
 
 func mayIswap():
-	return canfire
+	return true

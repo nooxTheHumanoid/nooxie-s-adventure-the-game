@@ -462,6 +462,7 @@ temp_preload_2 = ExtResource("3_ig7px")
 temp_preload_3 = ExtResource("4_xt2v3")
 temp_preload_4 = ExtResource("5_xt2v3")
 temp_preload_5 = ExtResource("6_lcjhm")
+weaponpakc = Array[PackedScene]([ExtResource("39_etqv6"), ExtResource("3_ig7px"), ExtResource("5_xt2v3"), ExtResource("6_lcjhm"), ExtResource("4_xt2v3")])
 lossScreen = ExtResource("4_shf6n")
 Mental_State = 0
 Show_stamina = false

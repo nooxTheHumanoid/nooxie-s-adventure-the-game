@@ -31,16 +31,15 @@ enum EmotionalState {
 }
 
 class inv_items:
-	var weapon_type: SelectedWeapon
 	var dmg: float
-	var attack_speed: float
-	var ammo_type: AmmoType
+	var gun: Node2D = null
 	var wepons: PackedScene
-	var bulletHP: float
 	var slot_id: int
+	var bulletHP: float
+	var ammo_type: AmmoType
 	var variant_id: int
-	var offset: Vector2 = Vector2.ZERO
-	var offset_crouch: Vector2 = Vector2.ZERO
+	var weapon_type: SelectedWeapon
+	var attack_speed: float
 	func _init(p_weapon_type,p_dmg,p_attack_speed,p_ammo_type,p_wepons,B_HP):
 		self.weapon_type = p_weapon_type
 		self.dmg = p_dmg
@@ -48,23 +47,19 @@ class inv_items:
 		self.ammo_type = p_ammo_type
 		self.wepons = p_wepons
 		self.bulletHP = B_HP
-	func setSlots(p_slot_id,p_variant_id): variant_id = p_slot_id; variant_id = p_variant_id
-	func setOffsets(p_offset, p_offset_crouch): offset = p_offset; offset_crouch = p_offset_crouch
+	func setWepon(p_wepon : Node2D): self.gun = p_wepon
+	func setSlots(p_slot_id,p_variant_id): self.slot_id = p_slot_id; self.variant_id = p_variant_id
+	func getBHP() -> float: return self.bulletHP
+	func getDmg() -> float: return self.dmg
+	func getType() -> SelectedWeapon: return self.weapon_type
 	func getSlots(): return [slot_id, variant_id]
-	func getType() -> SelectedWeapon: return weapon_type
-	func getWepons() -> PackedScene: return wepons
-	func getOffsets(): return [offset, offset_crouch]
-	func getDmg() -> float: return dmg
-	func getAttackspeed() -> float: return attack_speed
-	func getBHP() -> float: return bulletHP
+	func getWepon() -> Node2D: return self.gun
+	func getWepons() -> PackedScene: return self.wepons
+	func getAttackspeed() -> float: return self.attack_speed
 
-@export var temp_preload: PackedScene
-@export var temp_preload_2: PackedScene
-@export var temp_preload_3: PackedScene
-@export var temp_preload_4: PackedScene
-@export var temp_preload_5: PackedScene
 var inventory_limitations
 var inventory_size
+var inventory_innited_wepon
 var inventory
 var inventory_slot = 0
 var inventory_variation = 0
@@ -209,18 +204,18 @@ var wallClimbing: float = false
 func _ready():
 	invInit([SelectedWeapon.primary, SelectedWeapon.secondary, SelectedWeapon.melee, SelectedWeapon.special], [1, 1, 3, 1])
 	inventory_slot = 0; inventory_variation = 0
-	if !invAdd(inv_items.new(SelectedWeapon.primary, 1, 0.5, AmmoType.slug, temp_preload,2.0)):
+	if !invAdd(inv_items.new(SelectedWeapon.primary, 1, 0.5, AmmoType.slug, global.Primaries[0],2.0)):
 		print("failed to add item")
 	inventory_slot = 1; inventory_variation = 0 #changes slot to mag_12
-	if !invAdd(inv_items.new(SelectedWeapon.secondary, 4, 2.1, AmmoType.bullet, temp_preload_2,5.0)):
+	if !invAdd(inv_items.new(SelectedWeapon.secondary, 4, 2.1, AmmoType.bullet, global.Secondaries[0],5.0)):
 		print("failed to add item")
 	inventory_slot = 3; inventory_variation = 0 #changes slot to OPGun
-	if !invAdd(inv_items.new(SelectedWeapon.special, 1, 0.01, AmmoType.slug, temp_preload_3,1.0)):
+	if !invAdd(inv_items.new(SelectedWeapon.special, 1, 0.01, AmmoType.slug, global.Specials[0],1.0)):
 		print("failed to add item")
 	inventory_slot = 2; inventory_variation = 0
-	if !invAdd(inv_items.new(SelectedWeapon.melee, 10, 0.5, AmmoType.slug, temp_preload_5,0.25)):
+	if !invAdd(inv_items.new(SelectedWeapon.melee, 10, 0.5, AmmoType.slug, global.Melees[0],0.25)):
 		print("failed to add item")
-	if !invAdd(inv_items.new(SelectedWeapon.melee, 0.2, 0.1, AmmoType.bullet, temp_preload_4,1.0)):
+	if !invAdd(inv_items.new(SelectedWeapon.primary, 0.2, 0.1, AmmoType.bullet, global.Primaries[1],1.0)):
 		print("failed to add item")
 	inventory_slot = 0; inventory_variation = 0
 	invLoadCurent()
@@ -731,24 +726,28 @@ func invInit(p_slots, p_size):
 	# [enum.primary,enum.knife,enum.special]
 	# [2,1,1]
 	inventory_limitations = []
-	inventory = []
 	inventory_size = []
+	inventory = []
+	inventory_innited_wepon = []
 	for i in range(p_slots.size()):
 		inventory_limitations.append(p_slots[i])
 		inventory_size.append(p_size[i])
 		inventory.append([])
+		inventory_innited_wepon.append([])
 
 func invAdd(p_item: inv_items) -> bool:
 	if (p_item.getType() != inventory_limitations[inventory_slot]): return false
 	if (inventory[inventory_slot].size() >= inventory_size[inventory_slot]): return false
 	inventory[inventory_slot].append(p_item)
+	inventory_innited_wepon[inventory_slot].append(false)
 	p_item.setSlots(inventory_slot, inventory[inventory_slot].size() - 1)
 	return true
 
 func removeItem() -> inv_items:
 	if !(inventory[inventory_slot] && inventory[inventory_slot][inventory_variation]): return null
 	var temp_item: inv_items = inventory[inventory_slot][inventory_variation];
-	inventory[inventory_slot][inventory_variation] = null;
+	inventory[inventory_slot][inventory_variation] = null
+	inventory_innited_wepon[inventory_slot][inventory_variation] = false
 	return temp_item;
 
 func getItem() -> inv_items:
@@ -758,16 +757,21 @@ func getItem() -> inv_items:
 
 func invLoadCurent():
 	if !(inventory[inventory_slot] && inventory[inventory_slot][inventory_variation]): return
-	if inventory_loaded_wepon: inventory_loaded_wepon.queue_free()
+	if inventory_loaded_wepon: inventory_loaded_wepon.visible = false
 	inventory_loaded_item = inventory[inventory_slot][inventory_variation]
-	inventory_loaded_wepon = inventory_loaded_item.getWepons().instantiate()
-	add_child(inventory_loaded_wepon)
-	print(inventory_loaded_item.getOffsets()[0])
-	inventory_loaded_wepon.position = inventory_loaded_item.getOffsets()[0]
+	inventory_loaded_wepon = null
+	#checks if the wepon is relized and hides / loads it
+	if (inventory_loaded_item.getWepon() == null):
+		inventory_loaded_wepon = inventory_loaded_item.getWepons().instantiate()
+		inventory_innited_wepon[inventory_slot][inventory_variation] = true
+		inventory_loaded_item.setWepon(inventory_loaded_wepon)
+		add_child(inventory_loaded_wepon)
+	else:
+		inventory_loaded_wepon = inventory_loaded_item.getWepon()
+		inventory_loaded_wepon.visible = true
+	# offsets
+	inventory_loaded_wepon.char_skin(Hands)
 	shotty = inventory_loaded_wepon
-	if shotty:
-		shotty.char_skin(Hands)
-		
 func emotionCast(text):
 	if global.Emotion != text:
 		global.Emotion = text

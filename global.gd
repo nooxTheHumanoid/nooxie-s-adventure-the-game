@@ -1,5 +1,11 @@
 extends Node
 
+# weapon pack loading
+var WeaponPackScene = preload('res://things/WeaponPack.tscn').instantiate()
+var Primaries = WeaponPackScene.Primary
+var Secondaries = WeaponPackScene.Secondary
+var Melees = WeaponPackScene.Melee
+var Specials = WeaponPackScene.Special
 # Settings
 var SFX_Enabled = true
 var Music_Enabled = true
