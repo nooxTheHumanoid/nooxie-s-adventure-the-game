@@ -1,11 +1,7 @@
 [gd_scene format=3 uid="uid://mcylacrvtlxq"]
 
 [ext_resource type="Script" uid="uid://dbchkjmbtwuyi" path="res://Scripts/player.gd" id="1_n7qvv"]
-[ext_resource type="PackedScene" uid="uid://cpmms0bfo24dp" path="res://things/playerWeapons/shotty.tscn" id="2_qkr1h"]
-[ext_resource type="PackedScene" uid="uid://bffhvgwl3qgsd" path="res://things/playerWeapons/mag_12.tscn" id="3_yfpsr"]
-[ext_resource type="PackedScene" uid="uid://dgkr6fl7dof5u" path="res://things/playerWeapons/OverpoweredGun.tscn" id="4_cnj57"]
 [ext_resource type="PackedScene" uid="uid://cwtch2g70j85e" path="res://loseScreen.tscn" id="4_ru54p"]
-[ext_resource type="PackedScene" uid="uid://d0ol3q6xiv0ch" path="res://things/playerWeapons/Rifle.tscn" id="5_6t0a1"]
 [ext_resource type="Texture2D" uid="uid://clqb1o38emr3n" path="res://PlayerSprites/Milky/MilkyIdle.png" id="5_58xp5"]
 [ext_resource type="Texture2D" uid="uid://cgo3h60phsf0q" path="res://PlayerSprites/Milky/milkydance1.png" id="6_itg36"]
 [ext_resource type="Texture2D" uid="uid://bt7825ei60ovm" path="res://PlayerSprites/Milky/milkydance2.png" id="7_nl4ct"]
@@ -53,7 +49,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("5_58xp5")
 }],
-"loop": true,
+"loop": 1,
 "name": &"Death",
 "speed": 5.0
 }, {
@@ -214,7 +210,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("9_xwwva")
 }],
-"loop": true,
+"loop": 1,
 "name": &"Taunt",
 "speed": 5.0
 }, {
@@ -375,7 +371,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("9_xwwva")
 }],
-"loop": true,
+"loop": 1,
 "name": &"Taunt_Censored",
 "speed": 5.0
 }, {
@@ -383,7 +379,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("18_ralh8")
 }],
-"loop": true,
+"loop": 1,
 "name": &"nohands_Duck",
 "speed": 5.0
 }, {
@@ -394,7 +390,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("20_6t0a1")
 }],
-"loop": true,
+"loop": 1,
 "name": &"nohands_Idle",
 "speed": 2.0
 }, {
@@ -402,7 +398,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("21_n7qvv")
 }],
-"loop": true,
+"loop": 1,
 "name": &"nohands_Jump",
 "speed": 5.0
 }, {
@@ -428,7 +424,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("27_04qc2")
 }],
-"loop": true,
+"loop": 1,
 "name": &"nohands_Walk",
 "speed": 6.0
 }, {
@@ -436,7 +432,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("28_ip7vx")
 }],
-"loop": true,
+"loop": 1,
 "name": &"regular_Duck",
 "speed": 5.0
 }, {
@@ -447,7 +443,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("29_ejfxn")
 }],
-"loop": true,
+"loop": 1,
 "name": &"regular_Idle",
 "speed": 2.0
 }, {
@@ -455,7 +451,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("30_kedwm")
 }],
-"loop": true,
+"loop": 1,
 "name": &"regular_Jump",
 "speed": 5.0
 }, {
@@ -478,7 +474,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("36_0mcsx")
 }],
-"loop": true,
+"loop": 1,
 "name": &"regular_Walk",
 "speed": 6.0
 }]
@@ -486,17 +482,13 @@ animations = [{
 [node name="Player" type="CharacterBody2D" unique_id=1399318605 groups=["Player"]]
 collision_mask = 6
 script = ExtResource("1_n7qvv")
-temp_preload = ExtResource("2_qkr1h")
-temp_preload_2 = ExtResource("3_yfpsr")
-temp_preload_3 = ExtResource("4_cnj57")
-temp_preload_4 = ExtResource("5_6t0a1")
 lossScreen = ExtResource("4_ru54p")
+Primary_slots = 2
+Melee_slots = 1
 Show_defence = false
 Gain_defense = false
 Hands = "Milky"
 should_camera_sync = false
-MaxHealth = 80
-health = 80
 Stomp_DMG = 1.5
 SPEED = 110.0
 JUMP_VELOCITY = -420.0

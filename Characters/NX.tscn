@@ -2,14 +2,10 @@
 
 [ext_resource type="Script" uid="uid://dbchkjmbtwuyi" path="res://Scripts/player.gd" id="1_1vlla"]
 [ext_resource type="Texture2D" uid="uid://cir5soi8k3yix" path="res://PlayerSprites/PlayerDeath.png" id="2_ig7px"]
-[ext_resource type="PackedScene" uid="uid://bffhvgwl3qgsd" path="res://things/playerWeapons/mag_12.tscn" id="3_ig7px"]
 [ext_resource type="Texture2D" uid="uid://b1ydgb7c1mxgb" path="res://PlayerSprites/PlayerDance1.png" id="3_vegad"]
 [ext_resource type="Texture2D" uid="uid://du63hl7uox2cg" path="res://PlayerSprites/PlayerDance2.png" id="4_cy5x0"]
 [ext_resource type="PackedScene" uid="uid://cwtch2g70j85e" path="res://loseScreen.tscn" id="4_shf6n"]
-[ext_resource type="PackedScene" uid="uid://dgkr6fl7dof5u" path="res://things/playerWeapons/OverpoweredGun.tscn" id="4_xt2v3"]
 [ext_resource type="Texture2D" uid="uid://dmiiry4r6mgq8" path="res://PlayerSprites/PlayerDance3.png" id="5_shf6n"]
-[ext_resource type="PackedScene" uid="uid://d0ol3q6xiv0ch" path="res://things/playerWeapons/Rifle.tscn" id="5_xt2v3"]
-[ext_resource type="PackedScene" uid="uid://bnbxl1whytiw2" path="res://things/playerWeapons/Scythe.tscn" id="6_lcjhm"]
 [ext_resource type="Texture2D" uid="uid://bkbqj8mw80r5p" path="res://PlayerSprites/PlayerDanceStare.png" id="6_xt2v3"]
 [ext_resource type="Texture2D" uid="uid://bc2n7kupvpg0c" path="res://PlayerSprites/PlayerDance1flip.png" id="7_lcjhm"]
 [ext_resource type="Texture2D" uid="uid://kinsnpig5g0t" path="res://PlayerSprites/PlayerDance2flip.png" id="8_apv27"]
@@ -43,7 +39,6 @@
 [ext_resource type="Texture2D" uid="uid://bkfg8m6jbhd4d" path="res://PlayerSprites/PlayerWalk5.png" id="36_m2v5h"]
 [ext_resource type="Script" uid="uid://exjnoni43qyt" path="res://Scripts/player_animate.gd" id="37_ciyin"]
 [ext_resource type="Shape2D" uid="uid://mlf4d6fr1s5w" path="res://Resources/CollisionShapes/player_collision_shape.tres" id="38_oqhcl"]
-[ext_resource type="PackedScene" uid="uid://cpmms0bfo24dp" path="res://things/playerWeapons/shotty.tscn" id="39_etqv6"]
 [ext_resource type="AudioStream" uid="uid://bfu6qkp34sp5y" path="res://Music/nooxin' dance.mp3" id="40_lqaf5"]
 [ext_resource type="AudioStream" uid="uid://d0llg1iryhkni" path="res://Music/An average nooxin' menu.mp3" id="41_ahk2v"]
 [ext_resource type="PackedScene" uid="uid://dkqrbo1o6fy4p" path="res://NonLevelScenes/HPbar.tscn" id="42_56m5y"]
@@ -457,12 +452,6 @@ animations = [{
 [node name="Player" type="CharacterBody2D" unique_id=1399318605 groups=["Player"]]
 collision_mask = 6
 script = ExtResource("1_1vlla")
-temp_preload = ExtResource("39_etqv6")
-temp_preload_2 = ExtResource("3_ig7px")
-temp_preload_3 = ExtResource("4_xt2v3")
-temp_preload_4 = ExtResource("5_xt2v3")
-temp_preload_5 = ExtResource("6_lcjhm")
-weaponpakc = Array[PackedScene]([ExtResource("39_etqv6"), ExtResource("3_ig7px"), ExtResource("5_xt2v3"), ExtResource("6_lcjhm"), ExtResource("4_xt2v3")])
 lossScreen = ExtResource("4_shf6n")
 Mental_State = 0
 Show_stamina = false

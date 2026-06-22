@@ -588,11 +588,11 @@ func _physics_process(delta: float) -> void:
 		shotty.bulletnum(inventory_loaded_item.getBHP())
 		shotty.cdnumber(inventory_loaded_item.getAttackspeed())
 		
-		if shotty.mayIswap() == true:
+		if shotty.mayIswap() == true && Player_Mode == PlayerMode.nohands:
 			if Input.is_action_just_pressed("slot1"):#changes slot to Primary
 				inventory_slot = 0;
 				inventory_variation = 0
-				#if inventory_size[inventory_variation] <= inventory_variation:
+				#if inventory[inventory_slot].size() <= inventory_variation:
 					#inventory_variation = 0
 				#else:
 					#inventory_variation += 1
