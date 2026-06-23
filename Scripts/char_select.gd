@@ -43,7 +43,7 @@ The main man himself."
 		DescText.text = "He's left handed."
 		StatText.text = "Stats\nHP: 120\nSpeed: 100\nSprint Bonus: 1.8X\nStomp Damage: 2.5\nJumpPower: 400\nCoyote Time: 0.2 seconds\nStamina: 100\nStamina Gain: 20\nStamina Drain: 10"
 		MechanicText.text = "Unique mechanic:\nInject yourself with a syringe that damages you and buffs your damage." #old mechanic "Mercs die twice"
-		QuirkText.text = "Characrer Quirks:\nMute.\nNo Trigger Discipline."
+		QuirkText.text = "Characrer Quirks:\nMute.\nNo Trigger Discipline.\nEquipped with Shuko"
 		StartingItemText.text = "Starting weapons:\nRifle"
 		CharacterPortrait.texture = ResourceLoader.load("res://textures/CharacterPortraits/GuyDarkheart.png")
 	elif global.character == 3:
@@ -51,7 +51,7 @@ The main man himself."
 		DescText.text = "I think noox got bored and decided on taking someone from a different universe."
 		StatText.text = "Stats\nHP: 80\nSpeed: 110\nSprint Bonus: 2.1X\nStomp Damage: 1.5\nJumpPower: 420\nCoyote Time: 0.2 seconds\nStamina: 90\nStamina Gain: 20\nStamina Drain: 10"
 		MechanicText.text = "Unique mechanic:\nDouble primaries."
-		QuirkText.text = "Characrer Quirks:\nRegenerator (has passive regeneration).\nNo Trigger Discipline."
+		QuirkText.text = "Characrer Quirks:\nRegenerator (has passive regeneration).\nNo Trigger Discipline.\nEquipped with Shuko"
 		StartingItemText.text = "Starting weapons:\nMag-12"
 		if SaveData.contents_to_save.nooxinwatch:
 			CharacterPortrait.texture = ResourceLoader.load("res://textures/CharacterPortraits/MilkyNXWatch.png")
@@ -107,7 +107,7 @@ The main man himself."
 		DescText.text = "He's left handed."
 		StatText.text = "Stats\nHP: 120\nSpeed: 100\nSprint Bonus: 1.8X\nStomp Damage: 2.5\nJumpPower: 400\nCoyote Time: 0.2 seconds\nStamina: 100\nStamina Gain: 20\nStamina Drain: 10"
 		MechanicText.text = "Unique mechanic:\nInject yourself with a syringe that damages you and buffs your damage." #old mechanic "Mercs die twice"
-		QuirkText.text = "Characrer Quirks:\nMute.\nNo Trigger Discipline."
+		QuirkText.text = "Characrer Quirks:\nMute.\nNo Trigger Discipline.\nEquipped with Shuko"
 		StartingItemText.text = "Starting weapons:\nRifle"
 		CharacterPortrait.texture = ResourceLoader.load("res://textures/CharacterPortraits/GuyDarkheart.png")
 	elif idx == 3:
@@ -115,7 +115,7 @@ The main man himself."
 		DescText.text = "I think noox got bored and decided on taking someone from a different universe."
 		StatText.text = "Stats\nHP: 80\nSpeed: 110\nSprint Bonus: 2.1X\nStomp Damage: 1.5\nJumpPower: 420\nCoyote Time: 0.2 seconds\nStamina: 90\nStamina Gain: 20\nStamina Drain: 10"
 		MechanicText.text = "Unique mechanic:\nDouble primaries."
-		QuirkText.text = "Characrer Quirks:\nRegenerator (has passive regeneration).\nNo Trigger Discipline."
+		QuirkText.text = "Characrer Quirks:\nRegenerator (has passive regeneration).\nNo Trigger Discipline.\nEquipped with Shuko"
 		StartingItemText.text = "Starting weapons:\nMag-12"
 		if SaveData.contents_to_save.nooxinwatch:
 			CharacterPortrait.texture = ResourceLoader.load("res://textures/CharacterPortraits/MilkyNXWatch.png")

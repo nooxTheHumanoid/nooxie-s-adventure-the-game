@@ -5,6 +5,7 @@ enum PlayerMode {
 	nohands
 }
 enum EmotionalState {
+	vengeful,
 	focused,
 	stable,
 	agony,
@@ -22,8 +23,9 @@ enum EmotionalState {
 @export var songPlus : AudioStreamMP3
 @export_file var level
 @export_group("CharSettings")
-@export var MentalState = EmotionalState.stable
 @export var PlayerHasgun = PlayerMode.nohands
+@export var ChangeSettings = false
+@export var MentalState = EmotionalState.stable
 @export var show_stats = true
 @export var defence = 0.0
 @export var Force_hp = false
@@ -33,10 +35,10 @@ enum EmotionalState {
 @export var HealWaitFromTaunt = 0.5
 @export var affected_by_mood = true
 @export var allowInjuries = true
+@export var can_wallclimb = true
 func _ready() -> void:
 	if global.character == 0:
 		var player = nx.instantiate()
-		player.Mental_State = MentalState
 		player.position = position
 		player.Player_Mode = PlayerHasgun
 		if global.GameDifficulty != 4:
@@ -46,18 +48,20 @@ func _ready() -> void:
 		player.camera_sync = camera
 		player.should_camera_sync = true
 		player.Current_scene = level
-		player.defence = defence
-		player.affected_by_mood = affected_by_mood
-		player.allowInjuries = allowInjuries
+		if ChangeSettings:
+			player.Mental_State = MentalState
+			player.defence = defence
+			player.affected_by_mood = affected_by_mood
+			player.allowInjuries = allowInjuries
+			player.can_wallclimb = can_wallclimb
+			player.CanHeal_viaTaunt = CanHeal_viaTaunt
+			player.HealthFromTaunting = HealthFromTaunting
+			player.HealWaitFromTaunt = HealWaitFromTaunt
 		if show_stats == false:
 			player.Show_Health = false
 			player.Show_defence = false
 		if Force_hp:
 			player.health = New_HP
-		if CanHeal_viaTaunt:
-			player.CanHeal_viaTaunt = true
-			player.HealthFromTaunting = HealthFromTaunting
-			player.HealWaitFromTaunt = HealWaitFromTaunt
 		get_parent().get_parent().add_child(player)
 	elif global.character == 1:
 		var player = voidman.instantiate()
@@ -70,18 +74,20 @@ func _ready() -> void:
 		player.camera_sync = camera
 		player.should_camera_sync = true
 		player.Current_scene = level
-		#player.defence = defence
-		player.affected_by_mood = affected_by_mood
-		player.allowInjuries = allowInjuries
+		if ChangeSettings:
+			player.Mental_State = MentalState
+			player.defence = defence
+			player.affected_by_mood = affected_by_mood
+			player.allowInjuries = allowInjuries
+			player.can_wallclimb = can_wallclimb
+			player.CanHeal_viaTaunt = CanHeal_viaTaunt
+			player.HealthFromTaunting = HealthFromTaunting
+			player.HealWaitFromTaunt = HealWaitFromTaunt
 		if show_stats == false:
 			player.Show_Health = false
 			player.Show_defence = false
 		if Force_hp:
 			player.health = New_HP
-		if CanHeal_viaTaunt:
-			player.CanHeal_viaTaunt = true
-			player.HealthFromTaunting = HealthFromTaunting
-			player.HealWaitFromTaunt = HealWaitFromTaunt
 		get_parent().get_parent().add_child(player)
 	elif global.character == 2:
 		var player = guyD.instantiate()
@@ -95,17 +101,20 @@ func _ready() -> void:
 		player.should_camera_sync = true
 		player.Current_scene = level
 		#player.defence = defence
-		player.affected_by_mood = affected_by_mood
-		player.allowInjuries = allowInjuries
+		if ChangeSettings:
+			player.Mental_State = MentalState
+			player.defence = defence
+			player.affected_by_mood = affected_by_mood
+			player.allowInjuries = allowInjuries
+			player.can_wallclimb = can_wallclimb
+			player.CanHeal_viaTaunt = CanHeal_viaTaunt
+			player.HealthFromTaunting = HealthFromTaunting
+			player.HealWaitFromTaunt = HealWaitFromTaunt
 		if show_stats == false:
 			player.Show_Health = false
 			player.Show_defence = false
 		if Force_hp:
 			player.health = New_HP
-		if CanHeal_viaTaunt:
-			player.CanHeal_viaTaunt = true
-			player.HealthFromTaunting = HealthFromTaunting
-			player.HealWaitFromTaunt = HealWaitFromTaunt
 		get_parent().get_parent().add_child(player)
 	elif global.character == 3:
 		var player = Milky.instantiate()
@@ -118,18 +127,20 @@ func _ready() -> void:
 		player.camera_sync = camera
 		player.should_camera_sync = true
 		player.Current_scene = level
-		#player.defence = defence
-		player.affected_by_mood = affected_by_mood
-		player.allowInjuries = allowInjuries
+		if ChangeSettings:
+			player.Mental_State = MentalState
+			player.defence = defence
+			player.affected_by_mood = affected_by_mood
+			player.allowInjuries = allowInjuries
+			player.can_wallclimb = can_wallclimb
+			player.CanHeal_viaTaunt = CanHeal_viaTaunt
+			player.HealthFromTaunting = HealthFromTaunting
+			player.HealWaitFromTaunt = HealWaitFromTaunt
 		if show_stats == false:
 			player.Show_Health = false
 			player.Show_defence = false
 		if Force_hp:
 			player.health = New_HP
-		if CanHeal_viaTaunt:
-			player.CanHeal_viaTaunt = true
-			player.HealthFromTaunting = HealthFromTaunting
-			player.HealWaitFromTaunt = HealWaitFromTaunt
 		get_parent().get_parent().add_child(player)
 		
 	queue_free()

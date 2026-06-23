@@ -230,6 +230,7 @@ camera = NodePath("../Camera2D")
 song = ExtResource("7_mo5sh")
 songPlus = ExtResource("18_bk1gr")
 level = "uid://bv02eg3dotl02"
+ChangeSettings = true
 defence = 100.0
 CanHeal_viaTaunt = true
 HealthFromTaunting = 1.0

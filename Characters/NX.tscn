@@ -456,6 +456,7 @@ lossScreen = ExtResource("4_shf6n")
 Mental_State = 0
 Show_stamina = false
 Has_stamina = false
+can_wallclimb = false
 should_camera_sync = false
 CanBeInjured = false
 

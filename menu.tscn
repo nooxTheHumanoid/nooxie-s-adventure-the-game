@@ -759,6 +759,18 @@ text = "PingPong"
 script = ExtResource("1_lti8b")
 path = "uid://c5w04nkkmeofr"
 
+[node name="Blackjack6" type="Button" parent="Bonus" unique_id=460307792]
+offset_left = 386.0
+offset_top = 295.0
+offset_right = 625.0
+offset_bottom = 354.0
+focus_mode = 0
+shortcut_feedback = false
+shortcut_in_tooltip = false
+text = "Tutorial"
+script = ExtResource("1_lti8b")
+path = "uid://dm8ohjn246ac4"
+
 [node name="music" type="AudioStreamPlayer" parent="." unique_id=1877356486]
 stream = ExtResource("3_mae5d")
 autoplay = true
@@ -874,4 +886,5 @@ info = "What you looking at?"
 [connection signal="pressed" from="Bonus/Blackjack3" to="Bonus/Blackjack3" method="_on_pressed"]
 [connection signal="pressed" from="Bonus/Blackjack4" to="Bonus/Blackjack4" method="_on_pressed"]
 [connection signal="pressed" from="Bonus/Blackjack5" to="Bonus/Blackjack5" method="_on_pressed"]
+[connection signal="pressed" from="Bonus/Blackjack6" to="Bonus/Blackjack6" method="_on_pressed"]
 [connection signal="pressed" from="Keybinds/Backbutton4" to="Keybinds/Backbutton4" method="_on_pressed"]

@@ -22,6 +22,7 @@ enum AmmoType {
 }
 
 enum EmotionalState {
+	vengeful,
 	focused,
 	stable,
 	agony,
@@ -340,18 +341,22 @@ func _process(delta):
 			BrokenLegTime -= delta * InjuryRecoveryMulti
 		
 	if affected_by_mood:
-		if PainAmount < 75.0 && mood > 75.0 && mood < 150.0 && CanBeInjured && (Mental_State != EmotionalState.unstable or Mental_State != EmotionalState.scared):
-			Mental_State = EmotionalState.agony
-		elif mood < 75.0 && mood > 50.0:
-			Mental_State = EmotionalState.disstressed
-		elif mood < 50.0 && mood > 25.0:
-			Mental_State = EmotionalState.scared
-		elif mood < 25.0:
-			Mental_State = EmotionalState.unstable
-		elif mood > 150.0:
-			Mental_State = EmotionalState.focused
+		if Mental_State != EmotionalState.vengeful:
+			if PainAmount < 75.0 && mood > 75.0 && mood < 150.0 && CanBeInjured && (Mental_State != EmotionalState.unstable or Mental_State != EmotionalState.scared):
+				Mental_State = EmotionalState.agony
+			elif mood < 75.0 && mood > 50.0:
+				Mental_State = EmotionalState.disstressed
+			elif mood < 50.0 && mood > 25.0:
+				Mental_State = EmotionalState.scared
+			elif mood < 25.0:
+				Mental_State = EmotionalState.unstable
+			elif mood > 150.0:
+				Mental_State = EmotionalState.focused
+			else:
+				Mental_State = EmotionalState.stable
 		else:
-			Mental_State = EmotionalState.stable
+			PainAmount = 0.0 #Unbearable pain
+			mood = 0.0 #Nothing to lose
 		
 
 	if Has_stamina:	
@@ -402,7 +407,19 @@ func _process(delta):
 		InjuredLeg = false
 		
 	
-	if Mental_State == EmotionalState.focused:
+	if Mental_State == EmotionalState.vengeful:
+		emotionText.text = "vengeful"
+		DamageTakenMulti = 0.5
+		SpeedMulti = 1.5
+		JumpMulti = 1.5
+		AimSpeedMulti = 5.0
+		DmgMulti = 2.1
+		JumpDmgMulti = 7.5
+		PainRecoveryMulti = 0.0
+		MoodMulti = 0.0
+		levelmusic.pitch_scale = 1.25
+		tauntSong.pitch_scale = 1.25
+	elif Mental_State == EmotionalState.focused:
 		emotionText.text = "focused"
 		DamageTakenMulti = 0.75
 		SpeedMulti = 1.1
