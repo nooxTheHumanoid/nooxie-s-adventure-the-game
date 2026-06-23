@@ -1467,14 +1467,14 @@ autowrap_mode = 3
 [node name="Stats" type="Label" parent="UI" unique_id=837473904]
 layout_mode = 0
 offset_left = 1445.0
-offset_top = -315.0
+offset_top = -356.0
 offset_right = 2482.0
-offset_bottom = 488.0
+offset_bottom = 447.0
 theme_override_colors/font_color = Color(0, 0.8117647, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 21
 theme_override_fonts/font = ExtResource("6_rk4ir")
-theme_override_font_sizes/font_size = 75
+theme_override_font_sizes/font_size = 72
 text = "Stats
 HP: 21
 Speed: 100
@@ -1484,7 +1484,8 @@ JumpPower: 400
 Coyote Time: 0.3 seconds
 Stamina: INF
 Stamina Gain: INF
-Stamina Drain: 0"
+Stamina Drain: 0
+AimSpeed: INF"
 autowrap_mode = 3
 
 [node name="Mechanic" type="Label" parent="UI" unique_id=1247410598]
@@ -1646,9 +1647,9 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 1438.0
-offset_top = -458.0
+offset_top = -465.0
 offset_right = 2488.0
-offset_bottom = -336.0
+offset_bottom = -343.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0, 1, 0, 1)

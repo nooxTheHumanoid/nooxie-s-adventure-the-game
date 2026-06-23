@@ -48,8 +48,8 @@ func _ready() -> void:
 		player.camera_sync = camera
 		player.should_camera_sync = true
 		player.Current_scene = level
+		player.Mental_State = MentalState
 		if ChangeSettings:
-			player.Mental_State = MentalState
 			player.defence = defence
 			player.affected_by_mood = affected_by_mood
 			player.allowInjuries = allowInjuries

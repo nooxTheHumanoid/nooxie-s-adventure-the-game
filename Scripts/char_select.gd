@@ -19,13 +19,35 @@ func _ready() -> void:
 	optionButton.selected = global.character
 	if global.character == 0:
 		CharnameText.text = "noox nooxie nooxTheHumanoid NX Noxious noxon nooxin'"
-		DescText.text = "A 2'1 feet short humanoid who can change their height to be up to 21 feet tall. He's very strong but fragile guy. 
-	He's sadistic and masochistic even though he cannot feel pain at all.
-	He does not respect humans to the point he kills them. Some humans are lucky to get on his good side.
-	His sadistic ass once impaled a guy by summoning spikes out of the ground and made the guy watch how noox tortures the poor fella's family, leaving no one alive. After that noox tore the man's jaw off and shoved the jaw down the man's throat. 
-For noox, respect is everything.
-The main man himself."
-		StatText.text = "Stats\nHP: 21\nSpeed: 100\nSprint Bonus: 2X\nStomp Damage: 5\nJumpPower: 400\nCoyote Time: 0.3 seconds\nStamina: INF\nStamina Gain: INF\nStamina Drain: 0"
+		if global.censor_swearT:
+			DescText.text = "A 2'1 feet short humanoid who can change their height to be up to 21 feet tall. He's very strong but fragile guy. 
+		He's sadistic and masochistic even though he cannot feel pain at all.
+		He does not respect humans to the point he kills them. Some humans are lucky to get on his good side.
+		His sadistic personality once made him impaled a guy by summoning spikes out of the ground and made the guy watch how noox tortures the poor fella's family, leaving no one alive. After that noox tore the man's jaw off and shoved the jaw down the man's throat. 
+	For noox, respect is everything.
+	The main man himself."
+			if global.censor_wounds:
+				DescText.text = "A 2'1 feet short humanoid who can change their height to be up to 21 feet tall. He's very strong but fragile guy. 
+			He's sadistic and masochistic even though he cannot feel pain at all.
+			He does not respect humans to the point he kills them. Some humans are lucky to get on his good side.
+			His sadistic personality once made him summon spikes to kill a guy. 
+		For noox, respect is everything.
+		The main man himself."
+		else:
+			DescText.text = "A 2'1 feet short humanoid who can change their height to be up to 21 feet tall. He's very strong but fragile guy. 
+		He's sadistic and masochistic even though he cannot feel pain at all.
+		He does not respect humans to the point he kills them. Some humans are lucky to get on his good side.
+		His sadistic ass once impaled a guy by summoning spikes out of the ground and made the guy watch how noox tortures the poor fella's family, leaving no one alive. After that noox tore the man's jaw off and shoved the jaw down the man's throat. 
+	For noox, respect is everything.
+	The main man himself."
+			if global.censor_wounds:
+				DescText.text = "A 2'1 feet short humanoid who can change their height to be up to 21 feet tall. He's very strong but fragile guy. 
+			He's sadistic and masochistic even though he cannot feel pain at all.
+			He does not respect humans to the point he kills them. Some humans are lucky to get on his good side.
+			His sadistic ass once summoned spikes to kill a guy. 
+		For noox, respect is everything.
+		The main man himself."
+		StatText.text = "Stats\nHP: 21\nSpeed: 100\nSprint Bonus: 2X\nStomp Damage: 5\nJumpPower: 400\nCoyote Time: 0.3 seconds\nStamina: INF\nStamina Gain: INF\nStamina Drain: 0\nAim Speed: INF"
 		MechanicText.text = "Unique mechanic:\nEach kill adds defence."
 		QuirkText.text = "Characrer Quirks:\nOnly slugs (all shotguns only fire slugs)\nLoyal tools (Cannot swap and drop melee weapons)\nCollected mind (Improbable to be distressed while in action)\nPTSD (When distressed: faster sprint speed, take more damage)"
 		StartingItemText.text = "Starting toys:\nShotty,Mag-12,SledgeHammer,Emerald Scythe, Knife"
@@ -33,7 +55,7 @@ The main man himself."
 	elif global.character == 1:
 		CharnameText.text = "null"
 		DescText.text = "But nobody came."
-		StatText.text = "Stats\nHP: ?\nSpeed: ?\nSprint Bonus: ?X\nStomp Damage: ?\nJumpPower: ?\nCoyote Time: ? seconds\nStamina: ?\nStamina Gain: ?\nStamina Drain: ?"
+		StatText.text = "Stats\nHP: ?\nSpeed: ?\nSprint Bonus: ?X\nStomp Damage: ?\nJumpPower: ?\nCoyote Time: ? seconds\nStamina: ?\nStamina Gain: ?\nStamina Drain: ?\nAim Speed: ?"
 		MechanicText.text = "Unique mechanic:\nVoid."
 		QuirkText.text = "Characrer Quirks:\nYou're left in despair."
 		StartingItemText.text = "Starting ?:\n?"
@@ -41,7 +63,7 @@ The main man himself."
 	elif global.character == 2:
 		CharnameText.text = "Guy Darkheart"
 		DescText.text = "He's left handed."
-		StatText.text = "Stats\nHP: 120\nSpeed: 100\nSprint Bonus: 1.8X\nStomp Damage: 2.5\nJumpPower: 400\nCoyote Time: 0.2 seconds\nStamina: 100\nStamina Gain: 20\nStamina Drain: 10"
+		StatText.text = "Stats\nHP: 120\nSpeed: 100\nSprint Bonus: 1.8X\nStomp Damage: 2.5\nJumpPower: 400\nCoyote Time: 0.2 seconds\nStamina: 100\nStamina Gain: 20\nStamina Drain: 10\nAim Speed: 750.0"
 		MechanicText.text = "Unique mechanic:\nInject yourself with a syringe that damages you and buffs your damage." #old mechanic "Mercs die twice"
 		QuirkText.text = "Characrer Quirks:\nMute.\nNo Trigger Discipline.\nEquipped with Shuko"
 		StartingItemText.text = "Starting weapons:\nRifle"
@@ -49,7 +71,7 @@ The main man himself."
 	elif global.character == 3:
 		CharnameText.text = "Milky"
 		DescText.text = "I think noox got bored and decided on taking someone from a different universe."
-		StatText.text = "Stats\nHP: 80\nSpeed: 110\nSprint Bonus: 2.1X\nStomp Damage: 1.5\nJumpPower: 420\nCoyote Time: 0.2 seconds\nStamina: 90\nStamina Gain: 20\nStamina Drain: 10"
+		StatText.text = "Stats\nHP: 80\nSpeed: 110\nSprint Bonus: 2.1X\nStomp Damage: 1.5\nJumpPower: 420\nCoyote Time: 0.2 seconds\nStamina: 90\nStamina Gain: 20\nStamina Drain: 10\nAim Speed: 900.0"
 		MechanicText.text = "Unique mechanic:\nDouble primaries."
 		QuirkText.text = "Characrer Quirks:\nRegenerator (has passive regeneration).\nNo Trigger Discipline.\nEquipped with Shuko"
 		StartingItemText.text = "Starting weapons:\nMag-12"
@@ -83,13 +105,35 @@ func _on_characters_item_selected(index: int) -> void:
 	SaveData._save()
 	if idx == 0:
 		CharnameText.text = "noox nooxie nooxTheHumanoid NX Noxious noxon nooxin'"
-		DescText.text = "A 2'1 feet short humanoid who can change their height to be up to 21 feet tall. He's very strong but fragile guy. 
-	He's sadistic and masochistic even though he cannot feel pain at all.
-	He does not respect humans to the point he kills them. Some humans are lucky to get on his good side.
-	His sadistic ass once impaled a guy by summoning spikes out of the ground and made the guy watch how noox tortures the poor fella's family, leaving no one alive. After that noox tore the man's jaw off and shoved the jaw down the man's throat. 
-For noox, respect is everything.
-The main man himself."
-		StatText.text = "Stats\nHP: 21\nSpeed: 100\nSprint Bonus: 2X\nStomp Damage: 5\nJumpPower: 400\nCoyote Time: 0.3 seconds\nStamina: INF\nStamina Gain: INF\nStamina Drain: 0"
+		if global.censor_swearT:
+			DescText.text = "A 2'1 feet short humanoid who can change their height to be up to 21 feet tall. He's very strong but fragile guy. 
+		He's sadistic and masochistic even though he cannot feel pain at all.
+		He does not respect humans to the point he kills them. Some humans are lucky to get on his good side.
+		His sadistic personality once made him impaled a guy by summoning spikes out of the ground and made the guy watch how noox tortures the poor fella's family, leaving no one alive. After that noox tore the man's jaw off and shoved the jaw down the man's throat. 
+	For noox, respect is everything.
+	The main man himself."
+			if global.censor_wounds:
+				DescText.text = "A 2'1 feet short humanoid who can change their height to be up to 21 feet tall. He's very strong but fragile guy. 
+			He's sadistic and masochistic even though he cannot feel pain at all.
+			He does not respect humans to the point he kills them. Some humans are lucky to get on his good side.
+			His sadistic personality once made him summon spikes to kill a guy. 
+		For noox, respect is everything.
+		The main man himself."
+		else:
+			DescText.text = "A 2'1 feet short humanoid who can change their height to be up to 21 feet tall. He's very strong but fragile guy. 
+		He's sadistic and masochistic even though he cannot feel pain at all.
+		He does not respect humans to the point he kills them. Some humans are lucky to get on his good side.
+		His sadistic ass once impaled a guy by summoning spikes out of the ground and made the guy watch how noox tortures the poor fella's family, leaving no one alive. After that noox tore the man's jaw off and shoved the jaw down the man's throat. 
+	For noox, respect is everything.
+	The main man himself."
+			if global.censor_wounds:
+				DescText.text = "A 2'1 feet short humanoid who can change their height to be up to 21 feet tall. He's very strong but fragile guy. 
+			He's sadistic and masochistic even though he cannot feel pain at all.
+			He does not respect humans to the point he kills them. Some humans are lucky to get on his good side.
+			His sadistic ass once summoned spikes to kill a guy. 
+		For noox, respect is everything.
+		The main man himself."
+		StatText.text = "Stats\nHP: 21\nSpeed: 100\nSprint Bonus: 2X\nStomp Damage: 5\nJumpPower: 400\nCoyote Time: 0.3 seconds\nStamina: INF\nStamina Gain: INF\nStamina Drain: 0\nAim Speed: INF"
 		MechanicText.text = "Unique mechanic:\nEach kill adds defence."
 		QuirkText.text = "Characrer Quirks:\nOnly slugs (all shotguns only fire slugs)\nLoyal tools (Cannot swap and drop melee weapons)\nCollected mind (Improbable to be distressed while in action)\nPTSD (When distressed: faster sprint speed, take more damage)"
 		StartingItemText.text = "Starting toys:\nShotty,Mag-12,SledgeHammer,Emerald Scythe, Knife"
@@ -97,7 +141,7 @@ The main man himself."
 	elif idx == 1:
 		CharnameText.text = "null"
 		DescText.text = "But nobody came."
-		StatText.text = "Stats\nHP: ?\nSpeed: ?\nSprint Bonus: ?X\nStomp Damage: ?\nJumpPower: ?\nCoyote Time: ? seconds\nStamina: ?\nStamina Gain: ?\nStamina Drain: ?"
+		StatText.text = "Stats\nHP: ?\nSpeed: ?\nSprint Bonus: ?X\nStomp Damage: ?\nJumpPower: ?\nCoyote Time: ? seconds\nStamina: ?\nStamina Gain: ?\nStamina Drain: ?\nAim Speed: ?"
 		MechanicText.text = "Unique mechanic:\nVoid."
 		QuirkText.text = "Characrer Quirks:\nYou're left in despair."
 		StartingItemText.text = "Starting ?:\n?"
@@ -105,7 +149,7 @@ The main man himself."
 	elif idx == 2:
 		CharnameText.text = "Guy Darkheart"
 		DescText.text = "He's left handed."
-		StatText.text = "Stats\nHP: 120\nSpeed: 100\nSprint Bonus: 1.8X\nStomp Damage: 2.5\nJumpPower: 400\nCoyote Time: 0.2 seconds\nStamina: 100\nStamina Gain: 20\nStamina Drain: 10"
+		StatText.text = "Stats\nHP: 120\nSpeed: 100\nSprint Bonus: 1.8X\nStomp Damage: 2.5\nJumpPower: 400\nCoyote Time: 0.2 seconds\nStamina: 100\nStamina Gain: 20\nStamina Drain: 10\nAim Speed: 750.0"
 		MechanicText.text = "Unique mechanic:\nInject yourself with a syringe that damages you and buffs your damage." #old mechanic "Mercs die twice"
 		QuirkText.text = "Characrer Quirks:\nMute.\nNo Trigger Discipline.\nEquipped with Shuko"
 		StartingItemText.text = "Starting weapons:\nRifle"
@@ -113,7 +157,7 @@ The main man himself."
 	elif idx == 3:
 		CharnameText.text = "Milky"
 		DescText.text = "I think noox got bored and decided on taking someone from a different universe."
-		StatText.text = "Stats\nHP: 80\nSpeed: 110\nSprint Bonus: 2.1X\nStomp Damage: 1.5\nJumpPower: 420\nCoyote Time: 0.2 seconds\nStamina: 90\nStamina Gain: 20\nStamina Drain: 10"
+		StatText.text = "Stats\nHP: 80\nSpeed: 110\nSprint Bonus: 2.1X\nStomp Damage: 1.5\nJumpPower: 420\nCoyote Time: 0.2 seconds\nStamina: 90\nStamina Gain: 20\nStamina Drain: 10\nAim Speed: 900.0"
 		MechanicText.text = "Unique mechanic:\nDouble primaries."
 		QuirkText.text = "Characrer Quirks:\nRegenerator (has passive regeneration).\nNo Trigger Discipline.\nEquipped with Shuko"
 		StartingItemText.text = "Starting weapons:\nMag-12"
