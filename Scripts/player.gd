@@ -198,6 +198,7 @@ var InjuryAimSpeed: float = 1.0 #Used only for injuries
 @export var mood: float = 100.0
 @export var visibility: float = 0.0
 @export var DMGBoost: float = 1.0 #from items and stuff
+@export var TakeDMGBoost: float = 1.0 #from items and stuff
 var HeadInjurySpeed: float = 1.0
 var startedWithInstaAim: bool  = true
 var IwantDuckOrTaunt = "none" #This is so fucking bad!!!
@@ -646,6 +647,12 @@ func _physics_process(delta: float) -> void:
 		DMGBoost += 0.5
 		if health > 0:
 			health_bar.set_health(health)
+			
+	# DMGBoost Decay
+	if DMGBoost > 1.0:
+		DMGBoost -= delta * 0.1
+	elif DMGBoost < 1.0:
+		DMGBoost += delta * 0.1
 	move_and_slide()
 
 
@@ -722,9 +729,9 @@ func tryHeal(HP: int):
 		health_bar.set_health(health) 
 
 func died():
-	health -= (gethitdmg-(gethitdmg*(defence*0.01)))*DamageTakenMulti
-	global.DamageTaken += (gethitdmg-(gethitdmg*(defence*0.01)))*DamageTakenMulti
-	global.DamageBlocked -= ((gethitdmg*(defence*0.01))*DamageTakenMulti)-gethitdmg
+	health -= (gethitdmg-(gethitdmg*(defence*0.01)))*DamageTakenMulti*TakeDMGBoost
+	global.DamageTaken += (gethitdmg-(gethitdmg*(defence*0.01)))*DamageTakenMulti*TakeDMGBoost
+	global.DamageBlocked -= ((gethitdmg*(defence*0.01))*DamageTakenMulti*TakeDMGBoost)-gethitdmg
 	PainAmount -= (gethitdmg*1.5)
 	mood -= (gethitdmg/MoodMulti)
 	#injuries...
