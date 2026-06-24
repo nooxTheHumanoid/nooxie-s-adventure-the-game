@@ -89,11 +89,12 @@ func _physics_process(delta: float) -> void:
 			position.x = 0.0
 		
 	if (Input.is_action_just_pressed("shoot") && global.holdfire == false) or (Input.is_action_pressed("shoot") && global.holdfire):
-		if canfire and visible == true:
+		if canfire and visible == true && ammo >= 1:
 			canfire = false
 			actualfire = true
 			if global.SFX_Enabled:
 				firesound.play()
+			ammo -= 1
 			var bullet_instance = BULLET.instantiate()
 			get_tree().root.add_child(bullet_instance)
 			bullet_instance.global_position = muzzle.global_position

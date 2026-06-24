@@ -108,6 +108,7 @@ var is_dead: bool  = false
 @export var can_wallclimb: bool  = true
 @export var affected_by_mood: bool  = true
 @export var allowInjuries: bool  = true
+@export var triggerDicpiplie: bool  = true #gotta do this one
 @export_group("")
 
 @export_group("Stomping Enemies")

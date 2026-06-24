@@ -1,19 +1,19 @@
-[gd_scene format=3 uid="uid://d0ol3q6xiv0ch"]
+[gd_scene format=3 uid="uid://cgdaegntx3qrw"]
 
-[ext_resource type="Script" uid="uid://xw28tbvonejr" path="res://Scripts/shotty.gd" id="1_oocp6"]
-[ext_resource type="Texture2D" uid="uid://dd4pdpcvyhhdo" path="res://EnemySprites/Mercs/Arms/Rifle/rifle2.png" id="2_4vfor"]
-[ext_resource type="Texture2D" uid="uid://t5irdrbhhbxd" path="res://EnemySprites/Mercs/Arms/Rifle/rifle1.png" id="3_qy6ql"]
-[ext_resource type="Script" uid="uid://cdudjf4b6ntn7" path="res://Scripts/GunAnims.gd" id="10_wrfhm"]
-[ext_resource type="AudioStream" uid="uid://d0wdmwqb6dkw4" path="res://Sounds/ShottyPlayer FIre.ogg" id="11_g4j3h"]
+[ext_resource type="Script" uid="uid://xw28tbvonejr" path="res://Scripts/shotty.gd" id="1_iaqq0"]
+[ext_resource type="Texture2D" uid="uid://dd4pdpcvyhhdo" path="res://EnemySprites/Mercs/Arms/Rifle/rifle2.png" id="2_mer8c"]
+[ext_resource type="Texture2D" uid="uid://t5irdrbhhbxd" path="res://EnemySprites/Mercs/Arms/Rifle/rifle1.png" id="3_tj1ej"]
+[ext_resource type="Script" uid="uid://cdudjf4b6ntn7" path="res://Scripts/GunAnims.gd" id="4_wbp00"]
+[ext_resource type="AudioStream" uid="uid://d0wdmwqb6dkw4" path="res://Sounds/ShottyPlayer FIre.ogg" id="5_s781l"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_r0t5k"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_4vfor")
+"texture": ExtResource("2_mer8c")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_qy6ql")
+"texture": ExtResource("3_tj1ej")
 }],
 "loop": 0,
 "name": &"GuyD_Fire",
@@ -21,7 +21,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_qy6ql")
+"texture": ExtResource("3_tj1ej")
 }],
 "loop": 1,
 "name": &"GuyD_default",
@@ -29,10 +29,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_4vfor")
+"texture": ExtResource("2_mer8c")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_qy6ql")
+"texture": ExtResource("3_tj1ej")
 }],
 "loop": 0,
 "name": &"Milky_Fire",
@@ -40,7 +40,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_qy6ql")
+"texture": ExtResource("3_tj1ej")
 }],
 "loop": 1,
 "name": &"Milky_default",
@@ -48,10 +48,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_4vfor")
+"texture": ExtResource("2_mer8c")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_qy6ql")
+"texture": ExtResource("3_tj1ej")
 }],
 "loop": 0,
 "name": &"NULL_Fire",
@@ -59,7 +59,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_qy6ql")
+"texture": ExtResource("3_tj1ej")
 }],
 "loop": 1,
 "name": &"NULL_default",
@@ -67,10 +67,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_4vfor")
+"texture": ExtResource("2_mer8c")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_qy6ql")
+"texture": ExtResource("3_tj1ej")
 }],
 "loop": 0,
 "name": &"NX_Fire",
@@ -78,26 +78,27 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_qy6ql")
+"texture": ExtResource("3_tj1ej")
 }],
 "loop": 1,
 "name": &"NX_default",
 "speed": 9.0
 }]
 
-[node name="Rifle" type="Node2D" unique_id=1407007056]
-script = ExtResource("1_oocp6")
+[node name="AAC-23" type="Node2D" unique_id=1407007056]
+script = ExtResource("1_iaqq0")
 y_offset = 3.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=707050063]
+modulate = Color(0, 1, 0, 1)
 position = Vector2(3, -5)
 sprite_frames = SubResource("SpriteFrames_r0t5k")
-animation = &"GuyD_default"
-script = ExtResource("10_wrfhm")
+animation = &"NX_default"
+script = ExtResource("4_wbp00")
 
 [node name="Marker2D" type="Marker2D" parent="." unique_id=568080738]
 position = Vector2(16, -3)
 
 [node name="Fire" type="AudioStreamPlayer2D" parent="." unique_id=239943092]
-stream = ExtResource("11_g4j3h")
+stream = ExtResource("5_s781l")
 volume_db = -2.0
