@@ -806,9 +806,9 @@ horizontal_alignment = 1
 
 [node name="Label8" type="Label" parent="Keybinds" unique_id=1856659285]
 offset_left = 3823.0
-offset_top = 196.0
+offset_top = 183.0
 offset_right = 4924.0
-offset_bottom = 632.0
+offset_bottom = 619.0
 theme_override_colors/font_color = Color(0, 1, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 15
@@ -820,13 +820,14 @@ Jump - W, Up arrow, Space
 Duck - S, Down arrow
 Taunt - G
 Shoot/use - Left Mouse Button
-Player mode - Mouse Thumb Button 2"
+Player mode - Mouse Thumb Button 2
+Ability - F"
 
 [node name="Label9" type="Label" parent="Keybinds" unique_id=1171962760]
 offset_left = 3823.0
-offset_top = 576.0
+offset_top = 612.0
 offset_right = 4924.0
-offset_bottom = 632.0
+offset_bottom = 668.0
 theme_override_colors/font_color = Color(0, 1, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 10

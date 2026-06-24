@@ -197,6 +197,7 @@ var InjuryAimSpeed: float = 1.0 #Used only for injuries
 @export var PainAmount: float = 100.0
 @export var mood: float = 100.0
 @export var visibility: float = 0.0
+@export var DMGBoost: float = 1.0 #from items and stuff
 var HeadInjurySpeed: float = 1.0
 var startedWithInstaAim: bool  = true
 var IwantDuckOrTaunt = "none" #This is so fucking bad!!!
@@ -493,7 +494,7 @@ func _process(delta):
 		tauntSong.pitch_scale = 1.0
 		
 	emotionCast(emotionText.text)
-	shotty.dmgMulti(DmgMulti)
+	shotty.dmgMulti(DmgMulti*DMGBoost)
 	shotty.gunAim(Aimspeed*AimSpeedMulti*InjuryAimSpeed*HeadInjurySpeed,instantAim)
 
 
@@ -638,6 +639,13 @@ func _physics_process(delta: float) -> void:
 				#else:
 					#inventory_variation += 1
 				invLoadCurent()
+				
+	# GUY DARKHEARD POWER TEST!!!
+	if Input.is_action_just_pressed("Power") && health > 1.0:
+		health -= 1.0
+		DMGBoost += 0.5
+		if health > 0:
+			health_bar.set_health(health)
 	move_and_slide()
 
 
@@ -737,9 +745,7 @@ func died():
 		elif randomInjury == 3:
 			BrokenLegTime += 30
 	#injuries end
-	global.tempkills = 0
-	if health > 0:
-		health_bar.set_health(health) 
+	global.tempkills = 0 
 	if health <= 0:
 		if get_tree().get_first_node_in_group("Discord"):
 			get_tree().get_first_node_in_group("Discord").update(true)
