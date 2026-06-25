@@ -30,6 +30,7 @@
 [ext_resource type="Texture2D" uid="uid://pvcbgctng078" path="res://PlayerSprites/GuyDarkHeart/MercWalk4.png" id="29_ktpv1"]
 [ext_resource type="Texture2D" uid="uid://blscgjiwxf2wf" path="res://PlayerSprites/GuyDarkHeart/MercWalk5.png" id="30_6bf87"]
 [ext_resource type="Texture2D" uid="uid://dknmfdq02agco" path="res://PlayerSprites/GuyDarkHeart/MercWalk6.png" id="31_jtppp"]
+[ext_resource type="AudioStream" uid="uid://bdnt83xf8aue4" path="res://Music/lore accurate nx chase theme.mp3" id="38_t7yii"]
 [ext_resource type="Script" uid="uid://exjnoni43qyt" path="res://Scripts/player_animate.gd" id="40_3mtsr"]
 [ext_resource type="Shape2D" uid="uid://mlf4d6fr1s5w" path="res://Resources/CollisionShapes/player_collision_shape.tres" id="41_3nfq6"]
 [ext_resource type="AudioStream" uid="uid://d0llg1iryhkni" path="res://Music/An average nooxin' menu.mp3" id="43_yampd"]
@@ -300,5 +301,9 @@ theme_override_font_sizes/font_size = 11
 text = "Stable"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="VengefulMusic" type="AudioStreamPlayer2D" parent="." unique_id=1545275295]
+stream = ExtResource("38_t7yii")
+parameters/looping = true
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

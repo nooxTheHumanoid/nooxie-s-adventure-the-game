@@ -42,6 +42,7 @@
 [ext_resource type="AudioStream" uid="uid://bfu6qkp34sp5y" path="res://Music/nooxin' dance.mp3" id="40_lqaf5"]
 [ext_resource type="AudioStream" uid="uid://d0llg1iryhkni" path="res://Music/An average nooxin' menu.mp3" id="41_ahk2v"]
 [ext_resource type="PackedScene" uid="uid://dkqrbo1o6fy4p" path="res://NonLevelScenes/HPbar.tscn" id="42_56m5y"]
+[ext_resource type="AudioStream" uid="uid://bdnt83xf8aue4" path="res://Music/lore accurate nx chase theme.mp3" id="42_cy5x0"]
 [ext_resource type="PackedScene" uid="uid://x6yurkutkg7b" path="res://NonLevelScenes/DefenceBar.tscn" id="43_b3dwx"]
 [ext_resource type="PackedScene" uid="uid://bnecravo6u6yx" path="res://NonLevelScenes/HPText.tscn" id="44_d0aty"]
 [ext_resource type="PackedScene" uid="uid://ci2i8d4egw1wx" path="res://NonLevelScenes/StaminaBar.tscn" id="46_vegad"]
@@ -482,6 +483,10 @@ stream = ExtResource("40_lqaf5")
 [node name="LevelMusic" type="AudioStreamPlayer2D" parent="." unique_id=581103175]
 stream = ExtResource("41_ahk2v")
 autoplay = true
+parameters/looping = true
+
+[node name="VengefulMusic" type="AudioStreamPlayer2D" parent="." unique_id=1618834601]
+stream = ExtResource("42_cy5x0")
 parameters/looping = true
 
 [node name="HealthBar" parent="." unique_id=319346680 instance=ExtResource("42_56m5y")]

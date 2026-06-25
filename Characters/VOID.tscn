@@ -1,12 +1,8 @@
 [gd_scene format=3 uid="uid://csjwso16gh2ji"]
 
 [ext_resource type="Script" uid="uid://dbchkjmbtwuyi" path="res://Scripts/player.gd" id="1_5tmdi"]
-[ext_resource type="PackedScene" uid="uid://cpmms0bfo24dp" path="res://things/playerWeapons/shotty.tscn" id="2_sw3jc"]
-[ext_resource type="PackedScene" uid="uid://bffhvgwl3qgsd" path="res://things/playerWeapons/mag_12.tscn" id="3_tbeor"]
 [ext_resource type="Texture2D" uid="uid://cir5soi8k3yix" path="res://PlayerSprites/PlayerDeath.png" id="4_qwrnf"]
 [ext_resource type="PackedScene" uid="uid://cwtch2g70j85e" path="res://loseScreen.tscn" id="4_sw3jc"]
-[ext_resource type="PackedScene" uid="uid://dgkr6fl7dof5u" path="res://things/playerWeapons/OverpoweredGun.tscn" id="4_tbeor"]
-[ext_resource type="PackedScene" uid="uid://d0ol3q6xiv0ch" path="res://things/playerWeapons/Rifle.tscn" id="5_qwrnf"]
 [ext_resource type="Texture2D" uid="uid://b1ydgb7c1mxgb" path="res://PlayerSprites/PlayerDance1.png" id="5_rtjwq"]
 [ext_resource type="Texture2D" uid="uid://du63hl7uox2cg" path="res://PlayerSprites/PlayerDance2.png" id="6_ppr00"]
 [ext_resource type="Texture2D" uid="uid://dmiiry4r6mgq8" path="res://PlayerSprites/PlayerDance3.png" id="7_kijxw"]
@@ -48,6 +44,7 @@
 [ext_resource type="PackedScene" uid="uid://dkqrbo1o6fy4p" path="res://NonLevelScenes/HPbar.tscn" id="43_h07ih"]
 [ext_resource type="PackedScene" uid="uid://x6yurkutkg7b" path="res://NonLevelScenes/DefenceBar.tscn" id="44_qhauf"]
 [ext_resource type="PackedScene" uid="uid://bnecravo6u6yx" path="res://NonLevelScenes/HPText.tscn" id="45_f37gs"]
+[ext_resource type="AudioStream" uid="uid://bdnt83xf8aue4" path="res://Music/lore accurate nx chase theme.mp3" id="46_5tmdi"]
 [ext_resource type="PackedScene" uid="uid://ci2i8d4egw1wx" path="res://NonLevelScenes/StaminaBar.tscn" id="46_anqcb"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_n7ghd"]
@@ -56,7 +53,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("4_qwrnf")
 }],
-"loop": true,
+"loop": 1,
 "name": &"Death",
 "speed": 5.0
 }, {
@@ -217,7 +214,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("8_fre2a")
 }],
-"loop": true,
+"loop": 1,
 "name": &"Taunt",
 "speed": 5.0
 }, {
@@ -300,7 +297,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("8_fre2a")
 }],
-"loop": true,
+"loop": 1,
 "name": &"Taunt_Cencored",
 "speed": 5.0
 }, {
@@ -341,7 +338,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("23_pty8c")
 }],
-"loop": true,
+"loop": 1,
 "name": &"Test_Taunt",
 "speed": 5.0
 }, {
@@ -349,7 +346,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("18_oorux")
 }],
-"loop": true,
+"loop": 1,
 "name": &"nohands_Duck",
 "speed": 5.0
 }, {
@@ -360,7 +357,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("17_8vq4g")
 }],
-"loop": true,
+"loop": 1,
 "name": &"nohands_Idle",
 "speed": 2.0
 }, {
@@ -368,7 +365,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("28_loivi")
 }],
-"loop": true,
+"loop": 1,
 "name": &"nohands_Jump",
 "speed": 5.0
 }, {
@@ -397,7 +394,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("33_xt63s")
 }],
-"loop": true,
+"loop": 1,
 "name": &"nohands_Walk",
 "speed": 8.0
 }, {
@@ -405,7 +402,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("24_d7vqv")
 }],
-"loop": true,
+"loop": 1,
 "name": &"regular_Duck",
 "speed": 5.0
 }, {
@@ -416,7 +413,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("35_a7odl")
 }],
-"loop": true,
+"loop": 1,
 "name": &"regular_Idle",
 "speed": 2.0
 }, {
@@ -424,7 +421,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("19_v3aa4")
 }],
-"loop": true,
+"loop": 1,
 "name": &"regular_Jump",
 "speed": 5.0
 }, {
@@ -447,7 +444,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("27_nmc3r")
 }],
-"loop": true,
+"loop": 1,
 "name": &"regular_Walk",
 "speed": 8.0
 }]
@@ -455,10 +452,6 @@ animations = [{
 [node name="Player" type="CharacterBody2D" unique_id=1399318605 groups=["Player"]]
 collision_mask = 6
 script = ExtResource("1_5tmdi")
-temp_preload = ExtResource("2_sw3jc")
-temp_preload_2 = ExtResource("3_tbeor")
-temp_preload_3 = ExtResource("4_tbeor")
-temp_preload_4 = ExtResource("5_qwrnf")
 lossScreen = ExtResource("4_sw3jc")
 Show_defence = false
 Gain_defense = false
@@ -558,5 +551,9 @@ theme_override_font_sizes/font_size = 11
 text = "Stable"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="VengefulMusic" type="AudioStreamPlayer2D" parent="." unique_id=1025341476]
+stream = ExtResource("46_5tmdi")
+parameters/looping = true
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

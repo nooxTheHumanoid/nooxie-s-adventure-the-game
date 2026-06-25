@@ -9,6 +9,7 @@ const BULLET = preload('res://things/Slug.tscn')
 @export var y_offset = 8.0
 @export var can_dorp: bool = true
 @export var ammo: int = 21
+@export var burst: int = 1
 
 var AimSpeed = 420.0
 var instaAim: bool = true
@@ -19,6 +20,8 @@ var firecd: float = 0.5
 var actualfire: bool = false
 var currentDMG: float = 0.0
 var bulletHP: float = 2.0
+var burstFinish = true
+var burstcd: float = 0.1
 
 func dmgMulti(dmg):
 	DmgMulti = dmg
@@ -35,6 +38,9 @@ func bulletnum(hp):
 
 func cdnumber(cdnum):
 	firecd = cdnum
+	
+func burstcdnumber(cdnum):
+	burstcd = cdnum
 
 func state_char_anim(StateAnim: String):
 	State = StateAnim
@@ -62,6 +68,9 @@ func modenotifforguns(player_guns: Player.PlayerMode):
 func FiredcooldownOff():
 	canfire = true
 	actualfire=false
+	
+func burstAgain():
+	burstFinish = true
 
 func _physics_process(delta: float) -> void:
 	if actualfire == false && visible == true:
@@ -103,6 +112,25 @@ func _physics_process(delta: float) -> void:
 			bullet_instance.healthVal(bulletHP)
 			animator.fireshotty()
 			get_tree().create_timer(firecd).timeout.connect(FiredcooldownOff)
+			#var I: int = 0
+			#while(burst >= I):
+				#if !burstFinish:
+					#burstFinish = true
+					#I += 1
+					#canfire = false
+					#actualfire = true
+					#if global.SFX_Enabled:
+						#firesound.play()
+					#ammo -= 1
+					#var bullet_instance = BULLET.instantiate()
+					#get_tree().root.add_child(bullet_instance)
+					#bullet_instance.global_position = muzzle.global_position
+					#bullet_instance.rotation = rotation
+					#bullet_instance.damagVal(currentDMG*DmgMulti)
+					#bullet_instance.healthVal(bulletHP)
+					#animator.fireshotty()
+					#get_tree().create_timer(burstcd).timeout.connect(burstAgain)
+			#get_tree().create_timer(firecd).timeout.connect(FiredcooldownOff)
 
 func mayIswap():
 	return true

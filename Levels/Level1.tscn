@@ -9,8 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://cgeosfih1riti" path="res://Entities/stomper.tscn" id="7_f5cpa"]
 [ext_resource type="PackedScene" uid="uid://88k2dmp3clm0" path="res://Entities/player_spawn.tscn" id="9_7fl83"]
 [ext_resource type="PackedScene" uid="uid://vo76jgya30xt" path="res://Entities/LevelThings/exit_level.tscn" id="10_7fl83"]
+[ext_resource type="AudioStream" uid="uid://oxnrx7x7cvds" path="res://Music/Levels/nooxion nooxin+.mp3" id="11_f5cpa"]
 [ext_resource type="PackedScene" uid="uid://yokdaxdg6w3b" path="res://pause.tscn" id="11_p5226"]
-[ext_resource type="AudioStream" uid="uid://f6l8fqiup4wj" path="res://Music/Levels/The debt in blood nooxin+ version.mp3" id="11_tuji2"]
 [ext_resource type="PackedScene" uid="uid://dyc3r0j7kdfcl" path="res://Entities/death_zone.tscn" id="13_104vp"]
 [ext_resource type="PackedScene" uid="uid://bt0bsj83t8ip" path="res://things/game_info.tscn" id="13_f5cpa"]
 
@@ -168,7 +168,7 @@ you fall down"
 position = Vector2(-172, 60)
 camera = NodePath("../Camera2D")
 song = ExtResource("7_104vp")
-songPlus = ExtResource("11_tuji2")
+songPlus = ExtResource("11_f5cpa")
 level = "uid://b0w80vqltrl5f"
 PlayerHasgun = 0
 show_stats = false

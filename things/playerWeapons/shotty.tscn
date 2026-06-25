@@ -21,7 +21,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("3_m7frp")
 }],
-"loop": false,
+"loop": 0,
 "name": &"GuyD_Fire",
 "speed": 9.0
 }, {
@@ -29,7 +29,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("3_m7frp")
 }],
-"loop": true,
+"loop": 1,
 "name": &"GuyD_default",
 "speed": 5.0
 }, {
@@ -40,7 +40,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("5_dcg0k")
 }],
-"loop": false,
+"loop": 0,
 "name": &"Milky_Fire",
 "speed": 9.0
 }, {
@@ -48,7 +48,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("5_dcg0k")
 }],
-"loop": true,
+"loop": 1,
 "name": &"Milky_default",
 "speed": 5.0
 }, {
@@ -59,7 +59,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("5_8n2m0")
 }],
-"loop": false,
+"loop": 0,
 "name": &"NULL_Fire",
 "speed": 9.0
 }, {
@@ -67,7 +67,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("5_8n2m0")
 }],
-"loop": true,
+"loop": 1,
 "name": &"NULL_default",
 "speed": 5.0
 }, {
@@ -78,7 +78,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("2_kdrwu")
 }],
-"loop": false,
+"loop": 0,
 "name": &"NX_Fire",
 "speed": 9.0
 }, {
@@ -86,13 +86,14 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("2_kdrwu")
 }],
-"loop": true,
+"loop": 1,
 "name": &"NX_default",
 "speed": 5.0
 }]
 
 [node name="Shotty" type="Node2D" unique_id=1457976087]
 script = ExtResource("1_o7t1e")
+ammo = 210
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1561746547]
 position = Vector2(12, -1)

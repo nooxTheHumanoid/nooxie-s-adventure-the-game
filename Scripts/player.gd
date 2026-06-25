@@ -80,6 +80,7 @@ var is_dead: bool  = false
 @onready var tauntSong = $Taunt
 @onready var levelmusic = $LevelMusic
 @onready var emotionText = $Emotion
+@onready var vengefulTheme = $VengefulMusic
 
 @export var lossScreen : PackedScene
 @export_file var Current_scene
@@ -420,8 +421,8 @@ func _process(delta):
 		JumpDmgMulti = 7.5
 		PainRecoveryMulti = 0.0
 		MoodMulti = 0.0
-		levelmusic.pitch_scale = 1.25
-		tauntSong.pitch_scale = 1.25
+		levelmusic.pitch_scale = 1.0
+		tauntSong.pitch_scale = 1.0
 	elif Mental_State == EmotionalState.focused:
 		emotionText.text = "focused"
 		DamageTakenMulti = 0.75
@@ -545,7 +546,7 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_pressed("down") and is_on_floor() and taunting == false:
 		IwantDuckOrTaunt = "duck"
 		ExtraSpeed = 0
-	elif Input.is_action_just_pressed("taunt") and is_on_floor() and taunting == false:
+	elif Input.is_action_just_pressed("taunt") and is_on_floor() and taunting == false && Mental_State != EmotionalState.vengeful:
 		IwantDuckOrTaunt= "taunt"
 		taunting = true
 	elif taunting == false:
@@ -597,6 +598,12 @@ func _physics_process(delta: float) -> void:
 			if global.Music_Enabled:
 				tauntSong.playing = true
 				levelmusic.stream_paused = true
+	
+	if Mental_State == EmotionalState.vengeful:
+		if global.Music_Enabled && !vengefulTheme.playing:
+			vengefulTheme.playing = true
+			tauntSong.playing = false
+			levelmusic.playing = false
 	
 	sprite.char_state(IwantDuckOrTaunt)
 	sprite.WhatTaunt(TauntName)

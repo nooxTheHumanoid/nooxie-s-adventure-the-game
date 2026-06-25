@@ -37,6 +37,7 @@
 [ext_resource type="AudioStream" uid="uid://dgprsaiwm44wa" path="res://Music/nooxin' dance somewhat serious.mp3" id="39_ralh8"]
 [ext_resource type="Script" uid="uid://exjnoni43qyt" path="res://Scripts/player_animate.gd" id="40_m3hhb"]
 [ext_resource type="Shape2D" uid="uid://mlf4d6fr1s5w" path="res://Resources/CollisionShapes/player_collision_shape.tres" id="41_gafbm"]
+[ext_resource type="AudioStream" uid="uid://bdnt83xf8aue4" path="res://Music/lore accurate nx chase theme.mp3" id="43_7ytqg"]
 [ext_resource type="AudioStream" uid="uid://d0llg1iryhkni" path="res://Music/An average nooxin' menu.mp3" id="43_linmk"]
 [ext_resource type="PackedScene" uid="uid://dkqrbo1o6fy4p" path="res://NonLevelScenes/HPbar.tscn" id="44_pgubc"]
 [ext_resource type="PackedScene" uid="uid://x6yurkutkg7b" path="res://NonLevelScenes/DefenceBar.tscn" id="45_ryic0"]
@@ -574,5 +575,9 @@ theme_override_font_sizes/font_size = 11
 text = "Stable"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="VengefulMusic" type="AudioStreamPlayer2D" parent="." unique_id=181776952]
+stream = ExtResource("43_7ytqg")
+parameters/looping = true
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

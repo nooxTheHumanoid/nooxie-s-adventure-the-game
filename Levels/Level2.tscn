@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://dyc3r0j7kdfcl" path="res://Entities/death_zone.tscn" id="10_cch3g"]
 [ext_resource type="PackedScene" uid="uid://88k2dmp3clm0" path="res://Entities/player_spawn.tscn" id="11_80cou"]
 [ext_resource type="PackedScene" uid="uid://drwt5fd2ow5qy" path="res://Entities/LevelThings/Spike.tscn" id="11_lf2mf"]
+[ext_resource type="AudioStream" uid="uid://oxnrx7x7cvds" path="res://Music/Levels/nooxion nooxin+.mp3" id="13_tweqo"]
 [ext_resource type="PackedScene" uid="uid://yokdaxdg6w3b" path="res://pause.tscn" id="13_xosfc"]
 [ext_resource type="PackedScene" uid="uid://bt0bsj83t8ip" path="res://things/game_info.tscn" id="14_mbiy8"]
 
@@ -296,6 +297,7 @@ texture = ExtResource("10_80cou")
 position = Vector2(-184, -494)
 camera = NodePath("../Camera2D")
 song = ExtResource("7_mbwna")
+songPlus = ExtResource("13_tweqo")
 level = "uid://breh702cirp3"
 PlayerHasgun = 0
 show_stats = false
