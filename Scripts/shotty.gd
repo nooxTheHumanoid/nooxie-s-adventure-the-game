@@ -71,7 +71,23 @@ func FiredcooldownOff():
 	
 func burstAgain():
 	burstFinish = true
-
+	
+func fireNOW():
+	if canfire and visible == true && ammo >= 1:
+		canfire = false
+		actualfire = true
+		if global.SFX_Enabled:
+			firesound.play()
+		ammo -= 1
+		var bullet_instance = BULLET.instantiate()
+		get_tree().root.add_child(bullet_instance)
+		bullet_instance.global_position = muzzle.global_position
+		bullet_instance.rotation = rotation
+		bullet_instance.damagVal(currentDMG*DmgMulti)
+		bullet_instance.healthVal(bulletHP)
+		animator.fireshotty()
+		get_tree().create_timer(firecd).timeout.connect(FiredcooldownOff)
+			
 func _physics_process(delta: float) -> void:
 	if actualfire == false && visible == true:
 		canfire = true

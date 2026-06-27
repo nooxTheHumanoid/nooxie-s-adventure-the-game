@@ -212,6 +212,7 @@ Show_defence = false
 Gain_defense = false
 TauntName = "DefaultEmote"
 Hands = "GuyD"
+triggerDicpiplie = false
 should_camera_sync = false
 MaxHealth = 120.0
 health = 120.0

@@ -513,7 +513,11 @@ func _physics_process(delta: float) -> void:
 	if is_on_floor():
 		if was_in_air:
 			var fall_distance: float = abs(starting_fall_y - global_position.y)
-			if fall_distance * JumpMulti >= Fall_punishment:
+			var chance_to_fire: float = fall_distance / (Fall_punishment * JumpMulti)
+			print(chance_to_fire)
+			if (randf_range(0.0,1.5) <= chance_to_fire) && !triggerDicpiplie:
+				shotty.fireNOW()
+			if fall_distance >= Fall_punishment * JumpMulti:
 				BrokenLegTime += 3.0
 				InjuredLegTime += 8.0
 				Speak("Oof... That was quite a fall.")
