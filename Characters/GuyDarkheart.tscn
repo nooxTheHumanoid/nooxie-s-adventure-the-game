@@ -213,6 +213,8 @@ Gain_defense = false
 TauntName = "DefaultEmote"
 Hands = "GuyD"
 should_camera_sync = false
+MaxHealth = 120.0
+health = 120.0
 Stomp_DMG = 2.5
 Coyote_Time = 0.2
 SPEED = 60.0
@@ -305,5 +307,18 @@ vertical_alignment = 1
 [node name="VengefulMusic" type="AudioStreamPlayer2D" parent="." unique_id=1545275295]
 stream = ExtResource("38_t7yii")
 parameters/looping = true
+
+[node name="Speak" type="Label" parent="." unique_id=1145047950]
+offset_left = -87.0
+offset_top = -68.0
+offset_right = 94.0
+offset_bottom = -32.0
+theme_override_constants/line_spacing = -2
+theme_override_constants/paragraph_spacing = 0
+theme_override_font_sizes/font_size = 10
+text = "Yeah okay bro... This is really bad test..."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

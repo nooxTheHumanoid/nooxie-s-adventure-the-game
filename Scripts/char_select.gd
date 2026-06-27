@@ -18,7 +18,7 @@ func _ready() -> void:
 	enablenooxinwatch.button_pressed = SaveData.contents_to_save.nooxinwatch
 	optionButton.selected = global.character
 	if global.character == 0:
-		CharnameText.text = "noox nooxie nooxTheHumanoid NX Noxious noxon nooxin'"
+		CharnameText.text = "noox nooxie nooxTheHumanoid NX Noxious noxon noexion nooxious nooxin'"
 		if global.censor_swearT:
 			DescText.text = "A 2'1 feet short humanoid who can change their height to be up to 21 feet tall. He's very strong but fragile guy. 
 		He's sadistic and masochistic even though he cannot feel pain at all.
@@ -104,7 +104,7 @@ func _on_characters_item_selected(index: int) -> void:
 	global.character = idx
 	SaveData._save()
 	if idx == 0:
-		CharnameText.text = "noox nooxie nooxTheHumanoid NX Noxious noxon nooxin'"
+		CharnameText.text = "noox nooxie nooxTheHumanoid NX Noxious noxon noexion nooxious nooxin'"
 		if global.censor_swearT:
 			DescText.text = "A 2'1 feet short humanoid who can change their height to be up to 21 feet tall. He's very strong but fragile guy. 
 		He's sadistic and masochistic even though he cannot feel pain at all.

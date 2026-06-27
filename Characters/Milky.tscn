@@ -490,6 +490,8 @@ Show_defence = false
 Gain_defense = false
 Hands = "Milky"
 should_camera_sync = false
+MaxHealth = 80.0
+health = 80.0
 Stomp_DMG = 1.5
 SPEED = 110.0
 JUMP_VELOCITY = -420.0
@@ -579,5 +581,18 @@ vertical_alignment = 1
 [node name="VengefulMusic" type="AudioStreamPlayer2D" parent="." unique_id=181776952]
 stream = ExtResource("43_7ytqg")
 parameters/looping = true
+
+[node name="Speak" type="Label" parent="." unique_id=271783317]
+offset_left = -87.0
+offset_top = -68.0
+offset_right = 94.0
+offset_bottom = -32.0
+theme_override_constants/line_spacing = -2
+theme_override_constants/paragraph_spacing = 0
+theme_override_font_sizes/font_size = 10
+text = "Yeah okay bro... This is really bad test..."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

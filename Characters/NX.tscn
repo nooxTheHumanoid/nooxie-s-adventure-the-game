@@ -459,6 +459,7 @@ Show_stamina = false
 Has_stamina = false
 can_wallclimb = false
 should_camera_sync = false
+feelPain = false
 CanBeInjured = false
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=926349382]
@@ -517,10 +518,10 @@ offset_bottom = -24.0
 
 [node name="AmmoCount" type="Label" parent="." unique_id=1142377718]
 visible = false
-offset_left = -18.0
-offset_top = -45.0
-offset_right = 21.0
-offset_bottom = -31.0
+offset_left = 10.0
+offset_top = -23.0
+offset_right = 49.0
+offset_bottom = -9.0
 theme_override_colors/font_color = Color(0.7223417, 0.7223419, 3.85046e-07, 1)
 theme_override_colors/font_outline_color = Color(0.45875543, 0.45875585, 0, 1)
 theme_override_constants/outline_size = 3
@@ -531,14 +532,26 @@ vertical_alignment = 1
 
 [node name="Emotion" type="Label" parent="." unique_id=1150700462]
 visible = false
-offset_left = -31.0
-offset_top = -50.0
-offset_right = 34.0
-offset_bottom = -27.0
+offset_left = -65.0
+offset_top = -26.0
+offset_bottom = -3.0
 theme_override_font_sizes/font_size = 11
 text = "Stable"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Speak" type="Label" parent="." unique_id=1264586919]
+offset_left = -87.0
+offset_top = -68.0
+offset_right = 94.0
+offset_bottom = -32.0
+theme_override_constants/line_spacing = -2
+theme_override_constants/paragraph_spacing = 0
+theme_override_font_sizes/font_size = 10
+text = "Yeah okay bro... This is really bad test..."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
 
 [node name="Scythe" type="Sprite2D" parent="." unique_id=783684792]
 visible = false

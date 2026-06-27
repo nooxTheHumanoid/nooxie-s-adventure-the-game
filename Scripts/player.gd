@@ -81,6 +81,7 @@ var is_dead: bool  = false
 @onready var levelmusic = $LevelMusic
 @onready var emotionText = $Emotion
 @onready var vengefulTheme = $VengefulMusic
+@onready var talkingText = $Speak
 
 @export var lossScreen : PackedScene
 @export_file var Current_scene
@@ -213,6 +214,11 @@ var current_stamina: float = 0.0
 var stamina_cooldown_timer: float = 0.0
 var Char_Running: bool  = false
 var wallClimbing: float = false
+
+var was_in_air: bool  = false
+const Fall_punishment: float = 100.0
+var starting_fall_y: float = 0.0
+
 func _ready():
 	invInit([SelectedWeapon.primary, SelectedWeapon.secondary, SelectedWeapon.melee, SelectedWeapon.special], [Primary_slots, Secondary_slots, Melee_slots, Special_slots])
 	inventory_slot = 0; inventory_variation = 0
@@ -274,6 +280,7 @@ func _ready():
 	else:
 		emotionText.text = "stable"
 	emotionCast(emotionText.text)
+	Speak("Yeah okay bro... This is really a bad test...")
 
 func _process(delta):
 	if Input.is_action_just_pressed("HoldFire"):
@@ -503,6 +510,20 @@ func _process(delta):
 
 func _physics_process(delta: float) -> void:
 		
+	if is_on_floor():
+		if was_in_air:
+			var fall_distance: float = abs(starting_fall_y - global_position.y)
+			if fall_distance * JumpMulti >= Fall_punishment:
+				BrokenLegTime += 3.0
+				InjuredLegTime += 8.0
+				Speak("Oof... That was quite a fall.")
+			was_in_air = false
+	else:
+		if !was_in_air:
+			starting_fall_y = global_position.y
+			was_in_air = true
+		if wallClimbing && was_in_air:
+			starting_fall_y = global_position.y
 		
 	if (not is_on_floor() and is_on_wall() and (Input.is_action_pressed("left") or Input.is_action_pressed("right"))) and can_wallclimb && ((current_stamina > 0 && wallClimbing) || (current_stamina > MinStaminaToRun && !wallClimbing)):
 		velocity.y = -climbspeed
@@ -701,6 +722,7 @@ func handle_enemy_collision2(enemy: EnemyMafia):
 		died()
 		
 func enemy_stomped():
+	starting_fall_y = global_position.y
 	velocity.y = stomp_y_vel
 	if Player_Mode == PlayerMode.nohands:
 		pausemovement = true
@@ -743,6 +765,7 @@ func died():
 	PainAmount -= (gethitdmg*1.5)
 	mood -= (gethitdmg/MoodMulti)
 	#injuries...
+	Speak("Owie")
 	if (gethitdmg*1.5) >= minPain and (gethitdmg*1.5) < maxPain:
 		var randomInjury = randi_range(1,3)
 		if randomInjury == 1:
@@ -755,12 +778,19 @@ func died():
 		var randomInjury = randi_range(1,3)
 		if randomInjury == 1:
 			HeadtraumaTime += 10
+			Speak("Ugh...")
 		elif randomInjury == 2:
-			BrokenArmTime += 60
+			BrokenArmTime += 30
+			InjuredArmTime += 60
+			Speak("My arm...")
 		elif randomInjury == 3:
-			BrokenLegTime += 30
+			InjuredLegTime += 30
+			BrokenLegTime += 15
+			Speak("Ugh My leg...")
 	#injuries end
 	global.tempkills = 0 
+	if health > 0:
+		health_bar.set_health(health)
 	if health <= 0:
 		if get_tree().get_first_node_in_group("Discord"):
 			get_tree().get_first_node_in_group("Discord").update(true)
@@ -843,3 +873,12 @@ func emotionCast(text):
 		global.Emotion = text
 		if get_tree().get_first_node_in_group("Discord"):
 			get_tree().get_first_node_in_group("Discord").update(false)
+
+func Speak(text):
+	talkingText.visible_characters = 0
+	talkingText.text = text
+	var textBuildDuration = talkingText.get_total_character_count() * 0.1
+	var tween = create_tween()
+	tween.tween_property(talkingText,"visible_characters",talkingText.get_total_character_count(),textBuildDuration)
+	await get_tree().create_timer(textBuildDuration+3).timeout
+	talkingText.visible_characters = 0

@@ -76,7 +76,7 @@ func _ready() -> void:
 		player.Current_scene = level
 		if ChangeSettings:
 			player.Mental_State = MentalState
-			player.defence = defence
+			#player.defence = defence
 			player.affected_by_mood = affected_by_mood
 			player.allowInjuries = allowInjuries
 			player.can_wallclimb = can_wallclimb
@@ -103,7 +103,7 @@ func _ready() -> void:
 		#player.defence = defence
 		if ChangeSettings:
 			player.Mental_State = MentalState
-			player.defence = defence
+			#player.defence = defence
 			player.affected_by_mood = affected_by_mood
 			player.allowInjuries = allowInjuries
 			player.can_wallclimb = can_wallclimb
@@ -129,7 +129,7 @@ func _ready() -> void:
 		player.Current_scene = level
 		if ChangeSettings:
 			player.Mental_State = MentalState
-			player.defence = defence
+			#player.defence = defence
 			player.affected_by_mood = affected_by_mood
 			player.allowInjuries = allowInjuries
 			player.can_wallclimb = can_wallclimb
