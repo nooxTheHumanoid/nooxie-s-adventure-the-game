@@ -106,6 +106,8 @@ func _physics_process(delta: float) -> void:
 func mayIswap():
 	return true
 	
+func fireNOW():
+	pass #It's a melee weapon how can I fire bullets?
 	
 func handle_enemy_collision(enemy: Enemy):
 	if enemy == null:

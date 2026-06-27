@@ -643,35 +643,19 @@ func _physics_process(delta: float) -> void:
 		if shotty.mayIswap() == true && Player_Mode == PlayerMode.nohands:
 			if Input.is_action_just_pressed("slot1"):#changes slot to Primary
 				inventory_slot = 0;
-				inventory_variation = 0
-				#if inventory[inventory_slot].size() <= inventory_variation:
-					#inventory_variation = 0
-				#else:
-					#inventory_variation += 1
+				inventory_variation += 1
 				invLoadCurent()
 			elif Input.is_action_just_pressed("slot2"):#changes slot to Secondary
 				inventory_slot = 1; 
-				inventory_variation = 0
-				#if inventory_size[inventory_variation] <= inventory_variation:
-					#inventory_variation = 0
-				#else:
-					#inventory_variation += 1
+				inventory_variation += 1
 				invLoadCurent()
 			elif Input.is_action_just_pressed("slot3"):#changes slot to Melee
 				inventory_slot = 2; 
-				inventory_variation = 0
-				#if inventory_size[inventory_variation] <= inventory_variation:
-					#inventory_variation = 0
-				#else:
-					#inventory_variation += 1
+				inventory_variation += 1
 				invLoadCurent()
 			elif Input.is_action_just_pressed("slot4"):#changes slot to Special
 				inventory_slot = 3; 
-				inventory_variation = 0
-				#if inventory_size[inventory_variation] <= inventory_variation:
-					#inventory_variation = 0
-				#else:
-					#inventory_variation += 1
+				inventory_variation += 1
 				invLoadCurent()
 				
 	# GUY DARKHEARD POWER TEST!!!
@@ -844,19 +828,19 @@ func invAdd(p_item: inv_items) -> bool:
 	return true
 
 func removeItem() -> inv_items:
-	if !(inventory[inventory_slot] && inventory[inventory_slot][inventory_variation]): return null
+	if invCheck(): return null
 	var temp_item: inv_items = inventory[inventory_slot][inventory_variation];
 	inventory[inventory_slot][inventory_variation] = null
 	inventory_innited_wepon[inventory_slot][inventory_variation] = false
 	return temp_item;
 
 func getItem() -> inv_items:
-	if !(inventory[inventory_slot] && inventory[inventory_slot][inventory_variation]): return null
+	if invCheck(): return null
 	var temp_item: inv_items = inventory[inventory_slot][inventory_variation]
 	return temp_item;
 
 func invLoadCurent():
-	if !(inventory[inventory_slot] && inventory[inventory_slot][inventory_variation]): return
+	if invCheck(): return
 	if inventory_loaded_wepon: inventory_loaded_wepon.visible = false
 	inventory_loaded_item = inventory[inventory_slot][inventory_variation]
 	inventory_loaded_wepon = null
@@ -872,6 +856,15 @@ func invLoadCurent():
 	# offsets
 	inventory_loaded_wepon.char_skin(Hands)
 	shotty = inventory_loaded_wepon
+	
+func invCheck():
+	if inventory.size() <= inventory_slot: inventory_slot = 0
+	if inventory_slot < 0: inventory.size() - 1
+	if inventory[inventory_slot].size() <= inventory_variation: inventory_variation = 0
+	if inventory_variation < 0: inventory[inventory_slot].size() - 1
+	if (inventory[inventory_slot] && inventory[inventory_slot][inventory_variation]): return false
+	else: return true
+	
 func emotionCast(text):
 	if global.Emotion != text:
 		global.Emotion = text

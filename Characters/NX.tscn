@@ -454,7 +454,6 @@ animations = [{
 collision_mask = 6
 script = ExtResource("1_1vlla")
 lossScreen = ExtResource("4_shf6n")
-Mental_State = 0
 Show_stamina = false
 Has_stamina = false
 can_wallclimb = false
