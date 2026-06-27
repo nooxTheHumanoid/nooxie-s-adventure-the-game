@@ -514,7 +514,6 @@ func _physics_process(delta: float) -> void:
 		if was_in_air:
 			var fall_distance: float = abs(starting_fall_y - global_position.y)
 			var chance_to_fire: float = fall_distance / (Fall_punishment * JumpMulti)
-			print(chance_to_fire)
 			if (randf_range(0.0,1.5) <= chance_to_fire) && !triggerDicpiplie:
 				shotty.fireNOW()
 			if fall_distance >= Fall_punishment * JumpMulti:
@@ -755,7 +754,7 @@ func died():
 	#injuries...
 	Speak("Owie")
 	if (gethitdmg*1.5) >= minPain and (gethitdmg*1.5) < maxPain:
-		var randomInjury = randi_range(1,3)
+		var randomInjury = randi_range(1,5)
 		if randomInjury == 1:
 			HeadtraumaTime += 5
 		elif randomInjury == 2:
@@ -763,7 +762,7 @@ func died():
 		elif randomInjury == 3:
 			InjuredLegTime += 15
 	elif (gethitdmg*1.5) >= maxPain:
-		var randomInjury = randi_range(1,3)
+		var randomInjury = randi_range(1,5)
 		if randomInjury == 1:
 			HeadtraumaTime += 10
 			Speak("Ugh...")
