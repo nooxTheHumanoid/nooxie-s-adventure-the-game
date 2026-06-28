@@ -280,6 +280,7 @@ func _ready():
 		emotionText.text = "unstable"
 	else:
 		emotionText.text = "stable"
+	Fade.visible = true
 	emotionCast(emotionText.text)
 	Speak("Yeah okay bro... This is really a bad test...")
 
@@ -338,12 +339,6 @@ func _process(delta):
 		if HeadtraumaTime > 0.0:
 			Headtrauma = true
 			HeadtraumaTime -= delta * InjuryRecoveryMulti 
-			if visibility > 150.0:
-				visibility = 150.0
-			elif visibility >= 0.0:
-				visibility -= delta * 10.0
-			else:
-				visibility = 0.0
 		if InjuredArmTime > 0.0:
 			InjuredArm = true
 			InjuredArmTime -= delta * InjuryRecoveryMulti
@@ -356,6 +351,12 @@ func _process(delta):
 		if BrokenLegTime > 0.0:
 			BrokenLeg = true
 			BrokenLegTime -= delta * InjuryRecoveryMulti
+		if visibility > 150.0:
+			visibility = 150.0
+		elif visibility > 0.0:
+			visibility -= delta * 10.0
+		else:
+			visibility = 0.0
 		Fade.color.a = visibility*0.01
 		
 	if affected_by_mood:

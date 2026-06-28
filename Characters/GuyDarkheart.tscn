@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://18k5kwx5ge1x"]
 
-[ext_resource type="Script" uid="uid://dbchkjmbtwuyi" path="res://Scripts/player.gd" id="1_4rhig"]
+[ext_resource type="Script" uid="uid://dbchkjmbtwuyi" path="res://Scripts/PlayerCharacterScripts/NX.gd" id="1_4rhig"]
 [ext_resource type="PackedScene" uid="uid://cwtch2g70j85e" path="res://loseScreen.tscn" id="4_jtppp"]
 [ext_resource type="Texture2D" uid="uid://btidw4cbx1uli" path="res://PlayerSprites/GuyDarkHeart/Death.png" id="5_idxw0"]
 [ext_resource type="Texture2D" uid="uid://ci4nxjtlnl1j" path="res://PlayerSprites/GuyDarkHeart/Dance1.png" id="6_v3nnn"]

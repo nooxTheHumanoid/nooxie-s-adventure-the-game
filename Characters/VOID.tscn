@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://csjwso16gh2ji"]
 
-[ext_resource type="Script" uid="uid://dbchkjmbtwuyi" path="res://Scripts/player.gd" id="1_5tmdi"]
+[ext_resource type="Script" uid="uid://dbchkjmbtwuyi" path="res://Scripts/PlayerCharacterScripts/NX.gd" id="1_5tmdi"]
 [ext_resource type="Texture2D" uid="uid://cir5soi8k3yix" path="res://PlayerSprites/PlayerDeath.png" id="4_qwrnf"]
 [ext_resource type="PackedScene" uid="uid://cwtch2g70j85e" path="res://loseScreen.tscn" id="4_sw3jc"]
 [ext_resource type="Texture2D" uid="uid://b1ydgb7c1mxgb" path="res://PlayerSprites/PlayerDance1.png" id="5_rtjwq"]

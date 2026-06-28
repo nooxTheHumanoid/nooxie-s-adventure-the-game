@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://mcylacrvtlxq"]
 
-[ext_resource type="Script" uid="uid://dbchkjmbtwuyi" path="res://Scripts/player.gd" id="1_n7qvv"]
+[ext_resource type="Script" uid="uid://dbchkjmbtwuyi" path="res://Scripts/PlayerCharacterScripts/NX.gd" id="1_n7qvv"]
 [ext_resource type="PackedScene" uid="uid://cwtch2g70j85e" path="res://loseScreen.tscn" id="4_ru54p"]
 [ext_resource type="Texture2D" uid="uid://clqb1o38emr3n" path="res://PlayerSprites/Milky/MilkyIdle.png" id="5_58xp5"]
 [ext_resource type="Texture2D" uid="uid://cgo3h60phsf0q" path="res://PlayerSprites/Milky/milkydance1.png" id="6_itg36"]
