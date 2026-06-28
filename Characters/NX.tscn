@@ -559,4 +559,13 @@ position = Vector2(-2, 1)
 texture = ExtResource("51_apv27")
 flip_h = true
 
+[node name="Fade" type="ColorRect" parent="." unique_id=1819605078]
+z_index = 21
+offset_left = -653.0
+offset_top = -680.0
+offset_right = 654.0
+offset_bottom = 679.0
+mouse_filter = 2
+color = Color(0, 0, 0, 0)
+
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

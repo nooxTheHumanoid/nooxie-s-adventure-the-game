@@ -71,6 +71,6 @@ offset_right = 393.0
 offset_bottom = 222.0
 text = "Main Menu"
 
-[connection signal="pressed" from="ColorRect2/resume" to="." method="_on_restart_pressed"]
 [connection signal="pressed" from="ColorRect2/resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="ColorRect2/resume" to="." method="_on_restart_pressed"]
 [connection signal="pressed" from="ColorRect2/Menu" to="." method="_on_menu_pressed"]

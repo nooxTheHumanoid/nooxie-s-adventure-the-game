@@ -82,6 +82,7 @@ var is_dead: bool  = false
 @onready var emotionText = $Emotion
 @onready var vengefulTheme = $VengefulMusic
 @onready var talkingText = $Speak
+@onready var Fade = $Fade
 
 @export var lossScreen : PackedScene
 @export_file var Current_scene
@@ -337,7 +338,12 @@ func _process(delta):
 		if HeadtraumaTime > 0.0:
 			Headtrauma = true
 			HeadtraumaTime -= delta * InjuryRecoveryMulti 
-			visibility -= delta * 10.0 
+			if visibility > 150.0:
+				visibility = 150.0
+			elif visibility >= 0.0:
+				visibility -= delta * 10.0
+			else:
+				visibility = 0.0
 		if InjuredArmTime > 0.0:
 			InjuredArm = true
 			InjuredArmTime -= delta * InjuryRecoveryMulti
@@ -350,6 +356,7 @@ func _process(delta):
 		if BrokenLegTime > 0.0:
 			BrokenLeg = true
 			BrokenLegTime -= delta * InjuryRecoveryMulti
+		Fade.color.a = visibility*0.01
 		
 	if affected_by_mood:
 		if Mental_State != EmotionalState.vengeful:
@@ -757,6 +764,7 @@ func died():
 		var randomInjury = randi_range(1,5)
 		if randomInjury == 1:
 			HeadtraumaTime += 5
+			visibility += 50
 		elif randomInjury == 2:
 			InjuredArmTime += 30
 		elif randomInjury == 3:
@@ -765,6 +773,7 @@ func died():
 		var randomInjury = randi_range(1,5)
 		if randomInjury == 1:
 			HeadtraumaTime += 10
+			visibility += 100
 			Speak("Ugh...")
 		elif randomInjury == 2:
 			BrokenArmTime += 30
@@ -785,6 +794,7 @@ func died():
 		defence_bar.queue_free()
 		stamina_bar.visible = false
 		health_bar.visible = false
+		Fade.visible = false
 		sprite.play("Death")
 		char_area.set_collision_layer_value(1,false)
 		char_area.set_collision_mask_value(3,false)
