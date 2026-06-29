@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cgeosfih1riti"]
+[gd_scene format=3 uid="uid://cgeosfih1riti"]
 
 [ext_resource type="Texture2D" uid="uid://cvinxsottt18m" path="res://EnemySprites/Stomper/StomperDead.png" id="1_4g0ew"]
 [ext_resource type="Script" uid="uid://bnsobl6lul6no" path="res://Scripts/stomper.gd" id="1_dq5x7"]
@@ -12,7 +12,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("1_4g0ew")
 }],
-"loop": true,
+"loop": 1,
 "name": &"Death",
 "speed": 5.0
 }, {
@@ -23,7 +23,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("3_ralqc")
 }],
-"loop": true,
+"loop": 1,
 "name": &"Walk",
 "speed": 3.0
 }]
@@ -33,43 +33,43 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_dq5x7"]
 radius = 198.16154
 
-[node name="Stomper" type="Area2D"]
+[node name="Stomper" type="Area2D" unique_id=1133479608]
 collision_layer = 4
 script = ExtResource("1_dq5x7")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1055270538]
 sprite_frames = SubResource("SpriteFrames_3eb6h")
 animation = &"Walk"
 autoplay = "Walk"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=21339077]
 position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_sfobe")
 
-[node name="RayCast2D" type="RayCast2D" parent="."]
+[node name="RayCast2D" type="RayCast2D" parent="." unique_id=1159054913]
 scale = Vector2(3.4, 1)
 target_position = Vector2(0, 11)
 collision_mask = 18
 
-[node name="WallDetect" type="RayCast2D" parent="."]
+[node name="WallDetect" type="RayCast2D" parent="." unique_id=1741497368]
 position = Vector2(0, 1)
 scale = Vector2(1, 3)
 target_position = Vector2(-10, 0)
 collision_mask = 18
 
-[node name="WallDetect2" type="RayCast2D" parent="."]
+[node name="WallDetect2" type="RayCast2D" parent="." unique_id=674944569]
 position = Vector2(0, 1)
 scale = Vector2(1, 3)
 target_position = Vector2(10, 0)
 collision_mask = 18
 
-[node name="Detection" type="Area2D" parent="."]
+[node name="Detection" type="Area2D" parent="." unique_id=1206592759]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Detection"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Detection" unique_id=1912997632]
 position = Vector2(0, 1)
 shape = SubResource("CircleShape2D_dq5x7")
 
-[node name="HealthBar" parent="." instance=ExtResource("5_ralqc")]
+[node name="HealthBar" parent="." unique_id=1548796905 instance=ExtResource("5_ralqc")]
 offset_left = -14.0
 offset_top = -14.0
 offset_right = 14.0

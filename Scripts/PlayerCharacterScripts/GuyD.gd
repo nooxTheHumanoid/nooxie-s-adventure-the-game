@@ -3,24 +3,10 @@ extends Player
 func _ready():
 	invInit([SelectedWeapon.primary, SelectedWeapon.secondary, SelectedWeapon.melee, SelectedWeapon.special], [Primary_slots, Secondary_slots, Melee_slots, Special_slots])
 	inventory_slot = 0; inventory_variation = 0
-	if !invAdd(inv_items.new(SelectedWeapon.primary, 1, 0.5, AmmoType.slug, global.Primaries[0],2.0)):
-		print("failed to add item")
-	inventory_slot = 1; inventory_variation = 0 #changes slot to mag_12
-	if !invAdd(inv_items.new(SelectedWeapon.secondary, 4, 2.1, AmmoType.bullet, global.Secondaries[0],5.0)):
-		print("failed to add item")
-	inventory_slot = 3; inventory_variation = 0 #changes slot to OPGun
-	if !invAdd(inv_items.new(SelectedWeapon.special, 1, 0.01, AmmoType.slug, global.Specials[0],1.0)):
-		print("failed to add item")
-	inventory_slot = 2; inventory_variation = 0
-	if !invAdd(inv_items.new(SelectedWeapon.melee, 10, 0.5, AmmoType.slug, global.Melees[0],0.25)):
-		print("failed to add item")
-	inventory_slot = 0; inventory_variation = 1
 	if !invAdd(inv_items.new(SelectedWeapon.primary, 0.2, 0.1, AmmoType.bullet, global.Primaries[1],1.0)):
 		print("failed to add item")
 	inventory_slot = 0; inventory_variation = 0
 	invLoadCurent()
-	emotionCast(emotionText.text)
-	Speak("Yeah okay bro... This is really a bad test...")
 
 func _process(delta):
 	if Input.is_action_just_pressed("HoldFire"):
@@ -202,8 +188,8 @@ func _process(delta):
 		tauntSong.pitch_scale = 0.9
 	elif Mental_State == EmotionalState.disstressed:
 		emotionText.text = "disstressed"
-		DamageTakenMulti = 1.5 #default 1.25
-		SpeedMulti = 1.25 #default 0.95
+		DamageTakenMulti = 1.25
+		SpeedMulti = 0.95
 		JumpMulti = 1.0
 		AimSpeedMulti = 0.9
 		DmgMulti = 1.0
@@ -265,7 +251,6 @@ func _physics_process(delta: float) -> void:
 			if fall_distance >= Fall_punishment * JumpMulti:
 				BrokenLegTime += 3.0
 				InjuredLegTime += 8.0
-				Speak("Oof... That was quite a fall.")
 			was_in_air = false
 	else:
 		if !was_in_air:
@@ -403,6 +388,12 @@ func _physics_process(delta: float) -> void:
 				inventory_variation += 1
 				invLoadCurent()
 				
+	# GUY DARKHEARD POWER TEST!!!
+	if Input.is_action_just_pressed("Power") && health > 20.0:
+		health -= 20.0
+		DMGBoost += 0.5
+		if health > 0:
+			health_bar.set_health(health)
 			
 	# DMGBoost Decay
 	if DMGBoost > 1.0:
@@ -465,15 +456,12 @@ func died():
 		if randomInjury == 1:
 			HeadtraumaTime += 10
 			visibility += 100
-			Speak("Ugh...")
 		elif randomInjury == 2:
 			BrokenArmTime += 30
 			InjuredArmTime += 60
-			Speak("My arm...")
 		elif randomInjury == 3:
 			InjuredLegTime += 30
 			BrokenLegTime += 15
-			Speak("Ugh My leg...")
 	#injuries end
 	global.tempkills = 0 
 	if health > 0:

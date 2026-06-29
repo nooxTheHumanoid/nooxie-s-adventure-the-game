@@ -457,9 +457,7 @@ lossScreen = ExtResource("4_shf6n")
 Show_stamina = false
 Has_stamina = false
 can_wallclimb = false
-should_camera_sync = false
 feelPain = false
-CanBeInjured = false
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=926349382]
 sprite_frames = SubResource("SpriteFrames_n7ghd")

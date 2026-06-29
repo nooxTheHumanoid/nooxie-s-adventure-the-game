@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://mcylacrvtlxq"]
 
-[ext_resource type="Script" uid="uid://dbchkjmbtwuyi" path="res://Scripts/PlayerCharacterScripts/NX.gd" id="1_n7qvv"]
+[ext_resource type="Script" uid="uid://c58d7y1nprik7" path="res://Scripts/PlayerCharacterScripts/Milky.gd" id="1_axu0n"]
 [ext_resource type="PackedScene" uid="uid://cwtch2g70j85e" path="res://loseScreen.tscn" id="4_ru54p"]
 [ext_resource type="Texture2D" uid="uid://clqb1o38emr3n" path="res://PlayerSprites/Milky/MilkyIdle.png" id="5_58xp5"]
 [ext_resource type="Texture2D" uid="uid://cgo3h60phsf0q" path="res://PlayerSprites/Milky/milkydance1.png" id="6_itg36"]
@@ -482,7 +482,7 @@ animations = [{
 
 [node name="Player" type="CharacterBody2D" unique_id=1399318605 groups=["Player"]]
 collision_mask = 6
-script = ExtResource("1_n7qvv")
+script = ExtResource("1_axu0n")
 lossScreen = ExtResource("4_ru54p")
 Primary_slots = 2
 Melee_slots = 1
@@ -490,10 +490,10 @@ Show_defence = false
 Gain_defense = false
 Hands = "Milky"
 triggerDicpiplie = false
-should_camera_sync = false
 MaxHealth = 80.0
 health = 80.0
 Stomp_DMG = 1.5
+Coyote_Time = 0.2
 SPEED = 110.0
 JUMP_VELOCITY = -420.0
 SpeedBoost = 2.1

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://18k5kwx5ge1x"]
 
-[ext_resource type="Script" uid="uid://dbchkjmbtwuyi" path="res://Scripts/PlayerCharacterScripts/NX.gd" id="1_4rhig"]
+[ext_resource type="Script" uid="uid://c2ug2r2xgw51r" path="res://Scripts/PlayerCharacterScripts/GuyD.gd" id="1_isbbc"]
 [ext_resource type="PackedScene" uid="uid://cwtch2g70j85e" path="res://loseScreen.tscn" id="4_jtppp"]
 [ext_resource type="Texture2D" uid="uid://btidw4cbx1uli" path="res://PlayerSprites/GuyDarkHeart/Death.png" id="5_idxw0"]
 [ext_resource type="Texture2D" uid="uid://ci4nxjtlnl1j" path="res://PlayerSprites/GuyDarkHeart/Dance1.png" id="6_v3nnn"]
@@ -205,7 +205,7 @@ animations = [{
 
 [node name="Player" type="CharacterBody2D" unique_id=1399318605 groups=["Player"]]
 collision_mask = 6
-script = ExtResource("1_4rhig")
+script = ExtResource("1_isbbc")
 lossScreen = ExtResource("4_jtppp")
 Melee_slots = 1
 Show_defence = false
@@ -213,25 +213,18 @@ Gain_defense = false
 TauntName = "DefaultEmote"
 Hands = "GuyD"
 triggerDicpiplie = false
-should_camera_sync = false
 MaxHealth = 120.0
 health = 120.0
 Stomp_DMG = 2.5
 Coyote_Time = 0.2
-SPEED = 60.0
-SpeedBoost = 2.8
+SpeedBoost = 1.8
 Stamina_Gain = 20.0
-MinStaminaToRun = 15.0
 instantAim = false
 Aimspeed = 750.0
-OC_name = "Guy Darkheart"
-description = "But nobody came."
-Unique_mechaic = "Mercs die twice"
-calls_the_weapons = "weapons"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=926349382]
 sprite_frames = SubResource("SpriteFrames_ajqtx")
-animation = &"nohands_Walk"
+animation = &"DefaultEmote"
 script = ExtResource("40_3mtsr")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=296295247]
