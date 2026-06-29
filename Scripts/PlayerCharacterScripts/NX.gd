@@ -19,6 +19,48 @@ func _ready():
 		print("failed to add item")
 	inventory_slot = 0; inventory_variation = 0
 	invLoadCurent()
+	global.enemies = 0
+	global.tempkills = defence/5
+	levelmusic.stream = LevelSong
+	if global.Music_Enabled:
+		levelmusic.playing = true
+	pausemovement = false
+	if Show_Health:
+		health_bar.visible = true
+	else:
+		health_bar.visible = false
+	if Show_defence:
+		defence_bar.visible = true
+	else:
+		defence_bar.visible = false
+	if Show_stamina:
+		stamina_bar.visible = true
+	else:
+		stamina_bar.visible = false
+	if health >= MaxHealth:
+		MaxHealth = health
+	stamina_bar.max_value = Maxstamina
+	stamina_bar.value = Maxstamina
+	current_stamina = Maxstamina
+	startedWithInstaAim = instantAim
+	health_bar.init_health(MaxHealth)
+	if shotty:
+		shotty.char_skin(Hands)
+	global.DamageTaken = 0.0
+	global.DamageBlocked = 0.0
+	if Mental_State == EmotionalState.focused:
+		emotionText.text = "focused"
+	elif Mental_State == EmotionalState.agony:
+		emotionText.text = "agony"
+	elif Mental_State == EmotionalState.disstressed:
+		emotionText.text = "disstressed"
+	elif Mental_State == EmotionalState.scared:
+		emotionText.text = "scared"
+	elif Mental_State == EmotionalState.unstable:
+		emotionText.text = "unstable"
+	else:
+		emotionText.text = "stable"
+	Fade.visible = true
 	emotionCast(emotionText.text)
 	Speak("Yeah okay bro... This is really a bad test...")
 

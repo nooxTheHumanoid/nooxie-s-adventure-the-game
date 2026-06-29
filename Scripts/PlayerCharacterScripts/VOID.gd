@@ -2,10 +2,22 @@ extends Player
 
 func _ready():
 	invInit([SelectedWeapon.primary, SelectedWeapon.secondary, SelectedWeapon.melee, SelectedWeapon.special], [Primary_slots, Secondary_slots, Melee_slots, Special_slots])
-	inventory_slot = 1; inventory_variation = 0
+	inventory_slot = 0; inventory_variation = 0
+	if !invAdd(inv_items.new(SelectedWeapon.primary, 1, 0.5, AmmoType.slug, global.Primaries[0],2.0)):
+		print("failed to add item")
+	inventory_slot = 1; inventory_variation = 0 #changes slot to mag_12
 	if !invAdd(inv_items.new(SelectedWeapon.secondary, 4, 2.1, AmmoType.bullet, global.Secondaries[0],5.0)):
 		print("failed to add item")
-	inventory_slot = 1; inventory_variation = 0
+	inventory_slot = 3; inventory_variation = 0 #changes slot to OPGun
+	if !invAdd(inv_items.new(SelectedWeapon.special, 1, 0.01, AmmoType.slug, global.Specials[0],1.0)):
+		print("failed to add item")
+	inventory_slot = 2; inventory_variation = 0
+	if !invAdd(inv_items.new(SelectedWeapon.melee, 10, 0.5, AmmoType.slug, global.Melees[0],0.25)):
+		print("failed to add item")
+	inventory_slot = 0; inventory_variation = 1
+	if !invAdd(inv_items.new(SelectedWeapon.primary, 0.2, 0.1, AmmoType.bullet, global.Primaries[1],1.0)):
+		print("failed to add item")
+	inventory_slot = 0; inventory_variation = 0
 	invLoadCurent()
 	global.enemies = 0
 	global.tempkills = defence/5
@@ -49,7 +61,8 @@ func _ready():
 	else:
 		emotionText.text = "stable"
 	Fade.visible = true
-	Speak(" ")
+	emotionCast(emotionText.text)
+	Speak("")
 
 func _process(delta):
 	if Input.is_action_just_pressed("HoldFire"):
@@ -231,8 +244,8 @@ func _process(delta):
 		tauntSong.pitch_scale = 0.9
 	elif Mental_State == EmotionalState.disstressed:
 		emotionText.text = "disstressed"
-		DamageTakenMulti = 1.25
-		SpeedMulti = 0.95
+		DamageTakenMulti = 1.5 #default 1.25
+		SpeedMulti = 1.25 #default 0.95
 		JumpMulti = 1.0
 		AimSpeedMulti = 0.9
 		DmgMulti = 1.0
@@ -294,6 +307,7 @@ func _physics_process(delta: float) -> void:
 			if fall_distance >= Fall_punishment * JumpMulti:
 				BrokenLegTime += 3.0
 				InjuredLegTime += 8.0
+				Speak("Oof... That was quite a fall.")
 			was_in_air = false
 	else:
 		if !was_in_air:
