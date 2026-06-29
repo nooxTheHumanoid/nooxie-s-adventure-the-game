@@ -62,7 +62,7 @@ func _ready():
 		emotionText.text = "stable"
 	Fade.visible = true
 	emotionCast(emotionText.text)
-	Speak("")
+	Speak(" ")
 
 func _process(delta):
 	if Input.is_action_just_pressed("HoldFire"):
@@ -307,7 +307,6 @@ func _physics_process(delta: float) -> void:
 			if fall_distance >= Fall_punishment * JumpMulti:
 				BrokenLegTime += 3.0
 				InjuredLegTime += 8.0
-				Speak("Oof... That was quite a fall.")
 			was_in_air = false
 	else:
 		if !was_in_air:

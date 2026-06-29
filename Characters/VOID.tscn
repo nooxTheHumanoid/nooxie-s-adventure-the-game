@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://csjwso16gh2ji"]
 
-[ext_resource type="Script" uid="uid://dbchkjmbtwuyi" path="res://Scripts/PlayerCharacterScripts/NX.gd" id="1_5tmdi"]
+[ext_resource type="Script" uid="uid://cwnolen4wexdw" path="res://Scripts/PlayerCharacterScripts/VOID.gd" id="1_05edf"]
 [ext_resource type="Texture2D" uid="uid://cir5soi8k3yix" path="res://PlayerSprites/PlayerDeath.png" id="4_qwrnf"]
 [ext_resource type="PackedScene" uid="uid://cwtch2g70j85e" path="res://loseScreen.tscn" id="4_sw3jc"]
 [ext_resource type="Texture2D" uid="uid://b1ydgb7c1mxgb" path="res://PlayerSprites/PlayerDance1.png" id="5_rtjwq"]
@@ -451,13 +451,12 @@ animations = [{
 
 [node name="Player" type="CharacterBody2D" unique_id=1399318605 groups=["Player"]]
 collision_mask = 6
-script = ExtResource("1_5tmdi")
+script = ExtResource("1_05edf")
 lossScreen = ExtResource("4_sw3jc")
 Show_defence = false
 Gain_defense = false
 TauntName = "Test_Taunt"
 Hands = "NULL"
-should_camera_sync = false
 MaxHealth = 100.0
 health = 100.0
 Stomp_DMG = 1.0
@@ -468,10 +467,6 @@ Stamina_Gain = 20.0
 MinStaminaToRun = 15.0
 instantAim = false
 Aimspeed = 800.0
-OC_name = "null"
-description = "But nobody came."
-Unique_mechaic = "Void"
-calls_the_weapons = "?"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=926349382]
 modulate = Color(0, 0, 0, 1)

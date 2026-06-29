@@ -3,7 +3,7 @@ extends Player
 func _ready():
 	invInit([SelectedWeapon.primary, SelectedWeapon.secondary, SelectedWeapon.melee, SelectedWeapon.special], [Primary_slots, Secondary_slots, Melee_slots, Special_slots])
 	inventory_slot = 1; inventory_variation = 0
-	if !invAdd(inv_items.new(SelectedWeapon.secondary, 4, 2.1, AmmoType.bullet, global.Secondaries[0],5.0)):
+	if !invAdd(inv_items.new(SelectedWeapon.secondary, 4, 1.0, AmmoType.bullet, global.Secondaries[0],5.0)):
 		print("failed to add item")
 	inventory_slot = 1; inventory_variation = 0
 	invLoadCurent()
