@@ -8,15 +8,15 @@ extends Node2D
 
 var AimSpeed = 420.0
 var instaAim = true
-var deflectBullets = true
+@export var deflectBullets = true
 var DmgMulti = 1.0
 var canfire = false
 var State = "none"
-var firecd: float = 0.5
+@export var firecd: float = 0.5
 var actualfire = false
-var currentDMG: float = 4.0
-var hitboxLinger: float = 0.4
-var DMGbullet: float = 0.5
+@export var currentDMG: float = 4.0
+@export var hitboxLinger: float = 0.4
+@export var DMGbullet: float = 0.5
 
 func dmgMulti(dmg):
 	DmgMulti = dmg

@@ -95,6 +95,9 @@ animations = [{
 script = ExtResource("1_3bwlp")
 y_offset = 5.0
 ammo = 210000
+firecd = 0.01
+currentDMG = 1.0
+bulletHP = 1.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=707050063]
 modulate = Color(0, 1, 0, 1)

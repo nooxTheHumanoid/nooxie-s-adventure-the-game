@@ -32,31 +32,22 @@ enum EmotionalState {
 }
 
 class inv_items:
-	var dmg: float
 	var gun: Node2D = null
 	var wepons: PackedScene
 	var slot_id: int
-	var bulletHP: float
 	var ammo_type: AmmoType
 	var variant_id: int
 	var weapon_type: SelectedWeapon
-	var attack_speed: float
-	func _init(p_weapon_type,p_dmg,p_attack_speed,p_ammo_type,p_wepons,B_HP):
+	func _init(p_weapon_type,p_ammo_type,p_wepons):
 		self.weapon_type = p_weapon_type
-		self.dmg = p_dmg
-		self.attack_speed = p_attack_speed
 		self.ammo_type = p_ammo_type
 		self.wepons = p_wepons
-		self.bulletHP = B_HP
 	func setWepon(p_wepon : Node2D): self.gun = p_wepon
 	func setSlots(p_slot_id,p_variant_id): self.slot_id = p_slot_id; self.variant_id = p_variant_id
-	func getBHP() -> float: return self.bulletHP
-	func getDmg() -> float: return self.dmg
 	func getType() -> SelectedWeapon: return self.weapon_type
 	func getSlots(): return [slot_id, variant_id]
 	func getWepon() -> Node2D: return self.gun
 	func getWepons() -> PackedScene: return self.wepons
-	func getAttackspeed() -> float: return self.attack_speed
 
 var inventory_limitations
 var inventory_size
@@ -222,8 +213,6 @@ var starting_fall_y: float = 0.0
 
 func Coyote_Timeout():
 	Jump_Availabe = false
-
-
 
 		
 func enemy_stomped():

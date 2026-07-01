@@ -3,19 +3,19 @@ extends Player
 func _ready():
 	invInit([SelectedWeapon.primary, SelectedWeapon.secondary, SelectedWeapon.melee, SelectedWeapon.special], [Primary_slots, Secondary_slots, Melee_slots, Special_slots])
 	inventory_slot = 0; inventory_variation = 0
-	if !invAdd(inv_items.new(SelectedWeapon.primary, 1, 0.5, AmmoType.slug, global.Primaries[0],2.0)):
+	if !invAdd(inv_items.new(SelectedWeapon.primary, AmmoType.slug, global.Primaries[0])):
 		print("failed to add item")
 	inventory_slot = 1; inventory_variation = 0 #changes slot to mag_12
-	if !invAdd(inv_items.new(SelectedWeapon.secondary, 4, 2.1, AmmoType.bullet, global.Secondaries[0],5.0)):
+	if !invAdd(inv_items.new(SelectedWeapon.secondary, AmmoType.bullet, global.Secondaries[0])):
 		print("failed to add item")
 	inventory_slot = 3; inventory_variation = 0 #changes slot to OPGun
-	if !invAdd(inv_items.new(SelectedWeapon.special, 1, 0.01, AmmoType.slug, global.Specials[0],1.0)):
+	if !invAdd(inv_items.new(SelectedWeapon.special, AmmoType.slug, global.Specials[0])):
 		print("failed to add item")
 	inventory_slot = 2; inventory_variation = 0
-	if !invAdd(inv_items.new(SelectedWeapon.melee, 10, 0.5, AmmoType.slug, global.Melees[0],0.25)):
+	if !invAdd(inv_items.new(SelectedWeapon.melee, AmmoType.slug, global.Melees[0])):
 		print("failed to add item")
 	inventory_slot = 0; inventory_variation = 1
-	if !invAdd(inv_items.new(SelectedWeapon.primary, 0.2, 0.1, AmmoType.bullet, global.Primaries[1],1.0)):
+	if !invAdd(inv_items.new(SelectedWeapon.primary, AmmoType.bullet, global.Primaries[1])):
 		print("failed to add item")
 	inventory_slot = 0; inventory_variation = 0
 	invLoadCurent()
@@ -59,7 +59,7 @@ func _ready():
 	elif Mental_State == EmotionalState.unstable:
 		emotionText.text = "unstable"
 	else:
-		emotionText.text = "stable"
+		emotionText.text = "VOID"
 	Fade.visible = true
 	emotionCast(emotionText.text)
 	Speak(" ")
@@ -139,7 +139,7 @@ func _process(delta):
 			visibility = 0.0
 		Fade.color.a = visibility*0.01
 		
-	if affected_by_mood:
+	if affected_by_mood && 2 == 1: #disables mood
 		if Mental_State != EmotionalState.vengeful:
 			if PainAmount < 75.0 && mood > 75.0 && mood < 150.0 && CanBeInjured && (Mental_State != EmotionalState.unstable or Mental_State != EmotionalState.scared) && feelPain:
 				Mental_State = EmotionalState.agony
@@ -422,9 +422,6 @@ func _physics_process(delta: float) -> void:
 	if shotty:
 		shotty.modenotifforguns(Player_Mode)
 		shotty.state_char_anim(IwantDuckOrTaunt)
-		shotty.dmgnumber(inventory_loaded_item.getDmg())
-		shotty.bulletnum(inventory_loaded_item.getBHP())
-		shotty.cdnumber(inventory_loaded_item.getAttackspeed())
 		
 		if shotty.mayIswap() == true && Player_Mode == PlayerMode.nohands:
 			if Input.is_action_just_pressed("slot1"):#changes slot to Primary
@@ -489,7 +486,7 @@ func died():
 	global.DamageTaken += (gethitdmg-(gethitdmg*(defence*0.01)))*DamageTakenMulti*TakeDMGBoost
 	global.DamageBlocked -= ((gethitdmg*(defence*0.01))*DamageTakenMulti*TakeDMGBoost)-gethitdmg
 	PainAmount -= (gethitdmg*1.5)
-	mood -= (gethitdmg/MoodMulti)
+	#mood -= (gethitdmg/MoodMulti)
 	#injuries...
 	if (gethitdmg*1.5) >= minPain and (gethitdmg*1.5) < maxPain:
 		var randomInjury = randi_range(1,5)

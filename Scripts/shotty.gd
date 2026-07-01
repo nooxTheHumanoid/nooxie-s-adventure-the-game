@@ -16,12 +16,12 @@ var instaAim: bool = true
 var DmgMulti = 1.0
 var canfire: bool = false
 var State = "none"
-var firecd: float = 0.5
+@export var firecd: float = 0.5
 var actualfire: bool = false
-var currentDMG: float = 0.0
-var bulletHP: float = 2.0
+@export var currentDMG: float = 0.0
+@export var bulletHP: float = 2.0
 var burstFinish = true
-var burstcd: float = 0.1
+@export var burstcd: float = 0.1
 
 func dmgMulti(dmg):
 	DmgMulti = dmg

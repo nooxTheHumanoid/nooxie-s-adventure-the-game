@@ -94,6 +94,7 @@ animations = [{
 [node name="Shotty" type="Node2D" unique_id=1457976087]
 script = ExtResource("1_o7t1e")
 ammo = 210
+currentDMG = 1.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1561746547]
 position = Vector2(12, -1)

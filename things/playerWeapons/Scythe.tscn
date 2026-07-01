@@ -45,6 +45,8 @@ size = Vector2(47.691933, 47.999996)
 [node name="Node2D" type="Node2D" unique_id=1453195945]
 script = ExtResource("1_s354t")
 y_offset = 2.0
+currentDMG = 10.0
+DMGbullet = 0.25
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1073005557]
 sprite_frames = SubResource("SpriteFrames_j178h")

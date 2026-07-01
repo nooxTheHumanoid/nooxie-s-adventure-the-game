@@ -95,6 +95,9 @@ animations = [{
 script = ExtResource("1_aurot")
 y_offset = 5.0
 ammo = 210
+firecd = 1.0
+currentDMG = 4.0
+bulletHP = 5.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=707050063]
 position = Vector2(12, -1)

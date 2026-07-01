@@ -3,7 +3,7 @@ extends Player
 func _ready():
 	invInit([SelectedWeapon.primary, SelectedWeapon.secondary, SelectedWeapon.melee, SelectedWeapon.special], [Primary_slots, Secondary_slots, Melee_slots, Special_slots])
 	inventory_slot = 0; inventory_variation = 0
-	if !invAdd(inv_items.new(SelectedWeapon.primary, 1, 0.1, AmmoType.bullet, global.Primaries[1],1.0)):
+	if !invAdd(inv_items.new(SelectedWeapon.primary, AmmoType.bullet, global.Primaries[1])):
 		print("failed to add item")
 	inventory_slot = 0; inventory_variation = 0
 	invLoadCurent()
@@ -409,9 +409,6 @@ func _physics_process(delta: float) -> void:
 	if shotty:
 		shotty.modenotifforguns(Player_Mode)
 		shotty.state_char_anim(IwantDuckOrTaunt)
-		shotty.dmgnumber(inventory_loaded_item.getDmg())
-		shotty.bulletnum(inventory_loaded_item.getBHP())
-		shotty.cdnumber(inventory_loaded_item.getAttackspeed())
 		
 		if shotty.mayIswap() == true && Player_Mode == PlayerMode.nohands:
 			if Input.is_action_just_pressed("slot1"):#changes slot to Primary
