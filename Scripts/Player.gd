@@ -175,8 +175,8 @@ var is_dead: bool  = false
 @export var BrokenArm: bool  = false
 @export var InjuredLeg: bool  = false
 @export var BrokenLeg: bool  = false
-@export var minPain: float = 17.0
-@export var maxPain: float = 25.0
+@export var minPain: float = 5.0 # was 17.0
+@export var maxPain: float = 14.0 # was 25.0
 @export_group("")
 
 @export_group("InjuryTimer")

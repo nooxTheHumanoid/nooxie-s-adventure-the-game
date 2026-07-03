@@ -21,5 +21,5 @@ func test(delta):
 		createPoint(Vector2(0, randi_range(-100,100)))
 
 func createPoint(x : Vector2):
-	print(x + Vector2.RIGHT * scroll_offset)
+	#print(x + Vector2.RIGHT * scroll_offset)
 	add_point(x + Vector2.RIGHT * scroll_offset)

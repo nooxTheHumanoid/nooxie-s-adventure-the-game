@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://xw28tbvonejr" path="res://Scripts/shotty.gd" id="1_oocp6"]
 [ext_resource type="Texture2D" uid="uid://dd4pdpcvyhhdo" path="res://EnemySprites/Mercs/Arms/Rifle/rifle2.png" id="2_4vfor"]
+[ext_resource type="Texture2D" uid="uid://77n6wqke5iyv" path="res://PlayerSprites/GuyDarkHeart/Arms/rifle/fire.png" id="2_oocp6"]
+[ext_resource type="Texture2D" uid="uid://b4vrpl0h5opol" path="res://PlayerSprites/GuyDarkHeart/Arms/rifle/idle.png" id="3_jjyq5"]
 [ext_resource type="Texture2D" uid="uid://t5irdrbhhbxd" path="res://EnemySprites/Mercs/Arms/Rifle/rifle1.png" id="3_qy6ql"]
 [ext_resource type="Texture2D" uid="uid://dp0c3wydwtwml" path="res://PlayerSprites/Milky/Arms/Rifle/fire.png" id="4_xcx0m"]
 [ext_resource type="Texture2D" uid="uid://t8lhvv3ldngy" path="res://PlayerSprites/Milky/Arms/Rifle/idle.png" id="5_mgag7"]
@@ -14,10 +16,10 @@
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_4vfor")
+"texture": ExtResource("2_oocp6")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_qy6ql")
+"texture": ExtResource("3_jjyq5")
 }],
 "loop": 0,
 "name": &"GuyD_Fire",
@@ -25,7 +27,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_qy6ql")
+"texture": ExtResource("3_jjyq5")
 }],
 "loop": 1,
 "name": &"GuyD_default",

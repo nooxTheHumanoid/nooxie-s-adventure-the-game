@@ -22,10 +22,10 @@ func _process(_delta: float) -> void:
 		MentalState.visible = true
 		if injury:
 			InjuryText.visible = true
-			InjuryText.text = "Sustained injury: broken leg"
-			InjuryText.text = "Sustained injury: wounded leg"
-			InjuryText.text = "Sustained injury: broken arm"
-			InjuryText.text = "Sustained injury: wounded arm"
+			InjuryText.text = "Sustained injury:\nbroken leg"
+			InjuryText.text = "Sustained injury:\nwounded leg"
+			InjuryText.text = "Sustained injury:\nbroken arm"
+			InjuryText.text = "Sustained injury:\nwounded arm"
 			InjuryText.text = "Sustained injury:\nhead trauma"
 		else:
 			InjuryText.visible = false

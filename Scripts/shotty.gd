@@ -10,6 +10,7 @@ const BULLET = preload('res://things/Slug.tscn')
 @export var can_dorp: bool = true
 @export var ammo: int = 21
 @export var burst: int = 1
+@export var InfAmmo: bool = false
 
 var AimSpeed = 420.0
 var instaAim: bool = true
@@ -78,7 +79,8 @@ func fireNOW():
 		actualfire = true
 		if global.SFX_Enabled:
 			firesound.play()
-		ammo -= 1
+		if !InfAmmo:
+			ammo -= 1
 		var bullet_instance = BULLET.instantiate()
 		get_tree().root.add_child(bullet_instance)
 		bullet_instance.global_position = muzzle.global_position
@@ -119,7 +121,8 @@ func _physics_process(delta: float) -> void:
 			actualfire = true
 			if global.SFX_Enabled:
 				firesound.play()
-			ammo -= 1
+			if !InfAmmo:
+				ammo -= 1
 			var bullet_instance = BULLET.instantiate()
 			get_tree().root.add_child(bullet_instance)
 			bullet_instance.global_position = muzzle.global_position

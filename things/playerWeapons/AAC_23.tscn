@@ -1,27 +1,31 @@
 [gd_scene format=3 uid="uid://cgdaegntx3qrw"]
 
 [ext_resource type="Script" uid="uid://xw28tbvonejr" path="res://Scripts/shotty.gd" id="1_iaqq0"]
-[ext_resource type="Texture2D" uid="uid://dd4pdpcvyhhdo" path="res://EnemySprites/Mercs/Arms/Rifle/rifle2.png" id="2_mer8c"]
-[ext_resource type="Texture2D" uid="uid://t5irdrbhhbxd" path="res://EnemySprites/Mercs/Arms/Rifle/rifle1.png" id="3_tj1ej"]
+[ext_resource type="Texture2D" uid="uid://cr57uktmqbd6g" path="res://PlayerSprites/GuyDarkHeart/Arms/AAC-23/fire.png" id="2_s781l"]
+[ext_resource type="Texture2D" uid="uid://s1xbyo7w3k1b" path="res://PlayerSprites/GuyDarkHeart/Arms/AAC-23/idle.png" id="3_eyohb"]
+[ext_resource type="Texture2D" uid="uid://djg3maowwse5s" path="res://PlayerSprites/Milky/Arms/AAC-23/fire.png" id="4_3dbpw"]
 [ext_resource type="Script" uid="uid://cdudjf4b6ntn7" path="res://Scripts/GunAnims.gd" id="4_wbp00"]
-[ext_resource type="AudioStream" uid="uid://d0wdmwqb6dkw4" path="res://Sounds/ShottyPlayer FIre.ogg" id="5_s781l"]
+[ext_resource type="Texture2D" uid="uid://1ks2xnls1w84" path="res://PlayerSprites/Milky/Arms/AAC-23/idle.png" id="5_g4b0q"]
+[ext_resource type="Texture2D" uid="uid://cbimsfnkp3tpi" path="res://PlayerSprites/Arms/AAC-23/fire.png" id="6_g6w18"]
+[ext_resource type="Texture2D" uid="uid://dwq6userm1uj5" path="res://PlayerSprites/Arms/AAC-23/idle.png" id="7_dsxx3"]
+[ext_resource type="AudioStream" uid="uid://du4x7ys1fyhv4" path="res://Sounds/AAC-23 Fire.ogg" id="9_s781l"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_r0t5k"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_mer8c")
+"texture": ExtResource("2_s781l")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_tj1ej")
+"texture": ExtResource("3_eyohb")
 }],
 "loop": 0,
 "name": &"GuyD_Fire",
-"speed": 9.0
+"speed": 18.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_tj1ej")
+"texture": ExtResource("3_eyohb")
 }],
 "loop": 1,
 "name": &"GuyD_default",
@@ -29,18 +33,18 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_mer8c")
+"texture": ExtResource("4_3dbpw")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_tj1ej")
+"texture": ExtResource("5_g4b0q")
 }],
 "loop": 0,
 "name": &"Milky_Fire",
-"speed": 9.0
+"speed": 18.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_tj1ej")
+"texture": ExtResource("5_g4b0q")
 }],
 "loop": 1,
 "name": &"Milky_default",
@@ -48,18 +52,18 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_mer8c")
+"texture": ExtResource("6_g6w18")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_tj1ej")
+"texture": ExtResource("7_dsxx3")
 }],
 "loop": 0,
 "name": &"NULL_Fire",
-"speed": 9.0
+"speed": 18.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_tj1ej")
+"texture": ExtResource("7_dsxx3")
 }],
 "loop": 1,
 "name": &"NULL_default",
@@ -67,18 +71,18 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_mer8c")
+"texture": ExtResource("6_g6w18")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_tj1ej")
+"texture": ExtResource("7_dsxx3")
 }],
 "loop": 0,
 "name": &"NX_Fire",
-"speed": 9.0
+"speed": 18.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_tj1ej")
+"texture": ExtResource("7_dsxx3")
 }],
 "loop": 1,
 "name": &"NX_default",
@@ -87,18 +91,22 @@ animations = [{
 
 [node name="AAC-23" type="Node2D" unique_id=1407007056]
 script = ExtResource("1_iaqq0")
-y_offset = 3.0
+y_offset = 6.0
+ammo = 210
+InfAmmo = true
+firecd = 0.05
+currentDMG = 1.5
+bulletHP = 0.5
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=707050063]
-modulate = Color(0, 1, 0, 1)
-position = Vector2(3, -5)
+position = Vector2(6, 5)
 sprite_frames = SubResource("SpriteFrames_r0t5k")
-animation = &"NX_default"
+animation = &"GuyD_default"
 script = ExtResource("4_wbp00")
 
 [node name="Marker2D" type="Marker2D" parent="." unique_id=568080738]
-position = Vector2(16, -3)
+position = Vector2(28, 8)
 
 [node name="Fire" type="AudioStreamPlayer2D" parent="." unique_id=239943092]
-stream = ExtResource("5_s781l")
+stream = ExtResource("9_s781l")
 volume_db = -2.0

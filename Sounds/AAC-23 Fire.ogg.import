@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://du4x7ys1fyhv4"
+path="res://.godot/imported/AAC-23 Fire.ogg-ac741da8382b9105ce814f3a426210fb.oggvorbisstr"
+
+[deps]
+
+source_file="res://Sounds/AAC-23 Fire.ogg"
+dest_files=["res://.godot/imported/AAC-23 Fire.ogg-ac741da8382b9105ce814f3a426210fb.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

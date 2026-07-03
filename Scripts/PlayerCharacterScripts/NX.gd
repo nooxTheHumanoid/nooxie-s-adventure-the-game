@@ -9,7 +9,7 @@ func _ready():
 	if !invAdd(inv_items.new(SelectedWeapon.secondary, AmmoType.bullet, global.Secondaries[0])):
 		print("failed to add item")
 	inventory_slot = 3; inventory_variation = 0 #changes slot to OPGun
-	if !invAdd(inv_items.new(SelectedWeapon.special, AmmoType.slug, global.Specials[0])):
+	if !invAdd(inv_items.new(SelectedWeapon.special, AmmoType.slug, global.Specials[1])):
 		print("failed to add item")
 	inventory_slot = 2; inventory_variation = 0
 	if !invAdd(inv_items.new(SelectedWeapon.melee, AmmoType.slug, global.Melees[0])):
