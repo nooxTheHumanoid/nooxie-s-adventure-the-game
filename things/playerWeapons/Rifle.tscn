@@ -1,14 +1,14 @@
 [gd_scene format=3 uid="uid://d0ol3q6xiv0ch"]
 
 [ext_resource type="Script" uid="uid://xw28tbvonejr" path="res://Scripts/shotty.gd" id="1_oocp6"]
-[ext_resource type="Texture2D" uid="uid://dd4pdpcvyhhdo" path="res://EnemySprites/Mercs/Arms/Rifle/rifle2.png" id="2_4vfor"]
 [ext_resource type="Texture2D" uid="uid://77n6wqke5iyv" path="res://PlayerSprites/GuyDarkHeart/Arms/rifle/fire.png" id="2_oocp6"]
 [ext_resource type="Texture2D" uid="uid://b4vrpl0h5opol" path="res://PlayerSprites/GuyDarkHeart/Arms/rifle/idle.png" id="3_jjyq5"]
-[ext_resource type="Texture2D" uid="uid://t5irdrbhhbxd" path="res://EnemySprites/Mercs/Arms/Rifle/rifle1.png" id="3_qy6ql"]
 [ext_resource type="Texture2D" uid="uid://dp0c3wydwtwml" path="res://PlayerSprites/Milky/Arms/Rifle/fire.png" id="4_xcx0m"]
 [ext_resource type="Texture2D" uid="uid://t8lhvv3ldngy" path="res://PlayerSprites/Milky/Arms/Rifle/idle.png" id="5_mgag7"]
-[ext_resource type="Texture2D" uid="uid://dgujf04if356e" path="res://PlayerSprites/Arms/Rifle/Fire.png" id="6_oocp6"]
-[ext_resource type="Texture2D" uid="uid://beyypumkq3ubu" path="res://PlayerSprites/Arms/Rifle/Idle.png" id="7_jjyq5"]
+[ext_resource type="Texture2D" uid="uid://dgujf04if356e" path="res://PlayerSprites/Arms/Rifle/fire.png" id="8_jjyq5"]
+[ext_resource type="Texture2D" uid="uid://bo6nas34nvsrx" path="res://PlayerSprites/NULL/Arms/Rifle/Fire.png" id="8_oocp6"]
+[ext_resource type="Texture2D" uid="uid://beyypumkq3ubu" path="res://PlayerSprites/Arms/Rifle/idle.png" id="9_i2csc"]
+[ext_resource type="Texture2D" uid="uid://i4jyovma40b6" path="res://PlayerSprites/NULL/Arms/Rifle/Idle.png" id="9_jjyq5"]
 [ext_resource type="Script" uid="uid://cdudjf4b6ntn7" path="res://Scripts/GunAnims.gd" id="10_wrfhm"]
 [ext_resource type="AudioStream" uid="uid://d0wdmwqb6dkw4" path="res://Sounds/ShottyPlayer FIre.ogg" id="11_g4j3h"]
 
@@ -54,10 +54,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_4vfor")
+"texture": ExtResource("8_oocp6")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_qy6ql")
+"texture": ExtResource("9_jjyq5")
 }],
 "loop": 0,
 "name": &"NULL_Fire",
@@ -65,7 +65,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_qy6ql")
+"texture": ExtResource("9_jjyq5")
 }],
 "loop": 1,
 "name": &"NULL_default",
@@ -73,10 +73,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("6_oocp6")
+"texture": ExtResource("8_jjyq5")
 }, {
 "duration": 1.0,
-"texture": ExtResource("7_jjyq5")
+"texture": ExtResource("9_i2csc")
 }],
 "loop": 0,
 "name": &"NX_Fire",
@@ -84,7 +84,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("7_jjyq5")
+"texture": ExtResource("9_i2csc")
 }],
 "loop": 1,
 "name": &"NX_default",
@@ -101,7 +101,7 @@ bulletHP = 1.0
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=707050063]
 position = Vector2(3, -5)
 sprite_frames = SubResource("SpriteFrames_r0t5k")
-animation = &"NX_default"
+animation = &"NULL_Fire"
 script = ExtResource("10_wrfhm")
 
 [node name="Marker2D" type="Marker2D" parent="." unique_id=568080738]

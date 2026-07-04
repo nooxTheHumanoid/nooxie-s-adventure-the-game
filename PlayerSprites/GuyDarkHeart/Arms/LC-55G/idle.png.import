@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b1w837k8sbqgu"
-path="res://.godot/imported/shotty idle.png-a959267e90e99f5f27c22944c13a4695.ctex"
+uid="uid://x1gtr2ax3ji5"
+path="res://.godot/imported/idle.png-4ecad742ba4e198e48fef8676fe33886.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://PlayerSprites/NULL/Arms/shotty idle.png"
-dest_files=["res://.godot/imported/shotty idle.png-a959267e90e99f5f27c22944c13a4695.ctex"]
+source_file="res://PlayerSprites/GuyDarkHeart/Arms/LC-55G/idle.png"
+dest_files=["res://.godot/imported/idle.png-4ecad742ba4e198e48fef8676fe33886.ctex"]
 
 [params]
 

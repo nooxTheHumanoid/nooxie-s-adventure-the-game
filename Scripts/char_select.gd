@@ -15,6 +15,7 @@ extends Node2D
 var id = 0 #I'll figure things out. Gonna hard code the characters in for now.
 
 func _ready() -> void:
+	enablenooxinwatch.visible = false
 	enablenooxinwatch.button_pressed = SaveData.contents_to_save.nooxinwatch
 	optionButton.selected = global.character
 	if global.character == 0:
@@ -72,7 +73,7 @@ func _ready() -> void:
 		CharnameText.text = "Milky"
 		DescText.text = "I think noox got bored and decided on taking someone from a different universe."
 		StatText.text = "Stats\nHP: 80\nSpeed: 110\nSprint Bonus: 2.1X\nStomp Damage: 1.5\nJumpPower: 420\nCoyote Time: 0.2 seconds\nStamina: 90\nStamina Gain: 20\nStamina Drain: 10\nAim Speed: 900.0"
-		MechanicText.text = "Unique mechanic:\nDouble primaries."
+		MechanicText.text = "Unique mechanic:\nSlowdown time." #had Double primaries
 		QuirkText.text = "Characrer Quirks:\nRegenerator (has passive regeneration).\nNo Trigger Discipline.\nEquipped with Shuko"
 		StartingItemText.text = "Starting weapons:\nMag-12"
 		if SaveData.contents_to_save.nooxinwatch:
@@ -158,7 +159,7 @@ func _on_characters_item_selected(index: int) -> void:
 		CharnameText.text = "Milky"
 		DescText.text = "I think noox got bored and decided on taking someone from a different universe."
 		StatText.text = "Stats\nHP: 80\nSpeed: 110\nSprint Bonus: 2.1X\nStomp Damage: 1.5\nJumpPower: 420\nCoyote Time: 0.2 seconds\nStamina: 90\nStamina Gain: 20\nStamina Drain: 10\nAim Speed: 900.0"
-		MechanicText.text = "Unique mechanic:\nDouble primaries."
+		MechanicText.text = "Unique mechanic:\nSlowdown time." #had Double primaries
 		QuirkText.text = "Characrer Quirks:\nRegenerator (has passive regeneration).\nNo Trigger Discipline.\nEquipped with Shuko"
 		StartingItemText.text = "Starting weapons:\nMag-12"
 		if SaveData.contents_to_save.nooxinwatch:

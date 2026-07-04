@@ -84,7 +84,7 @@ theme_override_fonts/font = ExtResource("1_poe2q")
 theme_override_font_sizes/font_size = 32
 text = "Morpshot"
 
-[node name="R8-Proto" type="Label" parent="." unique_id=1399341811]
+[node name="R4-Proto" type="Label" parent="." unique_id=1399341811]
 offset_left = 261.0
 offset_top = 83.0
 offset_right = 540.0
@@ -92,4 +92,4 @@ offset_bottom = 119.0
 theme_override_constants/outline_size = 15
 theme_override_fonts/font = ExtResource("1_poe2q")
 theme_override_font_sizes/font_size = 32
-text = "R8-Proto"
+text = "R4-Proto"

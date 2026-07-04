@@ -5,6 +5,7 @@ extends Node2D
 @export var info = ""
 
 func _ready():
+	Engine.time_scale = 1.0
 	DiscordRPC.clear()
 	DiscordRPC.app_id = 1516531360469094642
 	DiscordRPC.details = Levelname

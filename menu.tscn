@@ -104,9 +104,9 @@ camera = NodePath("../../Camera2D")
 
 [node name="CharSelect" type="Button" parent="Control" unique_id=1707578190]
 layout_mode = 0
-offset_left = -428.0
+offset_left = -404.0
 offset_top = 256.0
-offset_right = -189.0
+offset_right = -165.0
 offset_bottom = 315.0
 focus_mode = 0
 shortcut_feedback = false
@@ -396,9 +396,9 @@ camera = NodePath("../../Keybinds/Keybinds")
 [node name="Label10" type="Label" parent="Control" unique_id=1768009693]
 layout_mode = 0
 offset_left = -439.0
-offset_top = 319.0
+offset_top = 324.0
 offset_right = -33.0
-offset_bottom = 375.0
+offset_bottom = 380.0
 theme_override_colors/font_color = Color(0, 1, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 7

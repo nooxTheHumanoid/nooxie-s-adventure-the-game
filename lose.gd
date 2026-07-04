@@ -8,6 +8,7 @@ extends CanvasLayer
 var randomText = randi_range(1,4)
 func _ready() -> void:
 	#visible = false
+	Engine.time_scale = 1.0
 	Music.playing = global.Music_Enabled
 	stats.text = "Damage Taken: " + str(global.DamageTaken) + "\nDamage Blocked: " + str(global.DamageBlocked)
 	if get_tree().get_first_node_in_group("Player"):

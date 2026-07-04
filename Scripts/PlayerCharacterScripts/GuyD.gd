@@ -410,7 +410,7 @@ func _physics_process(delta: float) -> void:
 		shotty.modenotifforguns(Player_Mode)
 		shotty.state_char_anim(IwantDuckOrTaunt)
 		
-		if shotty.mayIswap() == true && Player_Mode == PlayerMode.nohands:
+		if shotty.mayIswap() == true && Player_Mode == PlayerMode.nohands && IwantDuckOrTaunt != "taunt":
 			if Input.is_action_just_pressed("slot1"):#changes slot to Primary
 				inventory_slot = 0;
 				inventory_variation += 1

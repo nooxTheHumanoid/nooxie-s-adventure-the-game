@@ -6,10 +6,10 @@ func _ready():
 	if !invAdd(inv_items.new(SelectedWeapon.primary, AmmoType.slug, global.Primaries[0])):
 		print("failed to add item")
 	inventory_slot = 1; inventory_variation = 0 #changes slot to mag_12
-	if !invAdd(inv_items.new(SelectedWeapon.secondary, AmmoType.bullet, global.Secondaries[0])):
+	if !invAdd(inv_items.new(SelectedWeapon.secondary, AmmoType.bullet, global.Secondaries[1])):
 		print("failed to add item")
 	inventory_slot = 3; inventory_variation = 0 #changes slot to OPGun
-	if !invAdd(inv_items.new(SelectedWeapon.special, AmmoType.slug, global.Specials[0])):
+	if !invAdd(inv_items.new(SelectedWeapon.special, AmmoType.slug, global.Specials[1])):
 		print("failed to add item")
 	inventory_slot = 2; inventory_variation = 0
 	if !invAdd(inv_items.new(SelectedWeapon.melee, AmmoType.slug, global.Melees[0])):
@@ -423,7 +423,7 @@ func _physics_process(delta: float) -> void:
 		shotty.modenotifforguns(Player_Mode)
 		shotty.state_char_anim(IwantDuckOrTaunt)
 		
-		if shotty.mayIswap() == true && Player_Mode == PlayerMode.nohands:
+		if shotty.mayIswap() == true && Player_Mode == PlayerMode.nohands && IwantDuckOrTaunt != "taunt":
 			if Input.is_action_just_pressed("slot1"):#changes slot to Primary
 				inventory_slot = 0;
 				inventory_variation += 1

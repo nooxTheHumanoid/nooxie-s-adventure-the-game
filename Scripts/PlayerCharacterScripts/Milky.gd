@@ -1,6 +1,12 @@
 extends Player
-
+@onready var timeBar = $TimeBar
+@export var slowdownTime: float = 1.0
+var SlowdownMax: float
+var SDing: bool = false
 func _ready():
+	SlowdownMax = slowdownTime
+	timeBar.max_value = SlowdownMax
+	timeBar.value = slowdownTime
 	invInit([SelectedWeapon.primary, SelectedWeapon.secondary, SelectedWeapon.melee, SelectedWeapon.special], [Primary_slots, Secondary_slots, Melee_slots, Special_slots])
 	inventory_slot = 1; inventory_variation = 0
 	if !invAdd(inv_items.new(SelectedWeapon.secondary, AmmoType.bullet, global.Secondaries[0])):
@@ -410,7 +416,7 @@ func _physics_process(delta: float) -> void:
 		shotty.modenotifforguns(Player_Mode)
 		shotty.state_char_anim(IwantDuckOrTaunt)
 		
-		if shotty.mayIswap() == true && Player_Mode == PlayerMode.nohands:
+		if shotty.mayIswap() == true && Player_Mode == PlayerMode.nohands && IwantDuckOrTaunt != "taunt":
 			if Input.is_action_just_pressed("slot1"):#changes slot to Primary
 				inventory_slot = 0;
 				inventory_variation += 1
@@ -435,10 +441,32 @@ func _physics_process(delta: float) -> void:
 	elif DMGBoost < 1.0:
 		DMGBoost += delta * 0.1
 	
+	if Input.is_action_just_pressed("Power"):
+		if slowdownTime > 0.0 && !SDing && slowdownTime >= (SlowdownMax * 0.5):
+			Engine.time_scale = 0.5
+			SDing = true
+		else:
+			Engine.time_scale = 1
+			SDing = false
+	
+	if SDing:
+		if slowdownTime > 0.01:
+			slowdownTime -= delta * 0.25
+		else:
+			slowdownTime = 0.0
+			Engine.time_scale = 1
+			SDing = false
+	else:
+		if slowdownTime < SlowdownMax:
+			slowdownTime += delta * 0.025
+		elif slowdownTime > SlowdownMax:
+			slowdownTime = SlowdownMax
 	
 	if health < MaxHealth:
 		health += delta * 0.25
 		health_bar.set_health(health)
+	#time bar
+	timeBar.value = slowdownTime
 	move_and_slide()
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
@@ -511,6 +539,7 @@ func died():
 		defence_bar.queue_free()
 		stamina_bar.visible = false
 		health_bar.visible = false
+		timeBar.visible = false
 		Fade.visible = false
 		sprite.play("Death")
 		char_area.set_collision_layer_value(1,false)

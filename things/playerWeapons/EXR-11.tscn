@@ -1,0 +1,113 @@
+[gd_scene format=3 uid="uid://c2ok5uwhre7qw"]
+
+[ext_resource type="Script" uid="uid://xw28tbvonejr" path="res://Scripts/shotty.gd" id="1_rn0yb"]
+[ext_resource type="Texture2D" uid="uid://besfots0x3ap6" path="res://PlayerSprites/GuyDarkHeart/Arms/EXR-11/fire.png" id="2_rn0yb"]
+[ext_resource type="Texture2D" uid="uid://ccm8fjr8231bn" path="res://PlayerSprites/GuyDarkHeart/Arms/EXR-11/idle.png" id="3_ysvym"]
+[ext_resource type="Texture2D" uid="uid://dl71cpthfxj0y" path="res://PlayerSprites/Milky/Arms/EXR-11/fire.png" id="4_fempa"]
+[ext_resource type="Texture2D" uid="uid://dt6lvhnxxhqlm" path="res://PlayerSprites/Milky/Arms/EXR-11/idle.png" id="5_dok5u"]
+[ext_resource type="Texture2D" uid="uid://dqwky558sjomb" path="res://PlayerSprites/NULL/Arms/EXR-11/fire.png" id="6_qwvjj"]
+[ext_resource type="Texture2D" uid="uid://dueab5e0o7pyo" path="res://PlayerSprites/NULL/Arms/EXR-11/idle.png" id="7_77om1"]
+[ext_resource type="Texture2D" uid="uid://qic8ijbc0gja" path="res://PlayerSprites/Arms/EXR-11/fire.png" id="8_wtcgk"]
+[ext_resource type="Script" uid="uid://cdudjf4b6ntn7" path="res://Scripts/GunAnims.gd" id="10_pi5kc"]
+[ext_resource type="Texture2D" uid="uid://c4t547unnks0q" path="res://PlayerSprites/Arms/EXR-11/idle.png" id="10_ysvym"]
+[ext_resource type="AudioStream" uid="uid://d0wdmwqb6dkw4" path="res://Sounds/ShottyPlayer FIre.ogg" id="11_kj0w2"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tjktq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_rn0yb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ysvym")
+}],
+"loop": 0,
+"name": &"GuyD_Fire",
+"speed": 9.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_ysvym")
+}],
+"loop": 1,
+"name": &"GuyD_default",
+"speed": 9.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_fempa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_dok5u")
+}],
+"loop": 0,
+"name": &"Milky_Fire",
+"speed": 9.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_dok5u")
+}],
+"loop": 1,
+"name": &"Milky_default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_qwvjj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_77om1")
+}],
+"loop": 0,
+"name": &"NULL_Fire",
+"speed": 9.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_77om1")
+}],
+"loop": 1,
+"name": &"NULL_default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_wtcgk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_ysvym")
+}],
+"loop": 0,
+"name": &"NX_Fire",
+"speed": 9.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_ysvym")
+}],
+"loop": 1,
+"name": &"NX_default",
+"speed": 5.0
+}]
+
+[node name="Mag-12" type="Node2D" unique_id=1407007056]
+script = ExtResource("1_rn0yb")
+y_offset = 5.0
+ammo = 210
+firecd = 1.75
+currentDMG = 7.0
+bulletHP = 25.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=707050063]
+position = Vector2(12, -1)
+sprite_frames = SubResource("SpriteFrames_tjktq")
+animation = &"NX_default"
+script = ExtResource("10_pi5kc")
+
+[node name="Marker2D" type="Marker2D" parent="." unique_id=568080738]
+position = Vector2(19, -2)
+
+[node name="Fire" type="AudioStreamPlayer2D" parent="." unique_id=239943092]
+stream = ExtResource("11_kj0w2")
+volume_db = -2.0

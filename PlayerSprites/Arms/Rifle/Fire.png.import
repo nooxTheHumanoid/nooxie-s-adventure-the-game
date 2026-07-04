@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dgujf04if356e"
-path="res://.godot/imported/Fire.png-720c730193529f22c5ee1338e0e3a21c.ctex"
+path="res://.godot/imported/fire.png-c16f38e34592cefab7797194ed8cf743.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://PlayerSprites/Arms/Rifle/Fire.png"
-dest_files=["res://.godot/imported/Fire.png-720c730193529f22c5ee1338e0e3a21c.ctex"]
+source_file="res://PlayerSprites/Arms/Rifle/fire.png"
+dest_files=["res://.godot/imported/fire.png-c16f38e34592cefab7797194ed8cf743.ctex"]
 
 [params]
 
