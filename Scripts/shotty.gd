@@ -21,8 +21,8 @@ var State = "none"
 var actualfire: bool = false
 @export var currentDMG: float = 0.0
 @export var bulletHP: float = 2.0
-var burstFinish = true
 @export var burstcd: float = 0.1
+var shotsfromBurst: int = 0
 
 func dmgMulti(dmg):
 	DmgMulti = dmg
@@ -69,12 +69,11 @@ func modenotifforguns(player_guns: Player.PlayerMode):
 func FiredcooldownOff():
 	canfire = true
 	actualfire=false
+	shotsfromBurst = 0
 	
-func burstAgain():
-	burstFinish = true
-	
-func fireNOW():
-	if canfire and visible == true && ammo >= 1:
+func burstFire():
+	if shotsfromBurst < burst:
+		shotsfromBurst += 1
 		canfire = false
 		actualfire = true
 		if global.SFX_Enabled:
@@ -88,8 +87,18 @@ func fireNOW():
 		bullet_instance.damagVal(currentDMG*DmgMulti)
 		bullet_instance.healthVal(bulletHP)
 		animator.fireshotty()
+		get_tree().create_timer(burstcd).timeout.connect(burstFire)
+	if shotsfromBurst >= burst:
 		get_tree().create_timer(firecd).timeout.connect(FiredcooldownOff)
-			
+	
+func fireNOW():
+	if canfire and visible == true && ammo >= 1 && shotsfromBurst == 0:
+		canfire = false
+		actualfire = true
+		burstFire()
+		
+
+
 func _physics_process(delta: float) -> void:
 	if actualfire == false && visible == true:
 		canfire = true
@@ -116,40 +125,8 @@ func _physics_process(delta: float) -> void:
 			position.x = 0.0
 		
 	if (Input.is_action_just_pressed("shoot") && global.holdfire == false) or (Input.is_action_pressed("shoot") && global.holdfire):
-		if canfire and visible == true && ammo >= 1:
-			canfire = false
-			actualfire = true
-			if global.SFX_Enabled:
-				firesound.play()
-			if !InfAmmo:
-				ammo -= 1
-			var bullet_instance = BULLET.instantiate()
-			get_tree().root.add_child(bullet_instance)
-			bullet_instance.global_position = muzzle.global_position
-			bullet_instance.rotation = rotation
-			bullet_instance.damagVal(currentDMG*DmgMulti)
-			bullet_instance.healthVal(bulletHP)
-			animator.fireshotty()
-			get_tree().create_timer(firecd).timeout.connect(FiredcooldownOff)
-			#var I: int = 0
-			#while(burst >= I):
-				#if !burstFinish:
-					#burstFinish = true
-					#I += 1
-					#canfire = false
-					#actualfire = true
-					#if global.SFX_Enabled:
-						#firesound.play()
-					#ammo -= 1
-					#var bullet_instance = BULLET.instantiate()
-					#get_tree().root.add_child(bullet_instance)
-					#bullet_instance.global_position = muzzle.global_position
-					#bullet_instance.rotation = rotation
-					#bullet_instance.damagVal(currentDMG*DmgMulti)
-					#bullet_instance.healthVal(bulletHP)
-					#animator.fireshotty()
-					#get_tree().create_timer(burstcd).timeout.connect(burstAgain)
-			#get_tree().create_timer(firecd).timeout.connect(FiredcooldownOff)
+		fireNOW()
+			
 
 func mayIswap():
 	return true

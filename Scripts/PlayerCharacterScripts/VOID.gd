@@ -1,6 +1,11 @@
 extends Player
-
+var StartedAsPoorManOrWomanDependsOnTheGender = false
 func _ready():
+	if Player_Mode == PlayerMode.regular:
+		StartedAsPoorManOrWomanDependsOnTheGender = true
+	else:
+		StartedAsPoorManOrWomanDependsOnTheGender = false
+	
 	invInit([SelectedWeapon.primary, SelectedWeapon.secondary, SelectedWeapon.melee, SelectedWeapon.special], [Primary_slots, Secondary_slots, Melee_slots, Special_slots])
 	inventory_slot = 0; inventory_variation = 0
 	if !invAdd(inv_items.new(SelectedWeapon.primary, AmmoType.slug, global.Primaries[0])):
@@ -447,6 +452,14 @@ func _physics_process(delta: float) -> void:
 		DMGBoost -= delta * 0.1
 	elif DMGBoost < 1.0:
 		DMGBoost += delta * 0.1
+	# Unarmmed
+	if !StartedAsPoorManOrWomanDependsOnTheGender:
+		if Unarmmed_time > 0.0:
+			Player_Mode = PlayerMode.regular
+			Unarmmed_time -= delta * 1.0
+		elif Unarmmed_time <= 0.0:
+			Unarmmed_time = 0.0
+			Player_Mode = PlayerMode.nohands
 	move_and_slide()
 
 func _on_area_2d_area_entered(area: Area2D) -> void:

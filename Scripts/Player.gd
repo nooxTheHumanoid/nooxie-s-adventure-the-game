@@ -207,6 +207,8 @@ var stamina_cooldown_timer: float = 0.0
 var Char_Running: bool  = false
 var wallClimbing: float = false
 
+var Unarmmed_time: float = 0.0
+
 var was_in_air: bool  = false
 const Fall_punishment: float = 100.0
 var starting_fall_y: float = 0.0

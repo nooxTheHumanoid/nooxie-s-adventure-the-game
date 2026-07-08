@@ -3,7 +3,13 @@ extends Player
 @export var slowdownTime: float = 1.0
 var SlowdownMax: float
 var SDing: bool = false
+var StartedAsPoorManOrWomanDependsOnTheGender = false
 func _ready():
+	if Player_Mode == PlayerMode.regular:
+		StartedAsPoorManOrWomanDependsOnTheGender = true
+	else:
+		StartedAsPoorManOrWomanDependsOnTheGender = false
+	
 	SlowdownMax = slowdownTime
 	timeBar.max_value = SlowdownMax
 	timeBar.value = slowdownTime
@@ -467,6 +473,14 @@ func _physics_process(delta: float) -> void:
 		health_bar.set_health(health)
 	#time bar
 	timeBar.value = slowdownTime
+	# Unarmmed
+	if !StartedAsPoorManOrWomanDependsOnTheGender:
+		if Unarmmed_time > 0.0:
+			Player_Mode = PlayerMode.regular
+			Unarmmed_time -= delta * 1.0
+		elif Unarmmed_time <= 0.0:
+			Unarmmed_time = 0.0
+			Player_Mode = PlayerMode.nohands
 	move_and_slide()
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
