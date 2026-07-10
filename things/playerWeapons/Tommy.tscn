@@ -5,10 +5,12 @@
 [ext_resource type="Texture2D" uid="uid://dvy24ksc05m2t" path="res://PlayerSprites/GuyDarkHeart/Arms/Tommy/idle.png" id="3_vbvxr"]
 [ext_resource type="Texture2D" uid="uid://cdnnmgo6xjmj1" path="res://PlayerSprites/Milky/Arms/Tommy/fire.png" id="4_tj6gg"]
 [ext_resource type="Texture2D" uid="uid://x082cewe22uo" path="res://PlayerSprites/Milky/Arms/Tommy/idle.png" id="5_14vx2"]
-[ext_resource type="Texture2D" uid="uid://chm48hpulvstm" path="res://EnemySprites/Mafia/Arms/Untitled10_20251217090443.png" id="6_gkcto"]
-[ext_resource type="Texture2D" uid="uid://drebkmg84espo" path="res://EnemySprites/Mafia/Arms/Untitled10_20251217090421.png" id="7_ii62v"]
+[ext_resource type="Texture2D" uid="uid://ctwarn5tkgbu2" path="res://PlayerSprites/NULL/Arms/Tommy/fire.png" id="6_tj6gg"]
+[ext_resource type="Texture2D" uid="uid://cf76j4iqd6nmr" path="res://PlayerSprites/NULL/Arms/Tommy/idle.png" id="7_14vx2"]
 [ext_resource type="Script" uid="uid://cdudjf4b6ntn7" path="res://Scripts/GunAnims.gd" id="8_4gqsb"]
-[ext_resource type="AudioStream" uid="uid://d0wdmwqb6dkw4" path="res://Sounds/ShottyPlayer FIre.ogg" id="9_nocwl"]
+[ext_resource type="Texture2D" uid="uid://cqym4x8xoratg" path="res://PlayerSprites/Arms/Tommy/Fire.png" id="8_gkcto"]
+[ext_resource type="Texture2D" uid="uid://bk47t7kj01gu0" path="res://PlayerSprites/Arms/Tommy/idle.png" id="9_ii62v"]
+[ext_resource type="AudioStream" uid="uid://dn0wp5ilhcigk" path="res://Sounds/TommyShooting.mp3" id="11_tj6gg"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_tjktq"]
 animations = [{
@@ -52,10 +54,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("6_gkcto")
+"texture": ExtResource("6_tj6gg")
 }, {
 "duration": 1.0,
-"texture": ExtResource("7_ii62v")
+"texture": ExtResource("7_14vx2")
 }],
 "loop": 0,
 "name": &"NULL_Fire",
@@ -63,7 +65,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("7_ii62v")
+"texture": ExtResource("7_14vx2")
 }],
 "loop": 1,
 "name": &"NULL_default",
@@ -71,10 +73,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("6_gkcto")
+"texture": ExtResource("8_gkcto")
 }, {
 "duration": 1.0,
-"texture": ExtResource("7_ii62v")
+"texture": ExtResource("9_ii62v")
 }],
 "loop": 0,
 "name": &"NX_Fire",
@@ -82,7 +84,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("7_ii62v")
+"texture": ExtResource("9_ii62v")
 }],
 "loop": 1,
 "name": &"NX_default",
@@ -107,5 +109,5 @@ script = ExtResource("8_4gqsb")
 position = Vector2(16, -3)
 
 [node name="Fire" type="AudioStreamPlayer2D" parent="." unique_id=239943092]
-stream = ExtResource("9_nocwl")
+stream = ExtResource("11_tj6gg")
 volume_db = -2.0

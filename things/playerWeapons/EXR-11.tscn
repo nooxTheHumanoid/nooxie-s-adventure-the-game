@@ -91,7 +91,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Mag-12" type="Node2D" unique_id=1407007056]
+[node name="EXR-11" type="Node2D" unique_id=1407007056]
 script = ExtResource("1_rn0yb")
 y_offset = 5.0
 ammo = 210

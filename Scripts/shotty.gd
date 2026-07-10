@@ -1,11 +1,18 @@
 extends Node2D
 
 const BULLET = preload('res://things/Slug.tscn')
+const PLASMA = preload('res://things/Plasma.tscn')
+
+enum BulletType {
+	Bullet,
+	Plasma
+}
 
 @onready var muzzle: Marker2D = $Marker2D
 @onready var animator: AnimatedSprite2D = $AnimatedSprite2D
 @onready var firesound = $Fire
 
+@export var FiresBulletType = BulletType.Bullet
 @export var y_offset = 8.0
 @export var can_dorp: bool = true
 @export var ammo: int = 21
@@ -23,6 +30,10 @@ var actualfire: bool = false
 @export var bulletHP: float = 2.0
 @export var burstcd: float = 0.1
 var shotsfromBurst: int = 0
+var bursted: bool = false
+
+func _ready() -> void:
+	shotsfromBurst = burst
 
 func dmgMulti(dmg):
 	DmgMulti = dmg
@@ -68,31 +79,59 @@ func modenotifforguns(player_guns: Player.PlayerMode):
 
 func FiredcooldownOff():
 	canfire = true
-	actualfire=false
-	shotsfromBurst = 0
-	
+	actualfire = false
+	shotsfromBurst = burst
+	bursted = false
+
 func burstFire():
-	if shotsfromBurst < burst:
-		shotsfromBurst += 1
-		canfire = false
-		actualfire = true
-		if global.SFX_Enabled:
-			firesound.play()
-		if !InfAmmo:
-			ammo -= 1
-		var bullet_instance = BULLET.instantiate()
-		get_tree().root.add_child(bullet_instance)
-		bullet_instance.global_position = muzzle.global_position
-		bullet_instance.rotation = rotation
-		bullet_instance.damagVal(currentDMG*DmgMulti)
-		bullet_instance.healthVal(bulletHP)
-		animator.fireshotty()
-		get_tree().create_timer(burstcd).timeout.connect(burstFire)
-	if shotsfromBurst >= burst:
-		get_tree().create_timer(firecd).timeout.connect(FiredcooldownOff)
+	if burst != 1:
+		if shotsfromBurst > 0:
+			shotsfromBurst -= 1
+			canfire = false
+			actualfire = true
+			if global.SFX_Enabled:
+				firesound.play()
+			if !InfAmmo:
+				ammo -= 1
+			if ammo >= 1:
+				var bullet_instance
+				if FiresBulletType == BulletType.Bullet:
+					bullet_instance = BULLET.instantiate()
+				elif FiresBulletType == BulletType.Plasma:
+					bullet_instance = PLASMA.instantiate()
+				get_tree().root.add_child(bullet_instance)
+				bullet_instance.global_position = muzzle.global_position
+				bullet_instance.rotation = rotation
+				bullet_instance.damagVal(currentDMG*DmgMulti)
+				bullet_instance.healthVal(bulletHP)
+				animator.fireshotty()
+				get_tree().create_timer(burstcd).timeout.connect(burstFire)
+			if shotsfromBurst <= 0:
+				bursted = true
+				get_tree().create_timer(firecd+burstcd).timeout.connect(FiredcooldownOff)
+	else:
+		if ammo >= 1:
+			canfire = false
+			actualfire = true
+			if global.SFX_Enabled:
+				firesound.play()
+			if !InfAmmo:
+				ammo -= 1
+			var bullet_instance
+			if FiresBulletType == BulletType.Bullet:
+				bullet_instance = BULLET.instantiate()
+			elif FiresBulletType == BulletType.Plasma:
+				bullet_instance = PLASMA.instantiate()
+			get_tree().root.add_child(bullet_instance)
+			bullet_instance.global_position = muzzle.global_position
+			bullet_instance.rotation = rotation
+			bullet_instance.damagVal(currentDMG*DmgMulti)
+			bullet_instance.healthVal(bulletHP)
+			animator.fireshotty()
+			get_tree().create_timer(firecd).timeout.connect(FiredcooldownOff)
 	
 func fireNOW():
-	if canfire and visible == true && ammo >= 1 && shotsfromBurst == 0:
+	if canfire and visible == true && ammo >= 1 && shotsfromBurst >= 0 && !bursted:
 		canfire = false
 		actualfire = true
 		burstFire()

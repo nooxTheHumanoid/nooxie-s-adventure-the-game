@@ -7,8 +7,11 @@
 [ext_resource type="Texture2D" uid="uid://ddqp5vf2u0u1p" path="res://PlayerSprites/Milky/Arms/LC-55G/fire1.png" id="5_lxoa3"]
 [ext_resource type="Texture2D" uid="uid://d223s08eg0hic" path="res://PlayerSprites/Milky/Arms/LC-55G/fire2.png" id="6_uoibe"]
 [ext_resource type="Texture2D" uid="uid://cglgtha03afdw" path="res://PlayerSprites/Milky/Arms/LC-55G/idle.png" id="7_d5ix6"]
+[ext_resource type="Texture2D" uid="uid://bjpnccc858bql" path="res://PlayerSprites/NULL/Arms/LC-55G/fire1.png" id="8_lxoa3"]
+[ext_resource type="Texture2D" uid="uid://blh63obrk646g" path="res://PlayerSprites/NULL/Arms/LC-55G/fire2.png" id="9_uoibe"]
+[ext_resource type="Texture2D" uid="uid://pl0y74utf6a4" path="res://PlayerSprites/NULL/Arms/LC-55G/idle.png" id="10_d5ix6"]
 [ext_resource type="Script" uid="uid://cdudjf4b6ntn7" path="res://Scripts/GunAnims.gd" id="10_tbdnp"]
-[ext_resource type="AudioStream" uid="uid://d0wdmwqb6dkw4" path="res://Sounds/ShottyPlayer FIre.ogg" id="11_oh3v5"]
+[ext_resource type="AudioStream" uid="uid://du4x7ys1fyhv4" path="res://Sounds/AAC-23 Fire.ogg" id="12_lxoa3"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_tjktq"]
 animations = [{
@@ -130,49 +133,49 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_vpnwr")
+"texture": ExtResource("8_lxoa3")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_uo8eh")
+"texture": ExtResource("9_uoibe")
 }, {
 "duration": 1.0,
-"texture": ExtResource("2_vpnwr")
+"texture": ExtResource("8_lxoa3")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_uo8eh")
+"texture": ExtResource("9_uoibe")
 }, {
 "duration": 1.0,
-"texture": ExtResource("2_vpnwr")
+"texture": ExtResource("8_lxoa3")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_uo8eh")
+"texture": ExtResource("9_uoibe")
 }, {
 "duration": 1.0,
-"texture": ExtResource("2_vpnwr")
+"texture": ExtResource("8_lxoa3")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_uo8eh")
+"texture": ExtResource("9_uoibe")
 }, {
 "duration": 1.0,
-"texture": ExtResource("2_vpnwr")
+"texture": ExtResource("8_lxoa3")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_uo8eh")
+"texture": ExtResource("9_uoibe")
 }, {
 "duration": 1.0,
-"texture": ExtResource("2_vpnwr")
+"texture": ExtResource("8_lxoa3")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_uo8eh")
+"texture": ExtResource("9_uoibe")
 }, {
 "duration": 1.0,
-"texture": ExtResource("2_vpnwr")
+"texture": ExtResource("8_lxoa3")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_uo8eh")
+"texture": ExtResource("9_uoibe")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_rtdwv")
+"texture": ExtResource("10_d5ix6")
 }],
 "loop": 0,
 "name": &"NULL_Fire",
@@ -180,7 +183,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("4_rtdwv")
+"texture": ExtResource("10_d5ix6")
 }],
 "loop": 1,
 "name": &"NULL_default",
@@ -247,6 +250,7 @@ animations = [{
 
 [node name="LC-55G" type="Node2D" unique_id=1407007056]
 script = ExtResource("1_rtdwv")
+FiresBulletType = 1
 y_offset = 5.0
 ammo = 210
 firecd = 2.5
@@ -260,8 +264,8 @@ animation = &"NX_default"
 script = ExtResource("10_tbdnp")
 
 [node name="Marker2D" type="Marker2D" parent="." unique_id=568080738]
-position = Vector2(19, -2)
+position = Vector2(14, 0)
 
 [node name="Fire" type="AudioStreamPlayer2D" parent="." unique_id=239943092]
-stream = ExtResource("11_oh3v5")
+stream = ExtResource("12_lxoa3")
 volume_db = -2.0
