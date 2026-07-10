@@ -2,6 +2,7 @@ extends CanvasLayer
 
 @onready var Text = $DeathText
 @onready var Music = $Music
+@onready var RareMusic = $RareMusic
 @onready var stats = $Stats
 @export_file var Level
 @export_file var path
@@ -10,6 +11,7 @@ func _ready() -> void:
 	#visible = false
 	Engine.time_scale = 1.0
 	Music.playing = global.Music_Enabled
+	RareMusic.playing = false
 	stats.text = "Damage Taken: " + str(global.DamageTaken) + "\nDamage Blocked: " + str(global.DamageBlocked)
 	if get_tree().get_first_node_in_group("Player"):
 		get_tree().get_first_node_in_group("Player").queue_free()
@@ -24,6 +26,10 @@ func _ready() -> void:
 		#Text.text = "My time has come... this feeling... it's like somebody taking weights off my chest... it's... relieving."
 	else:
 		Text.text = "The only hope dies."
+		if 21 == randi_range(1,21) && randomText == 4:
+			Text.text = "You fought hard, yet death followed in pursuit."
+			Music.playing = false
+			RareMusic.playing = global.Music_Enabled
 	
 func _on_restart_pressed() -> void:
 	if Level == null:

@@ -300,6 +300,7 @@ song = ExtResource("7_mbwna")
 songPlus = ExtResource("13_tweqo")
 level = "uid://breh702cirp3"
 PlayerHasgun = 0
+ChangeSettings = true
 show_stats = false
 Force_hp = true
 New_HP = 0.1

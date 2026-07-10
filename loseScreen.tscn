@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://opc7ytqibe16" path="res://lose.gd" id="1_auqi3"]
 [ext_resource type="FontFile" uid="uid://dqbt5lnd0rh41" path="res://Resources/Fonts/Tf2.ttf" id="3_12blp"]
 [ext_resource type="AudioStream" uid="uid://b1en316qxu2it" path="res://Music/Your fate has been sealed.mp3" id="3_auqi3"]
+[ext_resource type="AudioStream" uid="uid://b8lxwifvt165f" path="res://Music/Broken hearted nooxin'.mp3" id="4_0hshd"]
 
 [node name="Lose" type="CanvasLayer" unique_id=338774573]
 script = ExtResource("1_auqi3")
@@ -79,6 +80,11 @@ autowrap_mode = 2
 
 [node name="Music" type="AudioStreamPlayer" parent="." unique_id=1289680277]
 stream = ExtResource("3_auqi3")
+volume_db = 4.0
+parameters/looping = true
+
+[node name="RareMusic" type="AudioStreamPlayer" parent="." unique_id=1276594131]
+stream = ExtResource("4_0hshd")
 volume_db = 4.0
 parameters/looping = true
 

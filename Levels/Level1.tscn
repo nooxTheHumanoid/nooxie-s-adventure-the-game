@@ -171,6 +171,7 @@ song = ExtResource("7_104vp")
 songPlus = ExtResource("11_f5cpa")
 level = "uid://b0w80vqltrl5f"
 PlayerHasgun = 0
+ChangeSettings = true
 show_stats = false
 Force_hp = true
 New_HP = 0.1

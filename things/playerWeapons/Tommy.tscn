@@ -95,8 +95,8 @@ animations = [{
 script = ExtResource("1_6fpu0")
 ammo = 210
 burst = 3
-firecd = 0.25
-currentDMG = 1.5
+firecd = 0.15
+currentDMG = 2.0
 bulletHP = 1.5
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=707050063]

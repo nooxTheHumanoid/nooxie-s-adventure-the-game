@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://mcylacrvtlxq"]
 
 [ext_resource type="Script" uid="uid://c58d7y1nprik7" path="res://Scripts/PlayerCharacterScripts/Milky.gd" id="1_axu0n"]
+[ext_resource type="Texture2D" uid="uid://o6wqwldmr8bm" path="res://PlayerSprites/Milky/MilkyDeath.png" id="3_ralh8"]
 [ext_resource type="PackedScene" uid="uid://cwtch2g70j85e" path="res://loseScreen.tscn" id="4_ru54p"]
 [ext_resource type="Texture2D" uid="uid://clqb1o38emr3n" path="res://PlayerSprites/Milky/MilkyIdle.png" id="5_58xp5"]
 [ext_resource type="Texture2D" uid="uid://cgo3h60phsf0q" path="res://PlayerSprites/Milky/milkydance1.png" id="6_itg36"]
@@ -48,7 +49,7 @@
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("5_58xp5")
+"texture": ExtResource("3_ralh8")
 }],
 "loop": 1,
 "name": &"Death",
@@ -504,9 +505,7 @@ Aimspeed = 900.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=926349382]
 sprite_frames = SubResource("SpriteFrames_gvmgx")
-animation = &"regular_Walk"
-frame = 2
-frame_progress = 0.9016153
+animation = &"Death"
 script = ExtResource("40_m3hhb")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=296295247]
