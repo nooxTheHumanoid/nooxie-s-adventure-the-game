@@ -10,10 +10,22 @@ func _ready():
 	inventory_slot = 0; inventory_variation = 0
 	if !invAdd(inv_items.new(SelectedWeapon.primary, AmmoType.slug, global.Primaries[0])):
 		print("failed to add item")
+	if !invAdd(inv_items.new(SelectedWeapon.primary, AmmoType.slug, global.Primaries[1])):
+		print("failed to add item")
+	if !invAdd(inv_items.new(SelectedWeapon.primary, AmmoType.slug, global.Primaries[2])):
+		print("failed to add item")
+	if !invAdd(inv_items.new(SelectedWeapon.primary, AmmoType.slug, global.Primaries[3])):
+		print("failed to add item")
+	if !invAdd(inv_items.new(SelectedWeapon.primary, AmmoType.slug, global.Primaries[4])):
+		print("failed to add item")
 	inventory_slot = 1; inventory_variation = 0 #changes slot to mag_12
 	if !invAdd(inv_items.new(SelectedWeapon.secondary, AmmoType.bullet, global.Secondaries[0])):
 		print("failed to add item")
+	if !invAdd(inv_items.new(SelectedWeapon.secondary, AmmoType.bullet, global.Secondaries[1])):
+		print("failed to add item")
 	inventory_slot = 3; inventory_variation = 0 #changes slot to OPGun
+	if !invAdd(inv_items.new(SelectedWeapon.special, AmmoType.slug, global.Specials[0])):
+		print("failed to add item")
 	if !invAdd(inv_items.new(SelectedWeapon.special, AmmoType.slug, global.Specials[1])):
 		print("failed to add item")
 	inventory_slot = 2; inventory_variation = 0
