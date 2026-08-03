@@ -63,7 +63,9 @@ func _ready() -> void:
 		CharacterPortrait.texture = ResourceLoader.load("res://textures/CharacterPortraits/MysteryMan.png")
 	elif global.character == 2:
 		CharnameText.text = "Guy Darkheart"
-		DescText.text = "He's left handed."
+		DescText.text = "After a few years of working on the merc team 5 his whole squad was promoted to merc team 7.
+		\nHe's unable to speak due to him being born mute. He never was going for the leader position because he's more interested in getting the job done without speaking in sign language. He's calm and calculated also he's a great listener.
+		\nHe's left handed."
 		StatText.text = "Stats\nHP: 120\nSpeed: 100\nSprint Bonus: 1.8X\nStomp Damage: 2.5\nJumpPower: 400\nCoyote Time: 0.2 seconds\nStamina: 100\nStamina Gain: 20\nStamina Drain: 10\nAim Speed: 750.0"
 		MechanicText.text = "Unique mechanic:\nInject yourself with a syringe that damages you and buffs your damage." #old mechanic "Mercs die twice"
 		QuirkText.text = "Characrer Quirks:\nMute.\nNo Trigger Discipline.\nEquipped with Shuko"
@@ -71,7 +73,9 @@ func _ready() -> void:
 		CharacterPortrait.texture = ResourceLoader.load("res://textures/CharacterPortraits/GuyDarkheart.png")
 	elif global.character == 3:
 		CharnameText.text = "Milky"
-		DescText.text = "I think noox got bored and decided on taking someone from a different universe."
+		DescText.text = "Milky is from a different universe. Not even a part of the nooxieverse's expansions where non-nooxies are.
+		\nMilky holds a professional mindset making Milky almost perfect for missions like these. Milky has some great weapon handling experience even better than Guy Darkheart's.
+		\nMilky's nooxin' watch isn't capeable of regenarating heath for Milky but that's completely fine because of unknown substance flowing in this specific Milky, giving Milky natural health regeneration."
 		StatText.text = "Stats\nHP: 80\nSpeed: 110\nSprint Bonus: 2.1X\nStomp Damage: 1.5\nJumpPower: 420\nCoyote Time: 0.2 seconds\nStamina: 90\nStamina Gain: 20\nStamina Drain: 10\nAim Speed: 900.0"
 		MechanicText.text = "Unique mechanic:\nSlowdown time." #had Double primaries
 		QuirkText.text = "Characrer Quirks:\nRegenerator (has passive regeneration).\nNo Trigger Discipline.\nEquipped with Shuko"
@@ -149,7 +153,9 @@ func _on_characters_item_selected(index: int) -> void:
 		CharacterPortrait.texture = ResourceLoader.load("res://textures/CharacterPortraits/MysteryMan.png")
 	elif idx == 2:
 		CharnameText.text = "Guy Darkheart"
-		DescText.text = "He's left handed."
+		DescText.text = "After a few years of working on the merc team 5 his whole squad was promoted to merc team 7.
+		\nHe's unable to speak due to him being born mute. He never was going for the leader position because he's more interested in getting the job done without speaking in sign language. He's calm and calculated also he's a great listener.
+		\nHe's left handed."
 		StatText.text = "Stats\nHP: 120\nSpeed: 100\nSprint Bonus: 1.8X\nStomp Damage: 2.5\nJumpPower: 400\nCoyote Time: 0.2 seconds\nStamina: 100\nStamina Gain: 20\nStamina Drain: 10\nAim Speed: 750.0"
 		MechanicText.text = "Unique mechanic:\nInject yourself with a syringe that damages you and buffs your damage." #old mechanic "Mercs die twice"
 		QuirkText.text = "Characrer Quirks:\nMute.\nNo Trigger Discipline.\nEquipped with Shuko"
@@ -157,7 +163,9 @@ func _on_characters_item_selected(index: int) -> void:
 		CharacterPortrait.texture = ResourceLoader.load("res://textures/CharacterPortraits/GuyDarkheart.png")
 	elif idx == 3:
 		CharnameText.text = "Milky"
-		DescText.text = "I think noox got bored and decided on taking someone from a different universe."
+		DescText.text = "Milky is from a different universe. Not even a part of the nooxieverse's expansions where non-nooxies are.
+		\nMilky holds a professional mindset making Milky almost perfect for missions like these. Milky has some great weapon handling experience even better than Guy Darkheart's.
+		\nMilky's nooxin' watch isn't capeable of regenarating heath for Milky but that's completely fine because of unknown substance flowing in this specific Milky, giving Milky natural health regeneration."
 		StatText.text = "Stats\nHP: 80\nSpeed: 110\nSprint Bonus: 2.1X\nStomp Damage: 1.5\nJumpPower: 420\nCoyote Time: 0.2 seconds\nStamina: 90\nStamina Gain: 20\nStamina Drain: 10\nAim Speed: 900.0"
 		MechanicText.text = "Unique mechanic:\nSlowdown time." #had Double primaries
 		QuirkText.text = "Characrer Quirks:\nRegenerator (has passive regeneration).\nNo Trigger Discipline.\nEquipped with Shuko"

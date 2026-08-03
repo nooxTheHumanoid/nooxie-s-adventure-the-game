@@ -10,6 +10,16 @@ func _ready():
 	inventory_slot = 0; inventory_variation = 0
 	if !invAdd(inv_items.new(SelectedWeapon.primary, AmmoType.bullet, global.Primaries[1])):
 		print("failed to add item")
+	inventory_slot = 2; inventory_variation = 0
+	if !invAdd(inv_items.new(SelectedWeapon.melee, AmmoType.slug, global.Melees[2])):
+		print("failed to add item")
+		
+	inventory_slot = 3; inventory_variation = 0 #Temp items start here
+	if !invAdd(inv_items.new(SelectedWeapon.special, AmmoType.slug, global.Specials[2])):
+		print("failed to add item")
+	inventory_slot = 1; inventory_variation = 0
+	if !invAdd(inv_items.new(SelectedWeapon.secondary, AmmoType.slug, global.Secondaries[1])):
+		print("failed to add item")
 	inventory_slot = 0; inventory_variation = 0
 	invLoadCurent()
 	global.enemies = 0
@@ -86,10 +96,26 @@ func _process(delta):
 	elif mood <= 0.0:
 		mood = 0.0
 	
-	if PainAmount < 100.0:
-		pain_recovery(delta)
-	if mood < 100.0:
-		mood_change(delta)
+	if sickness >= Injection_Sickness - 1 && Injection_Sickness >=0 && !Sickness_alert:
+		Sickness_alert = true
+		Speak("*Looks slightly more pale*")
+	elif sickness < Injection_Sickness - 1 && Injection_Sickness >=0 && Sickness_alert:
+		Sickness_alert = false
+		Speak("*Looks fine*")
+	if sickness >= Injection_Sickness && Injection_Sickness >= 0:
+		var ODmulti: float = (-Injection_Sickness+sickness)
+		health -= delta * 0.5 + (ODmulti / 50)
+		mood -= delta * 0.05 + (ODmulti / 50)
+		PainAmount -= delta * 2.5 + (ODmulti / 50)
+		if health > 0:
+			health_bar.set_health(health)
+		if health < 0 && is_dead == false:
+			died()
+	else:
+		if PainAmount < 100.0:
+			pain_recovery(delta)
+		if mood < 100.0:
+			mood_change(delta)
 		
 	if HeadtraumaTime < 0.0:
 		HeadtraumaTime = 0.0
@@ -141,7 +167,7 @@ func _process(delta):
 				Mental_State = EmotionalState.scared
 			elif mood < 25.0:
 				Mental_State = EmotionalState.unstable
-			elif mood > 150.0:
+			elif mood > 195.0:
 				Mental_State = EmotionalState.focused
 			else:
 				Mental_State = EmotionalState.stable
@@ -299,6 +325,7 @@ func _physics_process(delta: float) -> void:
 			if fall_distance >= Fall_punishment * JumpMulti:
 				BrokenLegTime += 3.0
 				InjuredLegTime += 8.0
+				Speak("*Fall punishment protocol activation noises*")
 			was_in_air = false
 	else:
 		if !was_in_air:
@@ -501,8 +528,10 @@ func died():
 			visibility += 50
 		elif randomInjury == 2:
 			InjuredArmTime += 30
+			Speak("*Visible arm dislocation*")
 		elif randomInjury == 3:
 			InjuredLegTime += 15
+			Speak("*Visible limping*")
 	elif (gethitdmg*1.5) >= maxPain:
 		var randomInjury = randi_range(1,5)
 		if randomInjury == 1:
@@ -511,9 +540,11 @@ func died():
 		elif randomInjury == 2:
 			BrokenArmTime += 30
 			InjuredArmTime += 60
+			Speak("*Shattered bone noises*")
 		elif randomInjury == 3:
 			InjuredLegTime += 30
 			BrokenLegTime += 15
+			Speak("*Visible shattered leg*")
 	#injuries end
 	global.tempkills = 0 
 	if health > 0:

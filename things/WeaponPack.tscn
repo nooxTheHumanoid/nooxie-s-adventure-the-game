@@ -1,20 +1,23 @@
 [gd_scene format=3 uid="uid://d0o5u3a1cuujk"]
 
 [ext_resource type="Script" uid="uid://dyib5liwqfsn6" path="res://things/weapon_pack.gd" id="1_tgq25"]
-[ext_resource type="PackedScene" uid="uid://cpmms0bfo24dp" path="res://things/playerWeapons/shotty.tscn" id="2_kuy11"]
-[ext_resource type="PackedScene" uid="uid://d0ol3q6xiv0ch" path="res://things/playerWeapons/Rifle.tscn" id="3_or45n"]
-[ext_resource type="PackedScene" uid="uid://bffhvgwl3qgsd" path="res://things/playerWeapons/mag_12.tscn" id="4_3b8nn"]
-[ext_resource type="PackedScene" uid="uid://v502w1dga1wl" path="res://things/playerWeapons/R4-Proto.tscn" id="4_oipo7"]
-[ext_resource type="PackedScene" uid="uid://c2ok5uwhre7qw" path="res://things/playerWeapons/EXR-11.tscn" id="5_3b8nn"]
-[ext_resource type="PackedScene" uid="uid://bnbxl1whytiw2" path="res://things/playerWeapons/Scythe.tscn" id="5_oipo7"]
-[ext_resource type="PackedScene" uid="uid://betbq2m754hb5" path="res://things/playerWeapons/Tommy.tscn" id="6_6f7m7"]
-[ext_resource type="PackedScene" uid="uid://dgkr6fl7dof5u" path="res://things/playerWeapons/OverpoweredGun.tscn" id="6_is6p5"]
-[ext_resource type="PackedScene" uid="uid://cgdaegntx3qrw" path="res://things/playerWeapons/AAC_23.tscn" id="7_or45n"]
-[ext_resource type="PackedScene" uid="uid://ctvruag2diov2" path="res://things/playerWeapons/LC-55G.tscn" id="10_is6p5"]
+[ext_resource type="PackedScene" uid="uid://cpmms0bfo24dp" path="res://things/playerWeapons/Primaries/shotty.tscn" id="2_kuy11"]
+[ext_resource type="PackedScene" uid="uid://d0ol3q6xiv0ch" path="res://things/playerWeapons/Primaries/Rifle.tscn" id="3_or45n"]
+[ext_resource type="PackedScene" uid="uid://bffhvgwl3qgsd" path="res://things/playerWeapons/Secondaries/mag_12.tscn" id="4_3b8nn"]
+[ext_resource type="PackedScene" uid="uid://v502w1dga1wl" path="res://things/playerWeapons/Primaries/R4-Proto.tscn" id="4_oipo7"]
+[ext_resource type="PackedScene" uid="uid://c2ok5uwhre7qw" path="res://things/playerWeapons/Secondaries/EXR-11.tscn" id="5_3b8nn"]
+[ext_resource type="PackedScene" uid="uid://bnbxl1whytiw2" path="res://things/playerWeapons/Melees/Scythe.tscn" id="5_oipo7"]
+[ext_resource type="PackedScene" uid="uid://betbq2m754hb5" path="res://things/playerWeapons/Primaries/Tommy.tscn" id="6_6f7m7"]
+[ext_resource type="PackedScene" uid="uid://dgkr6fl7dof5u" path="res://things/playerWeapons/Specials/OverpoweredGun.tscn" id="6_is6p5"]
+[ext_resource type="PackedScene" uid="uid://cgdaegntx3qrw" path="res://things/playerWeapons/Specials/AAC_23.tscn" id="7_or45n"]
+[ext_resource type="PackedScene" uid="uid://ooni7ilog16j" path="res://things/playerWeapons/Melees/Sledgehammer.tscn" id="10_bo633"]
+[ext_resource type="PackedScene" uid="uid://ctvruag2diov2" path="res://things/playerWeapons/Primaries/LC-55G.tscn" id="10_is6p5"]
+[ext_resource type="PackedScene" uid="uid://1ci0bsl4f1ak" path="res://things/playerWeapons/Melees/Fists.tscn" id="11_ipi3n"]
+[ext_resource type="PackedScene" uid="uid://bxm5hnawuh76y" path="res://things/playerWeapons/Specials/Morpshot.tscn" id="14_w1ukm"]
 
 [node name="Node" type="Node" unique_id=184565057]
 script = ExtResource("1_tgq25")
 Primary = Array[PackedScene]([ExtResource("2_kuy11"), ExtResource("3_or45n"), ExtResource("4_oipo7"), ExtResource("10_is6p5"), ExtResource("6_6f7m7")])
 Secondary = Array[PackedScene]([ExtResource("4_3b8nn"), ExtResource("5_3b8nn")])
-Melee = Array[PackedScene]([ExtResource("5_oipo7")])
-Special = Array[PackedScene]([ExtResource("6_is6p5"), ExtResource("7_or45n")])
+Melee = Array[PackedScene]([ExtResource("5_oipo7"), ExtResource("10_bo633"), ExtResource("11_ipi3n")])
+Special = Array[PackedScene]([ExtResource("6_is6p5"), ExtResource("7_or45n"), ExtResource("14_w1ukm")])

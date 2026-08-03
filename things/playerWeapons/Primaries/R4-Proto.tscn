@@ -1,0 +1,113 @@
+[gd_scene format=3 uid="uid://v502w1dga1wl"]
+
+[ext_resource type="Script" uid="uid://xw28tbvonejr" path="res://Scripts/shotty.gd" id="1_pym3d"]
+[ext_resource type="Texture2D" uid="uid://cl14r86xd8vbd" path="res://PlayerSprites/GuyDarkHeart/Arms/R4-Proto/fire.png" id="2_4033r"]
+[ext_resource type="Texture2D" uid="uid://bq2j7lk0pdhhp" path="res://PlayerSprites/GuyDarkHeart/Arms/R4-Proto/idle.png" id="3_kq587"]
+[ext_resource type="Texture2D" uid="uid://8ofotr4yg66u" path="res://PlayerSprites/Milky/Arms/R4-Proto/fire.png" id="4_pym3d"]
+[ext_resource type="Texture2D" uid="uid://c8tf6f0vnlxxv" path="res://PlayerSprites/Milky/Arms/R4-Proto/idle.png" id="5_y8gyg"]
+[ext_resource type="Texture2D" uid="uid://cptogwvle21k3" path="res://PlayerSprites/NULL/Arms/R4-Proto/fire.png" id="6_pym3d"]
+[ext_resource type="Texture2D" uid="uid://q516hofyai8x" path="res://PlayerSprites/Arms/R4-Proto/fire.png" id="6_tqk1a"]
+[ext_resource type="Texture2D" uid="uid://bthb3ft4b7wxa" path="res://PlayerSprites/Arms/R4-Proto/idle.png" id="7_xdwye"]
+[ext_resource type="Texture2D" uid="uid://coug82vhm4din" path="res://PlayerSprites/NULL/Arms/R4-Proto/idle.png" id="7_y8gyg"]
+[ext_resource type="Script" uid="uid://cdudjf4b6ntn7" path="res://Scripts/GunAnims.gd" id="10_asm8n"]
+[ext_resource type="AudioStream" uid="uid://d0wdmwqb6dkw4" path="res://Sounds/ShottyPlayer FIre.ogg" id="11_b7ln5"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tjktq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_4033r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_kq587")
+}],
+"loop": 0,
+"name": &"GuyD_Fire",
+"speed": 9.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_kq587")
+}],
+"loop": 1,
+"name": &"GuyD_default",
+"speed": 9.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_pym3d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_y8gyg")
+}],
+"loop": 0,
+"name": &"Milky_Fire",
+"speed": 9.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_y8gyg")
+}],
+"loop": 1,
+"name": &"Milky_default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_pym3d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_y8gyg")
+}],
+"loop": 0,
+"name": &"NULL_Fire",
+"speed": 9.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_y8gyg")
+}],
+"loop": 1,
+"name": &"NULL_default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_tqk1a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_xdwye")
+}],
+"loop": 0,
+"name": &"NX_Fire",
+"speed": 9.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_xdwye")
+}],
+"loop": 1,
+"name": &"NX_default",
+"speed": 5.0
+}]
+
+[node name="R4-Proto" type="Node2D" unique_id=1407007056]
+script = ExtResource("1_pym3d")
+ammo = 210
+InfAmmo = true
+firecd = 0.3
+currentDMG = 3.25
+bulletHP = 1.5
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=707050063]
+position = Vector2(3, -3)
+sprite_frames = SubResource("SpriteFrames_tjktq")
+animation = &"NX_default"
+script = ExtResource("10_asm8n")
+
+[node name="Marker2D" type="Marker2D" parent="." unique_id=568080738]
+position = Vector2(19, -2)
+
+[node name="Fire" type="AudioStreamPlayer2D" parent="." unique_id=239943092]
+stream = ExtResource("11_b7ln5")
+volume_db = -2.0

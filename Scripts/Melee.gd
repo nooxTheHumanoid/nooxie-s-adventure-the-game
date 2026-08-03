@@ -9,6 +9,7 @@ extends Node2D
 var AimSpeed = 420.0
 var instaAim = true
 @export var deflectBullets = true
+@export var can_drop = true
 var DmgMulti = 1.0
 var canfire = false
 var State = "none"
@@ -17,6 +18,10 @@ var actualfire = false
 @export var currentDMG: float = 4.0
 @export var hitboxLinger: float = 0.4
 @export var DMGbullet: float = 0.5
+@export var increased_damage_multi = false
+
+func can_be_dropped():
+	return can_drop
 
 func dmgMulti(dmg):
 	DmgMulti = dmg
@@ -114,14 +119,20 @@ func handle_enemy_collision(enemy: Enemy):
 		return
 	
 	if enemy.health >= 0:
-		enemy.hurtEnemy(currentDMG*DmgMulti)
+		if increased_damage_multi && DmgMulti > 1.0:
+			enemy.hurtEnemy(currentDMG*(DmgMulti*3))
+		else:
+			enemy.hurtEnemy(currentDMG*DmgMulti)
 		
 func handle_enemy_collision2(enemy: EnemyMafia):
 	if enemy == null:
 		return
 	
 	if enemy.health >= 0:
-		enemy.hurtEnemy(currentDMG*DmgMulti)
+		if increased_damage_multi && DmgMulti > 1.0:
+			enemy.hurtEnemy(currentDMG*(DmgMulti*3))
+		else:
+			enemy.hurtEnemy(currentDMG*DmgMulti)
 	
 func handle_bullet_collision(bullet: Node2D):
 	if bullet == null:

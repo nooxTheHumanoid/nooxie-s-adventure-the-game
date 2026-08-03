@@ -1,0 +1,69 @@
+[gd_scene format=3 uid="uid://gotf41grubue"]
+
+[ext_resource type="Script" uid="uid://clj3l28bla5bv" path="res://Scripts/NPCs/glassman.gd" id="1_31jv1"]
+[ext_resource type="Texture2D" uid="uid://unh84hok7r7s" path="res://textures/NPCs/Glassman/idle.png" id="2_31jv1"]
+[ext_resource type="Texture2D" uid="uid://cp6p668tqhhdi" path="res://textures/NPCs/Glassman/idle2.png" id="3_50q5p"]
+[ext_resource type="AudioStream" uid="uid://ceauovme4segx" path="res://Sounds/Characters/Glassman_Talk.mp3" id="4_31jv1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
+size = Vector2(62, 49)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_y74kj"]
+animations = [{
+"frames": [{
+"duration": 1.1,
+"texture": ExtResource("2_31jv1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_50q5p")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 1.0
+}]
+
+[node name="Glassman" type="Area2D" unique_id=701321675]
+script = ExtResource("1_31jv1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1886216103]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_g4v7s")
+
+[node name="Label" type="Label" parent="." unique_id=1000145032]
+z_index = 7
+offset_left = -31.0
+offset_top = 22.0
+offset_right = 31.0
+offset_bottom = 36.0
+theme_override_font_sizes/font_size = 10
+text = "Interact - E"
+horizontal_alignment = 1
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=564309304]
+sprite_frames = SubResource("SpriteFrames_y74kj")
+autoplay = "default"
+frame_progress = 0.2705917
+
+[node name="Yapper" type="Label" parent="." unique_id=75204727]
+z_index = 7
+offset_left = -62.0
+offset_top = -63.0
+offset_right = 62.0
+offset_bottom = -18.0
+theme_override_colors/font_color = Color(0, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 1, 1)
+theme_override_constants/line_spacing = 0
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 8
+text = "This is how my text will look like, noox."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="Talk" type="AudioStreamPlayer2D" parent="." unique_id=1486366479]
+stream = ExtResource("4_31jv1")
+
+[connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]
+[connection signal="body_shape_exited" from="." to="." method="_on_body_shape_exited"]

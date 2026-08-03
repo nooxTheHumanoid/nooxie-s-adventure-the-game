@@ -3,7 +3,6 @@ extends AnimatedSprite2D
 class_name PlayerAnimaterSprite
 
 var charanim = "none"
-var Censured_Taunt = false
 var TauntName = "Taunt"
 
 func char_state(State: String):
@@ -33,7 +32,7 @@ func trigger_animation(velocity: Vector2,direction: int, player_mode: Player.Pla
 			play("%s_Walk" % animation_prefix)
 		elif charanim == "taunt":
 			if TauntName == "Taunt":
-				if Censured_Taunt:
+				if global.censor_taunts:
 					play("Taunt_Censored")
 				else:
 					play("Taunt")

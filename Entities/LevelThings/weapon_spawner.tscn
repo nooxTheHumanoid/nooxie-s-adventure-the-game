@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://cycoan0ksthiu"]
+
+[ext_resource type="Script" uid="uid://c6nn7upe4wp3f" path="res://weapon spawn.gd" id="1_utr3o"]
+[ext_resource type="Texture2D" uid="uid://dqtyqupmieste" path="res://textures/Spinny thing.png" id="2_bukap"]
+
+[node name="WeaponSpawner" type="Node2D" unique_id=796527461]
+script = ExtResource("1_utr3o")
+
+[node name="Timer" type="Timer" parent="." unique_id=1485517479]
+wait_time = 4.0600000000000005
+autostart = true
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1760814371]
+position = Vector2(-403, -106)
+texture = ExtResource("2_bukap")

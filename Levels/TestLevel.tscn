@@ -6,7 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://d1rirjmjh7c2v" path="res://textures/IronWalls.png" id="4_ijb51"]
 [ext_resource type="Texture2D" uid="uid://cv6wqjiw4ngbc" path="res://textures/woodplanks.png" id="5_76fkc"]
 [ext_resource type="PackedScene" uid="uid://88k2dmp3clm0" path="res://Entities/player_spawn.tscn" id="8_cxxvu"]
-[ext_resource type="AudioStream" uid="uid://bdnt83xf8aue4" path="res://Music/lore accurate nx chase theme.mp3" id="9_a5le3"]
 [ext_resource type="PackedScene" uid="uid://vo76jgya30xt" path="res://Entities/LevelThings/exit_level.tscn" id="10_gp5y3"]
 [ext_resource type="PackedScene" uid="uid://cxfnf2pvy8nsp" path="res://Entities/Enemies/Mercs/mercSniper.tscn" id="10_ijb51"]
 [ext_resource type="PackedScene" uid="uid://xbgni1a8lr0x" path="res://Entities/Enemies/Mercs/mercShotty.tscn" id="11_76fkc"]
@@ -71,7 +70,6 @@ position = Vector2(-47, 119)
 [node name="PlayerSpawn" parent="." unique_id=1497389963 node_paths=PackedStringArray("camera") instance=ExtResource("8_cxxvu")]
 position = Vector2(-93, 7)
 camera = NodePath("../Camera2D")
-song = ExtResource("9_a5le3")
 level = "uid://bfh0b6p815bi"
 defence = 100.0
 Force_hp = true

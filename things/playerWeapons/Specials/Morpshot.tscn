@@ -1,0 +1,140 @@
+[gd_scene format=3 uid="uid://bxm5hnawuh76y"]
+
+[ext_resource type="Script" uid="uid://blcpt3s60aryc" path="res://Scripts/Syringes.gd" id="1_630je"]
+[ext_resource type="Texture2D" uid="uid://rte2s505grbv" path="res://PlayerSprites/GuyDarkHeart/Arms/Morpshot/idle.png" id="2_630je"]
+[ext_resource type="Texture2D" uid="uid://c66d7mu1rf3rq" path="res://PlayerSprites/GuyDarkHeart/Arms/Morpshot/preswing.png" id="3_grd8u"]
+[ext_resource type="Texture2D" uid="uid://dmjsch3chh03g" path="res://PlayerSprites/GuyDarkHeart/Arms/Morpshot/inject.png" id="4_2wwe3"]
+[ext_resource type="Texture2D" uid="uid://7bbgyqoqm7m1" path="res://PlayerSprites/Milky/Arms/Morpshot/idle.png" id="5_st5cj"]
+[ext_resource type="Texture2D" uid="uid://ci0a82j2s2mbx" path="res://PlayerSprites/Milky/Arms/Morpshot/preswing.png" id="6_w0xoq"]
+[ext_resource type="Texture2D" uid="uid://bsahracjvvitk" path="res://PlayerSprites/Milky/Arms/Morpshot/inject.png" id="7_5jjal"]
+[ext_resource type="Texture2D" uid="uid://co204ybvgsug" path="res://PlayerSprites/NULL/Arms/Morpshot/idle.png" id="8_ykgjq"]
+[ext_resource type="Texture2D" uid="uid://doy17aol62jxg" path="res://PlayerSprites/NULL/Arms/Morpshot/preswing.png" id="9_bu7nx"]
+[ext_resource type="Texture2D" uid="uid://dhbmxvboixe46" path="res://PlayerSprites/NULL/Arms/Morpshot/inject.png" id="10_iarv5"]
+[ext_resource type="Texture2D" uid="uid://cb0fp4q1v2rq3" path="res://PlayerSprites/Arms/Morpshot/idle.png" id="11_grd8u"]
+[ext_resource type="Script" uid="uid://cdudjf4b6ntn7" path="res://Scripts/GunAnims.gd" id="11_t312j"]
+[ext_resource type="Texture2D" uid="uid://2wtj5uovqakx" path="res://PlayerSprites/Arms/Morpshot/preswing.png" id="12_2wwe3"]
+[ext_resource type="Texture2D" uid="uid://dp3uvusw6xwb3" path="res://PlayerSprites/Arms/Morpshot/inject.png" id="13_st5cj"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_j178h"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_630je")
+}, {
+"duration": 1.5,
+"texture": ExtResource("3_grd8u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_630je")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_2wwe3")
+}],
+"loop": 0,
+"name": &"GuyD_Fire",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_630je")
+}],
+"loop": 1,
+"name": &"GuyD_default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_st5cj")
+}, {
+"duration": 1.5,
+"texture": ExtResource("6_w0xoq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_st5cj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_5jjal")
+}],
+"loop": 0,
+"name": &"Milky_Fire",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_st5cj")
+}],
+"loop": 1,
+"name": &"Milky_default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_ykgjq")
+}, {
+"duration": 1.5,
+"texture": ExtResource("9_bu7nx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_ykgjq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_iarv5")
+}],
+"loop": 0,
+"name": &"NULL_Fire",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_ykgjq")
+}],
+"loop": 1,
+"name": &"NULL_default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_grd8u")
+}, {
+"duration": 1.5,
+"texture": ExtResource("12_2wwe3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_grd8u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_st5cj")
+}],
+"loop": 0,
+"name": &"NX_Fire",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_grd8u")
+}],
+"loop": 1,
+"name": &"NX_default",
+"speed": 5.0
+}]
+
+[node name="Morpshot" type="Node2D" unique_id=1453195945]
+script = ExtResource("1_630je")
+y_offset = 2.5
+firecd = 20.0
+Heal = 10.0
+Defence = 10.0
+Mood = 15.0
+Pain = 35.0
+HeadInjury = -25.0
+LegInjury = -5.0
+BrokenLeg = -8.0
+ArmInjury = -8.0
+BrokenArm = -5.0
+Stamina = 25.0
+Visibility = -25.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1073005557]
+sprite_frames = SubResource("SpriteFrames_j178h")
+animation = &"NX_Fire"
+script = ExtResource("11_t312j")

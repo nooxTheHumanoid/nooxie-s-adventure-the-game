@@ -1,0 +1,272 @@
+[gd_scene format=3 uid="uid://ctvruag2diov2"]
+
+[ext_resource type="Script" uid="uid://xw28tbvonejr" path="res://Scripts/shotty.gd" id="1_rtdwv"]
+[ext_resource type="Texture2D" uid="uid://docrh3xhl3dy3" path="res://PlayerSprites/Arms/LC-55G/fire1.png" id="2_vpnwr"]
+[ext_resource type="Texture2D" uid="uid://cbjkkkk030cph" path="res://PlayerSprites/Arms/LC-55G/fire2.png" id="3_uo8eh"]
+[ext_resource type="Texture2D" uid="uid://yqoxc4nvktjh" path="res://PlayerSprites/Arms/LC-55G/idle.png" id="4_rtdwv"]
+[ext_resource type="Texture2D" uid="uid://ddqp5vf2u0u1p" path="res://PlayerSprites/Milky/Arms/LC-55G/fire1.png" id="5_lxoa3"]
+[ext_resource type="Texture2D" uid="uid://d223s08eg0hic" path="res://PlayerSprites/Milky/Arms/LC-55G/fire2.png" id="6_uoibe"]
+[ext_resource type="Texture2D" uid="uid://cglgtha03afdw" path="res://PlayerSprites/Milky/Arms/LC-55G/idle.png" id="7_d5ix6"]
+[ext_resource type="Texture2D" uid="uid://bjpnccc858bql" path="res://PlayerSprites/NULL/Arms/LC-55G/fire1.png" id="8_lxoa3"]
+[ext_resource type="Texture2D" uid="uid://blh63obrk646g" path="res://PlayerSprites/NULL/Arms/LC-55G/fire2.png" id="9_uoibe"]
+[ext_resource type="Texture2D" uid="uid://pl0y74utf6a4" path="res://PlayerSprites/NULL/Arms/LC-55G/idle.png" id="10_d5ix6"]
+[ext_resource type="Script" uid="uid://cdudjf4b6ntn7" path="res://Scripts/GunAnims.gd" id="10_tbdnp"]
+[ext_resource type="AudioStream" uid="uid://du4x7ys1fyhv4" path="res://Sounds/AAC-23 Fire.ogg" id="12_lxoa3"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tjktq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_vpnwr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_uo8eh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_vpnwr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_uo8eh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_vpnwr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_uo8eh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_vpnwr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_uo8eh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_vpnwr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_uo8eh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_vpnwr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_uo8eh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_vpnwr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_uo8eh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_rtdwv")
+}],
+"loop": 0,
+"name": &"GuyD_Fire",
+"speed": 9.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_rtdwv")
+}],
+"loop": 1,
+"name": &"GuyD_default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_lxoa3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_uoibe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_lxoa3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_uoibe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_lxoa3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_uoibe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_lxoa3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_uoibe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_lxoa3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_uoibe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_lxoa3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_uoibe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_lxoa3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_uoibe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_d5ix6")
+}],
+"loop": 0,
+"name": &"Milky_Fire",
+"speed": 9.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_d5ix6")
+}],
+"loop": 1,
+"name": &"Milky_default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_lxoa3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_uoibe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_lxoa3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_uoibe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_lxoa3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_uoibe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_lxoa3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_uoibe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_lxoa3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_uoibe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_lxoa3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_uoibe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_lxoa3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_uoibe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_d5ix6")
+}],
+"loop": 0,
+"name": &"NULL_Fire",
+"speed": 9.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_d5ix6")
+}],
+"loop": 1,
+"name": &"NULL_default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_vpnwr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_uo8eh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_vpnwr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_uo8eh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_vpnwr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_uo8eh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_vpnwr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_uo8eh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_vpnwr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_uo8eh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_vpnwr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_uo8eh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_vpnwr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_uo8eh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_rtdwv")
+}],
+"loop": 0,
+"name": &"NX_Fire",
+"speed": 9.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_rtdwv")
+}],
+"loop": 1,
+"name": &"NX_default",
+"speed": 5.0
+}]
+
+[node name="LC-55G" type="Node2D" unique_id=1407007056]
+script = ExtResource("1_rtdwv")
+FiresBulletType = 1
+y_offset = 5.0
+ammo = 210
+InfAmmo = true
+firecd = 2.5
+currentDMG = 10.0
+bulletHP = 100.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=707050063]
+position = Vector2(8, 0)
+sprite_frames = SubResource("SpriteFrames_tjktq")
+animation = &"NX_default"
+script = ExtResource("10_tbdnp")
+
+[node name="Marker2D" type="Marker2D" parent="." unique_id=568080738]
+position = Vector2(14, 0)
+
+[node name="Fire" type="AudioStreamPlayer2D" parent="." unique_id=239943092]
+stream = ExtResource("12_lxoa3")
+volume_db = -2.0

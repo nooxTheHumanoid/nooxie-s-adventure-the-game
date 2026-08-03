@@ -35,6 +35,9 @@ var bursted: bool = false
 func _ready() -> void:
 	shotsfromBurst = burst
 
+func can_be_dropped():
+	return can_dorp
+
 func dmgMulti(dmg):
 	DmgMulti = dmg
 	

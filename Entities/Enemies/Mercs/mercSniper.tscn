@@ -17,8 +17,8 @@
 [ext_resource type="Texture2D" uid="uid://c8yv0l8esaxq4" path="res://EnemySprites/Mercs/Arms/Sniper/Sniper2.png" id="14_clvxt"]
 [ext_resource type="PackedScene" uid="uid://dkqrbo1o6fy4p" path="res://NonLevelScenes/HPbar.tscn" id="15_clvxt"]
 [ext_resource type="AudioStream" uid="uid://dat2jnvfm14sb" path="res://Sounds/Sniper.mp3" id="15_e6ckh"]
-[ext_resource type="AudioStream" uid="uid://bvhh8si1mgygq" path="res://Sounds/N51_MadnessProjectNexus/Aggro.wav" id="17_jbd24"]
-[ext_resource type="AudioStream" uid="uid://de35pqadimvag" path="res://Sounds/N51_MadnessProjectNexus/Cheer.wav" id="18_geq2c"]
+[ext_resource type="AudioStream" uid="uid://cnn7ee2u56ret" path="res://Sounds/Snipers/Spot.mp3" id="18_geq2c"]
+[ext_resource type="AudioStream" uid="uid://j5e6p8ms7bfn" path="res://Sounds/Snipers/Goodbye.mp3" id="19_hka8b"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_6g2w8"]
 animations = [{
@@ -26,7 +26,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("2_p4wrg")
 }],
-"loop": true,
+"loop": 1,
 "name": &"Death",
 "speed": 5.0
 }, {
@@ -55,7 +55,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("9_fmxts")
 }],
-"loop": true,
+"loop": 1,
 "name": &"Walk",
 "speed": 7.0
 }, {
@@ -66,7 +66,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("11_tg4el")
 }],
-"loop": true,
+"loop": 1,
 "name": &"default",
 "speed": 1.0
 }]
@@ -83,7 +83,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("13_p4wrg")
 }],
-"loop": false,
+"loop": 0,
 "name": &"default",
 "speed": 5.0
 }, {
@@ -94,7 +94,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("13_p4wrg")
 }],
-"loop": false,
+"loop": 0,
 "name": &"fire",
 "speed": 7.0
 }]
@@ -187,12 +187,10 @@ offset_right = 17.0
 offset_bottom = -19.0
 
 [node name="Alert" type="AudioStreamPlayer2D" parent="." unique_id=20541726]
-stream = ExtResource("17_jbd24")
-volume_db = 12.0
+stream = ExtResource("18_geq2c")
 
 [node name="Warn" type="AudioStreamPlayer2D" parent="." unique_id=549578816]
-stream = ExtResource("18_geq2c")
-volume_db = 12.0
+stream = ExtResource("19_hka8b")
 
 [connection signal="body_entered" from="Detection" to="." method="_on_detection_body_entered"]
 [connection signal="body_entered" from="DetectionGun" to="gun" method="_on_detection_gun_body_entered"]

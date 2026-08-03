@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ebu7b1vjttgc"
+path="res://.godot/imported/nooxie's lab (nooxie's adventure).mp3-cb54471110e1cc48a6222579c7bfe140.mp3str"
+
+[deps]
+
+source_file="res://Music/Lab/nooxie's lab (nooxie's adventure).mp3"
+dest_files=["res://.godot/imported/nooxie's lab (nooxie's adventure).mp3-cb54471110e1cc48a6222579c7bfe140.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

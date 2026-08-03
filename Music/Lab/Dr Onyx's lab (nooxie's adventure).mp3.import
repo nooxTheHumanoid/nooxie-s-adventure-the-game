@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://blx7kue5hr4ac"
+path="res://.godot/imported/Dr Onyx's lab (nooxie's adventure).mp3-db22b4119f10ef0b4ed9d5cff7fd6ab0.mp3str"
+
+[deps]
+
+source_file="res://Music/Lab/Dr Onyx's lab (nooxie's adventure).mp3"
+dest_files=["res://.godot/imported/Dr Onyx's lab (nooxie's adventure).mp3-db22b4119f10ef0b4ed9d5cff7fd6ab0.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

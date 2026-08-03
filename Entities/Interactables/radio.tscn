@@ -1,0 +1,78 @@
+[gd_scene format=3 uid="uid://dee5yekhlhtox"]
+
+[ext_resource type="Script" uid="uid://ckj40dd7vkwv0" path="res://Scripts/radio.gd" id="1_twgtj"]
+[ext_resource type="Texture2D" uid="uid://c2u7es1rbjlos" path="res://textures/Misc/Radio/radio1.png" id="2_c2272"]
+[ext_resource type="AudioStream" uid="uid://ebu7b1vjttgc" path="res://Music/Lab/nooxie's lab (nooxie's adventure).mp3" id="3_c2272"]
+[ext_resource type="Texture2D" uid="uid://crssxnlcp46yc" path="res://textures/Misc/Radio/radio3.png" id="3_hxgde"]
+[ext_resource type="AudioStream" uid="uid://ce6wwnlgp4dwn" path="res://Music/Lab/Dr N's lab (nooxie's adventure).mp3" id="4_hxgde"]
+[ext_resource type="Texture2D" uid="uid://7b2tr1a30mpn" path="res://textures/Misc/Radio/radio2.png" id="4_ofrqr"]
+[ext_resource type="AudioStream" uid="uid://blx7kue5hr4ac" path="res://Music/Lab/Dr Onyx's lab (nooxie's adventure).mp3" id="5_ofrqr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g4v7s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_c2272")
+}],
+"loop": 1,
+"name": &"one",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_hxgde")
+}],
+"loop": 1,
+"name": &"three",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_ofrqr")
+}],
+"loop": 1,
+"name": &"two",
+"speed": 5.0
+}]
+
+[node name="Radio" type="Area2D" unique_id=701321675]
+script = ExtResource("1_twgtj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1886216103]
+shape = SubResource("RectangleShape2D_g4v7s")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=929816813]
+sprite_frames = SubResource("SpriteFrames_g4v7s")
+animation = &"two"
+
+[node name="Label" type="Label" parent="." unique_id=1000145032]
+z_index = 7
+offset_left = -31.0
+offset_top = -28.0
+offset_right = 31.0
+offset_bottom = -14.0
+theme_override_font_sizes/font_size = 10
+text = "Change song"
+
+[node name="NXlab" type="AudioStreamPlayer" parent="." unique_id=71928096]
+stream = ExtResource("3_c2272")
+volume_db = 10.0
+autoplay = true
+parameters/looping = true
+
+[node name="DrNlab" type="AudioStreamPlayer" parent="." unique_id=500341721]
+stream = ExtResource("4_hxgde")
+volume_db = 10.0
+autoplay = true
+parameters/looping = true
+
+[node name="DrOnyxlab" type="AudioStreamPlayer" parent="." unique_id=1976678753]
+stream = ExtResource("5_ofrqr")
+volume_db = 10.0
+autoplay = true
+parameters/looping = true
+
+[connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]
+[connection signal="body_shape_exited" from="." to="." method="_on_body_shape_exited"]

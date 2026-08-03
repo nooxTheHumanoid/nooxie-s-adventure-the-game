@@ -37,15 +37,19 @@ class inv_items:
 	var slot_id: int
 	var ammo_type: AmmoType
 	var variant_id: int
+	var ammo: int
 	var weapon_type: SelectedWeapon
 	func _init(p_weapon_type,p_ammo_type,p_wepons):
 		self.weapon_type = p_weapon_type
 		self.ammo_type = p_ammo_type
 		self.wepons = p_wepons
+		#if p_ammo != null:
+			#self.ammo = p_ammo
 	func setWepon(p_wepon : Node2D): self.gun = p_wepon
 	func setSlots(p_slot_id,p_variant_id): self.slot_id = p_slot_id; self.variant_id = p_variant_id
 	func getType() -> SelectedWeapon: return self.weapon_type
 	func getSlots(): return [slot_id, variant_id]
+	func getAmmo(): return self.ammo
 	func getWepon() -> Node2D: return self.gun
 	func getWepons() -> PackedScene: return self.wepons
 
@@ -125,6 +129,7 @@ var is_dead: bool  = false
 @export var HealthFromTaunting: float = 0.01
 @export var HealWaitFromTaunt: float = 0.5
 @export var Injury_recovery_time: float = 5.0
+@export var Injection_Sickness: int = 3
 @export_group("")
 
 @export_group("Damage")
@@ -213,6 +218,9 @@ var was_in_air: bool  = false
 const Fall_punishment: float = 100.0
 var starting_fall_y: float = 0.0
 
+var sickness: int = 0
+var Sickness_alert: bool = false
+
 func Coyote_Timeout():
 	Jump_Availabe = false
 
@@ -246,8 +254,49 @@ func pain_recovery(delta):
 func mood_change(delta):
 	mood += (delta * MoodRecovery) * MoodMulti
 
+# this is for the injectors
+
 func moodUp(MoodUp):
-	mood += (MoodUp * MoodRecovery) * MoodMulti
+	mood += MoodUp
+	
+func PainUp(Amount):
+	PainAmount += Amount
+	
+func DefenceUp(Amount):
+	global.tempkills += Amount
+	
+func HealUp(Amount):
+	health += Amount
+	health_bar.set_health(health) 
+	
+func DMGBoostUp(Amount):
+	DMGBoost += Amount
+
+func HeadInjUp(Amount):
+	HeadtraumaTime += Amount
+	
+func LegInjUp(Amount):
+	InjuredLegTime += Amount
+	
+func BrokenLegUp(Amount):
+	BrokenLegTime += Amount
+	
+func ArmInjUp(Amount):
+	InjuredArmTime += Amount
+	
+func BrokenArmUp(Amount):
+	BrokenArmTime += Amount
+	
+func SicknessUp(Amount):
+	sickness += Amount
+	
+func StaminaUp(Amount):
+	current_stamina += Amount
+	
+func VisibilityUp(Amount):
+	visibility += Amount
+	
+#injector thing ends here
 
 func tryHeal(HP: int):
 	if global.fullDef:

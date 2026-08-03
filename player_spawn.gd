@@ -22,6 +22,8 @@ enum EmotionalState {
 @export var song : AudioStreamMP3
 @export var songPlus : AudioStreamMP3
 @export_file var level
+@export_group("Scrapped")
+@export var debugmode: bool = false
 @export_group("CharSettings")
 @export var PlayerHasgun = PlayerMode.nohands
 @export var ChangeSettings = false
@@ -35,7 +37,7 @@ enum EmotionalState {
 @export var HealWaitFromTaunt = 0.5
 @export var affected_by_mood = true
 @export var allowInjuries = true
-@export var can_wallclimb = true
+@export var can_wallclimb = false
 func _ready() -> void:
 	if global.character == 0:
 		var player = nx.instantiate()
@@ -53,7 +55,8 @@ func _ready() -> void:
 			player.defence = defence
 			player.affected_by_mood = affected_by_mood
 			player.allowInjuries = allowInjuries
-			player.can_wallclimb = can_wallclimb
+			if !player.can_wallclimb:
+				player.can_wallclimb = can_wallclimb
 			player.CanHeal_viaTaunt = CanHeal_viaTaunt
 			player.HealthFromTaunting = HealthFromTaunting
 			player.HealWaitFromTaunt = HealWaitFromTaunt
@@ -62,6 +65,7 @@ func _ready() -> void:
 			player.Show_defence = false
 		if Force_hp:
 			player.health = New_HP
+		player.able_to_switch_mode = debugmode
 		get_parent().get_parent().add_child(player)
 	elif global.character == 1:
 		var player = voidman.instantiate()
@@ -79,7 +83,8 @@ func _ready() -> void:
 			#player.defence = defence
 			player.affected_by_mood = affected_by_mood
 			player.allowInjuries = allowInjuries
-			player.can_wallclimb = can_wallclimb
+			if !player.can_wallclimb:
+				player.can_wallclimb = can_wallclimb
 			player.CanHeal_viaTaunt = CanHeal_viaTaunt
 			player.HealthFromTaunting = HealthFromTaunting
 			player.HealWaitFromTaunt = HealWaitFromTaunt
@@ -88,6 +93,7 @@ func _ready() -> void:
 			player.Show_defence = false
 		if Force_hp:
 			player.health = New_HP
+		player.able_to_switch_mode = debugmode
 		get_parent().get_parent().add_child(player)
 	elif global.character == 2:
 		var player = guyD.instantiate()
@@ -106,7 +112,8 @@ func _ready() -> void:
 			#player.defence = defence
 			player.affected_by_mood = affected_by_mood
 			player.allowInjuries = allowInjuries
-			player.can_wallclimb = can_wallclimb
+			if !player.can_wallclimb:
+				player.can_wallclimb = can_wallclimb
 			player.CanHeal_viaTaunt = CanHeal_viaTaunt
 			player.HealthFromTaunting = HealthFromTaunting
 			player.HealWaitFromTaunt = HealWaitFromTaunt
@@ -115,6 +122,7 @@ func _ready() -> void:
 			player.Show_defence = false
 		if Force_hp:
 			player.health = New_HP
+		player.able_to_switch_mode = debugmode
 		get_parent().get_parent().add_child(player)
 	elif global.character == 3:
 		var player = Milky.instantiate()
@@ -132,7 +140,8 @@ func _ready() -> void:
 			#player.defence = defence
 			player.affected_by_mood = affected_by_mood
 			player.allowInjuries = allowInjuries
-			player.can_wallclimb = can_wallclimb
+			if !player.can_wallclimb:
+				player.can_wallclimb = can_wallclimb
 			player.CanHeal_viaTaunt = CanHeal_viaTaunt
 			player.HealthFromTaunting = HealthFromTaunting
 			player.HealWaitFromTaunt = HealWaitFromTaunt
@@ -141,6 +150,7 @@ func _ready() -> void:
 			player.Show_defence = false
 		if Force_hp:
 			player.health = New_HP
+		player.able_to_switch_mode = debugmode
 		get_parent().get_parent().add_child(player)
 		
 	queue_free()

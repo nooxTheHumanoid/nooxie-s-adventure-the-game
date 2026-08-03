@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://cmlnvv15apxy1"]
+
+[ext_resource type="Script" uid="uid://d0itxmlao3gkh" path="res://weapon_item.gd" id="1_46onj"]
+[ext_resource type="Texture2D" uid="uid://dkakib6c2i1l6" path="res://textures/Items/Shotgun.png" id="2_ll51h"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
+size = Vector2(31, 20)
+
+[node name="ShottyItem" type="Node2D" unique_id=1797657841]
+script = ExtResource("1_46onj")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=605123438]
+texture = ExtResource("2_ll51h")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=941081393]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=719921969]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_g4v7s")
+
+[node name="Label" type="Label" parent="." unique_id=492718242]
+offset_left = -20.0
+offset_top = -32.0
+offset_right = 20.0
+offset_bottom = -9.0
+text = "E"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

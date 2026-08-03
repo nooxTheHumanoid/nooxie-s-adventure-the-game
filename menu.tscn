@@ -13,6 +13,32 @@
 
 [node name="Menu" type="Node2D" unique_id=1709035288]
 
+[node name="Label11" type="Label" parent="." unique_id=2077436087]
+offset_left = 2551.0
+offset_top = 569.0
+offset_right = 3655.0
+offset_bottom = 654.0
+theme_override_colors/font_color = Color(0, 0.8235294, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("4_4hy44")
+theme_override_font_sizes/font_size = 30
+text = "Most of the options don't do anything.
+Offensive content and swears (via voice) don't do anything, yet."
+
+[node name="Label12" type="Label" parent="." unique_id=42656894]
+offset_left = 3051.0
+offset_top = 485.0
+offset_right = 3663.0
+offset_bottom = 570.0
+theme_override_colors/font_color = Color(0, 0.8235294, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("4_4hy44")
+theme_override_font_sizes/font_size = 30
+text = "Swears (via text) does not censor the swear in keybinds"
+autowrap_mode = 3
+
 [node name="Control" type="Control" parent="." unique_id=1932330383]
 layout_mode = 3
 anchors_preset = 0
@@ -420,6 +446,20 @@ theme_override_font_sizes/font_size = 40
 text = "Version 1.0?"
 horizontal_alignment = 1
 
+[node name="Label12" type="Label" parent="Control" unique_id=356083618]
+layout_mode = 0
+offset_left = -28.0
+offset_top = -86.0
+offset_right = 291.0
+offset_bottom = -21.0
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 15
+theme_override_fonts/font = ExtResource("4_4hy44")
+theme_override_font_sizes/font_size = 40
+text = "TEST BUILD!!!"
+horizontal_alignment = 1
+
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1901233955]
 position = Vector2(581, 334)
 
@@ -431,7 +471,7 @@ enabled = false
 offset_left = 34.0
 offset_top = 116.0
 offset_right = 1132.0
-offset_bottom = 263.0
+offset_bottom = 216.0
 theme_override_colors/font_color = Color(0, 0.8117647, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 21
@@ -629,7 +669,7 @@ theme_override_font_sizes/font_size = 44
 text = "Music: nooxTheHumanoid
 Game: nooxTheHumanoid
 Heart rate and Player inventory system: n0o0b090lv
-Character Milky: Orsoniks"
+Character \"Milky\" by Orsoniks"
 autowrap_mode = 2
 metadata/_edit_use_anchors_ = true
 
@@ -647,6 +687,22 @@ script = ExtResource("3_ytr4m")
 Maincamera = NodePath("../../Credits")
 camera = NodePath("../../../Camera2D")
 metadata/_edit_use_anchors_ = true
+
+[node name="Label10" type="Label" parent="Credits/Control" unique_id=1457620040]
+layout_mode = 0
+offset_left = 192.0
+offset_top = 499.0
+offset_right = 872.0
+offset_bottom = 632.0
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("4_4hy44")
+theme_override_font_sizes/font_size = 30
+text = "Thank you for actually trying out this unfinished mess.
+(I have to rework all the levels since they suck)"
+horizontal_alignment = 1
+autowrap_mode = 3
 
 [node name="Credits" type="Camera2D" parent="Credits" unique_id=1420279119]
 position = Vector2(577, 325)
@@ -748,9 +804,9 @@ script = ExtResource("1_lti8b")
 path = "uid://cbyq06rhrfy2"
 
 [node name="Blackjack5" type="Button" parent="Bonus" unique_id=230977503]
-offset_left = 640.0
+offset_left = 639.0
 offset_top = 211.0
-offset_right = 879.0
+offset_right = 878.0
 offset_bottom = 270.0
 focus_mode = 0
 shortcut_feedback = false
@@ -760,9 +816,9 @@ script = ExtResource("1_lti8b")
 path = "uid://c5w04nkkmeofr"
 
 [node name="Blackjack6" type="Button" parent="Bonus" unique_id=460307792]
-offset_left = 386.0
+offset_left = 384.0
 offset_top = 295.0
-offset_right = 625.0
+offset_right = 623.0
 offset_bottom = 354.0
 focus_mode = 0
 shortcut_feedback = false
@@ -770,6 +826,31 @@ shortcut_in_tooltip = false
 text = "Tutorial"
 script = ExtResource("1_lti8b")
 path = "uid://dm8ohjn246ac4"
+
+[node name="Blackjack7" type="Button" parent="Bonus" unique_id=1631651317]
+offset_left = 122.0
+offset_top = 295.0
+offset_right = 361.0
+offset_bottom = 354.0
+focus_mode = 0
+shortcut_feedback = false
+shortcut_in_tooltip = false
+text = "Lab"
+script = ExtResource("1_lti8b")
+path = "uid://0o1jkyt8cmji"
+
+[node name="Label10" type="Label" parent="Bonus" unique_id=203224617]
+offset_left = 31.0
+offset_top = 458.0
+offset_right = 1132.0
+offset_bottom = 523.0
+theme_override_colors/font_color = Color(0, 0.8235294, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("4_4hy44")
+theme_override_font_sizes/font_size = 30
+text = "WIll remove most of these whenever the second demo comes out
+"
 
 [node name="music" type="AudioStreamPlayer" parent="." unique_id=1877356486]
 stream = ExtResource("3_mae5d")
@@ -820,13 +901,13 @@ Jump - W, Up arrow, Space
 Duck - S, Down arrow
 Taunt - G
 Shoot/use - Left Mouse Button
-Player mode - Mouse Thumb Button 2
+Pause - Esc
 Ability - F"
 
 [node name="Label9" type="Label" parent="Keybinds" unique_id=1171962760]
 offset_left = 3823.0
 offset_top = 612.0
-offset_right = 4924.0
+offset_right = 4214.0
 offset_bottom = 668.0
 theme_override_colors/font_color = Color(0, 1, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
@@ -834,6 +915,19 @@ theme_override_constants/outline_size = 10
 theme_override_fonts/font = ExtResource("4_4hy44")
 theme_override_font_sizes/font_size = 30
 text = "press fuck to say \"fuck\""
+
+[node name="Label10" type="Label" parent="Keybinds" unique_id=827995468]
+offset_left = 4482.0
+offset_top = 598.0
+offset_right = 4874.0
+offset_bottom = 629.0
+theme_override_colors/font_color = Color(0, 0.8235294, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("4_4hy44")
+theme_override_font_sizes/font_size = 30
+text = "Editable keybinds soon"
+autowrap_mode = 3
 
 [node name="Keybinds" type="Camera2D" parent="Keybinds" unique_id=1960554993]
 position = Vector2(4367, 334)
@@ -856,6 +950,31 @@ horizontal_alignment = 1
 Levelname = "Main menu"
 menuInfo = true
 info = "What you looking at?"
+
+[node name="Label10" type="Label" parent="." unique_id=779947376]
+offset_left = 1296.0
+offset_top = 479.0
+offset_right = 2402.0
+offset_bottom = 544.0
+theme_override_colors/font_color = Color(0, 0.8235294, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("4_4hy44")
+theme_override_font_sizes/font_size = 30
+text = "VA removes the Sniper's call outs
+(Current VA is temporary)"
+
+[node name="Label13" type="Label" parent="." unique_id=1642193140]
+offset_left = 717.0
+offset_top = 400.0
+offset_right = 1140.0
+offset_bottom = 465.0
+theme_override_colors/font_color = Color(0, 0.8235294, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("4_4hy44")
+theme_override_font_sizes/font_size = 30
+text = "<-- Tutorial is in Extras!"
 
 [connection signal="pressed" from="Control/Play" to="Control/Play" method="_on_pressed"]
 [connection signal="pressed" from="Control/Extras" to="Control/Extras" method="_on_pressed"]
@@ -888,4 +1007,5 @@ info = "What you looking at?"
 [connection signal="pressed" from="Bonus/Blackjack4" to="Bonus/Blackjack4" method="_on_pressed"]
 [connection signal="pressed" from="Bonus/Blackjack5" to="Bonus/Blackjack5" method="_on_pressed"]
 [connection signal="pressed" from="Bonus/Blackjack6" to="Bonus/Blackjack6" method="_on_pressed"]
+[connection signal="pressed" from="Bonus/Blackjack7" to="Bonus/Blackjack7" method="_on_pressed"]
 [connection signal="pressed" from="Keybinds/Backbutton4" to="Keybinds/Backbutton4" method="_on_pressed"]

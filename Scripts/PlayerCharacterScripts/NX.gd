@@ -14,10 +14,13 @@ func _ready():
 	if !invAdd(inv_items.new(SelectedWeapon.secondary, AmmoType.bullet, global.Secondaries[0])):
 		print("failed to add item")
 	inventory_slot = 3; inventory_variation = 0 #changes slot to OPGun
-	if !invAdd(inv_items.new(SelectedWeapon.special, AmmoType.slug, global.Specials[1])):
+	if !invAdd(inv_items.new(SelectedWeapon.special, AmmoType.slug, global.Specials[2])):
 		print("failed to add item")
 	inventory_slot = 2; inventory_variation = 0
 	if !invAdd(inv_items.new(SelectedWeapon.melee, AmmoType.slug, global.Melees[0])):
+		print("failed to add item")
+	inventory_slot = 2; inventory_variation = 1
+	if !invAdd(inv_items.new(SelectedWeapon.melee, AmmoType.slug, global.Melees[1])):
 		print("failed to add item")
 	inventory_slot = 0; inventory_variation = 0
 	invLoadCurent()
@@ -64,7 +67,14 @@ func _ready():
 		emotionText.text = "stable"
 	Fade.visible = true
 	emotionCast(emotionText.text)
-	Speak("Yeah okay bro... This is really a bad test...")
+	var rand_text = randi_range(1,3)
+	if rand_text == 1:
+		Speak("Yeah okay bro... This is really a bad test...")
+	elif rand_text == 2:
+		Speak("Another day to ruin.")
+	else:
+		Speak("Let's make these humans pay.")
+	
 
 func _process(delta):
 	if Input.is_action_just_pressed("HoldFire"):
@@ -96,10 +106,27 @@ func _process(delta):
 	elif mood <= 0.0:
 		mood = 0.0
 	
-	if PainAmount < 100.0:
-		pain_recovery(delta)
-	if mood < 100.0:
-		mood_change(delta)
+	if sickness >= Injection_Sickness - 1 && Injection_Sickness >=0 && !Sickness_alert:
+		Sickness_alert = true
+		Speak("Let's not overdose, okay?")
+	elif sickness < Injection_Sickness - 1 && Injection_Sickness >=0 && Sickness_alert:
+		Sickness_alert = false
+		Speak("I feel much better.")
+	if sickness >= Injection_Sickness && Injection_Sickness >= 0:
+		var ODmulti: float = (-Injection_Sickness+sickness)
+		health -= delta * 0.5 + (ODmulti / 50)
+		mood -= delta * 0.05 + (ODmulti / 50)
+		PainAmount -= delta * 2.5 + (ODmulti / 50)
+		if health > 0:
+			health_bar.set_health(health)
+		if health < 0 && is_dead == false:
+			died()
+	else:
+		if PainAmount < 100.0:
+			pain_recovery(delta)
+		if mood < 100.0:
+			mood_change(delta)
+		
 		
 	if HeadtraumaTime < 0.0:
 		HeadtraumaTime = 0.0
@@ -145,13 +172,13 @@ func _process(delta):
 		if Mental_State != EmotionalState.vengeful:
 			if PainAmount < 75.0 && mood > 75.0 && mood < 150.0 && CanBeInjured && (Mental_State != EmotionalState.unstable or Mental_State != EmotionalState.scared) && feelPain:
 				Mental_State = EmotionalState.agony
-			elif mood < 75.0 && mood > 50.0:
+			elif mood < 50.0 && mood > 20.0:
 				Mental_State = EmotionalState.disstressed
-			elif mood < 50.0 && mood > 25.0:
+			elif mood < 20.0 && mood > 15.0:
 				Mental_State = EmotionalState.scared
-			elif mood < 25.0:
+			elif mood < 15.0:
 				Mental_State = EmotionalState.unstable
-			elif mood > 150.0:
+			elif mood > 195.0:
 				Mental_State = EmotionalState.focused
 			else:
 				Mental_State = EmotionalState.stable
@@ -277,7 +304,7 @@ func _process(delta):
 		DmgMulti = 0.8
 		JumpDmgMulti = 0.5
 		PainRecoveryMulti = 0.7
-		MoodMulti = 0.25
+		MoodMulti = 0.1
 		levelmusic.pitch_scale = 0.5
 		tauntSong.pitch_scale = 0.5
 	else:
@@ -443,8 +470,12 @@ func _physics_process(delta: float) -> void:
 				inventory_slot = 3; 
 				inventory_variation += 1
 				invLoadCurent()
-			if Input.is_action_just_pressed("Drop"):
-				removeItem()
+			#if Input.is_action_just_pressed("Drop"):
+				#if shotty.can_be_dropped():
+					#removeItem()
+					#inventory_slot = 2; 
+					#inventory_variation = 0
+					#invLoadCurent()
 				
 			
 	# DMGBoost Decay
@@ -501,7 +532,6 @@ func died():
 	PainAmount -= (gethitdmg*1.5)
 	mood -= (gethitdmg/MoodMulti)
 	#injuries...
-	Speak("Owie")
 	if (gethitdmg*1.5) >= minPain and (gethitdmg*1.5) < maxPain:
 		var randomInjury = randi_range(1,5)
 		if randomInjury == 1:
@@ -516,15 +546,20 @@ func died():
 		if randomInjury == 1:
 			HeadtraumaTime += 10
 			visibility += 100
-			Speak("Ugh...")
+			Speak("You know I don't feel pain, right?")
 		elif randomInjury == 2:
 			BrokenArmTime += 30
 			InjuredArmTime += 60
-			Speak("My arm...")
+			Speak("You can keep on attacking but I cannot fail.")
 		elif randomInjury == 3:
 			InjuredLegTime += 30
 			BrokenLegTime += 15
-			Speak("Ugh My leg...")
+			
+			if !global.censor_swearT:
+				Speak("You're a fucker sucker, aren't ya?")
+			else:
+				Speak("You're a real piece of work aren't ya?")
+			
 	#injuries end
 	global.tempkills = 0 
 	if health > 0:
@@ -533,7 +568,7 @@ func died():
 		if get_tree().get_first_node_in_group("Discord"):
 			get_tree().get_first_node_in_group("Discord").update(true)
 		is_dead = true
-		defence_bar.queue_free()
+		defence_bar.visible = false
 		stamina_bar.visible = false
 		health_bar.visible = false
 		Fade.visible = false

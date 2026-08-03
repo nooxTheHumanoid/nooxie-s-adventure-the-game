@@ -1,0 +1,74 @@
+[gd_scene format=3 uid="uid://bnbxl1whytiw2"]
+
+[ext_resource type="Script" uid="uid://b267q2i538mpk" path="res://Scripts/Melee.gd" id="1_2e7dw"]
+[ext_resource type="Texture2D" uid="uid://6o8kv3g0j436" path="res://PlayerSprites/Arms/Scythe/Idle.png" id="2_yqjni"]
+[ext_resource type="Texture2D" uid="uid://b8xm8oi7r4u2" path="res://PlayerSprites/Arms/Scythe/Preswing.png" id="3_vxi5n"]
+[ext_resource type="Texture2D" uid="uid://bpueeve336gbd" path="res://PlayerSprites/Arms/Scythe/swing.png" id="4_6qebj"]
+[ext_resource type="Texture2D" uid="uid://ccbegx7tgbacx" path="res://PlayerSprites/Arms/Scythe/SwingEnd.png" id="5_ci7vf"]
+[ext_resource type="Script" uid="uid://cdudjf4b6ntn7" path="res://Scripts/GunAnims.gd" id="6_jmjn8"]
+[ext_resource type="Texture2D" uid="uid://73mlw30x06ld" path="res://textures/MeleeEffects/Scythe.png" id="7_frt2h"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_j178h"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_yqjni")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_vxi5n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_vxi5n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_6qebj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_ci7vf")
+}],
+"loop": 0,
+"name": &"NX_Fire",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_yqjni")
+}],
+"loop": 1,
+"name": &"NX_default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2ojk7"]
+size = Vector2(80, 47.999996)
+
+[node name="Scythe" type="Node2D" unique_id=1453195945]
+script = ExtResource("1_2e7dw")
+y_offset = 2.0
+can_drop = false
+currentDMG = 10.0
+DMGbullet = 0.25
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1073005557]
+sprite_frames = SubResource("SpriteFrames_j178h")
+animation = &"NX_Fire"
+script = ExtResource("6_jmjn8")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=2069887864]
+position = Vector2(24, 0)
+scale = Vector2(0.5, 1.0416667)
+collision_layer = 65
+collision_mask = 68
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1736442283]
+position = Vector2(-16, -6.29425e-07)
+shape = SubResource("RectangleShape2D_2ojk7")
+disabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=953092766]
+visible = false
+position = Vector2(24, 0)
+scale = Vector2(1.25, 1.25)
+texture = ExtResource("7_frt2h")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

@@ -1592,6 +1592,7 @@ offset_left = -479.0
 offset_top = -508.0
 offset_right = 1421.0
 offset_bottom = 1392.0
+mouse_filter = 2
 texture = ExtResource("4_tv3mf")
 stretch_mode = 5
 

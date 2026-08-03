@@ -1,0 +1,160 @@
+[gd_scene format=3 uid="uid://1ci0bsl4f1ak"]
+
+[ext_resource type="Script" uid="uid://b267q2i538mpk" path="res://Scripts/Melee.gd" id="1_sjg1w"]
+[ext_resource type="Texture2D" uid="uid://c7l4jqlv3p8s4" path="res://PlayerSprites/GuyDarkHeart/Arms/Fists/idle.png" id="2_oddso"]
+[ext_resource type="Texture2D" uid="uid://cd62re8un5g8j" path="res://PlayerSprites/GuyDarkHeart/Arms/Fists/preswing.png" id="3_bpiuh"]
+[ext_resource type="Texture2D" uid="uid://bbip28wns5emg" path="res://PlayerSprites/GuyDarkHeart/Arms/Fists/swing.png" id="4_buee7"]
+[ext_resource type="Texture2D" uid="uid://bkkfvbdaiqrjs" path="res://PlayerSprites/Milky/Arms/Fists/idle.png" id="5_bdqau"]
+[ext_resource type="Texture2D" uid="uid://do0qisgcb6736" path="res://PlayerSprites/Milky/Arms/Fists/preswing.png" id="6_rsbaa"]
+[ext_resource type="Texture2D" uid="uid://3dsyqce5e7mn" path="res://PlayerSprites/Milky/Arms/Fists/swing.png" id="7_nu7tv"]
+[ext_resource type="Texture2D" uid="uid://d3xpkp458635d" path="res://PlayerSprites/NULL/Arms/Fists/idle.png" id="8_buee7"]
+[ext_resource type="Texture2D" uid="uid://xxhlrin8msmx" path="res://PlayerSprites/Arms/Fists/idle.png" id="8_iwbys"]
+[ext_resource type="Texture2D" uid="uid://bmnu8ujxhtptc" path="res://PlayerSprites/NULL/Arms/Fists/preswing.png" id="9_bdqau"]
+[ext_resource type="Texture2D" uid="uid://cthbybl62alkn" path="res://PlayerSprites/Arms/Fists/preswing.png" id="9_bpnov"]
+[ext_resource type="Texture2D" uid="uid://cqchil7eaur88" path="res://PlayerSprites/Arms/Fists/swing.png" id="10_gw27r"]
+[ext_resource type="Texture2D" uid="uid://cfxsbgocqpuif" path="res://PlayerSprites/NULL/Arms/Fists/swing.png" id="10_rsbaa"]
+[ext_resource type="Script" uid="uid://cdudjf4b6ntn7" path="res://Scripts/GunAnims.gd" id="11_vfg5a"]
+[ext_resource type="Texture2D" uid="uid://73mlw30x06ld" path="res://textures/MeleeEffects/Scythe.png" id="12_vwam6"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_j178h"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_oddso")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_bpiuh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_buee7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_oddso")
+}],
+"loop": 0,
+"name": &"GuyD_Fire",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_oddso")
+}],
+"loop": 1,
+"name": &"GuyD_default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_bdqau")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_rsbaa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_nu7tv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_bdqau")
+}],
+"loop": 0,
+"name": &"Milky_Fire",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_bdqau")
+}],
+"loop": 1,
+"name": &"Milky_default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_buee7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_bdqau")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_rsbaa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_buee7")
+}],
+"loop": 0,
+"name": &"NULL_Fire",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_buee7")
+}],
+"loop": 1,
+"name": &"NULL_default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_iwbys")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_bpnov")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_gw27r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_iwbys")
+}],
+"loop": 0,
+"name": &"NX_Fire",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_iwbys")
+}],
+"loop": 1,
+"name": &"NX_default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2ojk7"]
+size = Vector2(112, 27.359997)
+
+[node name="Fists" type="Node2D" unique_id=1453195945]
+script = ExtResource("1_sjg1w")
+y_offset = 2.0
+deflectBullets = false
+can_drop = false
+currentDMG = 2.5
+DMGbullet = 0.0
+increased_damage_multi = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1073005557]
+position = Vector2(8, -4)
+sprite_frames = SubResource("SpriteFrames_j178h")
+animation = &"NULL_default"
+script = ExtResource("11_vfg5a")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=2069887864]
+position = Vector2(37, 0)
+scale = Vector2(0.5, 1.0416667)
+collision_layer = 65
+collision_mask = 68
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1736442283]
+position = Vector2(-18, 1.2000002)
+shape = SubResource("RectangleShape2D_2ojk7")
+disabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=953092766]
+visible = false
+self_modulate = Color(0.4045111, 0.40451115, 0.4045111, 1)
+z_index = -1
+position = Vector2(32, 2)
+rotation = 1.5707964
+scale = Vector2(-1.25, 1.25)
+texture = ExtResource("12_vwam6")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

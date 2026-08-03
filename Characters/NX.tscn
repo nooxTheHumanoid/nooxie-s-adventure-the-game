@@ -457,6 +457,7 @@ lossScreen = ExtResource("4_shf6n")
 Show_stamina = false
 Has_stamina = false
 can_wallclimb = false
+Injection_Sickness = -1
 feelPain = false
 CanBeInjured = false
 
